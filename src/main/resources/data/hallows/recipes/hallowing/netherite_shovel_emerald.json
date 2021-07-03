@@ -1,0 +1,15 @@
+{
+  "type": "hallows:hallowing",
+  "base": {
+    "item": "minecraft:netherite_shovel"
+  },
+  "addition": {
+    "item": "minecraft:emerald"
+  },
+  "result": {
+    "item": "minecraft:netherite_shovel"
+  },
+  "attribute": {
+    "attribute": "minecraft:generic.attack_speed"
+  }
+}

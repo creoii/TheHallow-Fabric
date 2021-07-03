@@ -1,0 +1,15 @@
+{
+  "type": "hallows:hallowing",
+  "base": {
+    "item": "minecraft:iron_pickaxe"
+  },
+  "addition": {
+    "item": "hallows:ignis_crystal_flower"
+  },
+  "result": {
+    "item": "minecraft:iron_pickaxe"
+  },
+  "attribute": {
+    "attribute": "minecraft:generic.attack_damage"
+  }
+}

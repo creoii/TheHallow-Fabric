@@ -1,0 +1,7 @@
+{
+	"parent": "hallows:block/will_o_wisp_vines_fruit",
+	"textures": {
+		"fruit": "hallows:block/blue_will_o_wisp_fruit",
+		"vine": "hallows:block/will_o_wisp_vines"
+	}
+}

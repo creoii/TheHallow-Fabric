@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "hallows:block/stripped_ebony_wood",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "hallows:block/stripped_ebony_wood"
+    },
+    "axis=z": {
+      "model": "hallows:block/stripped_ebony_wood",
+      "x": 90
+    }
+  }
+}

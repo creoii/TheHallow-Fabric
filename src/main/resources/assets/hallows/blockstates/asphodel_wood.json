@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "hallows:block/asphodel_wood",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "hallows:block/asphodel_log"
+    },
+    "axis=z": {
+      "model": "hallows:block/asphodel_log",
+      "x": 90
+    }
+  }
+}

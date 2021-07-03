@@ -1,0 +1,7 @@
+{
+    "parent": "block/template_fire_up_alt",
+    "textures": {
+        "particle": "hallows:block/necrofire_0",
+        "fire": "hallows:block/necrofire_0"
+    }
+}

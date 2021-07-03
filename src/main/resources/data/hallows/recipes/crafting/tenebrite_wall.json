@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "TTT",
+    "TTT"
+  ],
+  "key": {
+    "T": {
+      "item": "hallows:tenebrite"
+    }
+  },
+  "result": {
+    "item": "hallows:tenebrite_wall",
+    "count": 6
+  }
+}

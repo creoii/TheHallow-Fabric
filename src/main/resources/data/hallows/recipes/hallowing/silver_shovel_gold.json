@@ -1,0 +1,15 @@
+{
+  "type": "hallows:hallowing",
+  "base": {
+    "item": "caverns_and_chasms:silver_shovel"
+  },
+  "addition": {
+    "item": "minecraft:gold_ingot"
+  },
+  "result": {
+    "item": "caverns_and_chasms:silver_shovel"
+  },
+  "attribute": {
+    "attribute": "minecraft:generic.attack_knockback"
+  }
+}

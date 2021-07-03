@@ -1,0 +1,7 @@
+{
+    "parent": "block/door_bottom",
+    "textures": {
+        "bottom": "hallows:block/asphodel_door_bottom",
+        "top": "hallows:block/asphodel_door_top"
+    }
+}

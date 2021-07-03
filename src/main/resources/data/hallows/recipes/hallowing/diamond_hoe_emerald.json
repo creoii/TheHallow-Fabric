@@ -1,0 +1,15 @@
+{
+  "type": "hallows:hallowing",
+  "base": {
+    "item": "minecraft:diamond_hoe"
+  },
+  "addition": {
+    "item": "minecraft:emerald"
+  },
+  "result": {
+    "item": "minecraft:diamond_hoe"
+  },
+  "attribute": {
+    "attribute": "minecraft:generic.attack_speed"
+  }
+}

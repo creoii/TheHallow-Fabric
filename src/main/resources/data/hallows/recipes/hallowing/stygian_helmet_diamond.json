@@ -1,0 +1,15 @@
+{
+  "type": "hallows:hallowing",
+  "base": {
+    "item": "hallows:stygian_helmet"
+  },
+  "addition": {
+    "item": "minecraft:diamond"
+  },
+  "result": {
+    "item": "hallows:stygian_helmet"
+  },
+  "attribute": {
+    "attribute": "minecraft:generic.armor_toughness"
+  }
+}

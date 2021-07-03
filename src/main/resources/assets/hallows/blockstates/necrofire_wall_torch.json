@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "hallows:block/necrofire_wall_torch"
+    },
+    "facing=north": {
+      "model": "hallows:block/necrofire_wall_torch",
+      "y": 270
+    },
+    "facing=south": {
+      "model": "hallows:block/necrofire_wall_torch",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "hallows:block/necrofire_wall_torch",
+      "y": 180
+    }
+  }
+}

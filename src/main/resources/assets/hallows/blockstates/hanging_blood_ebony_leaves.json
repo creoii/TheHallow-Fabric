@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "half=small": { "model": "hallows:block/hanging_blood_ebony_leaves_small" },
+    "half=large":    { "model": "hallows:block/hanging_blood_ebony_leaves_large" }
+  }
+}

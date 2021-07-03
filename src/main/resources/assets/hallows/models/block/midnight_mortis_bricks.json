@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "hallows:block/midnight_mortis_bricks"
+  }
+}

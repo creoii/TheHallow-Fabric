@@ -1,0 +1,15 @@
+{
+  "type": "hallows:hallowing",
+  "base": {
+    "item": "hallows:stygian_shovel"
+  },
+  "addition": {
+    "item": "minecraft:gold_ingot"
+  },
+  "result": {
+    "item": "hallows:stygian_shovel"
+  },
+  "attribute": {
+    "attribute": "minecraft:generic.attack_knockback"
+  }
+}

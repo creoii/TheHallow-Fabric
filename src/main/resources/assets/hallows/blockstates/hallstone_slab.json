@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "type=bottom": { "model": "hallows:block/hallstone_slab" },
+    "type=top": { "model": "hallows:block/hallstone_slab_top" },
+    "type=double": { "model": "hallows:block/hallstone" }
+  }
+}

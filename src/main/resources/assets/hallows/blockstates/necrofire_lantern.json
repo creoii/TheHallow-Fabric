@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "hanging=false": {
+      "model": "hallows:block/necrofire_lantern"
+    },
+    "hanging=true": {
+      "model": "hallows:block/necrofire_lantern_hanging"
+    }
+  }
+}

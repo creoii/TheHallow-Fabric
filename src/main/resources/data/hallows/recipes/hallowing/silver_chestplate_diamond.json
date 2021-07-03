@@ -1,0 +1,15 @@
+{
+  "type": "hallows:hallowing",
+  "base": {
+    "item": "caverns_and_chasms:silver_chestplate"
+  },
+  "addition": {
+    "item": "minecraft:diamond"
+  },
+  "result": {
+    "item": "caverns_and_chasms:silver_chestplate"
+  },
+  "attribute": {
+    "attribute": "minecraft:generic.armor_toughness"
+  }
+}

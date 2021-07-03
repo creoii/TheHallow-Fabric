@@ -1,0 +1,90 @@
+{
+  "multipart": [
+    {
+      "apply": [
+        {
+          "model": "hallows:block/necrofire_floor0"
+        },
+        {
+          "model": "hallows:block/necrofire_floor1"
+        }
+      ]
+    },
+    {
+      "apply": [
+        {
+          "model": "hallows:block/necrofire_side0"
+        },
+        {
+          "model": "hallows:block/necrofire_side1"
+        },
+        {
+          "model": "hallows:block/necrofire_side_alt0"
+        },
+        {
+          "model": "hallows:block/necrofire_side_alt1"
+        }
+      ]
+    },
+    {
+      "apply": [
+        {
+          "model": "hallows:block/necrofire_side0",
+          "y": 90
+        },
+        {
+          "model": "hallows:block/necrofire_side1",
+          "y": 90
+        },
+        {
+          "model": "hallows:block/necrofire_side_alt0",
+          "y": 90
+        },
+        {
+          "model": "hallows:block/necrofire_side_alt1",
+          "y": 90
+        }
+      ]
+    },
+    {
+      "apply": [
+        {
+          "model": "hallows:block/necrofire_side0",
+          "y": 180
+        },
+        {
+          "model": "hallows:block/necrofire_side1",
+          "y": 180
+        },
+        {
+          "model": "hallows:block/necrofire_side_alt0",
+          "y": 180
+        },
+        {
+          "model": "hallows:block/necrofire_side_alt1",
+          "y": 180
+        }
+      ]
+    },
+    {
+      "apply": [
+        {
+          "model": "hallows:block/necrofire_side0",
+          "y": 270
+        },
+        {
+          "model": "hallows:block/necrofire_side1",
+          "y": 270
+        },
+        {
+          "model": "hallows:block/necrofire_side_alt0",
+          "y": 270
+        },
+        {
+          "model": "hallows:block/necrofire_side_alt1",
+          "y": 270
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "side": "hallows:block/stripped_asphodel_log",
+    "end": "hallows:block/stripped_asphodel_log_top"
+  }
+}

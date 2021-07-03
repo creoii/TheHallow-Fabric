@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "P  ",
+    "PP ",
+    "PPP"
+  ],
+  "key": {
+    "P": {
+      "item": "hallows:ebony_planks"
+    }
+  },
+  "result": {
+    "item": "hallows:ebony_stairs",
+    "count": 4
+  }
+}

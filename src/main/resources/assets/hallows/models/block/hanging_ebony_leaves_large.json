@@ -1,0 +1,6 @@
+{
+  "parent": "hallows:block/hanging_leaves_large",
+  "textures": {
+    "all": "hallows:block/ebony_leaves"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "hallows:hallowing",
+  "base": {
+    "item": "hallows:stygian_axe"
+  },
+  "addition": {
+    "item": "minecraft:emerald"
+  },
+  "result": {
+    "item": "hallows:stygian_axe"
+  },
+  "attribute": {
+    "attribute": "minecraft:generic.attack_speed"
+  }
+}

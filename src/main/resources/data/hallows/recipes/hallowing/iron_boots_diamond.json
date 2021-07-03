@@ -1,0 +1,15 @@
+{
+  "type": "hallows:hallowing",
+  "base": {
+    "item": "minecraft:iron_boots"
+  },
+  "addition": {
+    "item": "minecraft:diamond"
+  },
+  "result": {
+    "item": "minecraft:iron_boots"
+  },
+  "attribute": {
+    "attribute": "minecraft:generic.armor_toughness"
+  }
+}

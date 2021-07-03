@@ -1,0 +1,49 @@
+{
+	"parent": "block/block",
+	"textures": {
+		"portal": "hallows:block/hallow_portal",
+		"top_left": "hallows:block/giant_cauldron_top_left",
+		"top_inside": "hallows:block/giant_cauldron_top_inside",
+		"top_right": "hallows:block/giant_cauldron_top_right",
+		"particle": "#top_right"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 0],
+			"to": [16, 16, 4],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#top_right"},
+				"east": {"uv": [0, 0, 4, 16], "texture": "#top_left"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#top_left"},
+				"west": {"uv": [0, 0, 4, 16], "texture": "#top_left"},
+				"up": {"uv": [0, 0, 16, 4], "texture": "#top_inside"},
+				"down": {"uv": [0, 0, 16, 4], "rotation": 180, "texture": "#top_inside"}
+			}
+		},
+		{
+			"from": [0, 0, 4],
+			"to": [4, 16, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 4, 16], "texture": "#top_left"},
+				"east": {"uv": [0, 0, 12, 16], "texture": "#top_right"},
+				"south": {"uv": [0, 0, 4, 16], "texture": "#top_left"},
+				"west": {"uv": [4, 0, 16, 16], "texture": "#top_left"},
+				"up": {"uv": [0, 4, 4, 16], "texture": "#top_inside"},
+				"down": {"uv": [0, 4, 4, 16], "texture": "#top_inside"}
+			}
+		},
+		{
+			"from": [4, 12, 4],
+			"to": [16, 14, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [12, 8, 12]},
+			"faces": {
+				"north": {"uv": [4, 4, 16, 6], "texture": "#portal"},
+				"east": {"uv": [4, 4, 16, 6], "texture": "#portal"},
+				"south": {"uv": [4, 4, 16, 6], "texture": "#portal"},
+				"west": {"uv": [4, 4, 16, 6], "texture": "#portal"},
+				"up": {"uv": [4, 4, 16, 16], "texture": "#portal"},
+				"down": {"uv": [4, 4, 16, 16], "texture": "#portal"}
+			}
+		}
+	]
+}

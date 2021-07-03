@@ -1,0 +1,15 @@
+{
+  "type": "hallows:hallowing",
+  "base": {
+    "item": "minecraft:iron_chestplate"
+  },
+  "addition": {
+    "item": "hallows:opal"
+  },
+  "result": {
+    "item": "minecraft:iron_chestplate"
+  },
+  "attribute": {
+    "attribute": "minecraft:generic.max_health"
+  }
+}

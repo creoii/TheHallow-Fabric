@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MMM",
+    "MMM"
+  ],
+  "key": {
+    "M": {
+      "item": "hallows:dawn_mortis_bricks"
+    }
+  },
+  "result": {
+    "item": "hallows:dawn_mortis_brick_wall",
+    "count": 6
+  }
+}

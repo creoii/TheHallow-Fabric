@@ -1,0 +1,15 @@
+{
+  "type": "hallows:hallowing",
+  "base": {
+    "item": "minecraft:iron_axe"
+  },
+  "addition": {
+    "item": "minecraft:emerald"
+  },
+  "result": {
+    "item": "minecraft:iron_axe"
+  },
+  "attribute": {
+    "attribute": "minecraft:generic.attack_speed"
+  }
+}

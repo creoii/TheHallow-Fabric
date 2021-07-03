@@ -1,0 +1,15 @@
+{
+  "type": "hallows:hallowing",
+  "base": {
+    "item": "minecraft:netherite_helmet"
+  },
+  "addition": {
+    "item": "hallows:opal"
+  },
+  "result": {
+    "item": "minecraft:netherite_helmet"
+  },
+  "attribute": {
+    "attribute": "minecraft:generic.max_health"
+  }
+}

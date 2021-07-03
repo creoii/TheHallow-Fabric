@@ -1,0 +1,8 @@
+{
+    "parent": "block/outer_stairs",
+    "textures": {
+        "bottom": "hallows:block/tenebrite",
+        "top": "hallows:block/tenebrite",
+        "side": "hallows:block/tenebrite"
+    }
+}

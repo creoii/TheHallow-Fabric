@@ -1,0 +1,15 @@
+{
+  "type": "hallows:hallowing",
+  "base": {
+    "item": "minecraft:iron_pickaxe"
+  },
+  "addition": {
+    "item": "minecraft:gold_ingot"
+  },
+  "result": {
+    "item": "minecraft:iron_pickaxe"
+  },
+  "attribute": {
+    "attribute": "minecraft:generic.attack_knockback"
+  }
+}

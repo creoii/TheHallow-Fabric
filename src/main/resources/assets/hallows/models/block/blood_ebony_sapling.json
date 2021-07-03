@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "hallows:block/blood_ebony_sapling"
+  }
+}

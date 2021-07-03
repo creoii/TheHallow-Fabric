@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "side": "hallows:block/ebony_log",
+    "end": "hallows:block/ebony_log"
+  }
+}

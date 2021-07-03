@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MM",
+    "MM"
+  ],
+  "key": {
+    "M": {
+      "item": "hallows:noon_mortis"
+    }
+  },
+  "result": {
+    "item": "hallows:noon_mortis_bricks",
+    "count": 4
+  }
+}

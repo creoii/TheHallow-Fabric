@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "hallows:block/hallowed_dirt"
+    }
+  }
+}

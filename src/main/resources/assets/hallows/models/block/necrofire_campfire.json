@@ -1,0 +1,7 @@
+{
+  "parent": "block/template_campfire",
+  "textures": {
+    "fire": "hallows:block/necrofire_campfire_fire",
+    "lit_log": "hallows:block/necrofire_campfire_log_lit"
+  }
+}

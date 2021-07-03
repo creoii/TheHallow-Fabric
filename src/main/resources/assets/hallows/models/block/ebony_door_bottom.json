@@ -1,0 +1,7 @@
+{
+    "parent": "block/door_bottom",
+    "textures": {
+        "bottom": "hallows:block/ebony_door_bottom",
+        "top": "hallows:block/ebony_door_top"
+    }
+}

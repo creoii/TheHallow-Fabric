@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "I I",
+    "III",
+    "III"
+  ],
+  "key": {
+    "I": {
+      "item": "hallows:stygian_ingot"
+    }
+  },
+  "result": {
+    "item": "hallows:stygian_chestplate"
+  }
+}

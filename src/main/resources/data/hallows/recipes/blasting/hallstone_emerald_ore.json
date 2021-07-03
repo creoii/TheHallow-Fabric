@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "hallows:hallstone_emerald_ore"
+  },
+  "result": "minecraft:emerald",
+  "experience": 1,
+  "cookingtime": 100
+}

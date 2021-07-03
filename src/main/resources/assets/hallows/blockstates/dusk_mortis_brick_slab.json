@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "type=bottom": { "model": "hallows:block/dusk_mortis_brick_slab" },
+    "type=top": { "model": "hallows:block/dusk_mortis_brick_slab_top" },
+    "type=double": { "model": "hallows:block/dusk_mortis_bricks" }
+  }
+}

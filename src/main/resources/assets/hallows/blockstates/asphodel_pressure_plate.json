@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "powered=false": { "model": "hallows:block/asphodel_pressure_plate" },
+        "powered=true": { "model": "hallows:block/asphodel_pressure_plate_down" }
+    }
+}

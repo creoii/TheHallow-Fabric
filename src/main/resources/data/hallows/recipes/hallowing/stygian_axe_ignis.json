@@ -1,0 +1,15 @@
+{
+  "type": "hallows:hallowing",
+  "base": {
+    "item": "hallows:stygian_axe"
+  },
+  "addition": {
+    "item": "hallows:ignis_crystal_flower"
+  },
+  "result": {
+    "item": "hallows:stygian_axe"
+  },
+  "attribute": {
+    "attribute": "minecraft:generic.attack_damage"
+  }
+}

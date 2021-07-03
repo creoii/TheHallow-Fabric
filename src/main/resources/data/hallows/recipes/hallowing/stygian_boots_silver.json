@@ -1,0 +1,15 @@
+{
+  "type": "hallows:hallowing",
+  "base": {
+    "item": "hallows:stygian_boots"
+  },
+  "addition": {
+    "item": "caverns_and_chasms:silver_ingot"
+  },
+  "result": {
+    "item": "hallows:stygian_boots"
+  },
+  "attribute": {
+    "attribute": "minecraft:generic.armor"
+  }
+}

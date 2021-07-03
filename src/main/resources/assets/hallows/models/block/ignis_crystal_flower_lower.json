@@ -1,0 +1,6 @@
+{
+	"parent": "block/cross",
+	"textures": {
+		"cross": "hallows:block/ignis_crystal_stem"
+	}
+}

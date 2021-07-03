@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "H  ",
+    "HH ",
+    "HHH"
+  ],
+  "key": {
+    "H": {
+      "item": "hallows:polished_hallstone"
+    }
+  },
+  "result": {
+    "item": "hallows:polished_hallstone_stairs",
+    "count": 4
+  }
+}

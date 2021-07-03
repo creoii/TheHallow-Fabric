@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "fruit=true": {
+      "model": "hallows:block/blue_will_o_wisp_vines_fruit_end"
+    },
+    "fruit=false": {
+      "model": "hallows:block/will_o_wisp_vines_end"
+    }
+  }
+}

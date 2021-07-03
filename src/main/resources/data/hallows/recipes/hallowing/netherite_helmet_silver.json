@@ -1,0 +1,15 @@
+{
+  "type": "hallows:hallowing",
+  "base": {
+    "item": "minecraft:netherite_helmet"
+  },
+  "addition": {
+    "item": "caverns_and_chasms:silver_ingot"
+  },
+  "result": {
+    "item": "minecraft:netherite_helmet"
+  },
+  "attribute": {
+    "attribute": "minecraft:generic.armor"
+  }
+}

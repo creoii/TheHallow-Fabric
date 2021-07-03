@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "half=upper": { "model": "hallows:block/ignis_crystal_flower_upper" },
+        "half=lower": { "model": "hallows:block/ignis_crystal_flower_lower" }
+    }
+}

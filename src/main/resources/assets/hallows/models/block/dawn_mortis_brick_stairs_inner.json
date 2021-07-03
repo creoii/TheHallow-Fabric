@@ -1,0 +1,8 @@
+{
+    "parent": "block/inner_stairs",
+    "textures": {
+        "bottom": "hallows:block/dawn_mortis_bricks",
+        "top": "hallows:block/dawn_mortis_bricks",
+        "side": "hallows:block/dawn_mortis_bricks"
+    }
+}

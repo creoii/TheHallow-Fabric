@@ -1,0 +1,61 @@
+{
+	"parent": "block/block",
+	"textures": {
+		"bottom_left": "hallows:block/giant_cauldron_bottom_left",
+		"top_inside": "hallows:block/giant_cauldron_top_inside",
+		"bottom_right": "hallows:block/giant_cauldron_bottom_right",
+		"foot": "hallows:block/giant_cauldron_foot",
+		"particle": "#bottom_right"
+	},
+	"elements": [
+		{
+			"from": [0, 4, 0],
+			"to": [16, 16, 4],
+			"faces": {
+				"north": {"uv": [0, 1, 16, 13], "texture": "#bottom_right"},
+				"east": {"uv": [0, 0, 4, 12], "texture": "#bottom_left"},
+				"south": {"uv": [0, 1, 16, 13], "texture": "#bottom_left"},
+				"west": {"uv": [0, 0, 4, 12], "texture": "#bottom_left"},
+				"up": {"uv": [0, 0, 16, 4], "texture": "#top_inside"},
+				"down": {"uv": [0, 0, 16, 4], "rotation": 180, "texture": "#top_inside"}
+			}
+		},
+		{
+			"from": [0, 4, 4],
+			"to": [4, 16, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 4, 12], "texture": "#bottom_left"},
+				"east": {"uv": [0, 1, 12, 13], "texture": "#bottom_right"},
+				"south": {"uv": [0, 0, 4, 12], "texture": "#bottom_left"},
+				"west": {"uv": [4, 1, 16, 13], "texture": "#bottom_left"},
+				"up": {"uv": [0, 4, 4, 16], "texture": "#top_inside"},
+				"down": {"uv": [0, 4, 4, 16], "texture": "#top_inside"}
+			}
+		},
+		{
+			"from": [0, 0, 0],
+			"to": [4, 4, 4],
+			"faces": {
+				"north": {"uv": [11, 12, 15, 16], "texture": "#bottom_right"},
+				"east": {"uv": [12, 12, 16, 16], "texture": "#bottom_right"},
+				"south": {"uv": [0, 12, 4, 16], "texture": "#bottom_left"},
+				"west": {"uv": [0, 12, 4, 16], "texture": "#bottom_left"},
+				"up": {"uv": [0, 0, 4, 4], "texture": "#foot"},
+				"down": {"uv": [0, 0, 4, 4], "texture": "#foot"}
+			}
+		},
+		{
+			"from": [4, 4, 4],
+			"to": [16, 6, 16],
+			"rotation": {"angle": 0, "axis": "y", "origin": [12, 12, 12]},
+			"faces": {
+				"north": {"uv": [15, 15, 16, 16], "texture": "#top_inside"},
+				"east": {"uv": [15, 15, 16, 16], "texture": "#top_inside"},
+				"south": {"uv": [15, 15, 16, 16], "texture": "#top_inside"},
+				"west": {"uv": [15, 15, 16, 16], "texture": "#top_inside"},
+				"up": {"uv": [4, 4, 16, 16], "texture": "#top_inside"},
+				"down": {"uv": [4, 4, 16, 16], "texture": "#top_inside"}
+			}
+		}
+	]
+}

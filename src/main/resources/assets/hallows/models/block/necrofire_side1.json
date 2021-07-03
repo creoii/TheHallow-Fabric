@@ -1,0 +1,7 @@
+{
+    "parent": "block/template_fire_side",
+    "textures": {
+        "particle": "hallows:block/necrofire_1",
+        "fire": "hallows:block/necrofire_1"
+    }
+}
