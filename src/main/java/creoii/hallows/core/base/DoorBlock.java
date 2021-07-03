@@ -1,4 +1,4 @@
-package creoii.hallows.common.base;
+package creoii.hallows.core.base;
 
 public class DoorBlock extends net.minecraft.block.DoorBlock {
     public DoorBlock(Settings settings) {

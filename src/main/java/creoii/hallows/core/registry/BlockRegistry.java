@@ -1,11 +1,10 @@
-package creoii.hallows.core;
+package creoii.hallows.core.registry;
 
-import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import creoii.hallows.core.Hallows;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
-import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.minecraft.block.*;
-import net.minecraft.client.render.RenderLayer;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -152,12 +151,17 @@ public class BlockRegistry {
         TENEBRITE = createBlock("tenebrite", new Block(AbstractBlock.Settings.of(Material.SOIL, MapColor.GRAY).strength(1.5F, 10.0F).sounds(BlockSoundGroup.STONE)), ItemGroup.BUILDING_BLOCKS);
         TENEBRITE_BRICKS = createBlock("tenebrite_bricks", new Block(AbstractBlock.Settings.of(Material.SOIL, MapColor.GRAY).strength(1.5F, 15.0F).sounds(BlockSoundGroup.STONE)), ItemGroup.BUILDING_BLOCKS);
 
-        renderLayers();
         flammables();
         compostables();
         fuels();
     }
 
+    @Environment(EnvType.CLIENT)
+    public static void registerClient() {
+        renderLayers();
+    }
+
+    @Environment(EnvType.CLIENT)
     private static void renderLayers() {
     }
 

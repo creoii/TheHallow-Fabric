@@ -1,4 +1,4 @@
-package creoii.hallows.common.base;
+package creoii.hallows.core.base;
 
 import net.minecraft.block.BlockState;
 
