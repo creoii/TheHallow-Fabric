@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:blasting",
-  "ingredient": {
-    "item": "hallows:gilded_tenebrite"
-  },
-  "result": "hallows:ignis_crystal_flower",
-  "experience": 1,
-  "cookingtime": 100
-}

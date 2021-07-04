@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north": { "model": "hallows:block/asphodel_ladder" },
+        "facing=east":  { "model": "hallows:block/asphodel_ladder", "y": 90 },
+        "facing=south": { "model": "hallows:block/asphodel_ladder", "y": 180 },
+        "facing=west":  { "model": "hallows:block/asphodel_ladder", "y": 270 }
+    }
+}

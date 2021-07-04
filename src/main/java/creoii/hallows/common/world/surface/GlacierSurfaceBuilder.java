@@ -9,12 +9,9 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.noise.OctaveSimplexNoiseSampler;
-import net.minecraft.util.math.noise.PerlinNoiseSampler;
-import net.minecraft.util.math.noise.SimplexNoiseSampler;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.gen.ChunkRandom;
-import net.minecraft.world.gen.WorldGenRandom;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceConfig;
 import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
@@ -133,24 +130,24 @@ public class GlacierSurfaceBuilder extends SurfaceBuilder<TernarySurfaceConfig> 
         }
     }
 
-    public void setSeed(long seed) {
+    public void initSeed(long seed) {
         if (this.seed != seed || this.layerBlocks == null) {
-            this.func_215430_b(seed);
+            this.initLayerBlocks(seed);
         }
 
         if (this.seed != seed || this.heightCutoffNoise == null || this.heightNoise == null) {
-            ChunkRandom sharedseedrandom = new ChunkRandom(seed);
-            this.heightCutoffNoise = new OctaveSimplexNoiseSampler(sharedseedrandom, IntStream.rangeClosed(-3, 0));
-            this.heightNoise = new OctaveSimplexNoiseSampler(sharedseedrandom, ImmutableList.of(0));
+            ChunkRandom chunkRandom = new ChunkRandom(seed);
+            this.heightCutoffNoise = new OctaveSimplexNoiseSampler(chunkRandom, IntStream.rangeClosed(-3, 0));
+            this.heightNoise = new OctaveSimplexNoiseSampler(chunkRandom, ImmutableList.of(0));
         }
 
         this.seed = seed;
     }
 
-    protected void func_215430_b(long p_215430_1_) {
+    protected void initLayerBlocks(long seed) {
         this.layerBlocks = new BlockState[64];
         Arrays.fill(this.layerBlocks, BlockRegistry.DAWN_MORTIS.getDefaultState());
-        ChunkRandom sharedseedrandom = new ChunkRandom(p_215430_1_);
+        ChunkRandom sharedseedrandom = new ChunkRandom(seed);
         this.layerNoise = new OctaveSimplexNoiseSampler(sharedseedrandom, ImmutableList.of(0));
 
         for(int l1 = 0; l1 < 64; ++l1) {

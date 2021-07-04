@@ -1,0 +1,9 @@
+{
+    "variants": {
+ 	"type=north": { "model": "hallows:block/dusk_mortis_vertical_slab", "y": 0, "uvlock": true },
+ 	"type=south": { "model": "hallows:block/dusk_mortis_vertical_slab", "y": 180, "uvlock": true },
+  	"type=east": { "model": "hallows:block/dusk_mortis_vertical_slab", "y": 90, "uvlock": true },
+ 	"type=west": { "model": "hallows:block/dusk_mortis_vertical_slab", "y": 270, "uvlock": true },
+        "type=double": { "model": "hallows:block/dusk_mortis" }
+    }
+}

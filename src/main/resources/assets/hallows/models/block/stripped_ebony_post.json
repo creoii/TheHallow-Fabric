@@ -1,0 +1,6 @@
+{
+  "parent": "abnormals_core:block/post",
+  "textures": {
+    "texture": "hallows:block/stripped_ebony_log"
+  }
+}

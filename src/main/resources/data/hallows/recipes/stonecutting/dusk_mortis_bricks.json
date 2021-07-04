@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "hallows:dusk_mortis"
-  },
-  "result": "hallows:dusk_mortis_bricks",
-  "count": 1
-}

@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:stonecutting",
-  "ingredient": {
-    "item": "hallows:hallstone"
-  },
-  "result": "hallows:polished_hallstone",
-  "count": 1
-}
