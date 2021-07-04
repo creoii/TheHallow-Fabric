@@ -5,6 +5,7 @@
     "grass_color": 9470298,
     "water_color": 5001581,
     "water_fog_color": 8620438,
+    "fog_color": 12638463,
     "particle": {
       "options": {
         "type": "minecraft:white_ash"
@@ -30,6 +31,8 @@
       "minecraft:spring_lava"
     ],
     []
+  ],
+  "starts": [
   ],
   "spawners": {
     "monster": [
@@ -67,6 +70,7 @@
       }
     ]
   },
+  "spawn_costs": {},
   "player_spawn_friendly": false,
   "precipitation": "rain",
   "temperature": 0.5,

@@ -3,6 +3,7 @@
   "generator": {
     "biome_source": {
       "type": "minecraft:multi_noise",
+      "seed": 286956243,
       "biomes": [
         {
           "parameters": {
@@ -93,6 +94,7 @@
       }
     },
     "type": "minecraft:noise",
+    "seed": 286956243,
     "settings": "hallows:hallows_noise"
   }
 }
