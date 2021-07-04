@@ -1,5 +1,6 @@
 {
-  "name": "The Hallows",
+  "min_y": 0,
+  "height": 256,
   "ultrawarm": false,
   "natural": true,
   "coordinate_scale": 2.0,
@@ -12,6 +13,5 @@
   "respawn_anchor_works": true,
   "has_raids": false,
   "logical_height": 256,
-  "infiniburn": "hallows:infiniburn_hallows",
-  "effects": "hallows:the_hallows"
+  "infiniburn": "hallows:infiniburn_hallows"
 }

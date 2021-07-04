@@ -6,7 +6,7 @@ import creoii.hallows.core.Hallows;
 import net.minecraft.block.Blocks;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
+import net.minecraft.world.gen.surfacebuilder.ConfiguredSurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
 
@@ -19,13 +19,16 @@ public class SurfaceRegistry {
     public static SurfaceBuilder<TernarySurfaceConfig> HALLOWED_SURFACE;
     public static SurfaceBuilder<TernarySurfaceConfig> GLACIER_SURFACE;
 
-    public static ConfiguredFeature<?, ?> HALLOWED;
-    public static ConfiguredFeature<?, ?> GLACIER;
-    public static ConfiguredFeature<?, ?> PETRIFIED;
-    public static ConfiguredFeature<?, ?> SWAMP;
+    public static ConfiguredSurfaceBuilder<?> HALLOWED;
+    public static ConfiguredSurfaceBuilder<?> GLACIER;
+    public static ConfiguredSurfaceBuilder<?> PETRIFIED;
 
     public static void register() {
         HALLOWED_SURFACE = Registry.register(Registry.SURFACE_BUILDER, new Identifier(Hallows.MOD_ID, "hallowed"), new HallowedSurfaceBuilder(TernarySurfaceConfig.CODEC));
         GLACIER_SURFACE = Registry.register(Registry.SURFACE_BUILDER, new Identifier(Hallows.MOD_ID, "glacier"), new GlacierSurfaceBuilder(TernarySurfaceConfig.CODEC));
+
+        HALLOWED = HALLOWED_SURFACE.withConfig(HALLOWED_DIRT_CONFIG);
+        GLACIER = GLACIER_SURFACE.withConfig(SurfaceBuilder.SAND_CONFIG);
+        PETRIFIED = SurfaceBuilder.DEFAULT.withConfig(PETRIFIED_SAND_CONFIG);
     }
 }
