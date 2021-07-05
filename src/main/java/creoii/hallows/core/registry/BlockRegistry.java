@@ -7,8 +7,10 @@ import creoii.hallows.core.Hallows;
 import creoii.hallows.common.block.PostBlock;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -173,6 +175,12 @@ public class BlockRegistry {
 
     @Environment(EnvType.CLIENT)
     private static void renderLayers() {
+        BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(),
+                EBONY_LEAVES,
+                BLOOD_EBONY_LEAVES,
+                EBONY_SAPLING,
+                BLOOD_EBONY_SAPLING
+        );
     }
 
     private static void flammables() {

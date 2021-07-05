@@ -36,15 +36,14 @@ public class JackOLanternTreeDecorator extends TreeDecorator {
     @Override
     public void generate(TestableWorld world, BiConsumer<BlockPos, BlockState> replacer, Random random, List<BlockPos> logPositions, List<BlockPos> leavesPositions) {
         if (!(random.nextFloat() >= this.probability)) {
-            Direction direction = Util.getRandom(new Direction[]{Direction.WEST, Direction.EAST, Direction.SOUTH, Direction.NORTH}, random);
             int i = !leavesPositions.isEmpty() ? Math.max(leavesPositions.get(0).getY() - 1, logPositions.get(0).getY()) : Math.min(logPositions.get(0).getY() + 1 + random.nextInt(3), logPositions.get(logPositions.size() - 1).getY());
             List<BlockPos> list = logPositions.stream().filter((pos) -> {
                 return pos.getY() == i;
             }).collect(Collectors.toList());
             if (!list.isEmpty()) {
                 BlockPos blockpos = list.get(random.nextInt(list.size()));
-                BlockPos blockpos1 = blockpos.offset(direction);
-                if (Feature.isAir(world, blockpos1) && Feature.isAir(world, blockpos1.offset(Direction.SOUTH))) replacer.accept(blockpos1, Blocks.JACK_O_LANTERN.getDefaultState().with(CarvedPumpkinBlock.FACING, direction));
+                BlockPos blockpos1 = blockpos.offset(Direction.DOWN);
+                if (Feature.isAir(world, blockpos1) && Feature.isAir(world, blockpos1.offset(Direction.SOUTH))) replacer.accept(blockpos1, Blocks.JACK_O_LANTERN.getDefaultState().with(CarvedPumpkinBlock.FACING, Util.getRandom(new Direction[]{Direction.WEST, Direction.EAST, Direction.SOUTH, Direction.NORTH}, random)));
             }
         }
     }

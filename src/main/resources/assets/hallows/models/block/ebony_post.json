@@ -1,6 +1,6 @@
 {
-  "parent": "abnormals_core:block/post",
+  "parent": "hallows:block/post",
   "textures": {
-    "texture": "hallows:block/ebony_log"
+    "post": "hallows:block/ebony_log"
   }
 }
