@@ -30,6 +30,7 @@
     ],
     [
       "minecraft:patch_grass_plain",
+      "minecraft:patch_pumpkin",
       "hallows:patch_necrofire",
       "hallows:patch_deadroot"
     ],
