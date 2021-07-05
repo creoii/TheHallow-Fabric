@@ -28,7 +28,10 @@
     [],
     [
       "minecraft:patch_grass_forest",
-      "minecraft:spring_lava"
+      "minecraft:spring_lava",
+      "hallows:trees_asphodel",
+      "hallows:patch_necrofire",
+      "hallows:patch_deadroot"
     ],
     []
   ],

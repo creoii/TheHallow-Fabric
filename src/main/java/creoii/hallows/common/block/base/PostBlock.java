@@ -1,4 +1,4 @@
-package creoii.hallows.common.block;
+package creoii.hallows.common.block.base;
 
 import net.minecraft.block.*;
 import net.minecraft.entity.EquipmentSlot;
@@ -42,7 +42,7 @@ public class PostBlock extends Block implements Waterloggable {
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         ItemStack held = player.getEquippedStack(hand == Hand.MAIN_HAND ? EquipmentSlot.MAINHAND : EquipmentSlot.OFFHAND);
 
-        if (held.isEmpty() || stripped == null || !(held.getItem() instanceof MiningToolItem tool)) return ActionResult.FAIL;
+        if (held.isEmpty() || stripped == null) return ActionResult.FAIL;
         else {
             world.playSound(player, pos, SoundEvents.ITEM_AXE_STRIP, SoundCategory.BLOCKS, 1.0F, 1.0F);
             if(!world.isClient) {

@@ -8,9 +8,9 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Random;
 
-public class EbonySaplingGenerator extends SaplingGenerator {
+public class AsphodelSaplingGenerator extends SaplingGenerator {
     @Nullable
     protected ConfiguredFeature<TreeFeatureConfig, ?> createTreeFeature(Random random, boolean bees) {
-        return (ConfiguredFeature<TreeFeatureConfig, ?>) FeatureRegistry.EBONY;
+        return (ConfiguredFeature<TreeFeatureConfig, ?>) FeatureRegistry.ASPHODEL;
     }
 }

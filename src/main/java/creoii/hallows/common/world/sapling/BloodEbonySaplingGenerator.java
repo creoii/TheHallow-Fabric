@@ -11,6 +11,6 @@ import java.util.Random;
 public class BloodEbonySaplingGenerator extends SaplingGenerator {
     @Nullable
     protected ConfiguredFeature<TreeFeatureConfig, ?> createTreeFeature(Random random, boolean bees) {
-        return (ConfiguredFeature<TreeFeatureConfig, ?>) FeatureRegistry.TREE_BLOOD_EBONY;
+        return (ConfiguredFeature<TreeFeatureConfig, ?>) FeatureRegistry.BLOOD_EBONY;
     }
 }

@@ -1,11 +1,14 @@
 package creoii.hallows.core.registry;
 
-import creoii.hallows.common.block.HangingLeavesBlock;
-import creoii.hallows.common.block.SaplingBlock;
+import creoii.hallows.common.block.*;
+import creoii.hallows.common.block.base.FernBlock;
+import creoii.hallows.common.block.base.LogBlock;
+import creoii.hallows.common.block.base.PostBlock;
+import creoii.hallows.common.block.base.SaplingBlock;
+import creoii.hallows.common.world.sapling.AsphodelSaplingGenerator;
 import creoii.hallows.common.world.sapling.BloodEbonySaplingGenerator;
 import creoii.hallows.common.world.sapling.EbonySaplingGenerator;
 import creoii.hallows.core.Hallows;
-import creoii.hallows.common.block.PostBlock;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
@@ -140,16 +143,22 @@ public class BlockRegistry {
         POLISHED_HALLSTONE = createBlock("polished_hallstone", new Block(FabricBlockSettings.copy(HALLSTONE)), ItemGroup.BUILDING_BLOCKS);
 
         HALLOWED_DIRT = createBlock("hallowed_dirt", new Block(FabricBlockSettings.of(Material.SOIL, MapColor.SPRUCE_BROWN).strength(0.5F).sounds(BlockSoundGroup.ROOTED_DIRT)), ItemGroup.BUILDING_BLOCKS);
+        DEADROOT = createBlock("deadroot", new FernBlock(FabricBlockSettings.copy(Blocks.CRIMSON_ROOTS)), ItemGroup.BUILDING_BLOCKS);
+
+        NECROFIRE = createBlock("necrofire", new NecrofireBlock(FabricBlockSettings.copy(Blocks.FIRE)), null);
 
         DAWN_MORTIS = createBlock("dawn_mortis", new Block(FabricBlockSettings.of(Material.STONE, MapColor.PALE_PURPLE).strength(1.5F).sounds(BlockSoundGroup.STONE)), ItemGroup.BUILDING_BLOCKS);
         NOON_MORTIS = createBlock("noon_mortis", new Block(FabricBlockSettings.of(Material.SOIL, MapColor.DULL_PINK).strength(1.5F).sounds(BlockSoundGroup.STONE)), ItemGroup.BUILDING_BLOCKS);
         DUSK_MORTIS = createBlock("dusk_mortis", new Block(FabricBlockSettings.of(Material.SOIL, MapColor.MAGENTA).strength(1.5F).sounds(BlockSoundGroup.STONE)), ItemGroup.BUILDING_BLOCKS);
         MIDNIGHT_MORTIS = createBlock("midnight_mortis", new Block(FabricBlockSettings.of(Material.SOIL, MapColor.TERRACOTTA_PURPLE).strength(1.5F).sounds(BlockSoundGroup.STONE)), ItemGroup.BUILDING_BLOCKS);
 
-        ASPHODEL_LOG = createBlock("asphodel_log", new PillarBlock(FabricBlockSettings.of(Material.WOOD, MapColor.IRON_GRAY).strength(2.0F).sounds(BlockSoundGroup.WOOD)), ItemGroup.BUILDING_BLOCKS);
+        STRIPPED_ASPHODEL_LOG = createBlock("stripped_asphodel_log", new PillarBlock(FabricBlockSettings.of(Material.WOOD, MapColor.TERRACOTTA_BLACK).strength(2.0F).sounds(BlockSoundGroup.WOOD)), ItemGroup.BUILDING_BLOCKS);
+        ASPHODEL_LOG = createBlock("asphodel_log", new LogBlock(STRIPPED_ASPHODEL_LOG, FabricBlockSettings.of(Material.WOOD, MapColor.IRON_GRAY).strength(2.0F).sounds(BlockSoundGroup.WOOD)), ItemGroup.BUILDING_BLOCKS);
         ASPHODEL_PLANKS = createBlock("asphodel_planks", new Block(FabricBlockSettings.of(Material.WOOD, MapColor.WHITE_GRAY).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD)), ItemGroup.BUILDING_BLOCKS);
+        ASPHODEL_SAPLING = createBlock("asphodel_sapling", new SaplingBlock(new AsphodelSaplingGenerator(), FabricBlockSettings.copy(Blocks.OAK_SAPLING)), ItemGroup.DECORATIONS);
 
-        EBONY_LOG = createBlock("ebony_log", new PillarBlock(FabricBlockSettings.of(Material.WOOD, MapColor.TERRACOTTA_BLACK).strength(2.0F).sounds(BlockSoundGroup.WOOD)), ItemGroup.BUILDING_BLOCKS);
+        STRIPPED_EBONY_LOG = createBlock("stripped_ebony_log", new PillarBlock(FabricBlockSettings.of(Material.WOOD, MapColor.TERRACOTTA_BLACK).strength(2.0F).sounds(BlockSoundGroup.WOOD)), ItemGroup.BUILDING_BLOCKS);
+        EBONY_LOG = createBlock("ebony_log", new LogBlock(STRIPPED_EBONY_LOG, FabricBlockSettings.of(Material.WOOD, MapColor.TERRACOTTA_BLACK).strength(2.0F).sounds(BlockSoundGroup.WOOD)), ItemGroup.BUILDING_BLOCKS);
         STRIPPED_EBONY_POST = createBlock("stripped_ebony_post", new PostBlock(null, FabricBlockSettings.of(Material.WOOD).strength(2.0F).sounds(BlockSoundGroup.WOOD)), ItemGroup.DECORATIONS);
         EBONY_POST = createBlock("ebony_post", new PostBlock(STRIPPED_EBONY_POST, FabricBlockSettings.copy(STRIPPED_EBONY_POST)), ItemGroup.DECORATIONS);
         EBONY_PLANKS = createBlock("ebony_planks", new Block(FabricBlockSettings.of(Material.WOOD, MapColor.BLACK).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD)), ItemGroup.BUILDING_BLOCKS);
@@ -179,6 +188,7 @@ public class BlockRegistry {
     @Environment(EnvType.CLIENT)
     private static void renderLayers() {
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(),
+                DEADROOT,
                 EBONY_LEAVES,
                 BLOOD_EBONY_LEAVES,
                 EBONY_SAPLING,

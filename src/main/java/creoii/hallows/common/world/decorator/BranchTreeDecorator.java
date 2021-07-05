@@ -2,7 +2,7 @@ package creoii.hallows.common.world.decorator;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import creoii.hallows.common.block.PostBlock;
+import creoii.hallows.common.block.base.PostBlock;
 import creoii.hallows.core.registry.FeatureRegistry;
 import net.minecraft.block.BlockState;
 import net.minecraft.state.property.Properties;

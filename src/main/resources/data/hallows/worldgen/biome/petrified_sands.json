@@ -27,7 +27,8 @@
     [],
     [],
     [
-      "minecraft:spring_lava"
+      "minecraft:spring_lava",
+      "hallows:patch_necrofire"
     ],
     []
   ],
