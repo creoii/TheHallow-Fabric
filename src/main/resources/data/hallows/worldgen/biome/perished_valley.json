@@ -25,7 +25,9 @@
     [],
     [],
     [],
-    [],
+    [
+      "hallows:tenebrite_blobs"
+    ],
     [
       "minecraft:patch_grass_forest",
       "minecraft:spring_lava",

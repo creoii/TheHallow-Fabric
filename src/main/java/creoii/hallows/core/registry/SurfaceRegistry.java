@@ -13,7 +13,7 @@ import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
 import net.minecraft.world.gen.surfacebuilder.TernarySurfaceConfig;
 
 public class SurfaceRegistry {
-    public static final TernarySurfaceConfig HALLOWED_DIRT_CONFIG = new TernarySurfaceConfig(BlockRegistry.HALLOWED_DIRT.getDefaultState(), BlockRegistry.HALLOWED_DIRT.getDefaultState(), BlockRegistry.HALLOWED_DIRT.getDefaultState());
+    public static final TernarySurfaceConfig HALLOWED_DIRT_CONFIG = new TernarySurfaceConfig(BlockRegistry.HALLOWED_DIRT.getDefaultState(), BlockRegistry.HALLSTONE.getDefaultState(), BlockRegistry.HALLOWED_DIRT.getDefaultState());
     public static final TernarySurfaceConfig COARSE_DIRT_DIRT_HALLOWED_DIRT_CONFIG = new TernarySurfaceConfig(Blocks.COARSE_DIRT.getDefaultState(), Blocks.DIRT.getDefaultState(), BlockRegistry.HALLOWED_DIRT.getDefaultState());
     public static final TernarySurfaceConfig GRASS_DIRT_HALLOWED_DIRT_CONFIG = new TernarySurfaceConfig(Blocks.GRASS_BLOCK.getDefaultState(), Blocks.DIRT.getDefaultState(), BlockRegistry.HALLOWED_DIRT.getDefaultState());
     public static final TernarySurfaceConfig PETRIFIED_SAND_CONFIG = new TernarySurfaceConfig(BlockRegistry.PETRIFIED_SAND.getDefaultState(), BlockRegistry.PETRIFIED_SANDSTONE.getDefaultState(), BlockRegistry.PETRIFIED_SANDSTONE.getDefaultState());

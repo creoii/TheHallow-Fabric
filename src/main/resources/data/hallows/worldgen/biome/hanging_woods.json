@@ -25,7 +25,9 @@
     [],
     [],
     [],
-    [],
+    [
+      "hallows:tenebrite_blobs"
+    ],
     [
       "minecraft:patch_grass_normal",
       "minecraft:patch_large_fern",
