@@ -20,6 +20,9 @@
   "entrypoints": {
     "main": [
       "creoii.hallows.core.Hallows"
+    ],
+    "client": [
+      "creoii.hallows.core.Hallows"
     ]
   },
   "mixins": [

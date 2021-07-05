@@ -28,10 +28,10 @@
     [],
     [
       "minecraft:patch_grass_normal",
-      "minecraft:patch_tall_grass_2",
       "minecraft:patch_large_fern",
       "minecraft:spring_lava",
 
+      "hallows:patch_tall_grass_no_dirt",
       "hallows:trees_ebony",
       "hallows:trees_blood_ebony"
     ],
