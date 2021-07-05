@@ -1,6 +1,10 @@
 package creoii.hallows.core.registry;
 
+import creoii.hallows.common.block.SaplingBlock;
+import creoii.hallows.common.world.sapling.BloodEbonySaplingGenerator;
+import creoii.hallows.common.world.sapling.EbonySaplingGenerator;
 import creoii.hallows.core.Hallows;
+import creoii.hallows.common.block.PostBlock;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -89,6 +93,8 @@ public class BlockRegistry {
 
     public static Block EBONY_LOG;
     public static Block STRIPPED_EBONY_LOG;
+    public static Block EBONY_POST;
+    public static Block STRIPPED_EBONY_POST;
     public static Block EBONY_WOOD;
     public static Block STRIPPED_EBONY_WOOD;
     public static Block EBONY_PLANKS;
@@ -137,19 +143,23 @@ public class BlockRegistry {
         DUSK_MORTIS = createBlock("dusk_mortis", new Block(FabricBlockSettings.of(Material.SOIL, MapColor.MAGENTA).strength(1.5F).sounds(BlockSoundGroup.STONE)), ItemGroup.BUILDING_BLOCKS);
         MIDNIGHT_MORTIS = createBlock("midnight_mortis", new Block(FabricBlockSettings.of(Material.SOIL, MapColor.TERRACOTTA_PURPLE).strength(1.5F).sounds(BlockSoundGroup.STONE)), ItemGroup.BUILDING_BLOCKS);
 
-        ASPHODEL_LOG = createBlock("asphodel_log", new PillarBlock(AbstractBlock.Settings.of(Material.WOOD, MapColor.IRON_GRAY).strength(2.0F).sounds(BlockSoundGroup.WOOD)), ItemGroup.BUILDING_BLOCKS);
-        ASPHODEL_PLANKS = createBlock("asphodel_planks", new Block(AbstractBlock.Settings.of(Material.WOOD, MapColor.WHITE_GRAY).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD)), ItemGroup.BUILDING_BLOCKS);
+        ASPHODEL_LOG = createBlock("asphodel_log", new PillarBlock(FabricBlockSettings.of(Material.WOOD, MapColor.IRON_GRAY).strength(2.0F).sounds(BlockSoundGroup.WOOD)), ItemGroup.BUILDING_BLOCKS);
+        ASPHODEL_PLANKS = createBlock("asphodel_planks", new Block(FabricBlockSettings.of(Material.WOOD, MapColor.WHITE_GRAY).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD)), ItemGroup.BUILDING_BLOCKS);
 
-        EBONY_LOG = createBlock("ebony_log", new PillarBlock(AbstractBlock.Settings.of(Material.WOOD, MapColor.TERRACOTTA_BLACK).strength(2.0F).sounds(BlockSoundGroup.WOOD)), ItemGroup.BUILDING_BLOCKS);
-        EBONY_PLANKS = createBlock("ebony_planks", new Block(AbstractBlock.Settings.of(Material.WOOD, MapColor.BLACK).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD)), ItemGroup.BUILDING_BLOCKS);
-        EBONY_LEAVES = createBlock("ebony_leaves", new Block(AbstractBlock.Settings.of(Material.LEAVES).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).allowsSpawning(BlockRegistry::canSpawnOnLeaves).suffocates(BlockRegistry::never).blockVision(BlockRegistry::never)), ItemGroup.BUILDING_BLOCKS);
-        BLOOD_EBONY_LEAVES = createBlock("blood_ebony_leaves", new Block(AbstractBlock.Settings.of(Material.LEAVES).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).allowsSpawning(BlockRegistry::canSpawnOnLeaves).suffocates(BlockRegistry::never).blockVision(BlockRegistry::never)), ItemGroup.BUILDING_BLOCKS);
+        EBONY_LOG = createBlock("ebony_log", new PillarBlock(FabricBlockSettings.of(Material.WOOD, MapColor.TERRACOTTA_BLACK).strength(2.0F).sounds(BlockSoundGroup.WOOD)), ItemGroup.BUILDING_BLOCKS);
+        STRIPPED_EBONY_POST = createBlock("stripped_ebony_post", new PostBlock(null, FabricBlockSettings.of(Material.WOOD).strength(2.0F).sounds(BlockSoundGroup.WOOD)), ItemGroup.DECORATIONS);
+        EBONY_POST = createBlock("ebony_post", new PostBlock(STRIPPED_EBONY_POST, FabricBlockSettings.copy(STRIPPED_EBONY_POST)), ItemGroup.DECORATIONS);
+        EBONY_PLANKS = createBlock("ebony_planks", new Block(FabricBlockSettings.of(Material.WOOD, MapColor.BLACK).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD)), ItemGroup.BUILDING_BLOCKS);
+        EBONY_LEAVES = createBlock("ebony_leaves", new Block(FabricBlockSettings.of(Material.LEAVES).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).allowsSpawning(BlockRegistry::canSpawnOnLeaves).suffocates(BlockRegistry::never).blockVision(BlockRegistry::never)), ItemGroup.BUILDING_BLOCKS);
+        BLOOD_EBONY_LEAVES = createBlock("blood_ebony_leaves", new Block(FabricBlockSettings.of(Material.LEAVES).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).allowsSpawning(BlockRegistry::canSpawnOnLeaves).suffocates(BlockRegistry::never).blockVision(BlockRegistry::never)), ItemGroup.BUILDING_BLOCKS);
+        EBONY_SAPLING = createBlock("ebony_sapling", new SaplingBlock(new EbonySaplingGenerator(), FabricBlockSettings.copy(Blocks.OAK_SAPLING)), ItemGroup.DECORATIONS);
+        BLOOD_EBONY_SAPLING = createBlock("blood_ebony_sapling", new SaplingBlock(new BloodEbonySaplingGenerator(), FabricBlockSettings.copy(Blocks.OAK_SAPLING)), ItemGroup.DECORATIONS);
 
-        PETRIFIED_SAND = createBlock("petrified_sand", new Block(AbstractBlock.Settings.of(Material.AGGREGATE, MapColor.SPRUCE_BROWN).strength(0.5F).sounds(BlockSoundGroup.SAND)), ItemGroup.BUILDING_BLOCKS);
-        PETRIFIED_SANDSTONE = createBlock("petrified_sandstone", new Block(AbstractBlock.Settings.of(Material.STONE, MapColor.SPRUCE_BROWN).strength(1.0F)), ItemGroup.BUILDING_BLOCKS);
+        PETRIFIED_SAND = createBlock("petrified_sand", new Block(FabricBlockSettings.of(Material.AGGREGATE, MapColor.SPRUCE_BROWN).strength(0.5F).sounds(BlockSoundGroup.SAND)), ItemGroup.BUILDING_BLOCKS);
+        PETRIFIED_SANDSTONE = createBlock("petrified_sandstone", new Block(FabricBlockSettings.of(Material.STONE, MapColor.SPRUCE_BROWN).strength(1.0F)), ItemGroup.BUILDING_BLOCKS);
 
-        TENEBRITE = createBlock("tenebrite", new Block(AbstractBlock.Settings.of(Material.SOIL, MapColor.GRAY).strength(1.5F, 10.0F).sounds(BlockSoundGroup.STONE)), ItemGroup.BUILDING_BLOCKS);
-        TENEBRITE_BRICKS = createBlock("tenebrite_bricks", new Block(AbstractBlock.Settings.of(Material.SOIL, MapColor.GRAY).strength(1.5F, 15.0F).sounds(BlockSoundGroup.STONE)), ItemGroup.BUILDING_BLOCKS);
+        TENEBRITE = createBlock("tenebrite", new Block(FabricBlockSettings.of(Material.SOIL, MapColor.GRAY).strength(1.5F, 10.0F).sounds(BlockSoundGroup.STONE)), ItemGroup.BUILDING_BLOCKS);
+        TENEBRITE_BRICKS = createBlock("tenebrite_bricks", new Block(FabricBlockSettings.of(Material.SOIL, MapColor.GRAY).strength(1.5F, 15.0F).sounds(BlockSoundGroup.STONE)), ItemGroup.BUILDING_BLOCKS);
 
         flammables();
         compostables();

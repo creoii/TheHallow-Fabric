@@ -7,6 +7,7 @@ import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.GenerationStep;
 
 public class BiomeRegistry {
     public static Biome HANGING_WOODS;
@@ -46,6 +47,8 @@ public class BiomeRegistry {
         SpawnSettings.Builder spawns = new SpawnSettings.Builder();
         GenerationSettings.Builder generation = new GenerationSettings.Builder();
         generation.surfaceBuilder(() -> SurfaceRegistry.HALLOWED);
+        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.TREES_EBONY);
+        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.TREES_BLOOD_EBONY);
         return new Biome.Builder().precipitation(Biome.Precipitation.RAIN).category(Biome.Category.NONE).depth(0.1F).scale(0.2F).temperature(0.5F).downfall(0.5F).effects(new BiomeEffects.Builder().waterColor(5001581).waterFogColor(8620438).fogColor(0xc0d8ff).grassColor(9470298).foliageColor(10387802).skyColor(4210816).particleConfig(new BiomeParticleConfig(ParticleTypes.WHITE_ASH, 0.01F)).build()).spawnSettings(spawns.build()).generationSettings(generation.build()).build();
     }
 

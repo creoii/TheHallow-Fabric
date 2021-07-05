@@ -1,4 +1,4 @@
-package creoii.hallows.core.base;
+package creoii.hallows.common.block;
 
 public class TrapdoorBlock extends net.minecraft.block.TrapdoorBlock {
     public TrapdoorBlock(Settings settings) {

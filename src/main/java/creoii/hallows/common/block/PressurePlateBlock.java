@@ -1,4 +1,4 @@
-package creoii.hallows.core.base;
+package creoii.hallows.common.block;
 
 public class PressurePlateBlock extends net.minecraft.block.PressurePlateBlock {
     public PressurePlateBlock(ActivationRule rule, Settings settings) {

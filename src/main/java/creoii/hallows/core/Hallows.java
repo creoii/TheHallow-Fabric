@@ -1,9 +1,6 @@
 package creoii.hallows.core;
 
-import creoii.hallows.core.registry.BiomeRegistry;
-import creoii.hallows.core.registry.BlockRegistry;
-import creoii.hallows.core.registry.DimensionRegistry;
-import creoii.hallows.core.registry.SurfaceRegistry;
+import creoii.hallows.core.registry.*;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.ModInitializer;
 
@@ -14,6 +11,7 @@ public class Hallows implements ModInitializer, ClientModInitializer {
 	public void onInitialize() {
 		BlockRegistry.register();
 		SurfaceRegistry.register();
+		FeatureRegistry.register();
 		BiomeRegistry.register();
 		DimensionRegistry.register();
 	}
