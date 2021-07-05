@@ -27,7 +27,9 @@
     [],
     [],
     [
-      "minecraft:patch_grass_forest",
+      "minecraft:patch_grass_normal",
+      "minecraft:patch_tall_grass_2",
+      "minecraft:patch_large_fern",
       "minecraft:spring_lava",
 
       "hallows:trees_ebony",

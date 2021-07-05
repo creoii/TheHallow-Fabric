@@ -23,16 +23,20 @@ public class HangingLeavesTreeDecorator extends TreeDecorator {
             return config.minLength;
         }), Codec.intRange(0, 10).fieldOf("max_length").forGetter((config) -> {
             return config.maxLength;
+        }), Codec.floatRange(0.0F, 1.0F).fieldOf("probability").forGetter((config) -> {
+            return config.probability;
         })).apply(p_236568_0_, HangingLeavesTreeDecorator::new);
     });
     private final BlockState state;
     private final int minLength;
     private final int maxLength;
+    private final float probability;
 
-    public HangingLeavesTreeDecorator(BlockState state, int minLength, int maxLength) {
+    public HangingLeavesTreeDecorator(BlockState state, int minLength, int maxLength, float probability) {
         this.state = state;
         this.minLength = minLength;
         this.maxLength = maxLength;
+        this.probability = probability;
     }
 
     @Override
@@ -43,13 +47,16 @@ public class HangingLeavesTreeDecorator extends TreeDecorator {
     @Override
     public void generate(TestableWorld world, BiConsumer<BlockPos, BlockState> replacer, Random random, List<BlockPos> logPositions, List<BlockPos> leavesPositions) {
         for (BlockPos pos : leavesPositions) {
-            if (Feature.isAir(world, pos.down()) && state.getBlock() instanceof HangingLeavesBlock) {
-                BlockState blockstate = this.state.with(HangingLeavesBlock.HALF, HangingLeavesBlock.Half.LARGE);
-                int length = random.nextInt(maxLength) + minLength;
-                for (int j = pos.down().getY(); j >= pos.down().getY() - length; --j) {
-                    if (j == pos.down().getY() - length) blockstate = blockstate.with(HangingLeavesBlock.HALF, HangingLeavesBlock.Half.SMALL);
-                    BlockPos place = new BlockPos(pos.getX(), j, pos.getZ());
-                    if (Feature.isAir(world, place)) replacer.accept(place, blockstate);
+            if (!(random.nextFloat() >= this.probability)) {
+                if (Feature.isAir(world, pos.down()) && state.getBlock() instanceof HangingLeavesBlock) {
+                    BlockState blockstate = this.state.with(HangingLeavesBlock.HALF, HangingLeavesBlock.Half.LARGE);
+                    int length = random.nextInt(maxLength) + minLength;
+                    for (int j = pos.down().getY(); j >= pos.down().getY() - length; --j) {
+                        if (j == pos.down().getY() - length)
+                            blockstate = blockstate.with(HangingLeavesBlock.HALF, HangingLeavesBlock.Half.SMALL);
+                        BlockPos place = new BlockPos(pos.getX(), j, pos.getZ());
+                        if (Feature.isAir(world, place)) replacer.accept(place, blockstate);
+                    }
                 }
             }
         }

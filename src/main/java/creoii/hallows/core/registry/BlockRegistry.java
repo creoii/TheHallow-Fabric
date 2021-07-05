@@ -1,5 +1,6 @@
 package creoii.hallows.core.registry;
 
+import creoii.hallows.common.block.HangingLeavesBlock;
 import creoii.hallows.common.block.SaplingBlock;
 import creoii.hallows.common.world.sapling.BloodEbonySaplingGenerator;
 import creoii.hallows.common.world.sapling.EbonySaplingGenerator;
@@ -156,6 +157,8 @@ public class BlockRegistry {
         BLOOD_EBONY_LEAVES = createBlock("blood_ebony_leaves", new Block(FabricBlockSettings.of(Material.LEAVES).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).allowsSpawning(BlockRegistry::canSpawnOnLeaves).suffocates(BlockRegistry::never).blockVision(BlockRegistry::never)), ItemGroup.BUILDING_BLOCKS);
         EBONY_SAPLING = createBlock("ebony_sapling", new SaplingBlock(new EbonySaplingGenerator(), FabricBlockSettings.copy(Blocks.OAK_SAPLING)), ItemGroup.DECORATIONS);
         BLOOD_EBONY_SAPLING = createBlock("blood_ebony_sapling", new SaplingBlock(new BloodEbonySaplingGenerator(), FabricBlockSettings.copy(Blocks.OAK_SAPLING)), ItemGroup.DECORATIONS);
+        HANGING_EBONY_LEAVES = createBlock("hanging_ebony_leaves", new HangingLeavesBlock(FabricBlockSettings.copy(EBONY_LEAVES)), ItemGroup.BUILDING_BLOCKS);
+        HANGING_BLOOD_EBONY_LEAVES = createBlock("hanging_blood_ebony_leaves", new HangingLeavesBlock(FabricBlockSettings.copy(BLOOD_EBONY_LEAVES)), ItemGroup.BUILDING_BLOCKS);
 
         PETRIFIED_SAND = createBlock("petrified_sand", new Block(FabricBlockSettings.of(Material.AGGREGATE, MapColor.SPRUCE_BROWN).strength(0.5F).sounds(BlockSoundGroup.SAND)), ItemGroup.BUILDING_BLOCKS);
         PETRIFIED_SANDSTONE = createBlock("petrified_sandstone", new Block(FabricBlockSettings.of(Material.STONE, MapColor.SPRUCE_BROWN).strength(1.0F)), ItemGroup.BUILDING_BLOCKS);
@@ -179,7 +182,9 @@ public class BlockRegistry {
                 EBONY_LEAVES,
                 BLOOD_EBONY_LEAVES,
                 EBONY_SAPLING,
-                BLOOD_EBONY_SAPLING
+                BLOOD_EBONY_SAPLING,
+                HANGING_EBONY_LEAVES,
+                HANGING_BLOOD_EBONY_LEAVES
         );
     }
 
