@@ -13,6 +13,8 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
+import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.minecraft.block.*;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.entity.EntityType;
@@ -206,9 +208,25 @@ public class BlockRegistry {
     }
 
     private static void flammables() {
+        FlammableBlockRegistry.getDefaultInstance().add(ASPHODEL_LOG, 5, 5);
+        FlammableBlockRegistry.getDefaultInstance().add(STRIPPED_ASPHODEL_LOG, 5, 5);
+        FlammableBlockRegistry.getDefaultInstance().add(ASPHODEL_PLANKS, 5, 20);
+        FlammableBlockRegistry.getDefaultInstance().add(EBONY_LOG, 5, 5);
+        FlammableBlockRegistry.getDefaultInstance().add(STRIPPED_EBONY_LOG, 5, 5);
+        FlammableBlockRegistry.getDefaultInstance().add(EBONY_PLANKS, 5, 20);
+        FlammableBlockRegistry.getDefaultInstance().add(EBONY_LEAVES, 30, 60);
+        FlammableBlockRegistry.getDefaultInstance().add(BLOOD_EBONY_LEAVES, 30, 60);
     }
 
     private static void compostables() {
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(DEADROOT.asItem(), 0.2F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ASPHODEL_SAPLING.asItem(), 0.2F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(EBONY_LEAVES.asItem(), 0.3F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(EBONY_SAPLING.asItem(), 0.3F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(BLOOD_EBONY_LEAVES.asItem(), 0.3F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(BLOOD_EBONY_SAPLING.asItem(), 0.3F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(RED_MOSS_CARPET.asItem(), 0.3F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(RED_MOSS_BLOCK.asItem(), 0.65F);
     }
 
     private static void fuels() {
