@@ -1,0 +1,6 @@
+{
+  "parent": "block/carpet",
+  "textures": {
+    "wool": "hallows:block/red_moss_block"
+  }
+}

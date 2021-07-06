@@ -7,8 +7,12 @@ import creoii.hallows.common.world.decorator.HangingLeavesTreeDecorator;
 import creoii.hallows.common.world.decorator.JackOLanternTreeDecorator;
 import creoii.hallows.core.Hallows;
 import creoii.hallows.core.mixin.TreeDecoratorTypeMixin;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.tag.BlockTags;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.collection.DataPool;
+import net.minecraft.util.math.VerticalSurfaceType;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.registry.BuiltinRegistries;
@@ -24,6 +28,7 @@ import net.minecraft.world.gen.heightprovider.UniformHeightProvider;
 import net.minecraft.world.gen.placer.DoublePlantPlacer;
 import net.minecraft.world.gen.placer.SimpleBlockPlacer;
 import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
+import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
 import net.minecraft.world.gen.treedecorator.TreeDecoratorType;
 import net.minecraft.world.gen.trunk.ForkingTrunkPlacer;
 import net.minecraft.world.gen.trunk.LargeOakTrunkPlacer;
@@ -47,6 +52,8 @@ public class FeatureRegistry {
     public static final ConfiguredFeature<?, ?> PATCH_DEADROOT = Feature.RANDOM_PATCH.configure(new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(BlockRegistry.DEADROOT.getDefaultState()), SimpleBlockPlacer.INSTANCE).tries(32).build()).decorate(Decorator.HEIGHTMAP_SPREAD_DOUBLE.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)).spreadHorizontally()).repeat(2);
     public static final ConfiguredFeature<?, ?> TENEBRITE_BLOBS = Feature.NETHERRACK_REPLACE_BLOBS.configure(new ReplaceBlobsFeatureConfig(BlockRegistry.HALLSTONE.getDefaultState(), BlockRegistry.TENEBRITE.getDefaultState(), UniformIntProvider.create(3, 7))).range(new RangeDecoratorConfig(UniformHeightProvider.create(YOffset.getBottom(), YOffset.fixed(63)))).spreadHorizontally().repeat(25);
     public static final ConfiguredFeature<?, ?> PATCH_PUMPKIN_DENSE = Feature.RANDOM_PATCH.configure(new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.PUMPKIN.getDefaultState()), new SimpleBlockPlacer()).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK, Blocks.COARSE_DIRT, BlockRegistry.HALLOWED_DIRT)).tries(64).cannotProject().build()).decorate(Decorator.HEIGHTMAP_SPREAD_DOUBLE.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)).spreadHorizontally()).spreadHorizontally().repeatRandomly(5);
+    public static final ConfiguredFeature<?, ?> RED_MOSS_VEGETATION = Feature.SIMPLE_BLOCK.configure(new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(new DataPool.Builder<BlockState>().add(BlockRegistry.RED_MOSS_CARPET.getDefaultState(), 25))));
+    public static final ConfiguredFeature<?, ?> RED_MOSS_PATCH_BONEMEAL = Feature.VEGETATION_PATCH.configure(new VegetationPatchFeatureConfig(BlockTags.MOSS_REPLACEABLE.getId(), new SimpleBlockStateProvider(BlockRegistry.RED_MOSS_BLOCK.getDefaultState()), () -> RED_MOSS_VEGETATION, VerticalSurfaceType.FLOOR, ConstantIntProvider.create(1), 0.0F, 5, 0.6F, UniformIntProvider.create(1, 2), 0.75F));
 
     public static void register() {
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "ebony"), EBONY);
@@ -61,5 +68,7 @@ public class FeatureRegistry {
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "patch_deadroot"), PATCH_DEADROOT);
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "tenebrite_blobs"), TENEBRITE_BLOBS);
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "patch_pumpkin_dense"), PATCH_PUMPKIN_DENSE);
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "red_moss_vegetation"), RED_MOSS_VEGETATION);
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "red_moss_patch_bonemeal"), RED_MOSS_PATCH_BONEMEAL);
     }
 }
