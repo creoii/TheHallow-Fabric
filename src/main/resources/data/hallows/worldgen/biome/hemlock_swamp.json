@@ -14,7 +14,12 @@
     }
   },
   "surface_builder": "hallows:hallowed",
-  "carvers": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:canyon"
+    ]
+  },
   "features": [
     [],
     [

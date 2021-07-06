@@ -4,6 +4,7 @@
   "package": "creoii.hallows.core.mixin",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
+    "CarverMixin",
     "TreeDecoratorTypeMixin"
   ],
   "injectors": {

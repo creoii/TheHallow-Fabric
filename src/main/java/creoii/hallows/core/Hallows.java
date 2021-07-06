@@ -11,6 +11,7 @@ public class Hallows implements ModInitializer, ClientModInitializer {
 	public void onInitialize() {
 		BlockRegistry.register();
 		SurfaceRegistry.register();
+		CarverRegistry.register();
 		FeatureRegistry.register();
 		BiomeRegistry.register();
 		DimensionRegistry.register();

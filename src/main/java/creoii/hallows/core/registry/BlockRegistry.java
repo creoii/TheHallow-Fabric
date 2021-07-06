@@ -26,7 +26,7 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.world.BlockView;
 
 public class BlockRegistry {
-    public static Block HALLSTONE;
+    public static final Block HALLSTONE = new Block(FabricBlockSettings.of(Material.STONE, MapColor.DIRT_BROWN).strength(1.6F, 7.0F).sounds(BlockSoundGroup.STONE));
     public static Block HALLSTONE_SLAB;
     public static Block HALLSTONE_STAIRS;
     public static Block HALLSTONE_WALL;
@@ -34,7 +34,8 @@ public class BlockRegistry {
     public static Block POLISHED_HALLSTONE_SLAB;
     public static Block POLISHED_HALLSTONE_STAIRS;
     public static Block POLISHED_HALLSTONE_WALL;
-    public static Block HALLOWED_DIRT;
+
+    public static Block HALLOWED_DIRT = new Block(FabricBlockSettings.of(Material.SOIL, MapColor.SPRUCE_BROWN).strength(0.5F).sounds(BlockSoundGroup.ROOTED_DIRT));
     public static Block DEADROOT;
 
     public static Block SILVER_ORE;
@@ -42,7 +43,7 @@ public class BlockRegistry {
     public static Block HALLSTONE_EMERALD_ORE;
     public static Block STYGIAN_RUIN;
 
-    public static Block DAWN_MORTIS;
+    public static Block DAWN_MORTIS = new Block(FabricBlockSettings.of(Material.STONE, MapColor.PALE_PURPLE).strength(1.5F).sounds(BlockSoundGroup.STONE));
     public static Block DAWN_MORTIS_SLAB;
     public static Block DAWN_MORTIS_STAIRS;
     public static Block DAWN_MORTIS_WALL;
@@ -50,7 +51,7 @@ public class BlockRegistry {
     public static Block DAWN_MORTIS_BRICK_SLAB;
     public static Block DAWN_MORTIS_BRICK_STAIRS;
     public static Block DAWN_MORTIS_BRICK_WALL;
-    public static Block NOON_MORTIS;
+    public static Block NOON_MORTIS = new Block(FabricBlockSettings.of(Material.SOIL, MapColor.DULL_PINK).strength(1.5F).sounds(BlockSoundGroup.STONE));
     public static Block NOON_MORTIS_SLAB;
     public static Block NOON_MORTIS_STAIRS;
     public static Block NOON_MORTIS_WALL;
@@ -58,7 +59,7 @@ public class BlockRegistry {
     public static Block NOON_MORTIS_BRICK_SLAB;
     public static Block NOON_MORTIS_BRICK_STAIRS;
     public static Block NOON_MORTIS_BRICK_WALL;
-    public static Block DUSK_MORTIS;
+    public static Block DUSK_MORTIS = new Block(FabricBlockSettings.of(Material.SOIL, MapColor.MAGENTA).strength(1.5F).sounds(BlockSoundGroup.STONE));
     public static Block DUSK_MORTIS_SLAB;
     public static Block DUSK_MORTIS_STAIRS;
     public static Block DUSK_MORTIS_WALL;
@@ -66,7 +67,7 @@ public class BlockRegistry {
     public static Block DUSK_MORTIS_BRICK_SLAB;
     public static Block DUSK_MORTIS_BRICK_STAIRS;
     public static Block DUSK_MORTIS_BRICK_WALL;
-    public static Block MIDNIGHT_MORTIS;
+    public static Block MIDNIGHT_MORTIS = new Block(FabricBlockSettings.of(Material.SOIL, MapColor.TERRACOTTA_PURPLE).strength(1.5F).sounds(BlockSoundGroup.STONE));
     public static Block MIDNIGHT_MORTIS_SLAB;
     public static Block MIDNIGHT_MORTIS_STAIRS;
     public static Block MIDNIGHT_MORTIS_WALL;
@@ -121,13 +122,13 @@ public class BlockRegistry {
     public static Block EBONY_DOOR;
     public static Block EBONY_TRAPDOOR;
 
-    public static Block PETRIFIED_SAND;
-    public static Block PETRIFIED_SANDSTONE;
+    public static Block PETRIFIED_SAND = new Block(FabricBlockSettings.of(Material.AGGREGATE, MapColor.SPRUCE_BROWN).strength(0.5F).sounds(BlockSoundGroup.SAND));
+    public static Block PETRIFIED_SANDSTONE = new Block(FabricBlockSettings.of(Material.STONE, MapColor.SPRUCE_BROWN).strength(1.0F));
     public static Block PETRIFIED_SANDSTONE_SLAB;
     public static Block PETRIFIED_SANDSTONE_STAIRS;
     public static Block PETRIFIED_SANDSTONE_WALL;
 
-    public static Block TENEBRITE;
+    public static Block TENEBRITE = new Block(FabricBlockSettings.of(Material.SOIL, MapColor.GRAY).strength(1.5F, 10.0F).sounds(BlockSoundGroup.STONE));
     public static Block TENEBRITE_SLAB;
     public static Block TENEBRITE_STAIRS;
     public static Block TENEBRITE_WALL;
@@ -139,18 +140,18 @@ public class BlockRegistry {
     public static Block SKULLISH_TENEBRITE;
 
     public static void register() {
-        HALLSTONE = createBlock("hallstone", new Block(FabricBlockSettings.of(Material.STONE, MapColor.DIRT_BROWN).strength(1.6F, 7.0F).sounds(BlockSoundGroup.STONE)), ItemGroup.BUILDING_BLOCKS);
+        createBlock("hallstone", HALLSTONE, ItemGroup.BUILDING_BLOCKS);
         POLISHED_HALLSTONE = createBlock("polished_hallstone", new Block(FabricBlockSettings.copy(HALLSTONE)), ItemGroup.BUILDING_BLOCKS);
 
-        HALLOWED_DIRT = createBlock("hallowed_dirt", new Block(FabricBlockSettings.of(Material.SOIL, MapColor.SPRUCE_BROWN).strength(0.5F).sounds(BlockSoundGroup.ROOTED_DIRT)), ItemGroup.BUILDING_BLOCKS);
+        createBlock("hallowed_dirt", HALLOWED_DIRT, ItemGroup.BUILDING_BLOCKS);
         DEADROOT = createBlock("deadroot", new FernBlock(FabricBlockSettings.copy(Blocks.CRIMSON_ROOTS)), ItemGroup.BUILDING_BLOCKS);
 
         NECROFIRE = createBlock("necrofire", new NecrofireBlock(FabricBlockSettings.copy(Blocks.FIRE)), null);
 
-        DAWN_MORTIS = createBlock("dawn_mortis", new Block(FabricBlockSettings.of(Material.STONE, MapColor.PALE_PURPLE).strength(1.5F).sounds(BlockSoundGroup.STONE)), ItemGroup.BUILDING_BLOCKS);
-        NOON_MORTIS = createBlock("noon_mortis", new Block(FabricBlockSettings.of(Material.SOIL, MapColor.DULL_PINK).strength(1.5F).sounds(BlockSoundGroup.STONE)), ItemGroup.BUILDING_BLOCKS);
-        DUSK_MORTIS = createBlock("dusk_mortis", new Block(FabricBlockSettings.of(Material.SOIL, MapColor.MAGENTA).strength(1.5F).sounds(BlockSoundGroup.STONE)), ItemGroup.BUILDING_BLOCKS);
-        MIDNIGHT_MORTIS = createBlock("midnight_mortis", new Block(FabricBlockSettings.of(Material.SOIL, MapColor.TERRACOTTA_PURPLE).strength(1.5F).sounds(BlockSoundGroup.STONE)), ItemGroup.BUILDING_BLOCKS);
+        createBlock("dawn_mortis", DAWN_MORTIS, ItemGroup.BUILDING_BLOCKS);
+        createBlock("noon_mortis", NOON_MORTIS, ItemGroup.BUILDING_BLOCKS);
+        createBlock("dusk_mortis", DUSK_MORTIS, ItemGroup.BUILDING_BLOCKS);
+        createBlock("midnight_mortis", MIDNIGHT_MORTIS, ItemGroup.BUILDING_BLOCKS);
 
         STRIPPED_ASPHODEL_LOG = createBlock("stripped_asphodel_log", new PillarBlock(FabricBlockSettings.of(Material.WOOD, MapColor.TERRACOTTA_BLACK).strength(2.0F).sounds(BlockSoundGroup.WOOD)), ItemGroup.BUILDING_BLOCKS);
         ASPHODEL_LOG = createBlock("asphodel_log", new LogBlock(STRIPPED_ASPHODEL_LOG, FabricBlockSettings.of(Material.WOOD, MapColor.IRON_GRAY).strength(2.0F).sounds(BlockSoundGroup.WOOD)), ItemGroup.BUILDING_BLOCKS);
@@ -169,10 +170,10 @@ public class BlockRegistry {
         HANGING_EBONY_LEAVES = createBlock("hanging_ebony_leaves", new HangingLeavesBlock(FabricBlockSettings.copy(EBONY_LEAVES)), ItemGroup.BUILDING_BLOCKS);
         HANGING_BLOOD_EBONY_LEAVES = createBlock("hanging_blood_ebony_leaves", new HangingLeavesBlock(FabricBlockSettings.copy(BLOOD_EBONY_LEAVES)), ItemGroup.BUILDING_BLOCKS);
 
-        PETRIFIED_SAND = createBlock("petrified_sand", new Block(FabricBlockSettings.of(Material.AGGREGATE, MapColor.SPRUCE_BROWN).strength(0.5F).sounds(BlockSoundGroup.SAND)), ItemGroup.BUILDING_BLOCKS);
-        PETRIFIED_SANDSTONE = createBlock("petrified_sandstone", new Block(FabricBlockSettings.of(Material.STONE, MapColor.SPRUCE_BROWN).strength(1.0F)), ItemGroup.BUILDING_BLOCKS);
+        createBlock("petrified_sand", PETRIFIED_SAND, ItemGroup.BUILDING_BLOCKS);
+        createBlock("petrified_sandstone", PETRIFIED_SANDSTONE, ItemGroup.BUILDING_BLOCKS);
 
-        TENEBRITE = createBlock("tenebrite", new Block(FabricBlockSettings.of(Material.SOIL, MapColor.GRAY).strength(1.5F, 10.0F).sounds(BlockSoundGroup.STONE)), ItemGroup.BUILDING_BLOCKS);
+        createBlock("tenebrite", TENEBRITE, ItemGroup.BUILDING_BLOCKS);
         TENEBRITE_BRICKS = createBlock("tenebrite_bricks", new Block(FabricBlockSettings.of(Material.SOIL, MapColor.GRAY).strength(1.5F, 15.0F).sounds(BlockSoundGroup.STONE)), ItemGroup.BUILDING_BLOCKS);
 
         flammables();

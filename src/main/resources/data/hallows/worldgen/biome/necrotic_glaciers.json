@@ -14,7 +14,13 @@
     }
   },
   "surface_builder": "hallows:glacier",
-  "carvers": {},
+  "carvers": {
+    "air": [
+      "minecraft:cave",
+      "minecraft:canyon",
+      "hallows:necromantle_crack"
+    ]
+  },
   "features": [
     [],
     [

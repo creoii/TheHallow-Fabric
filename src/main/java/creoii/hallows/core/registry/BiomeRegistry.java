@@ -48,6 +48,7 @@ public class BiomeRegistry {
         SpawnSettings.Builder spawns = new SpawnSettings.Builder();
         GenerationSettings.Builder generation = new GenerationSettings.Builder();
         generation.surfaceBuilder(() -> SurfaceRegistry.HALLOWED);
+        generation.carver(GenerationStep.Carver.AIR, CarverRegistry.NECROMANTLE_CRACK_CONFIGURED);
         generation.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, FeatureRegistry.TENEBRITE_BLOBS);
         generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.TREES_EBONY);
         generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.TREES_BLOOD_EBONY);
@@ -73,6 +74,7 @@ public class BiomeRegistry {
         SpawnSettings.Builder spawns = new SpawnSettings.Builder();
         GenerationSettings.Builder generation = new GenerationSettings.Builder();
         generation.surfaceBuilder(() -> SurfaceRegistry.GLACIER);
+        generation.carver(GenerationStep.Carver.AIR, CarverRegistry.NECROMANTLE_CRACK_CONFIGURED);
         generation.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, FeatureRegistry.TENEBRITE_BLOBS);
         generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.PATCH_NECROFIRE);
         generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.PATCH_DEADROOT);
@@ -83,6 +85,7 @@ public class BiomeRegistry {
         SpawnSettings.Builder spawns = new SpawnSettings.Builder();
         GenerationSettings.Builder generation = new GenerationSettings.Builder();
         generation.surfaceBuilder(() -> SurfaceRegistry.HALLOWED);
+        generation.carver(GenerationStep.Carver.AIR, CarverRegistry.NECROMANTLE_CRACK_CONFIGURED);
         generation.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, FeatureRegistry.TENEBRITE_BLOBS);
         generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.TREES_ASPHODEL);
         generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.PATCH_NECROFIRE);
