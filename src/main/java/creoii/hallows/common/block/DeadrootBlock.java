@@ -19,6 +19,7 @@ public class DeadrootBlock extends PlantBlock implements Waterloggable {
 
     public DeadrootBlock(Settings settings) {
         super(settings);
+        this.setDefaultState(getDefaultState().with(WATERLOGGED, false));
     }
 
     @Override
