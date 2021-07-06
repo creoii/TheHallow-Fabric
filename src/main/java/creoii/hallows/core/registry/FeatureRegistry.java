@@ -54,6 +54,7 @@ public class FeatureRegistry {
     public static final ConfiguredFeature<?, ?> PATCH_PUMPKIN_DENSE = Feature.RANDOM_PATCH.configure(new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.PUMPKIN.getDefaultState()), new SimpleBlockPlacer()).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK, Blocks.COARSE_DIRT, BlockRegistry.HALLOWED_DIRT)).tries(64).cannotProject().build()).decorate(Decorator.HEIGHTMAP_SPREAD_DOUBLE.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)).spreadHorizontally()).spreadHorizontally().repeatRandomly(5);
     public static final ConfiguredFeature<?, ?> RED_MOSS_VEGETATION = Feature.SIMPLE_BLOCK.configure(new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(new DataPool.Builder<BlockState>().add(BlockRegistry.RED_MOSS_CARPET.getDefaultState(), 25))));
     public static final ConfiguredFeature<?, ?> RED_MOSS_PATCH_BONEMEAL = Feature.VEGETATION_PATCH.configure(new VegetationPatchFeatureConfig(BlockTags.MOSS_REPLACEABLE.getId(), new SimpleBlockStateProvider(BlockRegistry.RED_MOSS_BLOCK.getDefaultState()), () -> RED_MOSS_VEGETATION, VerticalSurfaceType.FLOOR, ConstantIntProvider.create(1), 0.0F, 5, 0.6F, UniformIntProvider.create(1, 2), 0.75F));
+    public static final ConfiguredFeature<?, ?> PATCH_CANDLES = Feature.RANDOM_PATCH.configure(new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.CANDLE.getDefaultState()), new SimpleBlockPlacer()).whitelist(ImmutableSet.of(BlockRegistry.HALLSTONE, BlockRegistry.TENEBRITE)).tries(16).cannotProject().build()).decorate(Decorator.HEIGHTMAP_SPREAD_DOUBLE.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)).spreadHorizontally()).spreadHorizontally().applyChance(8);
 
     public static void register() {
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "ebony"), EBONY);
@@ -70,5 +71,6 @@ public class FeatureRegistry {
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "patch_pumpkin_dense"), PATCH_PUMPKIN_DENSE);
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "red_moss_vegetation"), RED_MOSS_VEGETATION);
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "red_moss_patch_bonemeal"), RED_MOSS_PATCH_BONEMEAL);
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "patch_candles"), PATCH_CANDLES);
     }
 }

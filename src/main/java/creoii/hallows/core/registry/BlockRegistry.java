@@ -198,6 +198,7 @@ public class BlockRegistry {
     private static void renderLayers() {
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(),
                 DEADROOT,
+                ASPHODEL_SAPLING,
                 EBONY_LEAVES,
                 BLOOD_EBONY_LEAVES,
                 EBONY_SAPLING,
