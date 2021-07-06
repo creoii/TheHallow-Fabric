@@ -1,7 +1,6 @@
 package creoii.hallows.core.registry;
 
 import creoii.hallows.common.block.*;
-import creoii.hallows.common.block.base.FernBlock;
 import creoii.hallows.common.block.base.LogBlock;
 import creoii.hallows.common.block.base.PostBlock;
 import creoii.hallows.common.block.base.SaplingBlock;
@@ -14,7 +13,6 @@ import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
-import net.fabricmc.fabric.api.registry.FuelRegistry;
 import net.minecraft.block.*;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.entity.EntityType;
@@ -143,13 +141,19 @@ public class BlockRegistry {
 
     public static Block RED_MOSS_BLOCK;
     public static Block RED_MOSS_CARPET;
+    public static Block BLOOD_MOREL;
+    public static Block DEATH_MOREL;
+
+    public static Block TALL_CANDLE;
+
+    public static Block PUMPKIN_PLANKS;
 
     public static void register() {
         createBlock("hallstone", HALLSTONE, ItemGroup.BUILDING_BLOCKS);
         POLISHED_HALLSTONE = createBlock("polished_hallstone", new Block(FabricBlockSettings.copy(HALLSTONE)), ItemGroup.BUILDING_BLOCKS);
 
         createBlock("hallowed_dirt", HALLOWED_DIRT, ItemGroup.BUILDING_BLOCKS);
-        DEADROOT = createBlock("deadroot", new FernBlock(FabricBlockSettings.copy(Blocks.CRIMSON_ROOTS)), ItemGroup.BUILDING_BLOCKS);
+        DEADROOT = createBlock("deadroot", new DeadrootBlock(FabricBlockSettings.copy(Blocks.CRIMSON_ROOTS)), ItemGroup.BUILDING_BLOCKS);
 
         NECROFIRE = createBlock("necrofire", new NecrofireBlock(FabricBlockSettings.copy(Blocks.FIRE)), null);
 
@@ -183,6 +187,8 @@ public class BlockRegistry {
 
         RED_MOSS_CARPET = createBlock("red_moss_carpet", new CarpetBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.DARK_RED).strength(0.1F).sounds(BlockSoundGroup.MOSS_CARPET)), ItemGroup.DECORATIONS);
         RED_MOSS_BLOCK = createBlock("red_moss_block", new RedMossBlock(AbstractBlock.Settings.of(Material.MOSS_BLOCK, MapColor.DARK_RED).strength(0.1F).sounds(BlockSoundGroup.MOSS_BLOCK)), ItemGroup.DECORATIONS);
+        BLOOD_MOREL = createBlock("blood_morel", new BloodMorelBlock(FabricBlockSettings.of(Material.REPLACEABLE_PLANT).strength(0.2F).sounds(BlockSoundGroup.WOOD)), ItemGroup.DECORATIONS);
+        DEATH_MOREL = createBlock("death_morel", new DeathMorelBlock(FabricBlockSettings.of(Material.REPLACEABLE_PLANT).strength(0.2F).sounds(BlockSoundGroup.WOOD)), ItemGroup.DECORATIONS);
 
         flammables();
         compostables();
@@ -228,6 +234,8 @@ public class BlockRegistry {
         ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(BLOOD_EBONY_SAPLING.asItem(), 0.3F);
         ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(RED_MOSS_CARPET.asItem(), 0.3F);
         ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(RED_MOSS_BLOCK.asItem(), 0.65F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(BLOOD_MOREL.asItem(), 0.3F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(DEATH_MOREL.asItem(), 0.3F);
     }
 
     private static void fuels() {

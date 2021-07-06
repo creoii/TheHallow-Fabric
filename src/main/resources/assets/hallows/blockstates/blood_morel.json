@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "size=big": { "model": "hallows:block/big_blood_morel" },
+        "size=normal": { "model": "hallows:block/blood_morel" },
+        "size=small": { "model": "hallows:block/small_blood_morel" }
+    }
+}

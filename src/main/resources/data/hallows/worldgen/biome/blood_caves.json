@@ -17,14 +17,13 @@
   "carvers": {
     "air": [
       "minecraft:prototype_cave",
-      "minecraft:prototype_canyon"
+      "minecraft:prototype_canyon",
+      "hallows:necromantle_crack"
     ]
   },
   "features": [
     [],
-    [
-      "minecraft:lake_lava"
-    ],
+    [],
     [],
     [],
     [],
@@ -34,10 +33,7 @@
       "hallows:tenebrite_blobs"
     ],
     [
-      "minecraft:patch_grass_plain",
-      "minecraft:patch_pumpkin",
       "hallows:patch_necrofire",
-      "hallows:patch_deadroot",
       "hallows:patch_candles",
       "hallows:blood_caves_vegetation",
       "hallows:blood_caves_ceiling_vegetation"
@@ -55,27 +51,9 @@
         "maxCount": 4
       },
       {
-        "type": "minecraft:zombie",
-        "weight": 95,
-        "minCount": 4,
-        "maxCount": 4
-      },
-      {
         "type": "minecraft:skeleton",
         "weight": 100,
         "minCount": 4,
-        "maxCount": 4
-      },
-      {
-        "type": "minecraft:slime",
-        "weight": 100,
-        "minCount": 4,
-        "maxCount": 4
-      },
-      {
-        "type": "minecraft:enderman",
-        "weight": 10,
-        "minCount": 1,
         "maxCount": 4
       },
       {
@@ -98,8 +76,8 @@
   "player_spawn_friendly": false,
   "precipitation": "rain",
   "temperature": 0.5,
-  "downfall": 0.75,
-  "category": "none",
-  "depth": -0.2,
-  "scale": 0.1
+  "downfall": 0.5,
+  "category": "underground",
+  "depth": 0.1,
+  "scale": 0.2
 }

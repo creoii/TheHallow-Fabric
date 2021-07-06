@@ -16,8 +16,8 @@
   "surface_builder": "hallows:petrified",
   "carvers": {
     "air": [
-      "minecraft:cave",
-      "minecraft:canyon"
+      "minecraft:prototype_cave",
+      "minecraft:prototype_canyon"
     ]
   },
   "features": [
@@ -36,7 +36,9 @@
     [
       "minecraft:spring_lava",
       "hallows:patch_necrofire",
-      "hallows:patch_candles"
+      "hallows:patch_candles",
+      "hallows:blood_caves_vegetation",
+      "hallows:blood_caves_ceiling_vegetation"
     ],
     []
   ],

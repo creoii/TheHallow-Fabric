@@ -1,0 +1,6 @@
+{
+  "parent": "hallows:block/big_morel",
+  "textures": {
+    "texture": "hallows:block/big_blood_morel"
+  }
+}

@@ -16,8 +16,8 @@
   "surface_builder": "hallows:glacier",
   "carvers": {
     "air": [
-      "minecraft:cave",
-      "minecraft:canyon",
+      "minecraft:prototype_cave",
+      "minecraft:prototype_canyon",
       "hallows:necromantle_crack"
     ]
   },
@@ -38,7 +38,9 @@
       "minecraft:spring_lava",
       "hallows:patch_necrofire",
       "hallows:patch_deadroot",
-      "hallows:patch_candles"
+      "hallows:patch_candles",
+      "hallows:blood_caves_vegetation",
+      "hallows:blood_caves_ceiling_vegetation"
     ],
     []
   ],
