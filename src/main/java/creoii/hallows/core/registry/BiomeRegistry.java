@@ -56,6 +56,9 @@ public class BiomeRegistry {
         generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE);
         generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CANYON);
         generation.carver(GenerationStep.Carver.AIR, CarverRegistry.NECROMANTLE_CRACK_CONFIGURED);
+        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_OPAL);
+        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_SILVER);
+        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_STYGIAN_RUIN);
         generation.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, FeatureRegistry.TENEBRITE_BLOBS);
         generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.TREES_EBONY);
         generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.TREES_BLOOD_EBONY);
@@ -74,6 +77,9 @@ public class BiomeRegistry {
         generation.surfaceBuilder(() -> SurfaceRegistry.HALLOWED);
         generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE);
         generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CANYON);
+        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_OPAL);
+        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_SILVER);
+        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_STYGIAN_RUIN);
         generation.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, FeatureRegistry.TENEBRITE_BLOBS);
         generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.TREES_ASPHODEL);
         generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.PATCH_NECROFIRE);
@@ -92,6 +98,10 @@ public class BiomeRegistry {
         generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE);
         generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CANYON);
         generation.carver(GenerationStep.Carver.AIR, CarverRegistry.NECROMANTLE_CRACK_CONFIGURED);
+        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_OPAL);
+        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_SILVER);
+        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_HALLSTONE_EMERALD);
+        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_STYGIAN_RUIN);
         generation.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, FeatureRegistry.TENEBRITE_BLOBS);
         generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.PATCH_NECROFIRE);
         generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.PATCH_DEADROOT);
@@ -108,6 +118,9 @@ public class BiomeRegistry {
         generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE);
         generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CANYON);
         generation.carver(GenerationStep.Carver.AIR, CarverRegistry.NECROMANTLE_CRACK_CONFIGURED);
+        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_OPAL);
+        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_SILVER);
+        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_STYGIAN_RUIN);
         generation.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, FeatureRegistry.TENEBRITE_BLOBS);
         generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.TREES_ASPHODEL);
         generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.PATCH_NECROFIRE);
@@ -125,6 +138,10 @@ public class BiomeRegistry {
         generation.surfaceBuilder(() -> SurfaceRegistry.PETRIFIED);
         generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE);
         generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CANYON);
+        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_OPAL);
+        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_SILVER);
+        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_HALLSTONE_EMERALD);
+        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_STYGIAN_RUIN);
         generation.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, FeatureRegistry.TENEBRITE_BLOBS);
         generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.PATCH_NECROFIRE);
         generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.PATCH_CANDLES);
@@ -140,6 +157,9 @@ public class BiomeRegistry {
         generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE);
         generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CANYON);
         generation.carver(GenerationStep.Carver.AIR, CarverRegistry.NECROMANTLE_CRACK_CONFIGURED);
+        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_OPAL);
+        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_SILVER);
+        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_STYGIAN_RUIN);
         generation.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, FeatureRegistry.TENEBRITE_BLOBS);
         generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.PATCH_NECROFIRE);
         generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.PATCH_CANDLES);

@@ -22,11 +22,12 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.BlockView;
 
 public class BlockRegistry {
-    public static final Block HALLSTONE = new Block(FabricBlockSettings.of(Material.STONE, MapColor.DIRT_BROWN).strength(1.6F, 7.0F).sounds(BlockSoundGroup.STONE));
+    public static final Block HALLSTONE = new Block(FabricBlockSettings.of(Material.STONE, MapColor.DIRT_BROWN).strength(1.5F, 7.5F).sounds(BlockSoundGroup.STONE));
     public static Block HALLSTONE_SLAB;
     public static Block HALLSTONE_STAIRS;
     public static Block HALLSTONE_WALL;
@@ -100,8 +101,8 @@ public class BlockRegistry {
 
     public static Block EBONY_LOG;
     public static Block STRIPPED_EBONY_LOG;
-    public static Block EBONY_POST;
-    public static Block STRIPPED_EBONY_POST;
+    public static Block EBONY_BRANCH;
+    public static Block STRIPPED_EBONY_BRANCH;
     public static Block EBONY_WOOD;
     public static Block STRIPPED_EBONY_WOOD;
     public static Block EBONY_PLANKS;
@@ -128,7 +129,7 @@ public class BlockRegistry {
     public static Block PETRIFIED_SANDSTONE_STAIRS;
     public static Block PETRIFIED_SANDSTONE_WALL;
 
-    public static Block TENEBRITE = new Block(FabricBlockSettings.of(Material.SOIL, MapColor.GRAY).strength(1.5F, 10.0F).sounds(BlockSoundGroup.STONE));
+    public static Block TENEBRITE = new Block(FabricBlockSettings.of(Material.SOIL, MapColor.GRAY).strength(1.75F, 10.0F).sounds(BlockSoundGroup.STONE));
     public static Block TENEBRITE_SLAB;
     public static Block TENEBRITE_STAIRS;
     public static Block TENEBRITE_WALL;
@@ -153,7 +154,7 @@ public class BlockRegistry {
         POLISHED_HALLSTONE = createBlock("polished_hallstone", new Block(FabricBlockSettings.copy(HALLSTONE)), ItemGroup.BUILDING_BLOCKS);
 
         createBlock("hallowed_dirt", HALLOWED_DIRT, ItemGroup.BUILDING_BLOCKS);
-        DEADROOT = createBlock("deadroot", new DeadrootBlock(FabricBlockSettings.copy(Blocks.CRIMSON_ROOTS)), ItemGroup.BUILDING_BLOCKS);
+        DEADROOT = createBlock("deadroot", new DeadrootBlock(FabricBlockSettings.copy(Blocks.CRIMSON_ROOTS)), ItemGroup.DECORATIONS);
 
         NECROFIRE = createBlock("necrofire", new NecrofireBlock(FabricBlockSettings.copy(Blocks.FIRE)), null);
 
@@ -169,8 +170,8 @@ public class BlockRegistry {
 
         STRIPPED_EBONY_LOG = createBlock("stripped_ebony_log", new PillarBlock(FabricBlockSettings.of(Material.WOOD, MapColor.TERRACOTTA_BLACK).strength(2.0F).sounds(BlockSoundGroup.WOOD)), ItemGroup.BUILDING_BLOCKS);
         EBONY_LOG = createBlock("ebony_log", new LogBlock(STRIPPED_EBONY_LOG, FabricBlockSettings.of(Material.WOOD, MapColor.TERRACOTTA_BLACK).strength(2.0F).sounds(BlockSoundGroup.WOOD)), ItemGroup.BUILDING_BLOCKS);
-        STRIPPED_EBONY_POST = createBlock("stripped_ebony_post", new PostBlock(null, FabricBlockSettings.of(Material.WOOD).strength(2.0F).sounds(BlockSoundGroup.WOOD)), ItemGroup.DECORATIONS);
-        EBONY_POST = createBlock("ebony_post", new PostBlock(STRIPPED_EBONY_POST, FabricBlockSettings.copy(STRIPPED_EBONY_POST)), ItemGroup.DECORATIONS);
+        STRIPPED_EBONY_BRANCH = createBlock("stripped_ebony_branch", new PostBlock(null, FabricBlockSettings.of(Material.WOOD).strength(2.0F).sounds(BlockSoundGroup.WOOD)), ItemGroup.DECORATIONS);
+        EBONY_BRANCH = createBlock("ebony_branch", new PostBlock(STRIPPED_EBONY_BRANCH, FabricBlockSettings.copy(STRIPPED_EBONY_BRANCH)), ItemGroup.DECORATIONS);
         EBONY_PLANKS = createBlock("ebony_planks", new Block(FabricBlockSettings.of(Material.WOOD, MapColor.BLACK).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD)), ItemGroup.BUILDING_BLOCKS);
         EBONY_LEAVES = createBlock("ebony_leaves", new Block(FabricBlockSettings.of(Material.LEAVES).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).allowsSpawning(BlockRegistry::canSpawnOnLeaves).suffocates(BlockRegistry::never).blockVision(BlockRegistry::never)), ItemGroup.BUILDING_BLOCKS);
         BLOOD_EBONY_LEAVES = createBlock("blood_ebony_leaves", new Block(FabricBlockSettings.of(Material.LEAVES).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).allowsSpawning(BlockRegistry::canSpawnOnLeaves).suffocates(BlockRegistry::never).blockVision(BlockRegistry::never)), ItemGroup.BUILDING_BLOCKS);
@@ -189,6 +190,11 @@ public class BlockRegistry {
         RED_MOSS_BLOCK = createBlock("red_moss_block", new RedMossBlock(AbstractBlock.Settings.of(Material.MOSS_BLOCK, MapColor.DARK_RED).strength(0.1F).sounds(BlockSoundGroup.MOSS_BLOCK)), ItemGroup.DECORATIONS);
         BLOOD_MOREL = createBlock("blood_morel", new BloodMorelBlock(FabricBlockSettings.of(Material.REPLACEABLE_PLANT).strength(0.2F).sounds(BlockSoundGroup.WOOD)), ItemGroup.DECORATIONS);
         DEATH_MOREL = createBlock("death_morel", new DeathMorelBlock(FabricBlockSettings.of(Material.REPLACEABLE_PLANT).strength(0.2F).sounds(BlockSoundGroup.WOOD)), ItemGroup.DECORATIONS);
+
+        SILVER_ORE = createBlock("silver_ore", new OreBlock(FabricBlockSettings.copy(HALLSTONE).requiresTool().strength(3.0F, 7.5F)), ItemGroup.BUILDING_BLOCKS);
+        OPAL_ORE = createBlock("opal_ore", new OreBlock(FabricBlockSettings.copy(HALLSTONE).requiresTool().strength(3.0F, 7.5F), UniformIntProvider.create(3, 7)), ItemGroup.BUILDING_BLOCKS);
+        HALLSTONE_EMERALD_ORE = createBlock("hallstone_emerald_ore", new OreBlock(FabricBlockSettings.copy(HALLSTONE).requiresTool().strength(3.0F, 7.5F), UniformIntProvider.create(3, 7)), ItemGroup.BUILDING_BLOCKS);
+        STYGIAN_RUIN = createBlock("stygian_ruin", new Block(FabricBlockSettings.copy(Blocks.ANCIENT_DEBRIS).requiresTool()), ItemGroup.BUILDING_BLOCKS);
 
         flammables();
         compostables();

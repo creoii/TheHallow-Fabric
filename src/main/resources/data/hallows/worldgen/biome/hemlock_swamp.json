@@ -29,7 +29,11 @@
     [],
     [],
     [],
-    [],
+    [
+      "hallows:ore_opal",
+      "hallows:ore_silver",
+      "hallows:ore_stygian_ruin"
+    ],
     [
       "hallows:tenebrite_blobs"
     ],

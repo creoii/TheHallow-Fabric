@@ -10,6 +10,7 @@ public class Hallows implements ModInitializer, ClientModInitializer {
 	@Override
 	public void onInitialize() {
 		BlockRegistry.register();
+		ItemRegistry.register();
 		SurfaceRegistry.register();
 		CarverRegistry.register();
 		FeatureRegistry.register();
