@@ -19,7 +19,6 @@ public class BiomeRegistry {
     public static Biome PUMPKIN_VALLEY;
     public static Biome PETRIFIED_SANDS;
     public static Biome PETRIFIED_BONEYARD;
-    public static Biome BLOOD_CAVES;
 
     public static final RegistryKey<Biome> HANGING_WOODS_KEY = RegistryKey.of(Registry.BIOME_KEY, new Identifier(Hallows.MOD_ID, "hanging_woods"));
     public static final RegistryKey<Biome> HEMLOCK_SWAMP_KEY = RegistryKey.of(Registry.BIOME_KEY, new Identifier(Hallows.MOD_ID, "hemlock_swamp"));
@@ -28,7 +27,6 @@ public class BiomeRegistry {
     public static final RegistryKey<Biome> PUMPKIN_VALLEY_KEY = RegistryKey.of(Registry.BIOME_KEY, new Identifier(Hallows.MOD_ID, "pumpkin_valley"));
     public static final RegistryKey<Biome> PETRIFIED_SANDS_KEY = RegistryKey.of(Registry.BIOME_KEY, new Identifier(Hallows.MOD_ID, "petrified_sands"));
     public static final RegistryKey<Biome> PETRIFIED_BONEYARD_KEY = RegistryKey.of(Registry.BIOME_KEY, new Identifier(Hallows.MOD_ID, "petrified_boneyard"));
-    public static final RegistryKey<Biome> BLOOD_CAVES_KEY = RegistryKey.of(Registry.BIOME_KEY, new Identifier(Hallows.MOD_ID, "blood_caves"));
 
     public static void register() {
         HANGING_WOODS = createHangingWoods();
@@ -38,7 +36,6 @@ public class BiomeRegistry {
         PUMPKIN_VALLEY = createPerishedValley(true);
         PETRIFIED_SANDS = createPetrifiedSands(false);
         PETRIFIED_BONEYARD = createPetrifiedSands(true);
-        BLOOD_CAVES = createBloodCaves();
         Registry.register(BuiltinRegistries.BIOME, HANGING_WOODS_KEY.getValue(), HANGING_WOODS);
         Registry.register(BuiltinRegistries.BIOME, HEMLOCK_SWAMP_KEY.getValue(), HEMLOCK_SWAMP);
         Registry.register(BuiltinRegistries.BIOME, NECROTIC_GLACIERS_KEY.getValue(), NECROTIC_GLACIERS);
@@ -46,7 +43,6 @@ public class BiomeRegistry {
         Registry.register(BuiltinRegistries.BIOME, PUMPKIN_VALLEY_KEY.getValue(), PUMPKIN_VALLEY);
         Registry.register(BuiltinRegistries.BIOME, PETRIFIED_SANDS_KEY.getValue(), PETRIFIED_SANDS);
         Registry.register(BuiltinRegistries.BIOME, PETRIFIED_BONEYARD_KEY.getValue(), PETRIFIED_BONEYARD);
-        Registry.register(BuiltinRegistries.BIOME, BLOOD_CAVES_KEY.getValue(), BLOOD_CAVES);
     }
 
     private static Biome createHangingWoods() {
@@ -148,23 +144,5 @@ public class BiomeRegistry {
         generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.BLOOD_CAVES_CEILING_VEGETATION);
         generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.BLOOD_CAVES_VEGETATION);
         return new Biome.Builder().precipitation(Biome.Precipitation.RAIN).category(Biome.Category.NONE).depth(0.1F).scale(0.2F).temperature(0.75F).downfall(0.0F).effects(new BiomeEffects.Builder().waterColor(5001581).waterFogColor(8620438).fogColor(0xc0d8ff).grassColor(9470298).foliageColor(10387802).skyColor(4210816).particleConfig(new BiomeParticleConfig(ParticleTypes.WHITE_ASH, 0.01F)).build()).spawnSettings(spawns.build()).generationSettings(generation.build()).build();
-    }
-
-    public static Biome createBloodCaves() {
-        SpawnSettings.Builder spawns = new SpawnSettings.Builder();
-        GenerationSettings.Builder generation = new GenerationSettings.Builder();
-        generation.surfaceBuilder(() -> SurfaceRegistry.HALLOWED);
-        generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE);
-        generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CANYON);
-        generation.carver(GenerationStep.Carver.AIR, CarverRegistry.NECROMANTLE_CRACK_CONFIGURED);
-        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_OPAL);
-        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_SILVER);
-        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_STYGIAN_RUIN);
-        generation.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, FeatureRegistry.TENEBRITE_BLOBS);
-        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.PATCH_NECROFIRE);
-        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.PATCH_CANDLES);
-        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.BLOOD_CAVES_CEILING_VEGETATION);
-        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.BLOOD_CAVES_VEGETATION);
-        return new Biome.Builder().precipitation(Biome.Precipitation.RAIN).category(Biome.Category.UNDERGROUND).depth(0.1F).scale(0.25F).temperature(0.25F).downfall(0.5F).effects(new BiomeEffects.Builder().waterColor(5001581).waterFogColor(8620438).fogColor(0xc0d8ff).grassColor(9470298).foliageColor(10387802).skyColor(4210816).particleConfig(new BiomeParticleConfig(ParticleTypes.WHITE_ASH, 0.01F)).build()).spawnSettings(spawns.build()).generationSettings(generation.build()).build();
     }
 }
