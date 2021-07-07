@@ -153,7 +153,6 @@ public class NecromantleCrackCarver extends Carver<RavineCarverConfig> {
     }
 
     private boolean isPositionExcluded(CarverContext context, float[] horizontalStretchFactors, double scaledRelativeX, double scaledRelativeY, double scaledRelativeZ, int y) {
-        int i = y - context.getMinY();
-        return (scaledRelativeX * scaledRelativeX + scaledRelativeZ * scaledRelativeZ) * (double)horizontalStretchFactors[i - 1] + scaledRelativeY * scaledRelativeY / 6.0D >= 1.0D;
+        return (scaledRelativeX * scaledRelativeX + scaledRelativeZ * scaledRelativeZ) * (double)horizontalStretchFactors[y - context.getMinY() - 1] + scaledRelativeY * scaledRelativeY / 6.0D >= 1.0D;
     }
 }
