@@ -29,26 +29,36 @@ import java.util.Map;
 import java.util.Random;
 
 public class PetrifiedPyramidGenerator {
+    private static final Identifier TOP_TALL_CORNERS_PIECE = new Identifier(Hallows.MOD_ID, "petrified_pyramid/top/tall_corners");
+    private static final Identifier TOP_CORNERS_PIECE = new Identifier(Hallows.MOD_ID, "petrified_pyramid/top/corners");
+    private static final Identifier TOP_SHORT_CORNERS_PIECE = new Identifier(Hallows.MOD_ID, "petrified_pyramid/top/short_corners");
     private static final Identifier PYRAMID_PIECE = new Identifier(Hallows.MOD_ID, "petrified_pyramid/pyramid");
     private static final Identifier INNER_PIECE = new Identifier(Hallows.MOD_ID, "petrified_pyramid/inner");
     private static final Identifier TALL_PYRAMID_PIECE = new Identifier(Hallows.MOD_ID, "petrified_pyramid/tall_pyramid");
     private static final Identifier TALL_INNER_PIECE = new Identifier(Hallows.MOD_ID, "petrified_pyramid/tall_inner");
     private static final Identifier TOMB_PIECE = new Identifier(Hallows.MOD_ID, "petrified_pyramid/tomb");
-    private static final Map<Identifier, BlockPos> OFFSETS_FROM_TOP = ImmutableMap.of(PYRAMID_PIECE, BlockPos.ORIGIN, INNER_PIECE, BlockPos.ORIGIN, TALL_PYRAMID_PIECE, BlockPos.ORIGIN, TALL_INNER_PIECE, BlockPos.ORIGIN, TOMB_PIECE, new BlockPos(0, -5, 0));
 
     public static void addPieces(StructureManager manager, BlockPos pos, BlockRotation rotation, StructurePiecesHolder pieces, Random random) {
+        Identifier top;
+        int i = random.nextInt(3);
+        if (i == 0) top = TOP_TALL_CORNERS_PIECE;
+        else if (i == 1) top = TOP_CORNERS_PIECE;
+        else top = TOP_SHORT_CORNERS_PIECE;
+
         if (random.nextBoolean()) {
-            pieces.addPiece(new Piece(manager, PYRAMID_PIECE, pos, rotation, 0));
-            pieces.addPiece(new Piece(manager, INNER_PIECE, pos, rotation, 0));
+            pieces.addPiece(new Piece(manager, top, rotation, new BlockPos(8, 9, 8)));
+            pieces.addPiece(new Piece(manager, PYRAMID_PIECE, rotation, BlockPos.ORIGIN));
+            pieces.addPiece(new Piece(manager, INNER_PIECE, rotation, BlockPos.ORIGIN));
         } else {
-            pieces.addPiece(new Piece(manager, TALL_PYRAMID_PIECE, pos, rotation, 0));
-            pieces.addPiece(new Piece(manager, TALL_INNER_PIECE, pos, rotation, 0));
+            pieces.addPiece(new Piece(manager, top, rotation, new BlockPos(5, 12, 5)));
+            pieces.addPiece(new Piece(manager, TALL_PYRAMID_PIECE, rotation, BlockPos.ORIGIN));
+            pieces.addPiece(new Piece(manager, TALL_INNER_PIECE, rotation, BlockPos.ORIGIN));
         }
     }
 
     public static class Piece extends SimpleStructurePiece {
-        public Piece(StructureManager manager, Identifier identifier, BlockPos pos, BlockRotation rotation, int yOffset) {
-            super(StructureRegistry.PETRIFIED_PYRAMID_PIECE, 0, manager, identifier, identifier.toString(), createPlacementData(rotation, identifier), getPosOffset(identifier, pos, yOffset));
+        public Piece(StructureManager manager, Identifier identifier, BlockRotation rotation, BlockPos offset) {
+            super(StructureRegistry.PETRIFIED_PYRAMID_PIECE, 0, manager, identifier, identifier.toString(), createPlacementData(rotation, identifier), BlockPos.ORIGIN.add(offset));
         }
 
         public Piece(ServerWorld world, NbtCompound nbt) {
@@ -59,10 +69,6 @@ public class PetrifiedPyramidGenerator {
 
         private static StructurePlacementData createPlacementData(BlockRotation rotation, Identifier identifier) {
             return (new StructurePlacementData()).setRotation(rotation).setMirror(BlockMirror.NONE).addProcessor(BlockIgnoreStructureProcessor.IGNORE_STRUCTURE_BLOCKS);
-        }
-
-        private static BlockPos getPosOffset(Identifier identifier, BlockPos pos, int yOffset) {
-            return pos.add(OFFSETS_FROM_TOP.get(identifier)).down(yOffset);
         }
 
         protected void writeNbt(ServerWorld world, NbtCompound nbt) {
@@ -83,8 +89,7 @@ public class PetrifiedPyramidGenerator {
         public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox boundingBox, ChunkPos chunkPos, BlockPos pos) {
             Identifier identifier = new Identifier(this.identifier);
             StructurePlacementData structurePlacementData = createPlacementData(this.placementData.getRotation(), identifier);
-            BlockPos blockPos = OFFSETS_FROM_TOP.get(identifier);
-            BlockPos blockPos2 = this.pos.add(Structure.transform(structurePlacementData, new BlockPos(3 - blockPos.getX(), 0, -blockPos.getZ())));
+            BlockPos blockPos2 = this.pos.add(Structure.transform(structurePlacementData, new BlockPos(3, 0, 0)));
             int i = world.getTopY(Heightmap.Type.WORLD_SURFACE_WG, blockPos2.getX(), blockPos2.getZ());
             BlockPos blockPos3 = this.pos;
             this.pos = this.pos.add(0, i - 90 - 1, 0);
