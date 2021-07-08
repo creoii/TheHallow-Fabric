@@ -73,6 +73,7 @@ public class FeatureRegistry {
     public static final ConfiguredFeature<?, ?> ORE_STYGIAN_RUIN = Feature.SCATTERED_ORE.configure(new OreFeatureConfig(ImmutableList.of(OreFeatureConfig.createTarget(new TagMatchRuleTest(BlockTags.BASE_STONE_OVERWORLD), BlockRegistry.HALLSTONE_EMERALD_ORE.getDefaultState())), 4, 0.5F)).uniformRange(YOffset.getBottom(), YOffset.fixed(24)).spreadHorizontally();
     public static final ConfiguredFeature<?, ?> LARGE_PUMPKIN = HUGE_PUMPKIN.configure(new HugePumpkinFeatureConfig(3)).decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.OCEAN_FLOOR)).decorate(Decorator.WATER_DEPTH_THRESHOLD.configure(new WaterDepthThresholdDecoratorConfig(0))).spreadHorizontally().decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(0, 0.33F, 1))));
     public static final ConfiguredFeature<?, ?> SMALL_PUMPKIN = HUGE_PUMPKIN.configure(new HugePumpkinFeatureConfig(1)).decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.OCEAN_FLOOR)).decorate(Decorator.WATER_DEPTH_THRESHOLD.configure(new WaterDepthThresholdDecoratorConfig(0))).spreadHorizontally().decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(0, 0.33F, 1))));
+    public static final ConfiguredFeature<?, ?> PETRIFIED_SANDSTONE_ROCK = Feature.FOREST_ROCK.configure(new SingleStateFeatureConfig(BlockRegistry.PETRIFIED_SANDSTONE.getDefaultState())).decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)).spreadHorizontally()).repeatRandomly(2);
 
     public static void register() {
         Registry.register(Registry.FEATURE, new Identifier(Hallows.MOD_ID, "huge_pumpkin"), HUGE_PUMPKIN);
@@ -102,5 +103,6 @@ public class FeatureRegistry {
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "ore_stygian_ruin"), ORE_STYGIAN_RUIN);
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "large_pumpkin"), LARGE_PUMPKIN);
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "small_pumpkin"), SMALL_PUMPKIN);
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "petrified_sandstone_rock"), PETRIFIED_SANDSTONE_ROCK);
     }
 }

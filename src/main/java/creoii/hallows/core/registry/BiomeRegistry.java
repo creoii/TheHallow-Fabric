@@ -139,6 +139,7 @@ public class BiomeRegistry {
         generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE);
         generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CANYON);
         generation.structureFeature(StructureRegistry.PETRIFIED_PYRAMID);
+        generation.feature(GenerationStep.Feature.LOCAL_MODIFICATIONS, FeatureRegistry.PETRIFIED_SANDSTONE_ROCK);
         generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_OPAL);
         generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_SILVER);
         generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_HALLSTONE_EMERALD);

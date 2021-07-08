@@ -25,7 +25,9 @@
     [
       "minecraft:lake_lava"
     ],
-    [],
+    [
+      "hallows:petrified_sandstone_rock"
+    ],
     [],
     [],
     [],

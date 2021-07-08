@@ -2,9 +2,7 @@ package creoii.hallows.common.world.structure;
 
 import com.google.common.collect.ImmutableMap;
 import creoii.hallows.core.Hallows;
-import creoii.hallows.core.registry.BlockRegistry;
 import creoii.hallows.core.registry.StructureRegistry;
-import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.ChestBlockEntity;
@@ -16,6 +14,7 @@ import net.minecraft.structure.processor.BlockIgnoreStructureProcessor;
 import net.minecraft.util.BlockMirror;
 import net.minecraft.util.BlockRotation;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Util;
 import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
@@ -25,35 +24,22 @@ import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.StructureAccessor;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 
-import java.util.Map;
 import java.util.Random;
 
 public class PetrifiedPyramidGenerator {
-    private static final Identifier TOP_TALL_CORNERS_PIECE = new Identifier(Hallows.MOD_ID, "petrified_pyramid/top/tall_corners");
-    private static final Identifier TOP_CORNERS_PIECE = new Identifier(Hallows.MOD_ID, "petrified_pyramid/top/corners");
-    private static final Identifier TOP_SHORT_CORNERS_PIECE = new Identifier(Hallows.MOD_ID, "petrified_pyramid/top/short_corners");
-    private static final Identifier PYRAMID_PIECE = new Identifier(Hallows.MOD_ID, "petrified_pyramid/pyramid");
-    private static final Identifier INNER_PIECE = new Identifier(Hallows.MOD_ID, "petrified_pyramid/inner");
-    private static final Identifier TALL_PYRAMID_PIECE = new Identifier(Hallows.MOD_ID, "petrified_pyramid/tall_pyramid");
-    private static final Identifier TALL_INNER_PIECE = new Identifier(Hallows.MOD_ID, "petrified_pyramid/tall_inner");
     private static final Identifier TOMB_PIECE = new Identifier(Hallows.MOD_ID, "petrified_pyramid/tomb");
 
-    public static void addPieces(StructureManager manager, BlockPos pos, BlockRotation rotation, StructurePiecesHolder pieces, Random random) {
-        Identifier top;
-        int i = random.nextInt(3);
-        if (i == 0) top = TOP_TALL_CORNERS_PIECE;
-        else if (i == 1) top = TOP_CORNERS_PIECE;
-        else top = TOP_SHORT_CORNERS_PIECE;
+    private static final Identifier[] TOPS = new Identifier[]{new Identifier(Hallows.MOD_ID, "petrified_pyramid/top/tall_corners"), new Identifier(Hallows.MOD_ID, "petrified_pyramid/top/corners"), new Identifier(Hallows.MOD_ID, "petrified_pyramid/top/short_corners")};
+    private static final Identifier[] PYRAMIDS = new Identifier[]{new Identifier(Hallows.MOD_ID, "petrified_pyramid/pyramid"), new Identifier(Hallows.MOD_ID, "petrified_pyramid/tall_pyramid")};
+    private static final Identifier[] INNERS = new Identifier[]{new Identifier(Hallows.MOD_ID, "petrified_pyramid/inner"), new Identifier(Hallows.MOD_ID, "petrified_pyramid/tall_inner")};
 
-        if (random.nextBoolean()) {
-            pieces.addPiece(new Piece(manager, top, rotation, new BlockPos(8, 9, 8)));
-            pieces.addPiece(new Piece(manager, PYRAMID_PIECE, rotation, BlockPos.ORIGIN));
-            pieces.addPiece(new Piece(manager, INNER_PIECE, rotation, BlockPos.ORIGIN));
-        } else {
-            pieces.addPiece(new Piece(manager, top, rotation, new BlockPos(5, 12, 5)));
-            pieces.addPiece(new Piece(manager, TALL_PYRAMID_PIECE, rotation, BlockPos.ORIGIN));
-            pieces.addPiece(new Piece(manager, TALL_INNER_PIECE, rotation, BlockPos.ORIGIN));
-        }
+    public static void addPieces(StructureManager manager, BlockPos pos, BlockRotation rotation, StructurePiecesHolder pieces, Random random) {
+        int index = random.nextInt(PYRAMIDS.length);
+        pieces.addPiece(new Piece(manager, PYRAMIDS[index], rotation, pos));
+        pieces.addPiece(new Piece(manager, INNERS[index], rotation, pos));
+
+        BlockPos topOffset = index == 0 ? new BlockPos(-8, 9, 8) : new BlockPos(-5, 12, 5);
+        pieces.addPiece(new Piece(manager, Util.getRandom(TOPS, random), rotation, pos.add(topOffset)));
     }
 
     public static class Piece extends SimpleStructurePiece {
@@ -89,10 +75,10 @@ public class PetrifiedPyramidGenerator {
         public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox boundingBox, ChunkPos chunkPos, BlockPos pos) {
             Identifier identifier = new Identifier(this.identifier);
             StructurePlacementData structurePlacementData = createPlacementData(this.placementData.getRotation(), identifier);
-            BlockPos blockPos2 = this.pos.add(Structure.transform(structurePlacementData, new BlockPos(3, 0, 0)));
-            int i = world.getTopY(Heightmap.Type.WORLD_SURFACE_WG, blockPos2.getX(), blockPos2.getZ());
+            BlockPos blockPos = BlockPos.ORIGIN;
+            BlockPos blockPos2 = this.pos.add(Structure.transform(structurePlacementData, new BlockPos(3 - blockPos.getX(), 0, -blockPos.getZ())));
             BlockPos blockPos3 = this.pos;
-            this.pos = this.pos.add(0, i - 90 - 1, 0);
+            this.pos = this.pos.add(0, world.getTopY(Heightmap.Type.WORLD_SURFACE_WG, blockPos2.getX(), blockPos2.getZ()) - 91, 0);
             boolean bl = super.generate(world, structureAccessor, chunkGenerator, random, boundingBox, chunkPos, pos);
             this.pos = blockPos3;
             return bl;
