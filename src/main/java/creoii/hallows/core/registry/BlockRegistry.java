@@ -8,6 +8,7 @@ import creoii.hallows.common.world.sapling.AsphodelSaplingGenerator;
 import creoii.hallows.common.world.sapling.BloodEbonySaplingGenerator;
 import creoii.hallows.common.world.sapling.EbonySaplingGenerator;
 import creoii.hallows.core.Hallows;
+import creoii.hallows.core.util.Tags;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
@@ -123,7 +124,7 @@ public class BlockRegistry {
     public static Block EBONY_DOOR;
     public static Block EBONY_TRAPDOOR;
 
-    public static Block PETRIFIED_SAND = new Block(FabricBlockSettings.of(Material.AGGREGATE, MapColor.SPRUCE_BROWN).strength(0.5F).sounds(BlockSoundGroup.SAND));
+    public static Block PETRIFIED_SAND = new SandBlock(6377538, FabricBlockSettings.of(Material.AGGREGATE, MapColor.SPRUCE_BROWN).strength(0.5F).sounds(BlockSoundGroup.SAND));
     public static Block PETRIFIED_SANDSTONE = new Block(FabricBlockSettings.of(Material.STONE, MapColor.SPRUCE_BROWN).strength(1.0F));
     public static Block PETRIFIED_SANDSTONE_SLAB;
     public static Block PETRIFIED_SANDSTONE_STAIRS;
@@ -148,6 +149,8 @@ public class BlockRegistry {
     public static Block TALL_CANDLE;
 
     public static Block PUMPKIN_PLANKS;
+
+    public static Block COBWEB_CARPET;
 
     public static void register() {
         createBlock("hallstone", HALLSTONE, ItemGroup.BUILDING_BLOCKS);
@@ -196,6 +199,8 @@ public class BlockRegistry {
         HALLSTONE_EMERALD_ORE = createBlock("hallstone_emerald_ore", new OreBlock(FabricBlockSettings.copy(HALLSTONE).requiresTool().strength(3.0F, 7.5F), UniformIntProvider.create(3, 7)), ItemGroup.BUILDING_BLOCKS);
         STYGIAN_RUIN = createBlock("stygian_ruin", new Block(FabricBlockSettings.copy(Blocks.ANCIENT_DEBRIS).requiresTool()), ItemGroup.BUILDING_BLOCKS);
 
+        COBWEB_CARPET = createBlock("cobweb_carpet", new CobwebCarpetBlock(AbstractBlock.Settings.copy(Blocks.WHITE_CARPET)), ItemGroup.DECORATIONS);
+
         flammables();
         compostables();
         fuels();
@@ -216,7 +221,8 @@ public class BlockRegistry {
                 EBONY_SAPLING,
                 BLOOD_EBONY_SAPLING,
                 HANGING_EBONY_LEAVES,
-                HANGING_BLOOD_EBONY_LEAVES
+                HANGING_BLOOD_EBONY_LEAVES,
+                COBWEB_CARPET
         );
     }
 

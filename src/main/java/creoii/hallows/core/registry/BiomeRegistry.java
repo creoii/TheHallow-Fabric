@@ -125,6 +125,10 @@ public class BiomeRegistry {
         generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.PATCH_CANDLES);
         generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.BLOOD_CAVES_CEILING_VEGETATION);
         generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.BLOOD_CAVES_VEGETATION);
+        if (pumpkified) {
+            generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.LARGE_PUMPKIN);
+            generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.SMALL_PUMPKIN);
+        }
         return new Biome.Builder().precipitation(Biome.Precipitation.RAIN).category(Biome.Category.NONE).depth(0.1F).scale(0.2F).temperature(0.5F).downfall(0.5F).effects(new BiomeEffects.Builder().waterColor(5001581).waterFogColor(8620438).fogColor(0xc0d8ff).grassColor(9470298).foliageColor(10387802).skyColor(4210816).particleConfig(new BiomeParticleConfig(ParticleTypes.WHITE_ASH, 0.01F)).build()).spawnSettings(spawns.build()).generationSettings(generation.build()).build();
     }
 
@@ -134,6 +138,7 @@ public class BiomeRegistry {
         generation.surfaceBuilder(() -> SurfaceRegistry.PETRIFIED);
         generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE);
         generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CANYON);
+        generation.structureFeature(StructureRegistry.PETRIFIED_PYRAMID);
         generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_OPAL);
         generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_SILVER);
         generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_HALLSTONE_EMERALD);

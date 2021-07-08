@@ -47,7 +47,9 @@
       "hallows:patch_pumpkin_dense",
       "hallows:patch_candles",
       "hallows:blood_caves_vegetation",
-      "hallows:blood_caves_ceiling_vegetation"
+      "hallows:blood_caves_ceiling_vegetation",
+      "hallows:large_pumpkin",
+      "hallows:small_pumpkin"
     ],
     []
   ],

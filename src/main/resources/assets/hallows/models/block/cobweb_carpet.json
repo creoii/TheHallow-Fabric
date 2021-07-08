@@ -1,0 +1,23 @@
+{
+  "ambientocclusion": false,
+  "textures": {
+    "particle": "block/cobweb",
+    "web": "block/cobweb"
+  },
+  "elements": [
+    {
+      "from": [0, 0, 0.1],
+      "to": [16, 16, 0.1],
+      "faces": {
+        "north": {
+          "uv": [16, 0, 0, 16],
+          "texture": "#web"
+        },
+        "south": {
+          "uv": [0, 0, 16, 16],
+          "texture": "#web"
+        }
+      }
+    }
+  ]
+}
