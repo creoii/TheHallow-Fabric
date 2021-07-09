@@ -52,7 +52,12 @@ public class AnointingScreenHandler extends ScreenHandler {
         this.recipes = this.world.getRecipeManager().listAllOfType(RecipeRegistry.ANOINTING_TYPE);
         this.addSlot(new Slot(this.input, 0, 27, 39));
         this.addSlot(new Slot(this.input, 1, 76, 39));
-        this.addSlot(new Slot(this.input, 2, 76, 59));
+        this.addSlot(new Slot(this.input, 2, 76, 59) {
+            @Override
+            public boolean canInsert(ItemStack stack) {
+                return stack.getItem() == ItemRegistry.WITCH_BREW;
+            }
+        });
         this.addSlot(new Slot(this.output, 3, 134, 39) {
             public boolean canInsert(ItemStack stack) {
                 return false;
@@ -107,7 +112,7 @@ public class AnointingScreenHandler extends ScreenHandler {
         this.decrease(2);
         this.context.run((world, blockPos) -> {
             world.syncWorldEvent(1044, blockPos, 0);
-        });
+        this.context.run((world, blockPos) -> world.syncWorldEvent(1044, blockPos, 0));
     }
 
     private void decrease(int index) {
@@ -118,9 +123,8 @@ public class AnointingScreenHandler extends ScreenHandler {
 
     public void updateResult() {
         List<AnointingRecipe> list = this.world.getRecipeManager().getAllMatches(RecipeRegistry.ANOINTING_TYPE, this.input, this.world);
-        if (list.isEmpty()) {
-            this.output.setStack(0, ItemStack.EMPTY);
-        } else {
+        if (list.isEmpty()) this.output.setStack(0, ItemStack.EMPTY);
+        else {
             this.recipe = list.get(0);
             EntityAttribute attribute = this.recipe.getAttribute();
             if (attribute == EntityAttributes.GENERIC_FLYING_SPEED ||
@@ -179,20 +183,20 @@ public class AnointingScreenHandler extends ScreenHandler {
         if (slot != null && slot.hasStack()) {
             ItemStack itemStack2 = slot.getStack();
             itemStack = itemStack2.copy();
-            if (index == 2) {
-                if (!this.insertItem(itemStack2, 3, 39, true)) {
+            if (index == 3) {
+                if (!this.insertItem(itemStack2, 4, 40, true)) {
                     return ItemStack.EMPTY;
                 }
 
                 slot.onQuickTransfer(itemStack2, itemStack);
-            } else if (index != 0 && index != 1) {
-                if (index >= 3 && index < 39) {
+            } else if (index != 0 && index != 1 && index != 2) {
+                if (index >= 4 && index < 40) {
                     int i = this.method_30025(itemStack) ? 1 : 0;
-                    if (!this.insertItem(itemStack2, i, 2, false)) {
+                    if (!this.insertItem(itemStack2, i, 3, false)) {
                         return ItemStack.EMPTY;
                     }
                 }
-            } else if (!this.insertItem(itemStack2, 3, 39, false)) {
+            } else if (!this.insertItem(itemStack2, 4, 40, false)) {
                 return ItemStack.EMPTY;
             }
 
