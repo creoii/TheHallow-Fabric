@@ -6,9 +6,6 @@
   "anointment": {
     "item": "minecraft:emerald"
   },
-  "result": {
-    "item": "minecraft:diamond_axe"
-  },
   "attribute": {
     "attribute": "minecraft:generic.attack_speed"
   }

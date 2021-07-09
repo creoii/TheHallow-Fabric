@@ -3,6 +3,7 @@ package creoii.hallows.common.recipe;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonSyntaxException;
+import creoii.hallows.core.registry.ItemRegistry;
 import creoii.hallows.core.registry.RecipeRegistry;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.inventory.Inventory;
@@ -89,24 +90,23 @@ public class AnointingRecipe implements Recipe<Inventory> {
 
         public AnointingRecipe read(Identifier identifier, JsonObject json) {
             Ingredient base = Ingredient.fromJson(JsonHelper.getObject(json, "base"));
+            ItemStack result = ShapedRecipe.outputFromJson(JsonHelper.getObject(json, "base"));
             Ingredient anointment = Ingredient.fromJson(JsonHelper.getObject(json, "anointment"));
-            ItemStack itemStack = ShapedRecipe.outputFromJson(JsonHelper.getObject(json, "result"));
             EntityAttribute attribute = deserializeAttribute(JsonHelper.getObject(json, "attribute"));
-            return new AnointingRecipe(identifier, base, anointment, Ingredient.ofStacks(new ItemStack(Items.HONEY_BOTTLE)), itemStack, attribute);
+            return new AnointingRecipe(identifier, base, anointment, Ingredient.ofStacks(new ItemStack(ItemRegistry.WITCH_BREW)), result, attribute);
         }
 
         public AnointingRecipe read(Identifier identifier, PacketByteBuf buffer) {
             Ingredient base = Ingredient.fromPacket(buffer);
+            ItemStack result = buffer.readItemStack();
             Ingredient anointment = Ingredient.fromPacket(buffer);
-            ItemStack itemStack = buffer.readItemStack();
             EntityAttribute attribute = Registry.ATTRIBUTE.get(new Identifier(buffer.readString()));
-            return new AnointingRecipe(identifier, base, anointment, Ingredient.ofStacks(new ItemStack(Items.HONEY_BOTTLE)), itemStack, attribute);
+            return new AnointingRecipe(identifier, base, anointment, Ingredient.ofStacks(new ItemStack(ItemRegistry.WITCH_BREW)), result, attribute);
         }
 
         public void write(PacketByteBuf packetByteBuf, AnointingRecipe recipe) {
             recipe.base.write(packetByteBuf);
             recipe.anointment.write(packetByteBuf);
-            packetByteBuf.writeItemStack(recipe.result);
         }
 
         public static EntityAttribute deserializeAttribute(JsonObject json) {

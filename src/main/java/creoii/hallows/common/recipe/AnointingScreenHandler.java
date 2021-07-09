@@ -110,8 +110,6 @@ public class AnointingScreenHandler extends ScreenHandler {
         this.decrease(0);
         this.decrease(1);
         this.decrease(2);
-        this.context.run((world, blockPos) -> {
-            world.syncWorldEvent(1044, blockPos, 0);
         this.context.run((world, blockPos) -> world.syncWorldEvent(1044, blockPos, 0));
     }
 
@@ -132,7 +130,7 @@ public class AnointingScreenHandler extends ScreenHandler {
                     attribute == EntityAttributes.HORSE_JUMP_STRENGTH ||
                     attribute == EntityAttributes.GENERIC_FOLLOW_RANGE) return;
 
-            ItemStack stack = this.input.getStack(0);
+            ItemStack stack = this.recipe.craft(this.input);
             if (stack.getOrCreateTag().getBoolean("Anointed")) return;
 
             EquipmentSlot slot = MobEntity.getPreferredEquipmentSlot(stack);
@@ -180,7 +178,7 @@ public class AnointingScreenHandler extends ScreenHandler {
     public ItemStack transferSlot(PlayerEntity player, int index) {
         ItemStack itemStack = ItemStack.EMPTY;
         Slot slot = this.slots.get(index);
-        if (slot != null && slot.hasStack()) {
+        if (slot.hasStack()) {
             ItemStack itemStack2 = slot.getStack();
             itemStack = itemStack2.copy();
             if (index == 3) {
