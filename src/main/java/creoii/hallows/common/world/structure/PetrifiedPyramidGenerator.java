@@ -38,8 +38,9 @@ public class PetrifiedPyramidGenerator {
         pieces.addPiece(new Piece(manager, PYRAMIDS[index], rotation, pos));
         pieces.addPiece(new Piece(manager, INNERS[index], rotation, pos));
 
-        BlockPos topOffset = index == 0 ? new BlockPos(-8, 9, 8) : new BlockPos(-5, 12, 5);
-        pieces.addPiece(new Piece(manager, Util.getRandom(TOPS, random), rotation, pos.add(topOffset)));
+        BlockPos topOffset = index == 0 ? new BlockPos(8, 9, -8) : new BlockPos(-5, 12, -5);
+        //TODO: Fix offset!
+        //pieces.addPiece(new Piece(manager, Util.getRandom(TOPS, random), rotation, pos.add(topOffset)));
     }
 
     public static class Piece extends SimpleStructurePiece {
