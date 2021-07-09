@@ -1,0 +1,12 @@
+{
+  "type": "hallows:anointing",
+  "base": {
+    "item": "hallows:stygian_leggings"
+  },
+  "anointment": {
+    "item": "hallows:silver_ingot"
+  },
+  "attribute": {
+    "attribute": "minecraft:generic.armor"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "hallows:anointing",
+  "base": {
+    "item": "hallows:stygian_pickaxe"
+  },
+  "anointment": {
+    "item": "minecraft:emerald"
+  },
+  "attribute": {
+    "attribute": "minecraft:generic.attack_speed"
+  }
+}

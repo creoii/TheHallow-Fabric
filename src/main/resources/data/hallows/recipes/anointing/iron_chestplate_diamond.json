@@ -1,0 +1,12 @@
+{
+  "type": "hallows:anointing",
+  "base": {
+    "item": "minecraft:iron_chestplate"
+  },
+  "anointment": {
+    "item": "minecraft:diamond"
+  },
+  "attribute": {
+    "attribute": "minecraft:generic.armor_toughness"
+  }
+}

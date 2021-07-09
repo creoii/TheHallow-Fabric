@@ -1,0 +1,12 @@
+{
+  "type": "hallows:anointing",
+  "base": {
+    "item": "minecraft:diamond_boots"
+  },
+  "anointment": {
+    "item": "hallows:silver_ingot"
+  },
+  "attribute": {
+    "attribute": "minecraft:generic.armor"
+  }
+}

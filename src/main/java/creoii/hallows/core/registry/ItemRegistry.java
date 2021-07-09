@@ -23,6 +23,9 @@ public class ItemRegistry {
 
     public static final Item WITCH_BREW = new Item(new Item.Settings().group(ItemGroup.BREWING));
 
+    public static final Item SILVER_INGOT = new Item(new Item.Settings().group(ItemGroup.MATERIALS));
+    public static final Item OPAL = new Item(new Item.Settings().group(ItemGroup.MATERIALS));
+
     public static void register() {
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "stygian_helmet"), STYGIAN_HELMET);
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "stygian_chestplate"), STYGIAN_CHESTPLATE);
@@ -34,6 +37,8 @@ public class ItemRegistry {
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "stygian_shovel"), STYGIAN_SHOVEL);
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "stygian_hoe"), STYGIAN_HOE);
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "witch_brew"), WITCH_BREW);
+        Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "silver_ingot"), SILVER_INGOT);
+        Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "opal"), OPAL);
     }
 
     public static class Materials {

@@ -1,0 +1,12 @@
+{
+  "type": "hallows:anointing",
+  "base": {
+    "item": "minecraft:iron_chestplate"
+  },
+  "anointment": {
+    "item": "hallows:opal"
+  },
+  "attribute": {
+    "attribute": "minecraft:generic.max_health"
+  }
+}

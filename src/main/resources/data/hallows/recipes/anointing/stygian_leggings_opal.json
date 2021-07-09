@@ -1,0 +1,12 @@
+{
+  "type": "hallows:anointing",
+  "base": {
+    "item": "hallows:stygian_leggings"
+  },
+  "anointment": {
+    "item": "hallows:opal"
+  },
+  "attribute": {
+    "attribute": "minecraft:generic.max_health"
+  }
+}

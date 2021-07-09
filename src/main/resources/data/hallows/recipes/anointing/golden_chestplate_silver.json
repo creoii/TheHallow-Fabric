@@ -1,0 +1,12 @@
+{
+  "type": "hallows:anointing",
+  "base": {
+    "item": "minecraft:golden_chestplate"
+  },
+  "anointment": {
+    "item": "hallows:silver_ingot"
+  },
+  "attribute": {
+    "attribute": "minecraft:generic.armor"
+  }
+}
