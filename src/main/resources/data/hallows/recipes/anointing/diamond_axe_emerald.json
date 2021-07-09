@@ -1,0 +1,15 @@
+{
+  "type": "hallows:anointing",
+  "base": {
+    "item": "minecraft:diamond_axe"
+  },
+  "anointment": {
+    "item": "minecraft:emerald"
+  },
+  "result": {
+    "item": "minecraft:diamond_axe"
+  },
+  "attribute": {
+    "attribute": "minecraft:generic.attack_speed"
+  }
+}

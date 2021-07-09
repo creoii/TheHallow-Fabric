@@ -152,6 +152,8 @@ public class BlockRegistry {
 
     public static Block COBWEB_CARPET;
 
+    public static Block ANOINTMENT_TABLE;
+
     public static void register() {
         createBlock("hallstone", HALLSTONE, ItemGroup.BUILDING_BLOCKS);
         POLISHED_HALLSTONE = createBlock("polished_hallstone", new Block(FabricBlockSettings.copy(HALLSTONE)), ItemGroup.BUILDING_BLOCKS);
@@ -200,6 +202,8 @@ public class BlockRegistry {
         STYGIAN_RUIN = createBlock("stygian_ruin", new Block(FabricBlockSettings.copy(Blocks.ANCIENT_DEBRIS).requiresTool()), ItemGroup.BUILDING_BLOCKS);
 
         COBWEB_CARPET = createBlock("cobweb_carpet", new CobwebCarpetBlock(AbstractBlock.Settings.copy(Blocks.WHITE_CARPET)), ItemGroup.DECORATIONS);
+
+        ANOINTMENT_TABLE = createBlock("anointment_table", new AnointmentTableBlock(AbstractBlock.Settings.copy(Blocks.ENCHANTING_TABLE)), ItemGroup.DECORATIONS);
 
         flammables();
         compostables();
