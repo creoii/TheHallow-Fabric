@@ -21,10 +21,10 @@ public class NecrofireBlock extends AbstractFireBlock {
 
     @SuppressWarnings("deprecation")
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
-        return isFireBase(world.getBlockState(pos.down()));
+        return isNecrofireBase(world.getBlockState(pos.down()));
     }
 
-    public static boolean isFireBase(BlockState state) {
+    public static boolean isNecrofireBase(BlockState state) {
         return state.isIn(BlockTags.SOUL_FIRE_BASE_BLOCKS);
     }
 

@@ -1,12 +1,7 @@
 package creoii.hallows.common.world.structure;
 
-import com.google.common.collect.ImmutableMap;
 import creoii.hallows.core.Hallows;
 import creoii.hallows.core.registry.StructureRegistry;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.ChestBlockEntity;
-import net.minecraft.loot.LootTables;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.structure.*;
@@ -40,7 +35,7 @@ public class PetrifiedPyramidGenerator {
 
         BlockPos topOffset = index == 0 ? new BlockPos(8, 9, -8) : new BlockPos(-5, 12, -5);
         //TODO: Fix offset!
-        //pieces.addPiece(new Piece(manager, Util.getRandom(TOPS, random), rotation, pos.add(topOffset)));
+        pieces.addPiece(new Piece(manager, Util.getRandom(TOPS, random), rotation, pos.add(topOffset)));
     }
 
     public static class Piece extends SimpleStructurePiece {
@@ -55,7 +50,7 @@ public class PetrifiedPyramidGenerator {
         }
 
         private static StructurePlacementData createPlacementData(BlockRotation rotation, Identifier identifier) {
-            return (new StructurePlacementData()).setRotation(rotation).setMirror(BlockMirror.NONE).addProcessor(BlockIgnoreStructureProcessor.IGNORE_STRUCTURE_BLOCKS);
+            return new StructurePlacementData().setRotation(rotation).setMirror(BlockMirror.NONE).addProcessor(BlockIgnoreStructureProcessor.IGNORE_STRUCTURE_BLOCKS);
         }
 
         protected void writeNbt(ServerWorld world, NbtCompound nbt) {
@@ -63,14 +58,8 @@ public class PetrifiedPyramidGenerator {
             nbt.putString("Rot", this.placementData.getRotation().name());
         }
 
+        @Override
         protected void handleMetadata(String metadata, BlockPos pos, ServerWorldAccess world, Random random, BlockBox boundingBox) {
-            if ("chest".equals(metadata)) {
-                world.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);
-                BlockEntity blockEntity = world.getBlockEntity(pos.down());
-                if (blockEntity instanceof ChestBlockEntity) {
-                    ((ChestBlockEntity)blockEntity).setLootTable(LootTables.IGLOO_CHEST_CHEST, random.nextLong());
-                }
-            }
         }
 
         public boolean generate(StructureWorldAccess world, StructureAccessor structureAccessor, ChunkGenerator chunkGenerator, Random random, BlockBox boundingBox, ChunkPos chunkPos, BlockPos pos) {
