@@ -52,6 +52,7 @@
     []
   ],
   "starts": [
+    "hallows:hallowed_ruins"
   ],
   "spawners": {
     "monster": [
