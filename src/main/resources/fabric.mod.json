@@ -17,6 +17,7 @@
   "icon": "assets/hallows/icon.png",
 
   "environment": "*",
+  "accessWidener": "hallows.accesswidener",
   "entrypoints": {
     "main": [
       "creoii.hallows.core.Hallows"

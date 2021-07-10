@@ -1,0 +1,3 @@
+accessWidener	v1	named
+accessible    field     net/minecraft/client/render/entity/model/EntityModelLayers  LAYERS                       Ljava/util/Set;
+mutable       field     net/minecraft/client/render/entity/model/EntityModelLayers  LAYERS                       Ljava/util/Set;
