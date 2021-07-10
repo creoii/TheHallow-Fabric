@@ -8,6 +8,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.ChunkPos;
 import net.minecraft.util.registry.DynamicRegistryManager;
 import net.minecraft.world.HeightLimitView;
+import net.minecraft.world.Heightmap;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
@@ -33,7 +34,7 @@ public class PetrifiedPyramidStructure extends StructureFeature<DefaultFeatureCo
 
         @Override
         public void init(DynamicRegistryManager registryManager, ChunkGenerator chunkGenerator, StructureManager manager, ChunkPos chunkPos, Biome biome, DefaultFeatureConfig config, HeightLimitView world) {
-            BlockPos pos = new BlockPos(chunkPos.getStartX(), 90, chunkPos.getStartZ());
+            BlockPos pos = new BlockPos(chunkPos.getStartX(), chunkGenerator.getHeightInGround(chunkPos.getStartX(), chunkPos.getStartZ(), Heightmap.Type.WORLD_SURFACE_WG, world), chunkPos.getStartZ());
             BlockRotation rotation = BlockRotation.random(this.random);
             PetrifiedPyramidGenerator.addPieces(manager, pos, rotation, this, this.random);
         }

@@ -27,9 +27,9 @@ public class HallowedRuinsGenerator {
 
     public static void addPieces(StructureManager manager, BlockPos pos, BlockRotation rotation, StructurePiecesHolder pieces, Random random) {
         pieces.addPiece(new HallowedRuinsGenerator.Piece(manager, TOWERS[random.nextInt(TOWERS.length)], rotation, pos));
-        BlockPos bridgePos = pos.add(3, -10, 12);
+        BlockPos bridgePos = pos.add(3, 0, 12);
         pieces.addPiece(new HallowedRuinsGenerator.Piece(manager, BRIDGES[random.nextInt(BRIDGES.length)], rotation, bridgePos));
-        pieces.addPiece(new HallowedRuinsGenerator.Piece(manager, BRIDGE_DECOR[random.nextInt(BRIDGE_DECOR.length)], rotation, bridgePos.up(10)));
+        pieces.addPiece(new HallowedRuinsGenerator.Piece(manager, BRIDGE_DECOR[random.nextInt(BRIDGE_DECOR.length)], rotation, bridgePos.add(0, 10, 0)));
     }
 
     public static class Piece extends SimpleStructurePiece {
@@ -38,9 +38,7 @@ public class HallowedRuinsGenerator {
         }
 
         public Piece(ServerWorld world, NbtCompound nbt) {
-            super(StructureRegistry.HALLOWED_RUINS_PIECE, nbt, world, (identifier) -> {
-                return createPlacementData(BlockRotation.valueOf(nbt.getString("Rot")), identifier);
-            });
+            super(StructureRegistry.HALLOWED_RUINS_PIECE, nbt, world, (identifier) -> createPlacementData(BlockRotation.valueOf(nbt.getString("Rot")), identifier));
         }
 
         private static StructurePlacementData createPlacementData(BlockRotation rotation, Identifier identifier) {
