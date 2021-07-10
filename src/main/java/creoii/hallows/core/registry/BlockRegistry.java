@@ -138,6 +138,7 @@ public class BlockRegistry {
     public static Block TENEBRITE_BRICK_SLAB;
     public static Block TENEBRITE_BRICK_STAIRS;
     public static Block TENEBRITE_BRICK_WALL;
+    public static Block SMOOTH_TENEBRITE;
     public static Block GILDED_TENEBRITE;
     public static Block SKULLISH_TENEBRITE;
 
@@ -190,6 +191,7 @@ public class BlockRegistry {
 
         createBlock("tenebrite", TENEBRITE, ItemGroup.BUILDING_BLOCKS);
         TENEBRITE_BRICKS = createBlock("tenebrite_bricks", new Block(FabricBlockSettings.of(Material.SOIL, MapColor.GRAY).strength(1.5F, 15.0F).sounds(BlockSoundGroup.STONE)), ItemGroup.BUILDING_BLOCKS);
+        SMOOTH_TENEBRITE = createBlock("smooth_tenebrite", new Block(FabricBlockSettings.copy(BlockRegistry.TENEBRITE)), ItemGroup.BUILDING_BLOCKS);
 
         RED_MOSS_CARPET = createBlock("red_moss_carpet", new CarpetBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.DARK_RED).strength(0.1F).sounds(BlockSoundGroup.MOSS_CARPET)), ItemGroup.DECORATIONS);
         RED_MOSS_BLOCK = createBlock("red_moss_block", new RedMossBlock(AbstractBlock.Settings.of(Material.MOSS_BLOCK, MapColor.DARK_RED).strength(0.1F).sounds(BlockSoundGroup.MOSS_BLOCK)), ItemGroup.DECORATIONS);
