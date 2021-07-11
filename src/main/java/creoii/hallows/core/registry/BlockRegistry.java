@@ -1,8 +1,8 @@
 package creoii.hallows.core.registry;
 
 import creoii.hallows.common.block.*;
-import creoii.hallows.common.block.base.LogBlock;
-import creoii.hallows.common.block.base.PostBlock;
+import creoii.hallows.common.block.base.*;
+import creoii.hallows.common.block.base.PressurePlateBlock;
 import creoii.hallows.common.block.base.SaplingBlock;
 import creoii.hallows.common.block.base.StairsBlock;
 import creoii.hallows.common.world.sapling.AsphodelSaplingGenerator;
@@ -92,10 +92,10 @@ public class BlockRegistry {
     public static Block ASPHODEL_PLANKS = new Block(FabricBlockSettings.of(Material.WOOD, MapColor.WHITE_GRAY).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD));
     public static Block ASPHODEL_SLAB = new SlabBlock(AbstractBlock.Settings.copy(ASPHODEL_PLANKS));
     public static Block ASPHODEL_STAIRS = new StairsBlock(ASPHODEL_PLANKS.getDefaultState(), AbstractBlock.Settings.copy(ASPHODEL_PLANKS));
-    public static Block ASPHODEL_FENCE;
-    public static Block ASPHODEL_FENCE_GATE;
-    public static Block ASPHODEL_BUTTON;
-    public static Block ASPHODEL_PRESSURE_PLATE;
+    public static Block ASPHODEL_FENCE = new FenceBlock(AbstractBlock.Settings.copy(ASPHODEL_PLANKS));
+    public static Block ASPHODEL_FENCE_GATE = new FenceGateBlock(AbstractBlock.Settings.copy(ASPHODEL_PLANKS));;
+    public static Block ASPHODEL_BUTTON = new ButtonBlock(true, 30, AbstractBlock.Settings.copy(Blocks.OAK_BUTTON));
+    public static Block ASPHODEL_PRESSURE_PLATE = new PressurePlateBlock(net.minecraft.block.PressurePlateBlock.ActivationRule.EVERYTHING, AbstractBlock.Settings.copy(Blocks.OAK_PRESSURE_PLATE));
     public static Block ASPHODEL_SAPLING;
     public static Block POTTED_ASPHODEL_SAPLING;
     public static Block ASPHODEL_DOOR;
@@ -110,10 +110,10 @@ public class BlockRegistry {
     public static Block EBONY_PLANKS = new Block(FabricBlockSettings.of(Material.WOOD, MapColor.BLACK).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD));
     public static Block EBONY_SLAB = new SlabBlock(AbstractBlock.Settings.copy(EBONY_PLANKS));
     public static Block EBONY_STAIRS = new StairsBlock(EBONY_PLANKS.getDefaultState(), AbstractBlock.Settings.copy(EBONY_PLANKS));
-    public static Block EBONY_FENCE;
-    public static Block EBONY_FENCE_GATE;
-    public static Block EBONY_BUTTON;
-    public static Block EBONY_PRESSURE_PLATE;
+    public static Block EBONY_FENCE = new FenceBlock(AbstractBlock.Settings.copy(ASPHODEL_PLANKS));
+    public static Block EBONY_FENCE_GATE = new FenceGateBlock(AbstractBlock.Settings.copy(ASPHODEL_PLANKS));;
+    public static Block EBONY_BUTTON = new ButtonBlock(true, 30, AbstractBlock.Settings.copy(Blocks.OAK_BUTTON));
+    public static Block EBONY_PRESSURE_PLATE = new PressurePlateBlock(net.minecraft.block.PressurePlateBlock.ActivationRule.EVERYTHING, AbstractBlock.Settings.copy(Blocks.OAK_PRESSURE_PLATE));
     public static Block EBONY_LEAVES;
     public static Block EBONY_SAPLING;
     public static Block POTTED_EBONY_SAPLING;
@@ -193,15 +193,23 @@ public class BlockRegistry {
         createBlock("asphodel_planks", ASPHODEL_PLANKS, ItemGroup.BUILDING_BLOCKS);
         createBlock("asphodel_slab", ASPHODEL_SLAB, ItemGroup.BUILDING_BLOCKS);
         createBlock("asphodel_stairs", ASPHODEL_STAIRS, ItemGroup.BUILDING_BLOCKS);
+        createBlock("asphodel_fence", ASPHODEL_FENCE, ItemGroup.DECORATIONS);
+        createBlock("asphodel_fence_gate", ASPHODEL_FENCE_GATE, ItemGroup.REDSTONE);
+        createBlock("asphodel_button", ASPHODEL_BUTTON, ItemGroup.REDSTONE);
+        createBlock("asphodel_pressure_plate", ASPHODEL_PRESSURE_PLATE, ItemGroup.REDSTONE);
         ASPHODEL_SAPLING = createBlock("asphodel_sapling", new SaplingBlock(new AsphodelSaplingGenerator(), FabricBlockSettings.copy(Blocks.OAK_SAPLING)), ItemGroup.DECORATIONS);
 
         STRIPPED_EBONY_LOG = createBlock("stripped_ebony_log", new PillarBlock(FabricBlockSettings.of(Material.WOOD, MapColor.TERRACOTTA_BLACK).strength(2.0F).sounds(BlockSoundGroup.WOOD)), ItemGroup.BUILDING_BLOCKS);
         EBONY_LOG = createBlock("ebony_log", new LogBlock(STRIPPED_EBONY_LOG, FabricBlockSettings.of(Material.WOOD, MapColor.TERRACOTTA_BLACK).strength(2.0F).sounds(BlockSoundGroup.WOOD)), ItemGroup.BUILDING_BLOCKS);
         STRIPPED_EBONY_BRANCH = createBlock("stripped_ebony_branch", new PostBlock(null, FabricBlockSettings.of(Material.WOOD).strength(2.0F).sounds(BlockSoundGroup.WOOD)), ItemGroup.DECORATIONS);
         EBONY_BRANCH = createBlock("ebony_branch", new PostBlock(STRIPPED_EBONY_BRANCH, FabricBlockSettings.copy(STRIPPED_EBONY_BRANCH)), ItemGroup.DECORATIONS);
-        EBONY_PLANKS = createBlock("ebony_planks", EBONY_PLANKS, ItemGroup.BUILDING_BLOCKS);
+        createBlock("ebony_planks", EBONY_PLANKS, ItemGroup.BUILDING_BLOCKS);
         createBlock("ebony_slab", EBONY_SLAB, ItemGroup.BUILDING_BLOCKS);
         createBlock("ebony_stairs", EBONY_STAIRS, ItemGroup.BUILDING_BLOCKS);
+        createBlock("ebony_fence", EBONY_FENCE, ItemGroup.DECORATIONS);
+        createBlock("ebony_fence_gate", EBONY_FENCE_GATE, ItemGroup.REDSTONE);
+        createBlock("ebony_button", EBONY_BUTTON, ItemGroup.REDSTONE);
+        createBlock("ebony_pressure_plate", EBONY_PRESSURE_PLATE, ItemGroup.REDSTONE);
         EBONY_LEAVES = createBlock("ebony_leaves", new Block(FabricBlockSettings.of(Material.LEAVES).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).allowsSpawning(BlockRegistry::canSpawnOnLeaves).suffocates(BlockRegistry::never).blockVision(BlockRegistry::never)), ItemGroup.BUILDING_BLOCKS);
         BLOOD_EBONY_LEAVES = createBlock("blood_ebony_leaves", new Block(FabricBlockSettings.of(Material.LEAVES).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).allowsSpawning(BlockRegistry::canSpawnOnLeaves).suffocates(BlockRegistry::never).blockVision(BlockRegistry::never)), ItemGroup.BUILDING_BLOCKS);
         EBONY_SAPLING = createBlock("ebony_sapling", new SaplingBlock(new EbonySaplingGenerator(), FabricBlockSettings.copy(Blocks.OAK_SAPLING)), ItemGroup.DECORATIONS);
