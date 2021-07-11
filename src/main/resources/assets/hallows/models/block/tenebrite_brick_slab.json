@@ -1,0 +1,8 @@
+{
+  "parent": "block/slab",
+  "textures": {
+    "bottom": "hallows:block/tenebrite_bricks",
+    "top": "hallows:block/tenebrite_bricks",
+    "side": "hallows:block/tenebrite_bricks"
+  }
+}

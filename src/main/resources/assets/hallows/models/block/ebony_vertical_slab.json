@@ -1,8 +1,0 @@
-{
-    "parent": "abnormals_core:block/vertical_slab",
-    "textures": {
-        "side": "hallows:block/ebony_planks",
-        "top": "hallows:block/ebony_planks",
-        "bottom": "hallows:block/ebony_planks"
-    }
-}

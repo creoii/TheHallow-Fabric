@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "type=bottom": { "model": "hallows:block/tenebrite_brick_slab" },
+    "type=top": { "model": "hallows:block/tenebrite_brick_slab_top" },
+    "type=double": { "model": "hallows:block/tenebrite_brick_planks" }
+  }
+}

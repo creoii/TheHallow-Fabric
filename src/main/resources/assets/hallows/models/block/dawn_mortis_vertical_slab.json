@@ -1,8 +1,0 @@
-{
-    "parent": "abnormals_core:block/vertical_slab",
-    "textures": {
-        "side": "hallows:block/dawn_mortis",
-        "top": "hallows:block/dawn_mortis",
-        "bottom": "hallows:block/dawn_mortis"
-    }
-}

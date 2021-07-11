@@ -1,8 +1,0 @@
-{
-    "parent": "abnormals_core:block/vertical_slab",
-    "textures": {
-        "side": "hallows:block/petrified_sandstone",
-        "top": "hallows:block/petrified_sandstone_top",
-        "bottom": "hallows:block/petrified_sandstone_bottom"
-    }
-}

@@ -4,6 +4,7 @@ import creoii.hallows.common.block.*;
 import creoii.hallows.common.block.base.LogBlock;
 import creoii.hallows.common.block.base.PostBlock;
 import creoii.hallows.common.block.base.SaplingBlock;
+import creoii.hallows.common.block.base.StairsBlock;
 import creoii.hallows.common.world.sapling.AsphodelSaplingGenerator;
 import creoii.hallows.common.world.sapling.BloodEbonySaplingGenerator;
 import creoii.hallows.common.world.sapling.EbonySaplingGenerator;
@@ -29,13 +30,13 @@ import net.minecraft.world.BlockView;
 
 public class BlockRegistry {
     public static final Block HALLSTONE = new Block(FabricBlockSettings.of(Material.STONE, MapColor.DIRT_BROWN).strength(1.5F, 7.5F).sounds(BlockSoundGroup.STONE));
-    public static Block HALLSTONE_SLAB;
-    public static Block HALLSTONE_STAIRS;
-    public static Block HALLSTONE_WALL;
-    public static Block POLISHED_HALLSTONE;
-    public static Block POLISHED_HALLSTONE_SLAB;
-    public static Block POLISHED_HALLSTONE_STAIRS;
-    public static Block POLISHED_HALLSTONE_WALL;
+    public static Block HALLSTONE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(HALLSTONE));
+    public static Block HALLSTONE_STAIRS = new StairsBlock(HALLSTONE.getDefaultState(), AbstractBlock.Settings.copy(HALLSTONE));
+    public static Block HALLSTONE_WALL = new WallBlock(AbstractBlock.Settings.copy(HALLSTONE));
+    public static Block POLISHED_HALLSTONE = new Block(FabricBlockSettings.copy(HALLSTONE));
+    public static Block POLISHED_HALLSTONE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(POLISHED_HALLSTONE));
+    public static Block POLISHED_HALLSTONE_STAIRS = new StairsBlock(POLISHED_HALLSTONE.getDefaultState(), AbstractBlock.Settings.copy(POLISHED_HALLSTONE));
+    public static Block POLISHED_HALLSTONE_WALL = new WallBlock(AbstractBlock.Settings.copy(POLISHED_HALLSTONE));
 
     public static Block HALLOWED_DIRT = new Block(FabricBlockSettings.of(Material.SOIL, MapColor.SPRUCE_BROWN).strength(0.5F).sounds(BlockSoundGroup.ROOTED_DIRT));
     public static Block DEADROOT;
@@ -46,33 +47,33 @@ public class BlockRegistry {
     public static Block STYGIAN_RUIN;
 
     public static Block DAWN_MORTIS = new Block(FabricBlockSettings.of(Material.STONE, MapColor.PALE_PURPLE).strength(1.5F).sounds(BlockSoundGroup.STONE));
-    public static Block DAWN_MORTIS_SLAB;
-    public static Block DAWN_MORTIS_STAIRS;
-    public static Block DAWN_MORTIS_WALL;
+    public static Block DAWN_MORTIS_SLAB = new SlabBlock(AbstractBlock.Settings.copy(DAWN_MORTIS));
+    public static Block DAWN_MORTIS_STAIRS = new StairsBlock(DAWN_MORTIS.getDefaultState(), AbstractBlock.Settings.copy(DAWN_MORTIS));
+    public static Block DAWN_MORTIS_WALL = new WallBlock(AbstractBlock.Settings.copy(DAWN_MORTIS));
     public static Block DAWN_MORTIS_BRICKS;
     public static Block DAWN_MORTIS_BRICK_SLAB;
     public static Block DAWN_MORTIS_BRICK_STAIRS;
     public static Block DAWN_MORTIS_BRICK_WALL;
     public static Block NOON_MORTIS = new Block(FabricBlockSettings.of(Material.SOIL, MapColor.DULL_PINK).strength(1.5F).sounds(BlockSoundGroup.STONE));
-    public static Block NOON_MORTIS_SLAB;
-    public static Block NOON_MORTIS_STAIRS;
-    public static Block NOON_MORTIS_WALL;
+    public static Block NOON_MORTIS_SLAB = new SlabBlock(AbstractBlock.Settings.copy(NOON_MORTIS));
+    public static Block NOON_MORTIS_STAIRS = new StairsBlock(NOON_MORTIS.getDefaultState(), AbstractBlock.Settings.copy(NOON_MORTIS));
+    public static Block NOON_MORTIS_WALL = new WallBlock(AbstractBlock.Settings.copy(NOON_MORTIS));
     public static Block NOON_MORTIS_BRICKS;
     public static Block NOON_MORTIS_BRICK_SLAB;
     public static Block NOON_MORTIS_BRICK_STAIRS;
     public static Block NOON_MORTIS_BRICK_WALL;
     public static Block DUSK_MORTIS = new Block(FabricBlockSettings.of(Material.SOIL, MapColor.MAGENTA).strength(1.5F).sounds(BlockSoundGroup.STONE));
-    public static Block DUSK_MORTIS_SLAB;
-    public static Block DUSK_MORTIS_STAIRS;
-    public static Block DUSK_MORTIS_WALL;
+    public static Block DUSK_MORTIS_SLAB = new SlabBlock(AbstractBlock.Settings.copy(DUSK_MORTIS));
+    public static Block DUSK_MORTIS_STAIRS = new StairsBlock(DUSK_MORTIS.getDefaultState(), AbstractBlock.Settings.copy(DUSK_MORTIS));
+    public static Block DUSK_MORTIS_WALL = new WallBlock(AbstractBlock.Settings.copy(DUSK_MORTIS));
     public static Block DUSK_MORTIS_BRICKS;
     public static Block DUSK_MORTIS_BRICK_SLAB;
     public static Block DUSK_MORTIS_BRICK_STAIRS;
     public static Block DUSK_MORTIS_BRICK_WALL;
     public static Block MIDNIGHT_MORTIS = new Block(FabricBlockSettings.of(Material.SOIL, MapColor.TERRACOTTA_PURPLE).strength(1.5F).sounds(BlockSoundGroup.STONE));
-    public static Block MIDNIGHT_MORTIS_SLAB;
-    public static Block MIDNIGHT_MORTIS_STAIRS;
-    public static Block MIDNIGHT_MORTIS_WALL;
+    public static Block MIDNIGHT_MORTIS_SLAB = new SlabBlock(AbstractBlock.Settings.copy(MIDNIGHT_MORTIS));
+    public static Block MIDNIGHT_MORTIS_STAIRS = new StairsBlock(MIDNIGHT_MORTIS.getDefaultState(), AbstractBlock.Settings.copy(MIDNIGHT_MORTIS));
+    public static Block MIDNIGHT_MORTIS_WALL = new WallBlock(AbstractBlock.Settings.copy(MIDNIGHT_MORTIS));
     public static Block MIDNIGHT_MORTIS_BRICKS;
     public static Block MIDNIGHT_MORTIS_BRICK_SLAB;
     public static Block MIDNIGHT_MORTIS_BRICK_STAIRS;
@@ -88,9 +89,9 @@ public class BlockRegistry {
     public static Block STRIPPED_ASPHODEL_LOG;
     public static Block ASPHODEL_WOOD;
     public static Block STRIPPED_ASPHODEL_WOOD;
-    public static Block ASPHODEL_PLANKS;
-    public static Block ASPHODEL_SLAB;
-    public static Block ASPHODEL_STAIRS;
+    public static Block ASPHODEL_PLANKS = new Block(FabricBlockSettings.of(Material.WOOD, MapColor.WHITE_GRAY).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD));
+    public static Block ASPHODEL_SLAB = new SlabBlock(AbstractBlock.Settings.copy(ASPHODEL_PLANKS));
+    public static Block ASPHODEL_STAIRS = new StairsBlock(ASPHODEL_PLANKS.getDefaultState(), AbstractBlock.Settings.copy(ASPHODEL_PLANKS));
     public static Block ASPHODEL_FENCE;
     public static Block ASPHODEL_FENCE_GATE;
     public static Block ASPHODEL_BUTTON;
@@ -106,9 +107,9 @@ public class BlockRegistry {
     public static Block STRIPPED_EBONY_BRANCH;
     public static Block EBONY_WOOD;
     public static Block STRIPPED_EBONY_WOOD;
-    public static Block EBONY_PLANKS;
-    public static Block EBONY_SLAB;
-    public static Block EBONY_STAIRS;
+    public static Block EBONY_PLANKS = new Block(FabricBlockSettings.of(Material.WOOD, MapColor.BLACK).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD));
+    public static Block EBONY_SLAB = new SlabBlock(AbstractBlock.Settings.copy(EBONY_PLANKS));
+    public static Block EBONY_STAIRS = new StairsBlock(EBONY_PLANKS.getDefaultState(), AbstractBlock.Settings.copy(EBONY_PLANKS));
     public static Block EBONY_FENCE;
     public static Block EBONY_FENCE_GATE;
     public static Block EBONY_BUTTON;
@@ -126,18 +127,18 @@ public class BlockRegistry {
 
     public static Block PETRIFIED_SAND = new SandBlock(6377538, FabricBlockSettings.of(Material.AGGREGATE, MapColor.SPRUCE_BROWN).strength(0.5F).sounds(BlockSoundGroup.SAND));
     public static Block PETRIFIED_SANDSTONE = new Block(FabricBlockSettings.of(Material.STONE, MapColor.SPRUCE_BROWN).strength(1.0F));
-    public static Block PETRIFIED_SANDSTONE_SLAB;
-    public static Block PETRIFIED_SANDSTONE_STAIRS;
-    public static Block PETRIFIED_SANDSTONE_WALL;
+    public static Block PETRIFIED_SANDSTONE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(PETRIFIED_SANDSTONE));
+    public static Block PETRIFIED_SANDSTONE_STAIRS = new StairsBlock(PETRIFIED_SANDSTONE.getDefaultState(), AbstractBlock.Settings.copy(PETRIFIED_SANDSTONE));
+    public static Block PETRIFIED_SANDSTONE_WALL = new WallBlock(AbstractBlock.Settings.copy(PETRIFIED_SANDSTONE));
 
     public static Block TENEBRITE = new Block(FabricBlockSettings.of(Material.SOIL, MapColor.GRAY).strength(1.75F, 10.0F).sounds(BlockSoundGroup.STONE));
-    public static Block TENEBRITE_SLAB;
-    public static Block TENEBRITE_STAIRS;
-    public static Block TENEBRITE_WALL;
-    public static Block TENEBRITE_BRICKS;
-    public static Block TENEBRITE_BRICK_SLAB;
-    public static Block TENEBRITE_BRICK_STAIRS;
-    public static Block TENEBRITE_BRICK_WALL;
+    public static Block TENEBRITE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(TENEBRITE));
+    public static Block TENEBRITE_STAIRS = new StairsBlock(TENEBRITE.getDefaultState(), AbstractBlock.Settings.copy(TENEBRITE));
+    public static Block TENEBRITE_WALL = new WallBlock(AbstractBlock.Settings.copy(TENEBRITE));
+    public static Block TENEBRITE_BRICKS = new Block(FabricBlockSettings.of(Material.SOIL, MapColor.GRAY).strength(1.5F, 15.0F).sounds(BlockSoundGroup.STONE));
+    public static Block TENEBRITE_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(TENEBRITE_BRICKS));
+    public static Block TENEBRITE_BRICK_STAIRS = new StairsBlock(TENEBRITE_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(TENEBRITE_BRICKS));
+    public static Block TENEBRITE_BRICK_WALL = new WallBlock(AbstractBlock.Settings.copy(TENEBRITE_BRICKS));
     public static Block SMOOTH_TENEBRITE;
     public static Block GILDED_TENEBRITE;
     public static Block SKULLISH_TENEBRITE;
@@ -157,7 +158,13 @@ public class BlockRegistry {
 
     public static void register() {
         createBlock("hallstone", HALLSTONE, ItemGroup.BUILDING_BLOCKS);
-        POLISHED_HALLSTONE = createBlock("polished_hallstone", new Block(FabricBlockSettings.copy(HALLSTONE)), ItemGroup.BUILDING_BLOCKS);
+        createBlock("hallstone_slab", HALLSTONE_SLAB, ItemGroup.BUILDING_BLOCKS);
+        createBlock("hallstone_stairs", HALLSTONE_STAIRS, ItemGroup.BUILDING_BLOCKS);
+        createBlock("hallstone_wall", HALLSTONE_WALL, ItemGroup.DECORATIONS);
+        createBlock("polished_hallstone", POLISHED_HALLSTONE, ItemGroup.BUILDING_BLOCKS);
+        createBlock("polished_hallstone_slab", POLISHED_HALLSTONE_SLAB, ItemGroup.BUILDING_BLOCKS);
+        createBlock("polished_hallstone_stairs", POLISHED_HALLSTONE_STAIRS, ItemGroup.BUILDING_BLOCKS);
+        createBlock("polished_hallstone_wall", POLISHED_HALLSTONE_WALL, ItemGroup.DECORATIONS);
 
         createBlock("hallowed_dirt", HALLOWED_DIRT, ItemGroup.BUILDING_BLOCKS);
         DEADROOT = createBlock("deadroot", new DeadrootBlock(FabricBlockSettings.copy(Blocks.CRIMSON_ROOTS)), ItemGroup.DECORATIONS);
@@ -165,20 +172,36 @@ public class BlockRegistry {
         NECROFIRE = createBlock("necrofire", new NecrofireBlock(FabricBlockSettings.copy(Blocks.FIRE)), null);
 
         createBlock("dawn_mortis", DAWN_MORTIS, ItemGroup.BUILDING_BLOCKS);
+        createBlock("dawn_mortis_slab", DAWN_MORTIS_SLAB, ItemGroup.BUILDING_BLOCKS);
+        createBlock("dawn_mortis_stairs", DAWN_MORTIS_STAIRS, ItemGroup.BUILDING_BLOCKS);
+        createBlock("dawn_mortis_wall", DAWN_MORTIS_WALL, ItemGroup.DECORATIONS);
         createBlock("noon_mortis", NOON_MORTIS, ItemGroup.BUILDING_BLOCKS);
+        createBlock("noon_mortis_slab", NOON_MORTIS_SLAB, ItemGroup.BUILDING_BLOCKS);
+        createBlock("noon_mortis_stairs",NOON_MORTIS_STAIRS, ItemGroup.BUILDING_BLOCKS);
+        createBlock("noon_mortis_wall", NOON_MORTIS_WALL, ItemGroup.DECORATIONS);
         createBlock("dusk_mortis", DUSK_MORTIS, ItemGroup.BUILDING_BLOCKS);
+        createBlock("dusk_mortis_slab", DUSK_MORTIS_SLAB, ItemGroup.BUILDING_BLOCKS);
+        createBlock("dusk_mortis_stairs", DUSK_MORTIS_STAIRS, ItemGroup.BUILDING_BLOCKS);
+        createBlock("dusk_mortis_wall", DUSK_MORTIS_WALL, ItemGroup.DECORATIONS);
         createBlock("midnight_mortis", MIDNIGHT_MORTIS, ItemGroup.BUILDING_BLOCKS);
+        createBlock("midnight_mortis_slab", MIDNIGHT_MORTIS_SLAB, ItemGroup.BUILDING_BLOCKS);
+        createBlock("midnight_mortis_stairs", MIDNIGHT_MORTIS_STAIRS, ItemGroup.BUILDING_BLOCKS);
+        createBlock("midnight_mortis_wall", MIDNIGHT_MORTIS_WALL, ItemGroup.DECORATIONS);
 
         STRIPPED_ASPHODEL_LOG = createBlock("stripped_asphodel_log", new PillarBlock(FabricBlockSettings.of(Material.WOOD, MapColor.TERRACOTTA_BLACK).strength(2.0F).sounds(BlockSoundGroup.WOOD)), ItemGroup.BUILDING_BLOCKS);
         ASPHODEL_LOG = createBlock("asphodel_log", new LogBlock(STRIPPED_ASPHODEL_LOG, FabricBlockSettings.of(Material.WOOD, MapColor.IRON_GRAY).strength(2.0F).sounds(BlockSoundGroup.WOOD)), ItemGroup.BUILDING_BLOCKS);
-        ASPHODEL_PLANKS = createBlock("asphodel_planks", new Block(FabricBlockSettings.of(Material.WOOD, MapColor.WHITE_GRAY).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD)), ItemGroup.BUILDING_BLOCKS);
+        createBlock("asphodel_planks", ASPHODEL_PLANKS, ItemGroup.BUILDING_BLOCKS);
+        createBlock("asphodel_slab", ASPHODEL_SLAB, ItemGroup.BUILDING_BLOCKS);
+        createBlock("asphodel_stairs", ASPHODEL_STAIRS, ItemGroup.BUILDING_BLOCKS);
         ASPHODEL_SAPLING = createBlock("asphodel_sapling", new SaplingBlock(new AsphodelSaplingGenerator(), FabricBlockSettings.copy(Blocks.OAK_SAPLING)), ItemGroup.DECORATIONS);
 
         STRIPPED_EBONY_LOG = createBlock("stripped_ebony_log", new PillarBlock(FabricBlockSettings.of(Material.WOOD, MapColor.TERRACOTTA_BLACK).strength(2.0F).sounds(BlockSoundGroup.WOOD)), ItemGroup.BUILDING_BLOCKS);
         EBONY_LOG = createBlock("ebony_log", new LogBlock(STRIPPED_EBONY_LOG, FabricBlockSettings.of(Material.WOOD, MapColor.TERRACOTTA_BLACK).strength(2.0F).sounds(BlockSoundGroup.WOOD)), ItemGroup.BUILDING_BLOCKS);
         STRIPPED_EBONY_BRANCH = createBlock("stripped_ebony_branch", new PostBlock(null, FabricBlockSettings.of(Material.WOOD).strength(2.0F).sounds(BlockSoundGroup.WOOD)), ItemGroup.DECORATIONS);
         EBONY_BRANCH = createBlock("ebony_branch", new PostBlock(STRIPPED_EBONY_BRANCH, FabricBlockSettings.copy(STRIPPED_EBONY_BRANCH)), ItemGroup.DECORATIONS);
-        EBONY_PLANKS = createBlock("ebony_planks", new Block(FabricBlockSettings.of(Material.WOOD, MapColor.BLACK).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD)), ItemGroup.BUILDING_BLOCKS);
+        EBONY_PLANKS = createBlock("ebony_planks", EBONY_PLANKS, ItemGroup.BUILDING_BLOCKS);
+        createBlock("ebony_slab", EBONY_SLAB, ItemGroup.BUILDING_BLOCKS);
+        createBlock("ebony_stairs", EBONY_STAIRS, ItemGroup.BUILDING_BLOCKS);
         EBONY_LEAVES = createBlock("ebony_leaves", new Block(FabricBlockSettings.of(Material.LEAVES).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).allowsSpawning(BlockRegistry::canSpawnOnLeaves).suffocates(BlockRegistry::never).blockVision(BlockRegistry::never)), ItemGroup.BUILDING_BLOCKS);
         BLOOD_EBONY_LEAVES = createBlock("blood_ebony_leaves", new Block(FabricBlockSettings.of(Material.LEAVES).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).allowsSpawning(BlockRegistry::canSpawnOnLeaves).suffocates(BlockRegistry::never).blockVision(BlockRegistry::never)), ItemGroup.BUILDING_BLOCKS);
         EBONY_SAPLING = createBlock("ebony_sapling", new SaplingBlock(new EbonySaplingGenerator(), FabricBlockSettings.copy(Blocks.OAK_SAPLING)), ItemGroup.DECORATIONS);
@@ -188,9 +211,18 @@ public class BlockRegistry {
 
         createBlock("petrified_sand", PETRIFIED_SAND, ItemGroup.BUILDING_BLOCKS);
         createBlock("petrified_sandstone", PETRIFIED_SANDSTONE, ItemGroup.BUILDING_BLOCKS);
+        createBlock("petrified_sandstone_slab", PETRIFIED_SANDSTONE_SLAB, ItemGroup.BUILDING_BLOCKS);
+        createBlock("petrified_sandstone_stairs", PETRIFIED_SANDSTONE_STAIRS, ItemGroup.BUILDING_BLOCKS);
+        createBlock("petrified_sandstone_wall", PETRIFIED_SANDSTONE_WALL, ItemGroup.DECORATIONS);
 
         createBlock("tenebrite", TENEBRITE, ItemGroup.BUILDING_BLOCKS);
-        TENEBRITE_BRICKS = createBlock("tenebrite_bricks", new Block(FabricBlockSettings.of(Material.SOIL, MapColor.GRAY).strength(1.5F, 15.0F).sounds(BlockSoundGroup.STONE)), ItemGroup.BUILDING_BLOCKS);
+        createBlock("tenebrite_slab", TENEBRITE_SLAB, ItemGroup.BUILDING_BLOCKS);
+        createBlock("tenebrite_stairs", TENEBRITE_STAIRS, ItemGroup.BUILDING_BLOCKS);
+        createBlock("tenebrite_wall", TENEBRITE_WALL, ItemGroup.DECORATIONS);
+        createBlock("tenebrite_bricks", TENEBRITE_BRICKS, ItemGroup.BUILDING_BLOCKS);
+        createBlock("tenebrite_brick_slab", TENEBRITE_BRICK_SLAB, ItemGroup.BUILDING_BLOCKS);
+        createBlock("tenebrite_brick_stairs", TENEBRITE_BRICK_STAIRS, ItemGroup.BUILDING_BLOCKS);
+        createBlock("tenebrite_brick_wall", TENEBRITE_BRICK_WALL, ItemGroup.DECORATIONS);
         SMOOTH_TENEBRITE = createBlock("smooth_tenebrite", new Block(FabricBlockSettings.copy(BlockRegistry.TENEBRITE)), ItemGroup.BUILDING_BLOCKS);
 
         RED_MOSS_CARPET = createBlock("red_moss_carpet", new CarpetBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.DARK_RED).strength(0.1F).sounds(BlockSoundGroup.MOSS_CARPET)), ItemGroup.DECORATIONS);
