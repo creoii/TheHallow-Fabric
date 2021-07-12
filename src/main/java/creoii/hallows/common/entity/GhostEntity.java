@@ -13,8 +13,10 @@ import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.HostileEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -50,16 +52,15 @@ public class GhostEntity extends HostileEntity {
 
     protected void initGoals() {
         super.initGoals();
-        this.goalSelector.add(4, new GhostEntity.ChargeTargetGoal());
-        this.goalSelector.add(9, new LookAtEntityGoal(this, LivingEntity.class, 3.0F, 1.0F));
+        this.goalSelector.add(1, new MeleeAttackGoal(this, 1.0D, false));
+        this.goalSelector.add(3, new GhostEntity.ChargeTargetGoal());
+        this.goalSelector.add(6, new LookAtEntityGoal(this, LivingEntity.class, 3.0F, 1.0F));
+        this.goalSelector.add(7, new GhostEntity.MoveRandomGoal());
+        this.targetSelector.add(1, new FollowTargetGoal<>(this, PlayerEntity.class, true));
     }
 
     public static DefaultAttributeContainer.Builder createGhostAttributes() {
-        return HostileEntity.createHostileAttributes()
-                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 30.0D)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.2D)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 4.0D)
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 15.0D);
+        return HostileEntity.createHostileAttributes().add(EntityAttributes.GENERIC_FOLLOW_RANGE, 30.0D).add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.2D).add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 4.0D).add(EntityAttributes.GENERIC_MAX_HEALTH, 15.0D);
     }
 
     protected void initDataTracker() {
@@ -150,7 +151,7 @@ public class GhostEntity extends HostileEntity {
 
         public boolean canStart() {
             if (GhostEntity.this.getTarget() != null && !GhostEntity.this.getMoveControl().isMoving() && GhostEntity.this.random.nextInt(7) == 0) {
-                return GhostEntity.this.squaredDistanceTo(GhostEntity.this.getTarget()) > 4.0D;
+                return GhostEntity.this.squaredDistanceTo(GhostEntity.this.getTarget()) > 5.0D;
             } else {
                 return false;
             }
@@ -189,6 +190,34 @@ public class GhostEntity extends HostileEntity {
                 }
             }
 
+        }
+    }
+
+    private class MoveRandomGoal extends Goal {
+        public MoveRandomGoal() {
+            this.setControls(EnumSet.of(Control.MOVE));
+        }
+
+        public boolean canStart() {
+            return GhostEntity.this.random.nextInt(7) == 0;
+        }
+
+        public boolean shouldContinue() {
+            return false;
+        }
+
+        public void tick() {
+            BlockPos blockpos = GhostEntity.this.getBlockPos();
+            for (int i = 0; i < 3; ++i) {
+                BlockPos pos = blockpos.add(GhostEntity.this.random.nextInt(15) - 7, GhostEntity.this.random.nextInt(11) - 5, GhostEntity.this.random.nextInt(15) - 7);
+                if (GhostEntity.this.world.isAir(pos)) {
+                    GhostEntity.this.moveControl.moveTo((double) pos.getX() + 0.5D, (double) pos.getY() + 0.5D, (double) pos.getZ() + 0.5D, 0.25D);
+                    if (GhostEntity.this.getAttacking() == null) {
+                        GhostEntity.this.getLookControl().lookAt((double) pos.getX() + 0.5D, (double) pos.getY() + 0.5D, (double) pos.getZ() + 0.5D, 180.0F, 20.0F);
+                    }
+                    break;
+                }
+            }
         }
     }
 }
