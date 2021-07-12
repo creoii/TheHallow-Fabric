@@ -2,9 +2,11 @@ package creoii.hallows.core.registry;
 
 import creoii.hallows.common.block.*;
 import creoii.hallows.common.block.base.*;
+import creoii.hallows.common.block.base.DoorBlock;
 import creoii.hallows.common.block.base.PressurePlateBlock;
 import creoii.hallows.common.block.base.SaplingBlock;
 import creoii.hallows.common.block.base.StairsBlock;
+import creoii.hallows.common.block.base.TrapdoorBlock;
 import creoii.hallows.common.world.sapling.AsphodelSaplingGenerator;
 import creoii.hallows.common.world.sapling.BloodEbonySaplingGenerator;
 import creoii.hallows.common.world.sapling.EbonySaplingGenerator;
@@ -197,6 +199,8 @@ public class BlockRegistry {
         createBlock("asphodel_fence_gate", ASPHODEL_FENCE_GATE, ItemGroup.REDSTONE);
         createBlock("asphodel_button", ASPHODEL_BUTTON, ItemGroup.REDSTONE);
         createBlock("asphodel_pressure_plate", ASPHODEL_PRESSURE_PLATE, ItemGroup.REDSTONE);
+        ASPHODEL_DOOR = createBlock("asphodel_door", new DoorBlock(AbstractBlock.Settings.copy(Blocks.OAK_DOOR)), ItemGroup.REDSTONE);
+        ASPHODEL_TRAPDOOR = createBlock("asphodel_trapdoor", new TrapdoorBlock(AbstractBlock.Settings.copy(Blocks.OAK_DOOR)), ItemGroup.REDSTONE);
         ASPHODEL_SAPLING = createBlock("asphodel_sapling", new SaplingBlock(new AsphodelSaplingGenerator(), FabricBlockSettings.copy(Blocks.OAK_SAPLING)), ItemGroup.DECORATIONS);
 
         STRIPPED_EBONY_LOG = createBlock("stripped_ebony_log", new PillarBlock(FabricBlockSettings.of(Material.WOOD, MapColor.TERRACOTTA_BLACK).strength(2.0F).sounds(BlockSoundGroup.WOOD)), ItemGroup.BUILDING_BLOCKS);
@@ -210,6 +214,8 @@ public class BlockRegistry {
         createBlock("ebony_fence_gate", EBONY_FENCE_GATE, ItemGroup.REDSTONE);
         createBlock("ebony_button", EBONY_BUTTON, ItemGroup.REDSTONE);
         createBlock("ebony_pressure_plate", EBONY_PRESSURE_PLATE, ItemGroup.REDSTONE);
+        EBONY_DOOR = createBlock("ebony_door", new DoorBlock(AbstractBlock.Settings.copy(Blocks.OAK_DOOR)), ItemGroup.REDSTONE);
+        EBONY_TRAPDOOR = createBlock("ebony_trapdoor", new TrapdoorBlock(AbstractBlock.Settings.copy(Blocks.OAK_DOOR)), ItemGroup.REDSTONE);
         EBONY_LEAVES = createBlock("ebony_leaves", new Block(FabricBlockSettings.of(Material.LEAVES).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).allowsSpawning(BlockRegistry::canSpawnOnLeaves).suffocates(BlockRegistry::never).blockVision(BlockRegistry::never)), ItemGroup.BUILDING_BLOCKS);
         BLOOD_EBONY_LEAVES = createBlock("blood_ebony_leaves", new Block(FabricBlockSettings.of(Material.LEAVES).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).allowsSpawning(BlockRegistry::canSpawnOnLeaves).suffocates(BlockRegistry::never).blockVision(BlockRegistry::never)), ItemGroup.BUILDING_BLOCKS);
         EBONY_SAPLING = createBlock("ebony_sapling", new SaplingBlock(new EbonySaplingGenerator(), FabricBlockSettings.copy(Blocks.OAK_SAPLING)), ItemGroup.DECORATIONS);

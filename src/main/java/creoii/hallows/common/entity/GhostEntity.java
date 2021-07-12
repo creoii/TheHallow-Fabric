@@ -1,5 +1,6 @@
 package creoii.hallows.common.entity;
 
+import creoii.hallows.core.registry.EntityRegistry;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.control.MoveControl;
 import net.minecraft.entity.ai.goal.*;
@@ -25,6 +26,12 @@ public class GhostEntity extends HostileEntity {
 
     public GhostEntity(EntityType<? extends GhostEntity> type, World world) {
         super(type, world);
+        this.moveControl = new GhostEntity.GhostMoveControl(this);
+        this.experiencePoints = 2;
+    }
+
+    public GhostEntity(World world) {
+        super(EntityRegistry.GHOST, world);
         this.moveControl = new GhostEntity.GhostMoveControl(this);
         this.experiencePoints = 2;
     }
@@ -158,7 +165,7 @@ public class GhostEntity extends HostileEntity {
             Vec3d vec3d = livingEntity.getEyePos();
             GhostEntity.this.moveControl.moveTo(vec3d.x, vec3d.y, vec3d.z, 1.0D);
             GhostEntity.this.setCharging(true);
-            GhostEntity.this.playSound(SoundEvents.ENTITY_VEX_CHARGE, 1.0F, 1.0F);
+            GhostEntity.this.playSound(SoundEvents.ENTITY_GHAST_SCREAM, 1.0F, 1.0F);
         }
 
         public void stop() {
@@ -175,6 +182,10 @@ public class GhostEntity extends HostileEntity {
                 if (d < 9.0D) {
                     Vec3d vec3d = livingEntity.getEyePos();
                     GhostEntity.this.moveControl.moveTo(vec3d.x, vec3d.y, vec3d.z, 1.0D);
+                }
+
+                if (d < 6.0F) {
+                    GhostEntity.this.addStatusEffect(new StatusEffectInstance(StatusEffects.INVISIBILITY, 25, 0, true, false));
                 }
             }
 

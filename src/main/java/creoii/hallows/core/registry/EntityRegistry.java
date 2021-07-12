@@ -16,7 +16,7 @@ public class EntityRegistry {
     public static EntityType<GhostEntity> GHOST;
 
     public static void register() {
-        GHOST = Registry.register(Registry.ENTITY_TYPE, new Identifier(Hallows.MOD_ID, "ghost"), FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, GhostEntity::new).dimensions(EntityDimensions.fixed(0.5F, 1.3F)).build());
+        GHOST = Registry.register(Registry.ENTITY_TYPE, new Identifier(Hallows.MOD_ID, "ghost"), FabricEntityTypeBuilder.<GhostEntity>create(SpawnGroup.CREATURE, GhostEntity::new).dimensions(EntityDimensions.fixed(0.5F, 1.3F)).build());
 
         FabricDefaultAttributeRegistry.register(GHOST, GhostEntity.createGhostAttributes());
     }
