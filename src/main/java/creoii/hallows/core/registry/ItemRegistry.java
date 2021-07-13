@@ -1,6 +1,7 @@
 package creoii.hallows.core.registry;
 
 import creoii.hallows.common.item.base.MiningToolItem;
+import creoii.hallows.common.item.material.GhostlyMaterial;
 import creoii.hallows.common.item.material.StygianMaterial;
 import creoii.hallows.core.Hallows;
 import net.minecraft.entity.EquipmentSlot;
@@ -26,6 +27,9 @@ public class ItemRegistry {
     public static final Item SILVER_INGOT = new Item(new Item.Settings().group(ItemGroup.MATERIALS));
     public static final Item OPAL = new Item(new Item.Settings().group(ItemGroup.MATERIALS));
 
+    public static final Item GHOST_CLOTH = new Item(new Item.Settings().group(ItemGroup.MATERIALS));
+    public static final Item GHOSTLY_DRAPE = new ArmorItem(Materials.GHOSTLY_ARMOR, EquipmentSlot.CHEST, new Item.Settings().group(ItemGroup.COMBAT));
+
     public static void register() {
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "stygian_ingot"), STYGIAN_INGOT);
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "stygian_helmet"), STYGIAN_HELMET);
@@ -40,10 +44,13 @@ public class ItemRegistry {
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "witch_brew"), WITCH_BREW);
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "silver_ingot"), SILVER_INGOT);
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "opal"), OPAL);
+        Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "ghost_cloth"), GHOST_CLOTH);
+        Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "ghostly_drape"), GHOSTLY_DRAPE);
     }
 
     public static class Materials {
         public static final ToolMaterial STYGIAN_TOOLS = new StygianMaterial.Tool();
         public static final ArmorMaterial STYGIAN_ARMOR = new StygianMaterial.Armor();
+        public static final ArmorMaterial GHOSTLY_ARMOR = new GhostlyMaterial.Armor();
     }
 }

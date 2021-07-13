@@ -1,5 +1,6 @@
 package creoii.hallows.common.item.material;
 
+import creoii.hallows.core.registry.ItemRegistry;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.ToolMaterial;
@@ -63,7 +64,7 @@ public class StygianMaterial {
 
         @Override
         public Ingredient getRepairIngredient() {
-            return null;
+            return Ingredient.ofItems(ItemRegistry.STYGIAN_INGOT);
         }
 
         @Override

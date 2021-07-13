@@ -26,12 +26,16 @@ public class GhostEntityModel extends EntityModel<GhostEntity> {
     public static TexturedModelData getTexturedModelData() {
         ModelData base = new ModelData();
         ModelPartData root = base.getRoot();
-        ModelPartData body = root.addChild("body", ModelPartBuilder.create().uv(0,17).cuboid(-4.0F, -2.0F, -2.0F, 7.0F, 10.0F, 6.0F), ModelTransform.pivot(0.0F, 14.0F, -1.0F));
+        ModelPartData body = root.addChild("body", ModelPartBuilder.create()
+                        .uv(0,17).cuboid(-4.0F, -2.0F, -2.0F, 7.0F, 10.0F, 6.0F)
+                        .uv(26, 0).cuboid(-4.0F, 8.0F, -2.0F, 7.0F, 2.0F, 6.0F)
+                , ModelTransform.pivot(0.0F, 14.0F, -1.0F));
         body.addChild("left_arm", ModelPartBuilder.create().uv(7, 20).cuboid(-3.0F, -1.5F, -1.5F, 3.0F, 8.0F, 3.0F), ModelTransform.pivot(-4.0F, 0.5F, 0.5F));
         body.addChild("right_arm", ModelPartBuilder.create().uv(7, 20).cuboid(0.0F, -1.5F, -1.5F, 3.0F, 8.0F, 3.0F), ModelTransform.pivot(3.0F, 0.5F, 0.5F));
-        body.addChild("body_cloth", ModelPartBuilder.create().uv(26, 0).cuboid(-4.0F, 8.0F, -2.0F, 7.0F, 2.0F, 6.0F), ModelTransform.NONE);
-        ModelPartData head = root.addChild("head", ModelPartBuilder.create().uv(0,0).cuboid(-4.0F, -9.0F, -2.0F, 9.0F, 9.0F, 8.0F), ModelTransform.of(0.0F, 12.0F, -1.0F, 0.0F, 3.1416F, 0.0F));
-        head.addChild("head_cloth", ModelPartBuilder.create().uv(18, 25).cuboid(-3.0F, 0.0F, -2.0F, 7.0F, 4.0F, 8.0F), ModelTransform.NONE);
+        ModelPartData head = root.addChild("head", ModelPartBuilder.create()
+                        .uv(0,0).cuboid(-4.0F, -9.0F, -2.0F, 9.0F, 9.0F, 8.0F)
+                        .uv(18, 25).cuboid(-3.0F, 0.0F, -2.0F, 7.0F, 4.0F, 8.0F)
+                , ModelTransform.of(0.0F, 12.0F, -1.0F, 0.0F, 3.1416F, 0.0F));
         return TexturedModelData.of(base,64,64);
     }
 

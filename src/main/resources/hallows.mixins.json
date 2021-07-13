@@ -5,8 +5,9 @@
   "compatibilityLevel": "JAVA_16",
   "mixins": [
     "CarverMixin",
-    "TreeDecoratorTypeMixin",
-    "EntityModelsMixin"
+    "EntityModelsMixin",
+    "ProjectileEntityMixin",
+    "TreeDecoratorTypeMixin"
   ],
   "injectors": {
     "defaultRequire": 1
