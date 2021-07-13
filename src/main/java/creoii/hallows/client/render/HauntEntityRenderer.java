@@ -31,6 +31,6 @@ public class HauntEntityRenderer extends MobEntityRenderer<HauntEntity, HauntEnt
 
     @Override
     protected void scale(HauntEntity entity, MatrixStack matrices, float amount) {
-        matrices.scale(1.2F, 1.2F, 1.2F);
+        matrices.scale(1.4F, 1.5F, 1.4F);
     }
 }

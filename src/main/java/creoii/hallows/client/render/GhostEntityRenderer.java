@@ -18,7 +18,7 @@ public class GhostEntityRenderer extends MobEntityRenderer<GhostEntity, GhostEnt
     private static final Identifier TEXTURE = new Identifier(Hallows.MOD_ID, "textures/entity/ghost.png");
 
     public GhostEntityRenderer(EntityRendererFactory.Context context) {
-        super(context, new GhostEntityModel(context.getPart(ModelLayers.GHOST)), 0.9F);
+        super(context, new GhostEntityModel(context.getPart(ModelLayers.GHOST)), 0.6F);
     }
 
     protected int getBlockLight(GhostEntity entity, BlockPos blockPos) {

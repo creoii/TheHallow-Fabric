@@ -33,8 +33,8 @@ public class HauntEntityModel extends EntityModel<HauntEntity> {
         ModelPartData body = root.addChild("body", ModelPartBuilder.create().uv(0, 0).cuboid(-9.5F, -30.0F, -3.0F, 18.0F, 18.0F, 10.0F), ModelTransform.pivot(0.0F, 24.0F, 4.0F));
         root.addChild("right_arm", ModelPartBuilder.create().uv(0, 48).cuboid(-5.0F, -2.0F, -5.0F, 4.0F, 24.0F, 4.0F), ModelTransform.pivot(-8.5F, -2.0F, 2.0F));
         root.addChild("left_arm", ModelPartBuilder.create().uv(0, 48).cuboid(-5.0F, -2.0F, -5.0F, 4.0F, 24.0F, 4.0F), ModelTransform.pivot(13.5F, -2.0F, 2.0F));
-        ModelPartData head = body.addChild("head", ModelPartBuilder.create().uv(0, 28).cuboid(-5.0F, -10.0F, -4.0F, 10.0F, 10.0F, 10.0F), ModelTransform.pivot(-9.0F, -27.0F, -6.0F));
-        head.addChild("head1", ModelPartBuilder.create().uv(30, 28).cuboid(-5.0F, 0.0F, -4.0F, 10.0F, 6.0F, 4.0F), ModelTransform.NONE);
+        ModelPartData head = body.addChild("head", ModelPartBuilder.create().uv(0, 28).cuboid(3.5F, -10.0F, -2.0F, 10.0F, 10.0F, 10.0F), ModelTransform.pivot(-9.0F, -27.0F, -6.0F));
+        head.addChild("head1", ModelPartBuilder.create().uv(30, 28).cuboid(3.5F, 0.0F, -2.0F, 10.0F, 6.0F, 4.0F), ModelTransform.NONE);
         root.addChild("right_leg", ModelPartBuilder.create().uv(16, 48).cuboid(-6.5F, -14.0F, 0.0F, 4.0F, 14.0F, 4.0F), ModelTransform.pivot(0.0F, 24.0F, 0.0F));
         root.addChild("left_leg", ModelPartBuilder.create().uv(16, 48).cuboid(-4.5F, -2.0F, -2.0F, 4.0F, 14.0F, 4.0F), ModelTransform.pivot(7.0F, 12.0F, 2.0F));
         return TexturedModelData.of(base,128,128);
@@ -42,7 +42,7 @@ public class HauntEntityModel extends EntityModel<HauntEntity> {
 
     @Override
     public void setAngles(HauntEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
-        body.pitch = 0.2618F;
+        this.body.pitch = 0.2618F;
 
         this.rightArm.pitch = MathHelper.cos(limbAngle * 0.1681F + (float)Math.PI) * limbDistance * 0.25F;
         this.leftArm.pitch = MathHelper.cos(limbAngle * 0.1681F) * limbDistance * 0.25F;

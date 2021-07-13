@@ -9,6 +9,7 @@ import net.fabricmc.api.Environment;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
+import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
@@ -16,7 +17,7 @@ public class MagusEntityRenderer extends MobEntityRenderer<MagusEntity, MagusEnt
     private static final Identifier TEXTURE = new Identifier(Hallows.MOD_ID, "textures/entity/magus.png");
 
     public MagusEntityRenderer(EntityRendererFactory.Context context) {
-        super(context, new MagusEntityModel(context.getPart(ModelLayers.MAGUS)), 1.2F);
+        super(context, new MagusEntityModel(context.getPart(ModelLayers.MAGUS)), 0.8F);
     }
 
     @Override
@@ -26,5 +27,10 @@ public class MagusEntityRenderer extends MobEntityRenderer<MagusEntity, MagusEnt
 
     public Identifier getTexture(MagusEntity entity) {
         return TEXTURE;
+    }
+
+    @Override
+    protected void scale(MagusEntity entity, MatrixStack matrices, float amount) {
+        matrices.scale(1.2F, 1.2F, 1.2F);
     }
 }
