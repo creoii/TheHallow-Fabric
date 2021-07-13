@@ -30,6 +30,10 @@ public class ItemRegistry {
     public static final Item GHOST_CLOTH = new Item(new Item.Settings().group(ItemGroup.MATERIALS));
     public static final Item GHOSTLY_DRAPE = new ArmorItem(Materials.GHOSTLY_ARMOR, EquipmentSlot.CHEST, new Item.Settings().group(ItemGroup.COMBAT));
 
+    public static final Item GHOST_SPAWN_EGG = new SpawnEggItem(EntityRegistry.GHOST, 13159139, 9079978, new Item.Settings().group(ItemGroup.MISC));
+    public static final Item MAGUS_SPAWN_EGG = new SpawnEggItem(EntityRegistry.MAGUS, 12609675, 3293539, new Item.Settings().group(ItemGroup.MISC));
+    public static final Item HAUNT_SPAWN_EGG = new SpawnEggItem(EntityRegistry.HAUNT, 4275275, 2827571, new Item.Settings().group(ItemGroup.MISC));
+
     public static void register() {
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "stygian_ingot"), STYGIAN_INGOT);
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "stygian_helmet"), STYGIAN_HELMET);
@@ -46,6 +50,9 @@ public class ItemRegistry {
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "opal"), OPAL);
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "ghost_cloth"), GHOST_CLOTH);
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "ghostly_drape"), GHOSTLY_DRAPE);
+        Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "ghost_spawn_egg"), GHOST_SPAWN_EGG);
+        Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "magus_spawn_egg"), MAGUS_SPAWN_EGG);
+        Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "haunt_spawn_egg"), HAUNT_SPAWN_EGG);
     }
 
     public static class Materials {

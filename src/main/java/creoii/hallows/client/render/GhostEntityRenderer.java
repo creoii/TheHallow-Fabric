@@ -21,7 +21,7 @@ public class GhostEntityRenderer extends MobEntityRenderer<GhostEntity, GhostEnt
         super(context, new GhostEntityModel(context.getPart(ModelLayers.GHOST)), 0.9F);
     }
 
-    protected int getBlockLight(GhostEntity ghost, BlockPos blockPos) {
+    protected int getBlockLight(GhostEntity entity, BlockPos blockPos) {
         return 15;
     }
 
@@ -30,11 +30,11 @@ public class GhostEntityRenderer extends MobEntityRenderer<GhostEntity, GhostEnt
         return RenderLayer.getEntityTranslucent(this.getTexture(entity));
     }
 
-    public Identifier getTexture(GhostEntity ghost) {
+    public Identifier getTexture(GhostEntity entity) {
         return TEXTURE;
     }
 
-    protected void scale(GhostEntity ghost, MatrixStack matrixStack, float f) {
-        matrixStack.scale(1.2F, 1.2F, 1.2F);
+    protected void scale(GhostEntity entity, MatrixStack matrices, float f) {
+        matrices.scale(1.2F, 1.2F, 1.2F);
     }
 }

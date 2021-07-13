@@ -46,19 +46,19 @@ public class GhostEntityModel extends EntityModel<GhostEntity> {
     }
 
     @Override
-    public void setAngles(GhostEntity ghost, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
+    public void setAngles(GhostEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
         CrossbowPosing.meleeAttack(this.leftArm, this.rightArm, true, this.handSwingProgress, animationProgress);
 
-        this.rightArm.pivotX = MathHelper.cos(limbAngle * 0.3331F + (float)Math.PI) * limbDistance * 0.5F;
-        this.leftArm.pivotX = MathHelper.cos(limbAngle * 0.3331F) * limbDistance * 0.5F;
-        this.rightArm.pivotZ = MathHelper.cos(limbAngle * 0.3331F + (float)Math.PI) * limbDistance * 0.25F;
-        this.leftArm.pivotZ = MathHelper.cos(limbAngle * 0.3331F) * limbDistance * 0.25F;
+        this.rightArm.pitch = MathHelper.cos(limbAngle * 0.3331F + (float)Math.PI) * limbDistance * 0.5F;
+        this.leftArm.pitch = MathHelper.cos(limbAngle * 0.3331F) * limbDistance * 0.5F;
+        this.rightArm.roll = MathHelper.cos(limbAngle * 0.3331F + (float)Math.PI) * limbDistance * 0.25F;
+        this.leftArm.roll = MathHelper.cos(limbAngle * 0.3331F) * limbDistance * 0.25F;
 
-        if (ghost.isCharging()) {
-            this.rightArm.pivotX = 37.5F + MathHelper.cos(limbAngle * 0.3331F + (float)Math.PI) * limbDistance * 0.375F;
-            this.leftArm.pivotX = 37.5F + MathHelper.cos(limbAngle * 0.3331F) * limbDistance * 0.375F;
-            this.rightArm.pivotZ = 17.5F + MathHelper.cos(limbAngle * 0.3331F + (float)Math.PI) * limbDistance * 0.375F;
-            this.leftArm.pivotZ = -17.5F - MathHelper.cos(limbAngle * 0.3331F) * limbDistance * 0.375F;
+        if (entity.isCharging()) {
+            this.rightArm.pitch = 37.5F + MathHelper.cos(limbAngle * 0.3331F + (float)Math.PI) * limbDistance * 0.375F;
+            this.leftArm.pitch = 37.5F + MathHelper.cos(limbAngle * 0.3331F) * limbDistance * 0.375F;
+            this.rightArm.roll = 17.5F + MathHelper.cos(limbAngle * 0.3331F + (float)Math.PI) * limbDistance * 0.375F;
+            this.leftArm.roll = -17.5F - MathHelper.cos(limbAngle * 0.3331F) * limbDistance * 0.375F;
         }
     }
 }

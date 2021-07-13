@@ -59,7 +59,7 @@ public class MagusEntityModel extends EntityModel<MagusEntity> {
     }
 
     @Override
-    public void setAngles(MagusEntity magus, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
+    public void setAngles(MagusEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
 
     }
 }
