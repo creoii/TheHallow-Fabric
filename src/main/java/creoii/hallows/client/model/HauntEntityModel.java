@@ -20,8 +20,8 @@ public class HauntEntityModel extends EntityModel<HauntEntity> {
 
     public HauntEntityModel(ModelPart root) {
         body = root.getChild("body");
-        leftArm = this.body.getChild("left_arm");
-        rightArm = this.body.getChild("right_arm");
+        leftArm = root.getChild("left_arm");
+        rightArm = root.getChild("right_arm");
         head = this.body.getChild("head");
         rightLeg = root.getChild("right_leg");
         leftLeg = root.getChild("left_leg");
