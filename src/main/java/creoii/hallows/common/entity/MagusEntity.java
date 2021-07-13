@@ -1,5 +1,6 @@
 package creoii.hallows.common.entity;
 
+import creoii.hallows.common.entity.ai.FlyMoveControl;
 import creoii.hallows.common.entity.ai.FlyRandomGoal;
 import creoii.hallows.core.registry.EntityRegistry;
 import net.minecraft.entity.EntityType;
@@ -12,10 +13,14 @@ import net.minecraft.world.World;
 public class MagusEntity extends FlyingEntity {
     public MagusEntity(EntityType<MagusEntity> entityType, World world) {
         super(entityType, world);
+        this.moveControl = new FlyMoveControl(this);
+        this.experiencePoints = 5;
     }
 
     public MagusEntity(World world) {
         super(EntityRegistry.MAGUS, world);
+        this.moveControl = new FlyMoveControl(this);
+        this.experiencePoints = 5;
     }
 
     protected void initGoals() {

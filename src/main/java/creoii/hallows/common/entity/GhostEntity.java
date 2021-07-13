@@ -1,5 +1,6 @@
 package creoii.hallows.common.entity;
 
+import creoii.hallows.common.entity.ai.FlyMoveControl;
 import creoii.hallows.common.entity.ai.FlyRandomGoal;
 import creoii.hallows.core.registry.EntityRegistry;
 import net.minecraft.entity.*;
@@ -29,13 +30,13 @@ public class GhostEntity extends HostileEntity {
 
     public GhostEntity(EntityType<? extends GhostEntity> type, World world) {
         super(type, world);
-        this.moveControl = new GhostEntity.GhostMoveControl(this);
+        this.moveControl = new FlyMoveControl(this);
         this.experiencePoints = 2;
     }
 
     public GhostEntity(World world) {
         super(EntityRegistry.GHOST, world);
-        this.moveControl = new GhostEntity.GhostMoveControl(this);
+        this.moveControl = new FlyMoveControl(this);
         this.experiencePoints = 2;
     }
 
@@ -113,36 +114,6 @@ public class GhostEntity extends HostileEntity {
         }
 
         return bl;
-    }
-
-    private class GhostMoveControl extends MoveControl {
-        public GhostMoveControl(GhostEntity owner) {
-            super(owner);
-        }
-
-        public void tick() {
-            if (this.state == State.MOVE_TO) {
-                Vec3d vec3d = new Vec3d(this.targetX - GhostEntity.this.getX(), this.targetY - GhostEntity.this.getY(), this.targetZ - GhostEntity.this.getZ());
-                double d = vec3d.length();
-                if (d < GhostEntity.this.getBoundingBox().getAverageSideLength()) {
-                    this.state = State.WAIT;
-                    GhostEntity.this.setVelocity(GhostEntity.this.getVelocity().multiply(0.5D));
-                } else {
-                    GhostEntity.this.setVelocity(GhostEntity.this.getVelocity().add(vec3d.multiply(this.speed * 0.05D / d)));
-                    if (GhostEntity.this.getTarget() == null) {
-                        Vec3d vec3d2 = GhostEntity.this.getVelocity();
-                        GhostEntity.this.setYaw(-((float) MathHelper.atan2(vec3d2.x, vec3d2.z)) * 57.295776F);
-                        GhostEntity.this.bodyYaw = GhostEntity.this.getYaw();
-                    } else {
-                        double e = GhostEntity.this.getTarget().getX() - GhostEntity.this.getX();
-                        double f = GhostEntity.this.getTarget().getZ() - GhostEntity.this.getZ();
-                        GhostEntity.this.setYaw(-((float)MathHelper.atan2(e, f)) * 57.295776F);
-                        GhostEntity.this.bodyYaw = GhostEntity.this.getYaw();
-                    }
-                }
-
-            }
-        }
     }
 
     private class ChargeTargetGoal extends Goal {
