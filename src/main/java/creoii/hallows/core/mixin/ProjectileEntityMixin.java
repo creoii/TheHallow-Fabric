@@ -11,17 +11,18 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 @Mixin(ProjectileEntity.class)
 public class ProjectileEntityMixin {
-    @Inject(method = "onCollision", at = @At(value = "INVOKE", shift = At.Shift.BEFORE, target = "Lnet/minecraft/entity/projectile/ProjectileEntity;onEntityHit(Lnet/minecraft/util/hit/EntityHitResult)V", remap = false), locals = LocalCapture.CAPTURE_FAILEXCEPTION, cancellable = true)
-    private static void negateGhostCollision(HitResult hitResult, CallbackInfo ci) {
-        Entity entity = ((EntityHitResult) hitResult).getEntity();
-        if (entity.getType() == EntityRegistry.GHOST) ci.cancel();
-        else {
-            for (ItemStack stack : entity.getArmorItems()) {
-                if (stack.getItem() == ItemRegistry.GHOSTLY_DRAPE) ci.cancel();
+    @Inject(method = "onCollision", at = @At(value = "HEAD"), cancellable = true)
+    private void negateGhostCollision(HitResult hitResult, CallbackInfo ci) {
+        if (hitResult.getType() == HitResult.Type.ENTITY) {
+            Entity entity = ((EntityHitResult) hitResult).getEntity();
+            if (entity.getType() == EntityRegistry.GHOST) ci.cancel();
+            else {
+                for (ItemStack stack : entity.getArmorItems()) {
+                    if (stack.getItem() == ItemRegistry.GHOSTLY_DRAPE) ci.cancel();
+                }
             }
         }
     }
