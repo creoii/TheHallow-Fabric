@@ -31,14 +31,12 @@ public class HauntEntityModel extends EntityModel<HauntEntity> {
         ModelData base = new ModelData();
         ModelPartData root = base.getRoot();
         ModelPartData body = root.addChild("body", ModelPartBuilder.create().uv(0, 0).cuboid(-9.5F, -30.0F, -3.0F, 18.0F, 18.0F, 10.0F), ModelTransform.pivot(0.0F, 24.0F, 4.0F));
-        ModelPartData rightArm = root.addChild("right_arm", ModelPartBuilder.create().uv(0, 48).cuboid(-5.0F, -2.0F, -5.0F, 4.0F, 24.0F, 4.0F), ModelTransform.pivot(-8.5F, -2.0F, 2.0F));
-        ModelPartData leftArm = root.addChild("left_arm", ModelPartBuilder.create().uv(0, 48).cuboid(-5.0F, -2.0F, -5.0F, 4.0F, 24.0F, 4.0F), ModelTransform.pivot(13.5F, -2.0F, 2.0F));
-        ModelPartData head = body.addChild("head", ModelPartBuilder.create()
-                        .uv(0, 28).cuboid(-5.0F, -10.0F, -4.0F, 10.0F, 10.0F, 10.0F)
-                        .uv(30, 28).cuboid(-5.0F, 0.0F, -4.0F, 10.0F, 6.0F, 4.0F)
-                , ModelTransform.pivot(-9.0F, -27.0F, -6.0F));
-        ModelPartData rightLeg = root.addChild("right_leg", ModelPartBuilder.create().uv(16, 48).cuboid(-6.5F, -14.0F, 0.0F, 4.0F, 14.0F, 4.0F), ModelTransform.pivot(0.0F, 24.0F, 0.0F));
-        ModelPartData leftLeg = root.addChild("left_leg", ModelPartBuilder.create().uv(16, 48).cuboid(-4.5F, -2.0F, -2.0F, 4.0F, 14.0F, 4.0F), ModelTransform.pivot(7.0F, 12.0F, 2.0F));
+        root.addChild("right_arm", ModelPartBuilder.create().uv(0, 48).cuboid(-5.0F, -2.0F, -5.0F, 4.0F, 24.0F, 4.0F), ModelTransform.pivot(-8.5F, -2.0F, 2.0F));
+        root.addChild("left_arm", ModelPartBuilder.create().uv(0, 48).cuboid(-5.0F, -2.0F, -5.0F, 4.0F, 24.0F, 4.0F), ModelTransform.pivot(13.5F, -2.0F, 2.0F));
+        ModelPartData head = body.addChild("head", ModelPartBuilder.create().uv(0, 28).cuboid(-5.0F, -10.0F, -4.0F, 10.0F, 10.0F, 10.0F), ModelTransform.pivot(-9.0F, -27.0F, -6.0F));
+        head.addChild("head1", ModelPartBuilder.create().uv(30, 28).cuboid(-5.0F, 0.0F, -4.0F, 10.0F, 6.0F, 4.0F), ModelTransform.NONE);
+        root.addChild("right_leg", ModelPartBuilder.create().uv(16, 48).cuboid(-6.5F, -14.0F, 0.0F, 4.0F, 14.0F, 4.0F), ModelTransform.pivot(0.0F, 24.0F, 0.0F));
+        root.addChild("left_leg", ModelPartBuilder.create().uv(16, 48).cuboid(-4.5F, -2.0F, -2.0F, 4.0F, 14.0F, 4.0F), ModelTransform.pivot(7.0F, 12.0F, 2.0F));
         return TexturedModelData.of(base,128,128);
     }
 

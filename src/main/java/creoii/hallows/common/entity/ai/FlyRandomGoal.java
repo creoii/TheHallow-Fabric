@@ -9,14 +9,16 @@ import java.util.EnumSet;
 
 public class FlyRandomGoal extends Goal {
     private final MobEntity entity;
+    private final int probability;
 
-    public FlyRandomGoal(MobEntity entity) {
+    public FlyRandomGoal(MobEntity entity, int probability) {
         this.entity = entity;
+        this.probability = probability;
         this.setControls(EnumSet.of(Control.MOVE));
     }
 
     public boolean canStart() {
-        return entity.getRandom().nextInt(7) == 0;
+        return entity.getRandom().nextInt(this.probability) == 0;
     }
 
     public boolean shouldContinue() {

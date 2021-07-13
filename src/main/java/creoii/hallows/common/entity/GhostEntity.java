@@ -3,6 +3,7 @@ package creoii.hallows.common.entity;
 import creoii.hallows.common.entity.ai.FlyMoveControl;
 import creoii.hallows.common.entity.ai.FlyRandomGoal;
 import creoii.hallows.core.registry.EntityRegistry;
+import creoii.hallows.core.registry.ItemRegistry;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.control.MoveControl;
 import net.minecraft.entity.ai.goal.*;
@@ -16,12 +17,14 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.EnumSet;
 
@@ -57,12 +60,18 @@ public class GhostEntity extends HostileEntity {
         this.goalSelector.add(1, new MeleeAttackGoal(this, 1.0D, false));
         this.goalSelector.add(3, new GhostEntity.ChargeTargetGoal());
         this.goalSelector.add(6, new LookAtEntityGoal(this, LivingEntity.class, 3.0F, 1.0F));
-        this.goalSelector.add(7, new FlyRandomGoal(this));
+        this.goalSelector.add(7, new FlyRandomGoal(this, 8));
         this.targetSelector.add(1, new FollowTargetGoal<>(this, PlayerEntity.class, true));
     }
 
     public static DefaultAttributeContainer.Builder createAttributes() {
         return HostileEntity.createHostileAttributes().add(EntityAttributes.GENERIC_FOLLOW_RANGE, 30.0D).add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.2D).add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 4.0D).add(EntityAttributes.GENERIC_MAX_HEALTH, 15.0D);
+    }
+
+    @Nullable
+    @Override
+    public ItemStack getPickBlockStack() {
+        return new ItemStack(ItemRegistry.GHOST_SPAWN_EGG);
     }
 
     protected void initDataTracker() {
