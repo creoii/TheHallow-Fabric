@@ -1,12 +1,12 @@
 package creoii.hallows.core.registry;
 
 import creoii.hallows.common.block.*;
-import creoii.hallows.common.block.base.*;
 import creoii.hallows.common.block.base.DoorBlock;
 import creoii.hallows.common.block.base.PressurePlateBlock;
 import creoii.hallows.common.block.base.SaplingBlock;
 import creoii.hallows.common.block.base.StairsBlock;
 import creoii.hallows.common.block.base.TrapdoorBlock;
+import creoii.hallows.common.block.base.*;
 import creoii.hallows.common.world.sapling.AsphodelSaplingGenerator;
 import creoii.hallows.common.world.sapling.BloodEbonySaplingGenerator;
 import creoii.hallows.common.world.sapling.EbonySaplingGenerator;

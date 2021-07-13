@@ -1,14 +1,12 @@
 package creoii.hallows.common.recipe;
 
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
 import com.google.gson.JsonSyntaxException;
 import creoii.hallows.core.registry.ItemRegistry;
 import creoii.hallows.core.registry.RecipeRegistry;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.recipe.*;
 import net.minecraft.util.Identifier;

@@ -1,7 +1,6 @@
 package creoii.hallows.common.world.carver;
 
 import com.mojang.serialization.Codec;
-import creoii.hallows.core.registry.BlockRegistry;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.state.property.Properties;
@@ -18,7 +17,6 @@ import net.minecraft.world.gen.carver.RavineCarverConfig;
 import net.minecraft.world.gen.chunk.AquiferSampler;
 import org.apache.commons.lang3.mutable.MutableBoolean;
 
-import java.util.Arrays;
 import java.util.BitSet;
 import java.util.Random;
 import java.util.function.Function;

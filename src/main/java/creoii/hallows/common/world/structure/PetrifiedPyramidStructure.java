@@ -14,8 +14,6 @@ import net.minecraft.world.gen.chunk.ChunkGenerator;
 import net.minecraft.world.gen.feature.DefaultFeatureConfig;
 import net.minecraft.world.gen.feature.StructureFeature;
 
-import java.util.Random;
-
 public class PetrifiedPyramidStructure extends StructureFeature<DefaultFeatureConfig> {
     public PetrifiedPyramidStructure(Codec<DefaultFeatureConfig> codec) {
         super(codec);

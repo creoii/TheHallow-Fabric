@@ -4,9 +4,14 @@ import creoii.hallows.common.entity.ai.FlyMoveControl;
 import creoii.hallows.common.entity.ai.FlyRandomGoal;
 import creoii.hallows.core.registry.EntityRegistry;
 import creoii.hallows.core.registry.ItemRegistry;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.control.MoveControl;
-import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.MovementType;
+import net.minecraft.entity.ai.goal.FollowTargetGoal;
+import net.minecraft.entity.ai.goal.Goal;
+import net.minecraft.entity.ai.goal.LookAtEntityGoal;
+import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
@@ -20,8 +25,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -167,7 +170,7 @@ public class GhostEntity extends HostileEntity {
                 }
 
                 if (d < 6.0F) {
-                    GhostEntity.this.addStatusEffect(new StatusEffectInstance(StatusEffects.INVISIBILITY, 25, 0, true, false));
+                    GhostEntity.this.addStatusEffect(new StatusEffectInstance(StatusEffects.INVISIBILITY, 20, 0, true, false));
                 }
             }
 
