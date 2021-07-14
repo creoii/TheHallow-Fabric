@@ -8,6 +8,7 @@ import net.minecraft.entity.ai.TargetPredicate;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
@@ -30,6 +31,7 @@ public class HauntEntity extends HostileEntity implements Angerable {
     private static final TrackedData<Boolean> ANGRY = DataTracker.registerData(HauntEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
     private int angerTime;
     private UUID targetUuid;
+    private int attackTicksLeft;
 
     public HauntEntity(EntityType<? extends HauntEntity> type, World world) {
         super(type, world);
@@ -45,14 +47,15 @@ public class HauntEntity extends HostileEntity implements Angerable {
         super.initGoals();
         this.goalSelector.add(1, new MeleeAttackGoal(this, 1.0D, false));
         this.goalSelector.add(2, new WanderAroundGoal(this, 1.0D));
-        this.goalSelector.add(3, new TeleportTowardsPlayerGoal(this, this::shouldAngerAt));
-        this.goalSelector.add(4, new LookAtEntityGoal(this, LivingEntity.class, 3.0F, 1.0F));
+        this.goalSelector.add(3, new LookAtEntityGoal(this, LivingEntity.class, 3.0F, 1.0F));
         this.targetSelector.add(1, new FollowTargetGoal<>(this, PlayerEntity.class, true));
-        this.targetSelector.add(2, new UniversalAngerGoal(this, false));
+        this.targetSelector.add(2, new TeleportTowardsPlayerGoal(this, this::shouldAngerAt));
+        this.targetSelector.add(3, new ChargePlayerGoal(this, 30));
+        this.targetSelector.add(4, new UniversalAngerGoal(this, false));
     }
 
     public static DefaultAttributeContainer.Builder createAttributes() {
-        return HostileEntity.createHostileAttributes().add(EntityAttributes.GENERIC_FOLLOW_RANGE, 25.0D).add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.1D).add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 8.0D).add(EntityAttributes.GENERIC_MAX_HEALTH, 75.0D).add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, 1.0D);
+        return HostileEntity.createHostileAttributes().add(EntityAttributes.GENERIC_FOLLOW_RANGE, 25.0D).add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.125D).add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 8.0D).add(EntityAttributes.GENERIC_MAX_HEALTH, 75.0D).add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, 1.0D);
     }
 
     @Nullable
@@ -102,13 +105,27 @@ public class HauntEntity extends HostileEntity implements Angerable {
     public void chooseRandomAngerTime() {
     }
 
-    boolean isPlayerStaring(PlayerEntity player) {
-        Vec3d vec3d = player.getRotationVec(1.0F).normalize();
-        Vec3d vec3d2 = new Vec3d(this.getX() - player.getX(), this.getEyeY() - player.getEyeY(), this.getZ() - player.getZ());
-        double d = vec3d2.length();
-        vec3d2 = vec3d2.normalize();
-        double e = vec3d.dotProduct(vec3d2);
-        return e > 1.0D - 0.025D / d && player.canSee(this);
+    public void tickMovement() {
+        super.tickMovement();
+        if (this.attackTicksLeft > 0) --this.attackTicksLeft;
+    }
+
+    public int getAttackTicksLeft() {
+        return this.attackTicksLeft;
+    }
+
+    public boolean tryAttack(Entity target) {
+        this.attackTicksLeft = 20;
+        this.world.sendEntityStatus(this, (byte)4);
+        float f = (float) this.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE);
+        float g = (int)f > 0 ? f / 2.0F + (float)this.random.nextInt((int)f) : f;
+        boolean bl = target.damage(DamageSource.mob(this), g);
+        if (bl) {
+            target.setVelocity(target.getVelocity().add(0.0D, 0.2D, 0.0D));
+            this.applyDamageEffects(this, target);
+        }
+
+        return bl;
     }
 
     protected float getActiveEyeHeight(EntityPose pose, EntityDimensions dimensions) {
@@ -153,20 +170,18 @@ public class HauntEntity extends HostileEntity implements Angerable {
         } else return false;
     }
 
-    static class TeleportTowardsPlayerGoal extends FollowTargetGoal<PlayerEntity> {
+    private static class TeleportTowardsPlayerGoal extends FollowTargetGoal<PlayerEntity> {
         private final HauntEntity haunt;
         private PlayerEntity targetPlayer;
         private int lookAtPlayerWarmup;
         private int ticksSinceUnseenTeleport;
         private final TargetPredicate staringPlayerPredicate;
-        private final TargetPredicate validTargetPredicate = TargetPredicate.createAttackable().ignoreVisibility();
+        private final TargetPredicate validTargetPredicate = TargetPredicate.createAttackable();
 
         public TeleportTowardsPlayerGoal(HauntEntity haunt, @Nullable Predicate<LivingEntity> predicate) {
             super(haunt, PlayerEntity.class, 10, false, false, predicate);
             this.haunt = haunt;
-            this.staringPlayerPredicate = TargetPredicate.createAttackable().setBaseMaxDistance(this.getFollowRange()).setPredicate((playerEntity) -> {
-                return haunt.isPlayerStaring((PlayerEntity)playerEntity);
-            });
+            this.staringPlayerPredicate = TargetPredicate.createAttackable().setBaseMaxDistance(this.getFollowRange()).setPredicate((playerEntity) -> !playerEntity.canSee(this.haunt));
         }
 
         public boolean canStart() {
@@ -187,7 +202,7 @@ public class HauntEntity extends HostileEntity implements Angerable {
 
         public boolean shouldContinue() {
             if (this.targetPlayer != null) {
-                if (!this.haunt.isPlayerStaring(this.targetPlayer)) return false;
+                if (targetPlayer.canSee(this.haunt)) return false;
                 else {
                     this.haunt.lookAtEntity(this.targetPlayer, 10.0F, 10.0F);
                     return true;
@@ -196,9 +211,7 @@ public class HauntEntity extends HostileEntity implements Angerable {
         }
 
         public void tick() {
-            if (this.haunt.getTarget() == null) {
-                super.setTargetEntity(null);
-            }
+            if (this.haunt.getTarget() == null) super.setTargetEntity(null);
 
             if (this.targetPlayer != null) {
                 if (--this.lookAtPlayerWarmup <= 0) {
@@ -208,18 +221,66 @@ public class HauntEntity extends HostileEntity implements Angerable {
                 }
             } else {
                 if (this.targetEntity != null && !this.haunt.hasVehicle()) {
-                    if (this.haunt.isPlayerStaring((PlayerEntity)this.targetEntity)) {
-                        if (this.targetEntity.squaredDistanceTo(this.haunt) < 16.0D) {
+                    System.out.println("TEST A");
+                    if (!targetEntity.canSee(this.haunt)) {
+                        System.out.println("CANT SEE YOU");
+                        if (this.targetEntity.squaredDistanceTo(this.haunt) <= 24.0D) {
+                            System.out.println("TELEPORTED");
                             this.haunt.teleportRandomly();
                         }
 
                         this.ticksSinceUnseenTeleport = 0;
-                    } else if (this.targetEntity.squaredDistanceTo(this.haunt) > 256.0D && this.ticksSinceUnseenTeleport++ >= 30 && this.haunt.teleportTo(this.targetEntity)) {
+                    } else if (this.targetEntity.squaredDistanceTo(this.haunt) > 256.0D && ++this.ticksSinceUnseenTeleport >= 150 && this.haunt.teleportTo(this.targetEntity)) {
                         this.ticksSinceUnseenTeleport = 0;
                     }
                 }
                 super.tick();
             }
+        }
+    }
+
+    private static class ChargePlayerGoal extends FollowTargetGoal<PlayerEntity> {
+        private final HauntEntity haunt;
+        private final int probability;
+        private int ticksBeenCharging;
+
+        public ChargePlayerGoal(HauntEntity haunt, int probability) {
+            super(haunt, PlayerEntity.class, false);
+            this.haunt = haunt;
+            this.probability = probability;
+        }
+
+        @Override
+        public boolean canStart() {
+            if (this.haunt.hasVehicle() || this.targetEntity == null) return false;
+            return this.haunt.getRandom().nextInt(probability) == 0 && (this.targetEntity.squaredDistanceTo(this.haunt) >= 12.0D || super.canStart());
+        }
+
+        @Override
+        public boolean shouldContinue() {
+            return this.targetEntity != null && (this.targetEntity.squaredDistanceTo(this.haunt) < 1.0D || ticksBeenCharging >= 120);
+        }
+
+        @Override
+        public void start() {
+            ticksBeenCharging = 0;
+            this.haunt.setAngryAt(targetEntity.getUuid());
+            super.start();
+        }
+
+        @Override
+        public void tick() {
+            System.out.println("TEST B");
+            if (this.haunt.getTarget() == null) super.setTargetEntity(null);
+
+            if (this.targetEntity != null && !this.haunt.hasVehicle()) {
+                System.out.println("CHARGING");
+                BlockPos pos = target.getBlockPos();
+                haunt.getMoveControl().moveTo((double) pos.getX() + 0.5D, (double) pos.getY() + 0.5D, (double) pos.getZ() + 0.5D, 0.333D);
+                haunt.getLookControl().lookAt(targetEntity);
+                if (++ticksBeenCharging < 120) ticksBeenCharging = 0;
+            }
+            super.tick();
         }
     }
 }

@@ -61,6 +61,15 @@ public class HauntEntityModel extends EntityModel<HauntEntity> {
     }
 
     @Override
+    public void animateModel(HauntEntity entity, float limbAngle, float limbDistance, float tickDelta) {
+        int i = entity.getAttackTicksLeft();
+        if (i > 0) {
+            this.rightArm.pitch = -2.0F + 1.5F * MathHelper.wrap((float)i - tickDelta, 8.0F);
+            this.leftArm.pitch = -2.0F + 1.5F * MathHelper.wrap((float)i - tickDelta, 8.0F);
+        }
+    }
+
+    @Override
     public void render(MatrixStack matrices, VertexConsumer vertices, int light, int overlay, float red, float green, float blue, float alpha) {
         rightLeg.render(matrices, vertices, light, overlay);
         leftLeg.render(matrices, vertices, light, overlay);

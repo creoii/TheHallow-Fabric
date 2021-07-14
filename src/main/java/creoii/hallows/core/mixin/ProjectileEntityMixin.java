@@ -4,7 +4,6 @@ import creoii.hallows.core.registry.EntityRegistry;
 import creoii.hallows.core.registry.ItemRegistry;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.projectile.ProjectileEntity;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
 import org.spongepowered.asm.mixin.Mixin;
