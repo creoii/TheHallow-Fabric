@@ -1,5 +1,6 @@
 package creoii.hallows.common.block;
 
+import creoii.hallows.core.util.Tags;
 import net.minecraft.block.AbstractFireBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -25,7 +26,7 @@ public class NecrofireBlock extends AbstractFireBlock {
     }
 
     public static boolean isNecrofireBase(BlockState state) {
-        return state.isIn(BlockTags.SOUL_FIRE_BASE_BLOCKS);
+        return state.isIn(Tags.Blocks.NECROFIRE_BASE_BLOCKS);
     }
 
     protected boolean isFlammable(BlockState state) {

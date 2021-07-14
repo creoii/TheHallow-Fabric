@@ -5,6 +5,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.PillarBlock;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.AxeItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -28,7 +29,7 @@ public class LogBlock extends PillarBlock {
         ItemStack held = player.getEquippedStack(hand == Hand.MAIN_HAND ? EquipmentSlot.MAINHAND : EquipmentSlot.OFFHAND);
 
         if (held.isEmpty() || stripped == null) return ActionResult.FAIL;
-        else {
+        else if (held.getItem() instanceof AxeItem) {
             world.playSound(player, pos, SoundEvents.ITEM_AXE_STRIP, SoundCategory.BLOCKS, 1.0F, 1.0F);
             if(!world.isClient) {
                 BlockState target = stripped.getDefaultState().with(PillarBlock.AXIS, state.get(PillarBlock.AXIS));
@@ -36,6 +37,6 @@ public class LogBlock extends PillarBlock {
                 held.damage(1, player, consumedPlayer -> consumedPlayer.sendToolBreakStatus(hand));
             }
             return ActionResult.SUCCESS;
-        }
+        } else return ActionResult.FAIL;
     }
 }

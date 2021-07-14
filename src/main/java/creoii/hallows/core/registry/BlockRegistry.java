@@ -248,7 +248,7 @@ public class BlockRegistry {
         HALLSTONE_EMERALD_ORE = createBlock("hallstone_emerald_ore", new OreBlock(FabricBlockSettings.copy(HALLSTONE).requiresTool().strength(3.0F, 7.5F), UniformIntProvider.create(3, 7)), ItemGroup.BUILDING_BLOCKS);
         STYGIAN_RUIN = createBlock("stygian_ruin", new Block(FabricBlockSettings.copy(Blocks.ANCIENT_DEBRIS).requiresTool()), ItemGroup.BUILDING_BLOCKS);
 
-        COBWEB_CARPET = createBlock("cobweb_carpet", new CobwebCarpetBlock(AbstractBlock.Settings.copy(Blocks.WHITE_CARPET)), ItemGroup.DECORATIONS);
+        COBWEB_CARPET = createBlock("cobweb_carpet", new CobwebCarpetBlock(AbstractBlock.Settings.of(Material.CARPET, MapColor.WHITE).noCollision().requiresTool().breakInstantly()), ItemGroup.DECORATIONS);
 
         ANOINTMENT_TABLE = createBlock("anointment_table", new AnointmentTableBlock(AbstractBlock.Settings.copy(Blocks.ENCHANTING_TABLE)), ItemGroup.DECORATIONS);
 
@@ -274,7 +274,8 @@ public class BlockRegistry {
                 BLOOD_EBONY_SAPLING,
                 HANGING_EBONY_LEAVES,
                 HANGING_BLOOD_EBONY_LEAVES,
-                COBWEB_CARPET
+                COBWEB_CARPET,
+                NECROFIRE
         );
     }
 
