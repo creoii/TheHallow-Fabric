@@ -22,12 +22,8 @@ public class AnointmentTableScreen extends HandledScreen<AnointingScreenHandler>
         this.titleY = 10;
     }
 
-    protected void setup() {
-    }
-
     protected void init() {
         super.init();
-        this.setup();
         this.handler.addListener(this);
     }
 

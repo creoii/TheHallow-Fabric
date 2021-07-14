@@ -20,9 +20,9 @@ public class ProjectileEntityMixin {
             Entity entity = ((EntityHitResult) hitResult).getEntity();
             if (entity.getType() == EntityRegistry.GHOST) ci.cancel();
             else {
-                for (ItemStack stack : entity.getArmorItems()) {
+                entity.getArmorItems().forEach((stack) -> {
                     if (stack.getItem() == ItemRegistry.GHOSTLY_DRAPE) ci.cancel();
-                }
+                });
             }
         }
     }
