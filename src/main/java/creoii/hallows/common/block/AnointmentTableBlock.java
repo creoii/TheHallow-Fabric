@@ -1,6 +1,7 @@
 package creoii.hallows.common.block;
 
 import creoii.hallows.common.recipe.AnointingScreenHandler;
+import creoii.hallows.core.util.Stats;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CraftingTableBlock;
@@ -9,7 +10,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.ScreenHandlerContext;
 import net.minecraft.screen.SimpleNamedScreenHandlerFactory;
-import net.minecraft.stat.Stats;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -41,7 +41,7 @@ public class AnointmentTableBlock extends CraftingTableBlock {
         if (world.isClient) return ActionResult.SUCCESS;
         else {
             player.openHandledScreen(state.createScreenHandlerFactory(world, pos));
-            player.incrementStat(Stats.INTERACT_WITH_CRAFTING_TABLE);
+            player.incrementStat(Stats.INTERACT_WITH_ANOINTMENT_TABLE);
             return ActionResult.CONSUME;
         }
     }

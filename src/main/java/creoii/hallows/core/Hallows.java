@@ -1,6 +1,7 @@
 package creoii.hallows.core;
 
 import creoii.hallows.core.registry.*;
+import creoii.hallows.core.util.Stats;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.ModInitializer;
 
@@ -19,6 +20,7 @@ public class Hallows implements ModInitializer, ClientModInitializer {
 		BiomeRegistry.register();
 		DimensionRegistry.register();
 		RecipeRegistry.register();
+		Stats.register();
 	}
 
 	@Override

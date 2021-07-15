@@ -13,6 +13,7 @@ public class CobwebCarpetBlock extends AbstractLichenBlock {
         super(settings);
     }
 
+    @SuppressWarnings("deprecation")
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
         entity.slowMovement(state, new Vec3d(0.05D, 0.025D, 0.05D));
     }

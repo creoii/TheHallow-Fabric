@@ -172,5 +172,7 @@
   "biome.hallows.petrified_boneyard": "Petrified Boneyard",
   "biome.hallows.blood_caves": "Blood Caves",
 
-  "container.anoint": "Anointing"
+  "container.anoint": "Anointing",
+
+  "stat.hallows.interact_with_anointment_table": "Interactions with Anointment Table"
 }
