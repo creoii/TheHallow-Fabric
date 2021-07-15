@@ -33,6 +33,7 @@ import java.util.EnumSet;
 
 public class GhostEntity extends HostileEntity {
     protected static final TrackedData<Byte> GHOST_FLAGS = DataTracker.registerData(GhostEntity.class, TrackedDataHandlerRegistry.BYTE);
+    private GhostEntity leader;
 
     public GhostEntity(EntityType<? extends GhostEntity> type, World world) {
         super(type, world);
@@ -61,9 +62,9 @@ public class GhostEntity extends HostileEntity {
     protected void initGoals() {
         super.initGoals();
         this.goalSelector.add(1, new MeleeAttackGoal(this, 1.0D, false));
+        this.goalSelector.add(2, new LookAtEntityGoal(this, LivingEntity.class, 3.0F, 1.0F));
         this.goalSelector.add(3, new GhostEntity.ChargeTargetGoal());
-        this.goalSelector.add(6, new LookAtEntityGoal(this, LivingEntity.class, 3.0F, 1.0F));
-        this.goalSelector.add(7, new FlyRandomGoal(this, 8));
+        this.goalSelector.add(3, new FlyRandomGoal(this, 8));
         this.targetSelector.add(1, new FollowTargetGoal<>(this, PlayerEntity.class, true));
     }
 
@@ -117,6 +118,10 @@ public class GhostEntity extends HostileEntity {
 
     public float getBrightnessAtEyes() {
         return 1.0F;
+    }
+
+    public GhostEntity getLeader() {
+        return leader;
     }
 
     public boolean tryAttack(Entity target) {
