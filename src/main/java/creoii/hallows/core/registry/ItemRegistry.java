@@ -2,6 +2,7 @@ package creoii.hallows.core.registry;
 
 import creoii.hallows.common.item.base.MiningToolItem;
 import creoii.hallows.common.item.material.GhostlyMaterial;
+import creoii.hallows.common.item.material.SilverMaterial;
 import creoii.hallows.common.item.material.StygianMaterial;
 import creoii.hallows.core.Hallows;
 import net.minecraft.entity.EquipmentSlot;
@@ -18,13 +19,23 @@ public class ItemRegistry {
     public static final Item STYGIAN_BOOTS = new ArmorItem(Materials.STYGIAN_ARMOR, EquipmentSlot.FEET, new Item.Settings().group(ItemGroup.COMBAT));
     public static final Item STYGIAN_SWORD = new SwordItem(Materials.STYGIAN_TOOLS, 3, -2.4F, new Item.Settings().group(ItemGroup.COMBAT));
     public static final Item STYGIAN_PICKAXE = new MiningToolItem(1.0F, -2.8F, Materials.STYGIAN_TOOLS, BlockTags.PICKAXE_MINEABLE, new Item.Settings().group(ItemGroup.TOOLS));
-    public static final Item STYGIAN_AXE = new MiningToolItem(5.0F, -3.0F, Materials.STYGIAN_TOOLS, BlockTags.PICKAXE_MINEABLE, new Item.Settings().group(ItemGroup.TOOLS));
-    public static final Item STYGIAN_SHOVEL = new MiningToolItem(1.5F, -3.0F, Materials.STYGIAN_TOOLS, BlockTags.PICKAXE_MINEABLE, new Item.Settings().group(ItemGroup.TOOLS));
-    public static final Item STYGIAN_HOE = new MiningToolItem(-4.0F, 0.0F, Materials.STYGIAN_TOOLS, BlockTags.PICKAXE_MINEABLE, new Item.Settings().group(ItemGroup.TOOLS));
+    public static final Item STYGIAN_AXE = new MiningToolItem(5.0F, -3.0F, Materials.STYGIAN_TOOLS, BlockTags.AXE_MINEABLE, new Item.Settings().group(ItemGroup.TOOLS));
+    public static final Item STYGIAN_SHOVEL = new MiningToolItem(1.5F, -3.0F, Materials.STYGIAN_TOOLS, BlockTags.SHOVEL_MINEABLE, new Item.Settings().group(ItemGroup.TOOLS));
+    public static final Item STYGIAN_HOE = new MiningToolItem(-4.0F, 0.0F, Materials.STYGIAN_TOOLS, BlockTags.HOE_MINEABLE, new Item.Settings().group(ItemGroup.TOOLS));
 
     public static final Item WITCH_BREW = new Item(new Item.Settings().group(ItemGroup.BREWING));
 
     public static final Item SILVER_INGOT = new Item(new Item.Settings().group(ItemGroup.MATERIALS));
+    public static final Item SILVER_HELMET = new ArmorItem(Materials.SILVER_ARMOR, EquipmentSlot.HEAD, new Item.Settings().group(ItemGroup.COMBAT));
+    public static final Item SILVER_CHESTPLATE = new ArmorItem(Materials.SILVER_ARMOR, EquipmentSlot.CHEST, new Item.Settings().group(ItemGroup.COMBAT));
+    public static final Item SILVER_LEGGINGS = new ArmorItem(Materials.SILVER_ARMOR, EquipmentSlot.LEGS, new Item.Settings().group(ItemGroup.COMBAT));
+    public static final Item SILVER_BOOTS = new ArmorItem(Materials.SILVER_ARMOR, EquipmentSlot.FEET, new Item.Settings().group(ItemGroup.COMBAT));
+    public static final Item SILVER_SWORD = new SwordItem(Materials.SILVER_TOOLS, 3, -2.4F, new Item.Settings().group(ItemGroup.COMBAT));
+    public static final Item SILVER_PICKAXE = new MiningToolItem(1.0F, -2.8F, Materials.SILVER_TOOLS, BlockTags.PICKAXE_MINEABLE, new Item.Settings().group(ItemGroup.TOOLS));
+    public static final Item SILVER_AXE = new MiningToolItem(6.0F, -3.0F, Materials.SILVER_TOOLS, BlockTags.AXE_MINEABLE, new Item.Settings().group(ItemGroup.TOOLS));
+    public static final Item SILVER_SHOVEL = new MiningToolItem(1.5F, -3.0F, Materials.SILVER_TOOLS, BlockTags.SHOVEL_MINEABLE, new Item.Settings().group(ItemGroup.TOOLS));
+    public static final Item SILVER_HOE = new MiningToolItem(-1.0F, -2.0F, Materials.SILVER_TOOLS, BlockTags.HOE_MINEABLE, new Item.Settings().group(ItemGroup.TOOLS));
+
     public static final Item OPAL = new Item(new Item.Settings().group(ItemGroup.MATERIALS));
 
     public static final Item GHOST_CLOTH = new Item(new Item.Settings().group(ItemGroup.MATERIALS));
@@ -47,6 +58,15 @@ public class ItemRegistry {
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "stygian_hoe"), STYGIAN_HOE);
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "witch_brew"), WITCH_BREW);
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "silver_ingot"), SILVER_INGOT);
+        Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "silver_helmet"), SILVER_HELMET);
+        Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "silver_chestplate"), SILVER_CHESTPLATE);
+        Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "silver_leggings"), SILVER_LEGGINGS);
+        Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "silver_boots"), SILVER_BOOTS);
+        Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "silver_sword"), SILVER_SWORD);
+        Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "silver_pickaxe"), SILVER_PICKAXE);
+        Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "silver_axe"), SILVER_AXE);
+        Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "silver_shovel"), SILVER_SHOVEL);
+        Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "silver_hoe"), SILVER_HOE);
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "opal"), OPAL);
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "ghost_cloth"), GHOST_CLOTH);
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "ghostly_drape"), GHOSTLY_DRAPE);
@@ -58,6 +78,8 @@ public class ItemRegistry {
     public static class Materials {
         public static final ToolMaterial STYGIAN_TOOLS = new StygianMaterial.Tool();
         public static final ArmorMaterial STYGIAN_ARMOR = new StygianMaterial.Armor();
+        public static final ToolMaterial SILVER_TOOLS = new SilverMaterial.Tool();
+        public static final ArmorMaterial SILVER_ARMOR = new SilverMaterial.Armor();
         public static final ArmorMaterial GHOSTLY_ARMOR = new GhostlyMaterial.Armor();
     }
 }

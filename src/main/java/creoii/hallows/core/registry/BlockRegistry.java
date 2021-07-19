@@ -149,7 +149,7 @@ public class BlockRegistry {
     public static Block BLOOD_MOREL;
     public static Block DEATH_MOREL;
 
-    public static Block TALL_CANDLE;
+    public static Block TALL_CANDLE = new TallCandleBlock(AbstractBlock.Settings.copy(Blocks.CANDLE));
 
     public static Block PUMPKIN_PLANKS;
 
@@ -247,6 +247,8 @@ public class BlockRegistry {
         OPAL_ORE = createBlock("opal_ore", new OreBlock(FabricBlockSettings.copy(HALLSTONE).requiresTool().strength(3.0F, 7.5F), UniformIntProvider.create(3, 7)), ItemGroup.BUILDING_BLOCKS);
         HALLSTONE_EMERALD_ORE = createBlock("hallstone_emerald_ore", new OreBlock(FabricBlockSettings.copy(HALLSTONE).requiresTool().strength(3.0F, 7.5F), UniformIntProvider.create(3, 7)), ItemGroup.BUILDING_BLOCKS);
         STYGIAN_RUIN = createBlock("stygian_ruin", new Block(FabricBlockSettings.copy(Blocks.ANCIENT_DEBRIS).requiresTool()), ItemGroup.BUILDING_BLOCKS);
+
+        createBlock("tall_candle", TALL_CANDLE, ItemGroup.DECORATIONS);
 
         COBWEB_CARPET = createBlock("cobweb_carpet", new CobwebCarpetBlock(AbstractBlock.Settings.of(Material.CARPET, MapColor.WHITE).noCollision().requiresTool().breakInstantly()), ItemGroup.DECORATIONS);
 
