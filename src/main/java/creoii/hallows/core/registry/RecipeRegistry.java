@@ -2,7 +2,7 @@ package creoii.hallows.core.registry;
 
 import creoii.hallows.client.gui.AnointmentTableScreen;
 import creoii.hallows.common.recipe.AnointingRecipe;
-import creoii.hallows.common.recipe.AnointingScreenHandler;
+import creoii.hallows.common.screen.AnointingScreenHandler;
 import creoii.hallows.core.Hallows;
 import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
 import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;

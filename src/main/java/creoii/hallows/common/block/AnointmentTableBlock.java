@@ -1,6 +1,6 @@
 package creoii.hallows.common.block;
 
-import creoii.hallows.common.recipe.AnointingScreenHandler;
+import creoii.hallows.common.screen.AnointingScreenHandler;
 import creoii.hallows.core.util.Stats;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

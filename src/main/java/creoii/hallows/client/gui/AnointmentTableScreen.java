@@ -1,7 +1,7 @@
 package creoii.hallows.client.gui;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import creoii.hallows.common.recipe.AnointingScreenHandler;
+import creoii.hallows.common.screen.AnointingScreenHandler;
 import creoii.hallows.core.Hallows;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.render.GameRenderer;

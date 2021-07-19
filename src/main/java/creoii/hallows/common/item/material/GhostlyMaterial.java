@@ -16,7 +16,7 @@ public class GhostlyMaterial {
 
         @Override
         public int getProtectionAmount(EquipmentSlot slot) {
-            return new int[]{2, 4, 5, 2}[slot.getEntitySlotId()];
+            return new int[]{2, 3, 4, 2}[slot.getEntitySlotId()];
         }
 
         @Override

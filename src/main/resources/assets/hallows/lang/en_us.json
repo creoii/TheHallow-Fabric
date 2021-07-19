@@ -161,6 +161,7 @@
   "item.hallows.haunt_spawn_egg": "Haunt Spawn Egg",
 
   "entity.hallows.ghost": "Ghost",
+  "entity.hallows.magus": "Magus",
   "entity.hallows.haunt": "Haunt",
 
   "biome.hallows.perished_valley": "Perished Valley",
@@ -173,6 +174,8 @@
   "biome.hallows.blood_caves": "Blood Caves",
 
   "container.anoint": "Anointing",
+
+  "effect.hallows.transfigured": "Transfigured",
 
   "stat.hallows.interact_with_anointment_table": "Interactions with Anointment Table"
 }

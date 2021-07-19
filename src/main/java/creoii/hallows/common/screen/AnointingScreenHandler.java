@@ -1,7 +1,8 @@
-package creoii.hallows.common.recipe;
+package creoii.hallows.common.screen;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
+import creoii.hallows.common.recipe.AnointingRecipe;
 import creoii.hallows.core.registry.BlockRegistry;
 import creoii.hallows.core.registry.ItemRegistry;
 import creoii.hallows.core.registry.RecipeRegistry;
