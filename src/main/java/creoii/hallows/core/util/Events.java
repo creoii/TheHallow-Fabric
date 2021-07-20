@@ -13,7 +13,7 @@ public class Events {
     public static void register() {
         LootTableLoadingCallback.EVENT.register((resourceManager, lootManager, id, table, setter) -> {
             if (EntityType.WITCH.getLootTableId().equals(id)) {
-                FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder().rolls(ConstantLootNumberProvider.create(1)).with(ItemEntry.builder(ItemRegistry.WITCH_BREW).conditionally(RandomChanceWithLootingLootCondition.builder(0.1F, 0.01F)).apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1.0F))));
+                FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder().rolls(ConstantLootNumberProvider.create(1)).with(ItemEntry.builder(ItemRegistry.WITCH_BREW).conditionally(RandomChanceWithLootingLootCondition.builder(0.075F, 0.01F)).apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1.0F))));
                 table.pool(poolBuilder);
             }
         });
