@@ -12,6 +12,7 @@ public class Hallows implements ModInitializer, ClientModInitializer {
 	public void onInitialize() {
 		BlockRegistry.register();
 		ItemRegistry.register();
+		BlockEntityRegistry.register();
 		EntityRegistry.register();
 		SurfaceRegistry.register();
 		CarverRegistry.register();
@@ -27,6 +28,7 @@ public class Hallows implements ModInitializer, ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		BlockRegistry.registerClient();
+		BlockEntityRegistry.registerClient();
 		EntityRegistry.registerClient();
 	}
 }

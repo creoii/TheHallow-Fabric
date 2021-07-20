@@ -17,9 +17,9 @@ public class HallowedSurfaceBuilder extends SurfaceBuilder<TernarySurfaceConfig>
 
     @Override
     public void generate(Random random, Chunk chunk, Biome biome, int x, int z, int height, double noise, BlockState defaultBlock, BlockState defaultFluid, int seaLevel, int i, long seed, TernarySurfaceConfig surfaceConfig) {
-        if (noise > 1.75D) {
+        if (noise > 1.5D) {
             SurfaceBuilder.DEFAULT.generate(random, chunk, biome, x, z, height, noise, defaultBlock, defaultFluid, seaLevel, i, seed, SurfaceRegistry.HALLOWED_DIRT_CONFIG);
-        } else if (noise > -0.95D) {
+        } else if (noise > -0.5D) {
             SurfaceBuilder.DEFAULT.generate(random, chunk, biome, x, z, height, noise, defaultBlock, defaultFluid, seaLevel, i, seed, SurfaceRegistry.COARSE_DIRT_DIRT_HALLOWED_DIRT_CONFIG);
         } else {
             SurfaceBuilder.DEFAULT.generate(random, chunk, biome, x, z, height, noise, defaultBlock, defaultFluid, seaLevel, i, seed, SurfaceRegistry.GRASS_DIRT_HALLOWED_DIRT_CONFIG);

@@ -18,7 +18,7 @@
   "default_fluid": {
     "Name": "minecraft:water",
     "Properties": {
-      "level": "0"
+      "level": "7"
     }
   },
   "noise": {
@@ -29,7 +29,7 @@
     "density_factor": 0.1,
     "density_offset": 0,
     "simplex_surface_noise": true,
-    "random_density_offset": false,
+    "random_density_offset": true,
     "island_noise_override": false,
     "amplified": false,
     "sampling": {
