@@ -12,7 +12,7 @@ import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-public class RecipeRegistry {
+public class ContainerRegistry {
     public static final RecipeSerializer<AnointingRecipe> ANOINTING_SERIALIZER = new AnointingRecipe.Serializer();
 
     public static final RecipeType<AnointingRecipe> ANOINTING_TYPE = new AnointingRecipe.Type();

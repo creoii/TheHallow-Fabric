@@ -140,6 +140,7 @@ public class BlockRegistry {
     public static Block TENEBRITE_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(TENEBRITE_BRICKS));
     public static Block TENEBRITE_BRICK_STAIRS = new StairsBlock(TENEBRITE_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(TENEBRITE_BRICKS));
     public static Block TENEBRITE_BRICK_WALL = new WallBlock(AbstractBlock.Settings.copy(TENEBRITE_BRICKS));
+    public static Block CHISELED_TENEBRITE_BRICKS = new Block(FabricBlockSettings.copy(TENEBRITE_BRICKS));
     public static Block SMOOTH_TENEBRITE;
     public static Block GILDED_TENEBRITE;
     public static Block SKULLISH_TENEBRITE;
@@ -237,6 +238,7 @@ public class BlockRegistry {
         createBlock("tenebrite_brick_slab", TENEBRITE_BRICK_SLAB, ItemGroup.BUILDING_BLOCKS);
         createBlock("tenebrite_brick_stairs", TENEBRITE_BRICK_STAIRS, ItemGroup.BUILDING_BLOCKS);
         createBlock("tenebrite_brick_wall", TENEBRITE_BRICK_WALL, ItemGroup.DECORATIONS);
+        createBlock("chiseled_tenebrite_bricks", CHISELED_TENEBRITE_BRICKS, ItemGroup.BUILDING_BLOCKS);
         SMOOTH_TENEBRITE = createBlock("smooth_tenebrite", new Block(FabricBlockSettings.copy(BlockRegistry.TENEBRITE)), ItemGroup.BUILDING_BLOCKS);
 
         RED_MOSS_CARPET = createBlock("red_moss_carpet", new CarpetBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.DARK_RED).strength(0.1F).sounds(BlockSoundGroup.MOSS_CARPET)), ItemGroup.DECORATIONS);

@@ -5,7 +5,7 @@ import com.google.common.collect.Multimap;
 import creoii.hallows.common.recipe.AnointingRecipe;
 import creoii.hallows.core.registry.BlockRegistry;
 import creoii.hallows.core.registry.ItemRegistry;
-import creoii.hallows.core.registry.RecipeRegistry;
+import creoii.hallows.core.registry.ContainerRegistry;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
@@ -45,11 +45,11 @@ public class AnointingScreenHandler extends ScreenHandler {
     }
 
     public AnointingScreenHandler(int id, PlayerInventory inventory, ScreenHandlerContext context) {
-        super(RecipeRegistry.ANOINTING_SCREEN, id);
+        super(ContainerRegistry.ANOINTING_SCREEN, id);
         this.world = inventory.player.world;
         this.player = inventory.player;
         this.context = context;
-        this.recipes = this.world.getRecipeManager().listAllOfType(RecipeRegistry.ANOINTING_TYPE);
+        this.recipes = this.world.getRecipeManager().listAllOfType(ContainerRegistry.ANOINTING_TYPE);
         this.addSlot(new Slot(this.input, 0, 27, 39));
         this.addSlot(new Slot(this.input, 1, 76, 39));
         this.addSlot(new Slot(this.input, 2, 76, 59) {
@@ -120,7 +120,7 @@ public class AnointingScreenHandler extends ScreenHandler {
     }
 
     public void updateResult() {
-        List<AnointingRecipe> list = this.world.getRecipeManager().getAllMatches(RecipeRegistry.ANOINTING_TYPE, this.input, this.world);
+        List<AnointingRecipe> list = this.world.getRecipeManager().getAllMatches(ContainerRegistry.ANOINTING_TYPE, this.input, this.world);
         if (list.isEmpty()) this.output.setStack(0, ItemStack.EMPTY);
         else {
             this.recipe = list.get(0);

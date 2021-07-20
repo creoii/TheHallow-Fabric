@@ -41,6 +41,7 @@ public class ItemRegistry {
     public static final Item GHOST_CLOTH = new Item(new Item.Settings().group(ItemGroup.MATERIALS));
     public static final Item GHOSTLY_DRAPE = new ArmorItem(Materials.GHOSTLY_ARMOR, EquipmentSlot.CHEST, new Item.Settings().group(ItemGroup.COMBAT));
     public static final Item HAUNT_FUR = new Item(new Item.Settings().group(ItemGroup.MATERIALS));
+    public static final Item MAGE_MAGIC = new Item(new Item.Settings().group(ItemGroup.MATERIALS).maxCount(16));
 
     public static final Item GHOST_SPAWN_EGG = new SpawnEggItem(EntityRegistry.GHOST, 13159139, 9079978, new Item.Settings().group(ItemGroup.MISC));
     public static final Item MAGUS_SPAWN_EGG = new SpawnEggItem(EntityRegistry.MAGUS, 12609675, 3293539, new Item.Settings().group(ItemGroup.MISC));
@@ -75,6 +76,7 @@ public class ItemRegistry {
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "ghost_spawn_egg"), GHOST_SPAWN_EGG);
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "magus_spawn_egg"), MAGUS_SPAWN_EGG);
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "haunt_spawn_egg"), HAUNT_SPAWN_EGG);
+        Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "mage_magic"), MAGE_MAGIC);
     }
 
     public static class Materials {

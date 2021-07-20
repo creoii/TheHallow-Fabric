@@ -3,7 +3,7 @@ package creoii.hallows.common.recipe;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
 import creoii.hallows.core.registry.ItemRegistry;
-import creoii.hallows.core.registry.RecipeRegistry;
+import creoii.hallows.core.registry.ContainerRegistry;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
@@ -72,7 +72,7 @@ public class AnointingRecipe implements Recipe<Inventory> {
 
     @Override
     public RecipeType<?> getType() {
-        return RecipeRegistry.ANOINTING_TYPE;
+        return ContainerRegistry.ANOINTING_TYPE;
     }
 
     public boolean testAnointment(ItemStack stack) {

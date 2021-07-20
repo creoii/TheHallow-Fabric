@@ -14,6 +14,7 @@ public class Hallows implements ModInitializer, ClientModInitializer {
 		BlockRegistry.register();
 		ItemRegistry.register();
 		BlockEntityRegistry.register();
+		ContainerRegistry.register();
 		EntityRegistry.register();
 		SurfaceRegistry.register();
 		CarverRegistry.register();
@@ -22,7 +23,6 @@ public class Hallows implements ModInitializer, ClientModInitializer {
 		BiomeRegistry.register();
 		DimensionRegistry.register();
 		StatusEffectRegistry.register();
-		RecipeRegistry.register();
 		Stats.register();
 		Events.register();
 	}
