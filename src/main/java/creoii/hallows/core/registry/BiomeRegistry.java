@@ -74,6 +74,7 @@ public class BiomeRegistry {
         generation.surfaceBuilder(() -> SurfaceRegistry.HALLOWED);
         generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE);
         generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CANYON);
+        generation.feature(GenerationStep.Feature.SURFACE_STRUCTURES, FeatureRegistry.WATER_DELTA);
         generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_OPAL);
         generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_SILVER);
         generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_STYGIAN_RUIN);

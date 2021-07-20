@@ -32,7 +32,7 @@ public class HauntEntity extends HostileEntity implements Angerable {
     }
 
     public HauntEntity(World world) {
-        super(EntityRegistry.GHOST, world);
+        super(EntityRegistry.HAUNT, world);
         this.experiencePoints = 4;
     }
 
@@ -44,11 +44,11 @@ public class HauntEntity extends HostileEntity implements Angerable {
         this.targetSelector.add(1, new FollowTargetGoal<>(this, PlayerEntity.class, true));
         this.targetSelector.add(2, new TeleportTowardTargetGoal<>(this, PlayerEntity.class, this::shouldAngerAt));
         this.targetSelector.add(3, new ChargeTargetGoal(this, 4));
-        this.targetSelector.add(4, new UniversalAngerGoal(this, true));
+        this.targetSelector.add(4, new UniversalAngerGoal<>(this, true));
     }
 
     public static DefaultAttributeContainer.Builder createAttributes() {
-        return HostileEntity.createHostileAttributes().add(EntityAttributes.GENERIC_FOLLOW_RANGE, 25.0D).add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.125D).add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 9.0D).add(EntityAttributes.GENERIC_MAX_HEALTH, 100.0D).add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, 0.8D);
+        return HostileEntity.createHostileAttributes().add(EntityAttributes.GENERIC_FOLLOW_RANGE, 25.0D).add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.125D).add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 12.0D).add(EntityAttributes.GENERIC_MAX_HEALTH, 110.0D).add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, 0.9D);
     }
 
     @Nullable

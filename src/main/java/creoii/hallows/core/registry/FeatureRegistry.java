@@ -22,6 +22,7 @@ import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.Heightmap;
+import net.minecraft.world.gen.CountConfig;
 import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.decorator.*;
 import net.minecraft.world.gen.feature.*;
@@ -68,6 +69,7 @@ public class FeatureRegistry {
     public static final ConfiguredFeature<?, ?> LARGE_PUMPKIN = HUGE_PUMPKIN.configure(new HugePumpkinFeatureConfig(3)).decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.OCEAN_FLOOR)).decorate(Decorator.WATER_DEPTH_THRESHOLD.configure(new WaterDepthThresholdDecoratorConfig(0))).spreadHorizontally().decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(0, 0.33F, 1))));
     public static final ConfiguredFeature<?, ?> SMALL_PUMPKIN = HUGE_PUMPKIN.configure(new HugePumpkinFeatureConfig(1)).decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.OCEAN_FLOOR)).decorate(Decorator.WATER_DEPTH_THRESHOLD.configure(new WaterDepthThresholdDecoratorConfig(0))).spreadHorizontally().decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(0, 0.33F, 1))));
     public static final ConfiguredFeature<?, ?> PETRIFIED_SANDSTONE_ROCK = Feature.FOREST_ROCK.configure(new SingleStateFeatureConfig(BlockRegistry.PETRIFIED_SANDSTONE.getDefaultState())).decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)).spreadHorizontally()).repeatRandomly(2);
+    public static final ConfiguredFeature<?, ?> WATER_DELTA = Feature.DELTA_FEATURE.configure(new DeltaFeatureConfig(Blocks.WATER.getDefaultState(), BlockRegistry.HALLOWED_DIRT.getDefaultState(), UniformIntProvider.create(5, 8), UniformIntProvider.create(0, 2))).decorate(Decorator.COUNT_MULTILAYER.configure(new CountConfig(40)));
 
     public static final TreeDecoratorType<?> BRANCH_DECORATOR = TreeDecoratorTypeMixin.callRegister("branch_decorator", BranchTreeDecorator.CODEC);
     public static final TreeDecoratorType<?> HANGING_LEAVES_DECORATOR = TreeDecoratorTypeMixin.callRegister("hanging_leaves_decorator", HangingLeavesTreeDecorator.CODEC);
@@ -102,5 +104,6 @@ public class FeatureRegistry {
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "large_pumpkin"), LARGE_PUMPKIN);
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "small_pumpkin"), SMALL_PUMPKIN);
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "petrified_sandstone_rock"), PETRIFIED_SANDSTONE_ROCK);
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "water_delta"), WATER_DELTA);
     }
 }

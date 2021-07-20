@@ -27,7 +27,9 @@
     ],
     [],
     [],
-    [],
+    [
+      "hallows:water_delta"
+    ],
     [],
     [
       "hallows:ore_opal",

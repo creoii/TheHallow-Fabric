@@ -17,14 +17,14 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class EntityRegistry {
-    public static EntityType<GhostEntity> GHOST;
-    public static EntityType<MagusEntity> MAGUS;
-    public static EntityType<HauntEntity> HAUNT;
+    public static final EntityType<GhostEntity> GHOST = FabricEntityTypeBuilder.<GhostEntity>create(SpawnGroup.CREATURE, GhostEntity::new).dimensions(EntityDimensions.fixed(0.5F, 1.3F)).build();
+    public static final EntityType<MagusEntity> MAGUS = FabricEntityTypeBuilder.<MagusEntity>create(SpawnGroup.CREATURE, MagusEntity::new).dimensions(EntityDimensions.fixed(0.8F, 2.0F)).build();
+    public static final EntityType<HauntEntity> HAUNT = FabricEntityTypeBuilder.<HauntEntity>create(SpawnGroup.CREATURE, HauntEntity::new).dimensions(EntityDimensions.fixed(0.8F, 2.0F)).build();
 
     public static void register() {
-        GHOST = Registry.register(Registry.ENTITY_TYPE, new Identifier(Hallows.MOD_ID, "ghost"), FabricEntityTypeBuilder.<GhostEntity>create(SpawnGroup.CREATURE, GhostEntity::new).dimensions(EntityDimensions.fixed(0.5F, 1.3F)).build());
-        MAGUS = Registry.register(Registry.ENTITY_TYPE, new Identifier(Hallows.MOD_ID, "magus"), FabricEntityTypeBuilder.<MagusEntity>create(SpawnGroup.CREATURE, MagusEntity::new).dimensions(EntityDimensions.fixed(0.8F, 2.0F)).build());
-        HAUNT = Registry.register(Registry.ENTITY_TYPE, new Identifier(Hallows.MOD_ID, "haunt"), FabricEntityTypeBuilder.<HauntEntity>create(SpawnGroup.CREATURE, HauntEntity::new).dimensions(EntityDimensions.fixed(0.8F, 2.0F)).build());
+        Registry.register(Registry.ENTITY_TYPE, new Identifier(Hallows.MOD_ID, "ghost"), GHOST);
+        Registry.register(Registry.ENTITY_TYPE, new Identifier(Hallows.MOD_ID, "magus"), MAGUS);
+        Registry.register(Registry.ENTITY_TYPE, new Identifier(Hallows.MOD_ID, "haunt"), HAUNT);
 
         FabricDefaultAttributeRegistry.register(GHOST, GhostEntity.createAttributes());
         FabricDefaultAttributeRegistry.register(MAGUS, MagusEntity.createAttributes());
