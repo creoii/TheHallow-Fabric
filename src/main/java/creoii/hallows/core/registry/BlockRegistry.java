@@ -150,6 +150,7 @@ public class BlockRegistry {
     public static Block DEATH_MOREL;
 
     public static Block TALL_CANDLE = new TallCandleBlock(AbstractBlock.Settings.copy(Blocks.CANDLE));
+    public static Block CANDLE_SKULL = new CandleSkullBlock(AbstractBlock.Settings.copy(Blocks.SKELETON_SKULL).luminance((state) -> 12));
 
     public static Block PUMPKIN_PLANKS;
 
@@ -249,6 +250,7 @@ public class BlockRegistry {
         STYGIAN_RUIN = createBlock("stygian_ruin", new Block(FabricBlockSettings.copy(Blocks.ANCIENT_DEBRIS).requiresTool()), ItemGroup.BUILDING_BLOCKS);
 
         createBlock("tall_candle", TALL_CANDLE, ItemGroup.DECORATIONS);
+        createBlock("candle_skull", CANDLE_SKULL, ItemGroup.DECORATIONS);
 
         COBWEB_CARPET = createBlock("cobweb_carpet", new CobwebCarpetBlock(AbstractBlock.Settings.of(Material.CARPET, MapColor.WHITE).noCollision().requiresTool().breakInstantly()), ItemGroup.DECORATIONS);
 

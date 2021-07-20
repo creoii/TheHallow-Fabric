@@ -1,0 +1,59 @@
+{
+	"textures": {
+		"skull": "hallows:block/candle_skull",
+		"candle": "block/candle",
+		"particle": "#skull"
+	},
+	"elements": [
+		{
+			"from": [4, 0, 4],
+			"to": [12, 8, 12],
+			"faces": {
+				"north": {"uv": [8, 8, 16, 16], "texture": "#skull"},
+				"east": {"uv": [0, 8, 8, 16], "texture": "#skull"},
+				"south": {"uv": [0, 0, 8, 8], "texture": "#skull"},
+				"west": {"uv": [8, 8, 0, 16], "texture": "#skull"},
+				"up": {"uv": [16, 0, 8, 8], "texture": "#skull"},
+				"down": {"uv": [16, 0, 8, 8], "texture": "#skull"}
+			}
+		},
+		{
+			"from": [7, 8, 7],
+			"to": [9, 12, 9],
+			"faces": {
+				"north": {"uv": [0, 9, 2, 13], "texture": "#candle"},
+				"east": {"uv": [0, 9, 2, 13], "texture": "#candle"},
+				"south": {"uv": [0, 9, 2, 13], "texture": "#candle"},
+				"west": {"uv": [0, 9, 2, 13], "texture": "#candle"},
+				"up": {"uv": [0, 6, 2, 8], "texture": "#candle"},
+				"down": {"uv": [0, 14, 2, 16], "texture": "#candle"}
+			}
+		},
+		{
+			"from": [8, 12, 7.5],
+			"to": [8, 13, 8.5],
+			"rotation": {"angle": -45, "axis": "y", "origin": [8, 12.5, 8]},
+			"faces": {
+				"north": {"uv": [0, 5, 1, 6], "texture": "#candle"},
+				"east": {"uv": [0, 5, 1, 6], "texture": "#candle"},
+				"south": {"uv": [0, 5, 1, 6], "texture": "#candle"},
+				"west": {"uv": [0, 5, 1, 6], "texture": "#candle"},
+				"up": {"uv": [0, 6, 0, 7], "texture": "#candle"},
+				"down": {"uv": [0, 14, 0, 15], "texture": "#candle"}
+			}
+		},
+		{
+			"from": [8, 12, 7.5],
+			"to": [8, 13, 8.5],
+			"rotation": {"angle": 45, "axis": "y", "origin": [8, 12.5, 8]},
+			"faces": {
+				"north": {"uv": [0, 5, 1, 6], "texture": "#candle"},
+				"east": {"uv": [0, 5, 1, 6], "texture": "#candle"},
+				"south": {"uv": [0, 5, 1, 6], "texture": "#candle"},
+				"west": {"uv": [0, 5, 1, 6], "texture": "#candle"},
+				"up": {"uv": [0, 6, 0, 7], "texture": "#candle"},
+				"down": {"uv": [0, 14, 0, 15], "texture": "#candle"}
+			}
+		}
+	]
+}
