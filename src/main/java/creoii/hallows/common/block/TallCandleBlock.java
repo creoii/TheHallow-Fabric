@@ -46,7 +46,6 @@ public class TallCandleBlock extends CandleBlock {
 
     @Override
     protected Iterable<Vec3d> getParticleOffsets(BlockState state) {
-        //0.375
         return CANDLES_TO_PARTICLE_OFFSETS.get(state.get(CANDLES));
     }
 }
