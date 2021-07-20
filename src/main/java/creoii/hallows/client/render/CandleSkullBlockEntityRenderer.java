@@ -31,12 +31,12 @@ public class CandleSkullBlockEntityRenderer implements BlockEntityRenderer<Candl
     public void render(CandleSkullBlockEntity entity, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
         BlockState state = entity.getCachedState();
         float yaw = 22.5F * (float) state.get(SkullBlock.ROTATION);
-        SkullBlockEntityModel model = new SkullEntityModel(loader.getModelPart(EntityModelLayers.PLAYER_HEAD));
+        SkullBlockEntityModel model = new SkullEntityModel(loader.getModelPart(EntityModelLayers.SKELETON_SKULL));
 
         matrices.push();
         matrices.translate(0.5D, 0.0D, 0.5D);
         matrices.scale(-1.0F, -1.0F, 1.0F);
-        VertexConsumer vertexConsumer = vertexConsumers.getBuffer(RenderLayer.getEntitySolid(new Identifier("textures/entity/skeleton/skeleton.png")));
+        VertexConsumer vertexConsumer = vertexConsumers.getBuffer(RenderLayer.getEntityCutoutNoCullZOffset(new Identifier("textures/entity/skeleton/skeleton.png")));
         model.setHeadRotation(0.0F, yaw, 0.0F);
         model.render(matrices, vertexConsumer, light, OverlayTexture.DEFAULT_UV, 1.0F, 1.0F, 1.0F, 1.0F);
         matrices.pop();

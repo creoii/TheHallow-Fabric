@@ -1,5 +1,5 @@
 {
-  "parent": "block/template_tall_candle",
+  "parent": "hallows:block/template_three_tall_candles",
   "textures": {
     "all": "hallows:block/tall_candle"
   }

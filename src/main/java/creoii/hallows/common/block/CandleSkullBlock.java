@@ -5,18 +5,23 @@ import creoii.hallows.common.blockentity.CandleSkullBlockEntity;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.ai.pathing.NavigationType;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.BlockMirror;
 import net.minecraft.util.BlockRotation;
+import net.minecraft.util.Hand;
+import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
+import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 public class CandleSkullBlock extends AbstractCandleBlock implements BlockEntityProvider {
@@ -25,6 +30,7 @@ public class CandleSkullBlock extends AbstractCandleBlock implements BlockEntity
 
     public CandleSkullBlock(Settings settings) {
         super(settings);
+        this.setDefaultState(this.getDefaultState().with(LIT, false).with(ROTATION, 0));
     }
 
     @SuppressWarnings("deprecation")
@@ -40,6 +46,16 @@ public class CandleSkullBlock extends AbstractCandleBlock implements BlockEntity
     @SuppressWarnings("deprecation")
     public boolean canPathfindThrough(BlockState state, BlockView world, BlockPos pos, NavigationType type) {
         return false;
+    }
+
+    @SuppressWarnings("deprecation")
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        if (player.getAbilities().allowModifyWorld && player.getStackInHand(hand).isEmpty() && (Boolean)state.get(LIT)) {
+            extinguish(player, state, world, pos);
+            return ActionResult.success(world.isClient);
+        } else {
+            return ActionResult.PASS;
+        }
     }
 
     public BlockState getPlacementState(ItemPlacementContext ctx) {
