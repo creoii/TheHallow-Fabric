@@ -7,7 +7,9 @@ import creoii.hallows.common.world.decorator.BranchTreeDecorator;
 import creoii.hallows.common.world.decorator.HangingLeavesTreeDecorator;
 import creoii.hallows.common.world.decorator.JackOLanternTreeDecorator;
 import creoii.hallows.common.world.feature.HugePumpkinFeature;
+import creoii.hallows.common.world.feature.RockFeature;
 import creoii.hallows.common.world.feature.config.HugePumpkinFeatureConfig;
+import creoii.hallows.common.world.feature.config.RockFeatureConfig;
 import creoii.hallows.core.Hallows;
 import creoii.hallows.core.mixin.TreeDecoratorTypeMixin;
 import net.minecraft.block.BlockState;
@@ -42,6 +44,7 @@ import java.util.Arrays;
 
 public class FeatureRegistry {
     public static final Feature<HugePumpkinFeatureConfig> HUGE_PUMPKIN = new HugePumpkinFeature(HugePumpkinFeatureConfig.CODEC);
+    public static final Feature<RockFeatureConfig> ROCK = new RockFeature(RockFeatureConfig.CODEC);
 
     public static final ConfiguredFeature<?, ?> EBONY = Feature.TREE.configure(new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(BlockRegistry.EBONY_LOG.getDefaultState()), new LargeOakTrunkPlacer(11, 11, 5), new SimpleBlockStateProvider(BlockRegistry.EBONY_LEAVES.getDefaultState()), new SimpleBlockStateProvider(BlockRegistry.EBONY_SAPLING.getDefaultState()), new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(2), 1), new TwoLayersFeatureSize(4, 2, 3)).decorators(Arrays.asList(new BranchTreeDecorator(BlockRegistry.EBONY_BRANCH.getDefaultState(), 0.8F, 2, 0.4F), new HangingLeavesTreeDecorator(BlockRegistry.HANGING_EBONY_LEAVES.getDefaultState(), 2, 5, 0.5F), new JackOLanternTreeDecorator(0.1F))).dirtProvider(new SimpleBlockStateProvider(BlockRegistry.HALLOWED_DIRT.getDefaultState())).forceDirt().build()).spreadHorizontally().applyChance(1);
     public static final ConfiguredFeature<?, ?> BLOOD_EBONY = Feature.TREE.configure(new TreeFeatureConfig.Builder(new SimpleBlockStateProvider(BlockRegistry.EBONY_LOG.getDefaultState()), new LargeOakTrunkPlacer(11, 11, 5), new SimpleBlockStateProvider(BlockRegistry.BLOOD_EBONY_LEAVES.getDefaultState()), new SimpleBlockStateProvider(BlockRegistry.BLOOD_EBONY_SAPLING.getDefaultState()), new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(2), 1), new TwoLayersFeatureSize(4, 2, 3)).decorators(Arrays.asList(new BranchTreeDecorator(BlockRegistry.EBONY_BRANCH.getDefaultState(), 0.8F, 2, 0.4F), new HangingLeavesTreeDecorator(BlockRegistry.HANGING_BLOOD_EBONY_LEAVES.getDefaultState(), 2, 5, 0.5F), new JackOLanternTreeDecorator(0.1F))).dirtProvider(new SimpleBlockStateProvider(BlockRegistry.HALLOWED_DIRT.getDefaultState())).forceDirt().build()).spreadHorizontally().applyChance(4);
@@ -68,7 +71,9 @@ public class FeatureRegistry {
     public static final ConfiguredFeature<?, ?> ORE_STYGIAN_RUIN = Feature.SCATTERED_ORE.configure(new OreFeatureConfig(ImmutableList.of(OreFeatureConfig.createTarget(new TagMatchRuleTest(BlockTags.BASE_STONE_OVERWORLD), BlockRegistry.HALLSTONE_EMERALD_ORE.getDefaultState())), 4, 0.5F)).uniformRange(YOffset.getBottom(), YOffset.fixed(24)).spreadHorizontally();
     public static final ConfiguredFeature<?, ?> LARGE_PUMPKIN = HUGE_PUMPKIN.configure(new HugePumpkinFeatureConfig(3)).decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.OCEAN_FLOOR)).decorate(Decorator.WATER_DEPTH_THRESHOLD.configure(new WaterDepthThresholdDecoratorConfig(0))).spreadHorizontally().decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(0, 0.33F, 1))));
     public static final ConfiguredFeature<?, ?> SMALL_PUMPKIN = HUGE_PUMPKIN.configure(new HugePumpkinFeatureConfig(1)).decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.OCEAN_FLOOR)).decorate(Decorator.WATER_DEPTH_THRESHOLD.configure(new WaterDepthThresholdDecoratorConfig(0))).spreadHorizontally().decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(0, 0.33F, 1))));
-    public static final ConfiguredFeature<?, ?> PETRIFIED_SANDSTONE_ROCK = Feature.FOREST_ROCK.configure(new SingleStateFeatureConfig(BlockRegistry.PETRIFIED_SANDSTONE.getDefaultState())).decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)).spreadHorizontally()).repeatRandomly(2);
+    public static final ConfiguredFeature<?, ?> PETRIFIED_SANDSTONE_ROCK = ROCK.configure(new RockFeatureConfig(BlockRegistry.PETRIFIED_SANDSTONE.getDefaultState(), ConstantIntProvider.create(2))).decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)).spreadHorizontally()).repeatRandomly(3);
+    public static final ConfiguredFeature<?, ?> DENSE_PETRIFIED_SANDSTONE_ROCK = ROCK.configure(new RockFeatureConfig(BlockRegistry.PETRIFIED_SANDSTONE.getDefaultState(), ConstantIntProvider.create(2))).decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)).spreadHorizontally()).repeatRandomly(6);
+    public static final ConfiguredFeature<?, ?> BIG_PETRIFIED_SANDSTONE_ROCK = ROCK.configure(new RockFeatureConfig(BlockRegistry.PETRIFIED_SANDSTONE.getDefaultState(), UniformIntProvider.create(3, 4))).decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)).spreadHorizontally()).repeatRandomly(3);
     public static final ConfiguredFeature<?, ?> WATER_DELTA = Feature.DELTA_FEATURE.configure(new DeltaFeatureConfig(Blocks.WATER.getDefaultState(), BlockRegistry.HALLOWED_DIRT.getDefaultState(), UniformIntProvider.create(6, 12), UniformIntProvider.create(0, 3))).decorate(Decorator.COUNT_MULTILAYER.configure(new CountConfig(45)));
 
     public static final TreeDecoratorType<?> BRANCH_DECORATOR = TreeDecoratorTypeMixin.callRegister("branch_decorator", BranchTreeDecorator.CODEC);
@@ -77,6 +82,7 @@ public class FeatureRegistry {
 
     public static void register() {
         Registry.register(Registry.FEATURE, new Identifier(Hallows.MOD_ID, "huge_pumpkin"), HUGE_PUMPKIN);
+        Registry.register(Registry.FEATURE, new Identifier(Hallows.MOD_ID, "rock"), ROCK);
 
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "ebony"), EBONY);
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "blood_ebony"), BLOOD_EBONY);
@@ -104,6 +110,8 @@ public class FeatureRegistry {
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "large_pumpkin"), LARGE_PUMPKIN);
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "small_pumpkin"), SMALL_PUMPKIN);
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "petrified_sandstone_rock"), PETRIFIED_SANDSTONE_ROCK);
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "dense_petrified_sandstone_rock"), DENSE_PETRIFIED_SANDSTONE_ROCK);
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "big_petrified_sandstone_rock"), BIG_PETRIFIED_SANDSTONE_ROCK);
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "water_delta"), WATER_DELTA);
     }
 }

@@ -1,6 +1,9 @@
 package creoii.hallows.core.registry;
 
 import creoii.hallows.core.Hallows;
+import net.fabricmc.fabric.api.biome.v1.OverworldBiomes;
+import net.fabricmc.fabric.api.biome.v1.OverworldClimate;
+import net.fabricmc.fabric.impl.biome.InternalBiomeData;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
@@ -18,6 +21,7 @@ public class BiomeRegistry {
     public static Biome PERISHED_VALLEY;
     public static Biome PUMPKIN_VALLEY;
     public static Biome PETRIFIED_SANDS;
+    public static Biome ROCKY_PETRIFIED_SANDS;
     public static Biome PETRIFIED_BONEYARD;
 
     public static final RegistryKey<Biome> HANGING_WOODS_KEY = RegistryKey.of(Registry.BIOME_KEY, new Identifier(Hallows.MOD_ID, "hanging_woods"));
@@ -26,6 +30,7 @@ public class BiomeRegistry {
     public static final RegistryKey<Biome> PERISHED_VALLEY_KEY = RegistryKey.of(Registry.BIOME_KEY, new Identifier(Hallows.MOD_ID, "perished_valley"));
     public static final RegistryKey<Biome> PUMPKIN_VALLEY_KEY = RegistryKey.of(Registry.BIOME_KEY, new Identifier(Hallows.MOD_ID, "pumpkin_valley"));
     public static final RegistryKey<Biome> PETRIFIED_SANDS_KEY = RegistryKey.of(Registry.BIOME_KEY, new Identifier(Hallows.MOD_ID, "petrified_sands"));
+    public static final RegistryKey<Biome> ROCKY_PETRIFIED_SANDS_KEY = RegistryKey.of(Registry.BIOME_KEY, new Identifier(Hallows.MOD_ID, "rocky_petrified_sands"));
     public static final RegistryKey<Biome> PETRIFIED_BONEYARD_KEY = RegistryKey.of(Registry.BIOME_KEY, new Identifier(Hallows.MOD_ID, "petrified_boneyard"));
 
     public static void register() {
@@ -34,15 +39,25 @@ public class BiomeRegistry {
         NECROTIC_GLACIERS = createNecroticGlaciers();
         PERISHED_VALLEY = createPerishedValley(false);
         PUMPKIN_VALLEY = createPerishedValley(true);
-        PETRIFIED_SANDS = createPetrifiedSands(false);
-        PETRIFIED_BONEYARD = createPetrifiedSands(true);
+        PETRIFIED_SANDS = createPetrifiedSands(false, false);
+        ROCKY_PETRIFIED_SANDS = createPetrifiedSands(false, true);
+        PETRIFIED_BONEYARD = createPetrifiedSands(true, false);
         Registry.register(BuiltinRegistries.BIOME, HANGING_WOODS_KEY.getValue(), HANGING_WOODS);
         Registry.register(BuiltinRegistries.BIOME, HEMLOCK_SWAMP_KEY.getValue(), HEMLOCK_SWAMP);
         Registry.register(BuiltinRegistries.BIOME, NECROTIC_GLACIERS_KEY.getValue(), NECROTIC_GLACIERS);
         Registry.register(BuiltinRegistries.BIOME, PERISHED_VALLEY_KEY.getValue(), PERISHED_VALLEY);
         Registry.register(BuiltinRegistries.BIOME, PUMPKIN_VALLEY_KEY.getValue(), PUMPKIN_VALLEY);
         Registry.register(BuiltinRegistries.BIOME, PETRIFIED_SANDS_KEY.getValue(), PETRIFIED_SANDS);
+        Registry.register(BuiltinRegistries.BIOME, ROCKY_PETRIFIED_SANDS_KEY.getValue(), ROCKY_PETRIFIED_SANDS);
         Registry.register(BuiltinRegistries.BIOME, PETRIFIED_BONEYARD_KEY.getValue(), PETRIFIED_BONEYARD);
+
+        registerSpecials();
+    }
+
+    @SuppressWarnings("deprecation")
+    private static void registerSpecials() {
+        InternalBiomeData.addOverworldBiomeReplacement(PETRIFIED_SANDS_KEY, PETRIFIED_BONEYARD_KEY, 0.2D, new OverworldClimate[]{OverworldClimate.DRY});
+        InternalBiomeData.addOverworldBiomeReplacement(PETRIFIED_SANDS_KEY, ROCKY_PETRIFIED_SANDS_KEY, 0.4D, new OverworldClimate[]{OverworldClimate.DRY});
     }
 
     private static Biome createHangingWoods() {
@@ -136,14 +151,19 @@ public class BiomeRegistry {
         return new Biome.Builder().precipitation(Biome.Precipitation.RAIN).category(Biome.Category.NONE).depth(0.1F).scale(0.2F).temperature(0.5F).downfall(0.5F).effects(new BiomeEffects.Builder().waterColor(5001581).waterFogColor(8620438).fogColor(0xc0d8ff).grassColor(9470298).foliageColor(10387802).skyColor(4210816).particleConfig(new BiomeParticleConfig(ParticleTypes.WHITE_ASH, 0.01F)).build()).spawnSettings(spawns.build()).generationSettings(generation.build()).build();
     }
 
-    private static Biome createPetrifiedSands(boolean boneyard) {
+    private static Biome createPetrifiedSands(boolean boneyard, boolean rocky) {
         SpawnSettings.Builder spawns = new SpawnSettings.Builder();
         GenerationSettings.Builder generation = new GenerationSettings.Builder();
         generation.surfaceBuilder(() -> SurfaceRegistry.PETRIFIED);
         generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE);
         generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CANYON);
         generation.structureFeature(StructureRegistry.PETRIFIED_PYRAMID);
-        generation.feature(GenerationStep.Feature.LOCAL_MODIFICATIONS, FeatureRegistry.PETRIFIED_SANDSTONE_ROCK);
+
+        if (rocky) {
+            generation.feature(GenerationStep.Feature.LOCAL_MODIFICATIONS, FeatureRegistry.DENSE_PETRIFIED_SANDSTONE_ROCK);
+            generation.feature(GenerationStep.Feature.LOCAL_MODIFICATIONS, FeatureRegistry.BIG_PETRIFIED_SANDSTONE_ROCK);
+        }
+        else generation.feature(GenerationStep.Feature.LOCAL_MODIFICATIONS, FeatureRegistry.PETRIFIED_SANDSTONE_ROCK);
         generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_OPAL);
         generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_SILVER);
         generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_HALLSTONE_EMERALD);
