@@ -46,6 +46,7 @@ public class BlockRegistry {
     public static Block OPAL_ORE;
     public static Block HALLSTONE_EMERALD_ORE;
     public static Block STYGIAN_RUIN;
+    public static Block STYGIAN_BLOCK;
 
     public static Block DAWN_MORTIS = new Block(FabricBlockSettings.of(Material.STONE, MapColor.PALE_PURPLE).strength(1.5F).sounds(BlockSoundGroup.STONE));
     public static Block DAWN_MORTIS_SLAB = new SlabBlock(AbstractBlock.Settings.copy(DAWN_MORTIS));
@@ -250,6 +251,7 @@ public class BlockRegistry {
         OPAL_ORE = createBlock("opal_ore", new OreBlock(FabricBlockSettings.copy(HALLSTONE).requiresTool().strength(3.0F, 7.5F), UniformIntProvider.create(3, 7)), ItemGroup.BUILDING_BLOCKS);
         HALLSTONE_EMERALD_ORE = createBlock("hallstone_emerald_ore", new OreBlock(FabricBlockSettings.copy(HALLSTONE).requiresTool().strength(3.0F, 7.5F), UniformIntProvider.create(3, 7)), ItemGroup.BUILDING_BLOCKS);
         STYGIAN_RUIN = createBlock("stygian_ruin", new Block(FabricBlockSettings.copy(Blocks.ANCIENT_DEBRIS).requiresTool()), ItemGroup.BUILDING_BLOCKS);
+        STYGIAN_BLOCK = createBlock("stygian_block", new Block(FabricBlockSettings.copy(Blocks.NETHERITE_BLOCK).strength(40.0F, 160.0F)), ItemGroup.BUILDING_BLOCKS);
 
         createBlock("tall_candle", TALL_CANDLE, ItemGroup.DECORATIONS);
         createBlock("candle_skull", CANDLE_SKULL, ItemGroup.DECORATIONS);
