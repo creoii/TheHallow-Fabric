@@ -1,5 +1,6 @@
 package creoii.hallows.core.registry;
 
+import creoii.hallows.common.item.BroomstickItem;
 import creoii.hallows.common.item.base.MiningToolItem;
 import creoii.hallows.common.item.material.GhostlyMaterial;
 import creoii.hallows.common.item.material.SilverMaterial;
@@ -46,6 +47,7 @@ public class ItemRegistry {
     public static final Item GHOST_SPAWN_EGG = new SpawnEggItem(EntityRegistry.GHOST, 13159139, 9079978, new Item.Settings().group(ItemGroup.MISC));
     public static final Item MAGUS_SPAWN_EGG = new SpawnEggItem(EntityRegistry.MAGUS, 12609675, 3293539, new Item.Settings().group(ItemGroup.MISC));
     public static final Item HAUNT_SPAWN_EGG = new SpawnEggItem(EntityRegistry.HAUNT, 4275275, 2827571, new Item.Settings().group(ItemGroup.MISC));
+    public static final Item BROOMSTICK = new BroomstickItem(new Item.Settings().group(ItemGroup.MISC));
 
     public static void register() {
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "stygian_ingot"), STYGIAN_INGOT);
@@ -73,10 +75,11 @@ public class ItemRegistry {
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "ghost_cloth"), GHOST_CLOTH);
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "ghostly_drape"), GHOSTLY_DRAPE);
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "haunt_fur"), HAUNT_FUR);
+        Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "mage_magic"), MAGE_MAGIC);
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "ghost_spawn_egg"), GHOST_SPAWN_EGG);
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "magus_spawn_egg"), MAGUS_SPAWN_EGG);
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "haunt_spawn_egg"), HAUNT_SPAWN_EGG);
-        Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "mage_magic"), MAGE_MAGIC);
+        Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "broomstick"), BROOMSTICK);
     }
 
     public static class Materials {

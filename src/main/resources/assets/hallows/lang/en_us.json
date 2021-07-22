@@ -172,10 +172,12 @@
   "item.hallows.ghost_spawn_egg": "Ghost Spawn Egg",
   "item.hallows.magus_spawn_egg": "Magus Spawn Egg",
   "item.hallows.haunt_spawn_egg": "Haunt Spawn Egg",
+  "item.hallows.broomstick": "Broomstick",
 
   "entity.hallows.ghost": "Ghost",
   "entity.hallows.magus": "Magus",
   "entity.hallows.haunt": "Haunt",
+  "entity.hallows.broomstick": "Broomstick",
 
   "biome.hallows.perished_valley": "Perished Valley",
   "biome.hallows.pumpkin_valley": "Pumpkin Valley",
