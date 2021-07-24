@@ -4,6 +4,8 @@ import creoii.hallows.core.registry.*;
 import creoii.hallows.core.util.Events;
 import creoii.hallows.core.util.Stats;
 import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.fabricmc.api.ModInitializer;
 
 public class Hallows implements ModInitializer, ClientModInitializer {
@@ -28,6 +30,7 @@ public class Hallows implements ModInitializer, ClientModInitializer {
 	}
 
 	@Override
+	@Environment(EnvType.CLIENT)
 	public void onInitializeClient() {
 		BlockRegistry.registerClient();
 		BlockEntityRegistry.registerClient();

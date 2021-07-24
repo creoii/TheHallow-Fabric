@@ -1,7 +1,6 @@
 package creoii.hallows.common.entity;
 
 import creoii.hallows.common.entity.ai.TeleportTowardTargetGoal;
-import creoii.hallows.core.registry.EntityRegistry;
 import creoii.hallows.core.registry.ItemRegistry;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;

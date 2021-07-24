@@ -2,7 +2,6 @@ package creoii.hallows.common.entity;
 
 import creoii.hallows.common.entity.ai.FlyMoveControl;
 import creoii.hallows.common.entity.ai.FlyRandomGoal;
-import creoii.hallows.core.registry.EntityRegistry;
 import creoii.hallows.core.registry.ItemRegistry;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;

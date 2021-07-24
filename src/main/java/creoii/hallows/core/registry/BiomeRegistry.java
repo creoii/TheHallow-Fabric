@@ -1,7 +1,6 @@
 package creoii.hallows.core.registry;
 
 import creoii.hallows.core.Hallows;
-import net.fabricmc.fabric.api.biome.v1.OverworldBiomes;
 import net.fabricmc.fabric.api.biome.v1.OverworldClimate;
 import net.fabricmc.fabric.impl.biome.InternalBiomeData;
 import net.minecraft.particle.ParticleTypes;
@@ -14,7 +13,6 @@ import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.carver.ConfiguredCarvers;
 import net.minecraft.world.gen.feature.ConfiguredFeatures;
 import net.minecraft.world.gen.feature.ConfiguredStructureFeatures;
-import net.minecraft.world.gen.feature.StructureFeature;
 
 public class BiomeRegistry {
     public static Biome HANGING_WOODS;

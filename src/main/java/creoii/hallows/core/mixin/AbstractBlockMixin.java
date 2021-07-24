@@ -1,7 +1,9 @@
 package creoii.hallows.core.mixin;
 
 import creoii.hallows.core.registry.BlockRegistry;
-import net.minecraft.block.*;
+import net.minecraft.block.AbstractBlock;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.tag.ItemTags;
 import net.minecraft.util.ActionResult;

@@ -1,16 +1,14 @@
 package creoii.hallows.core.registry;
 
-import creoii.hallows.client.render.BoatEntityRenderer;
-import creoii.hallows.client.render.BroomstickEntityRenderer;
-import creoii.hallows.client.render.GhostEntityRenderer;
-import creoii.hallows.client.render.HauntEntityRenderer;
-import creoii.hallows.client.render.MagusEntityRenderer;
+import creoii.hallows.client.render.*;
 import creoii.hallows.common.entity.BroomstickEntity;
 import creoii.hallows.common.entity.GhostEntity;
 import creoii.hallows.common.entity.HauntEntity;
 import creoii.hallows.common.entity.MagusEntity;
 import creoii.hallows.common.entity.base.BoatEntity;
 import creoii.hallows.core.Hallows;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
@@ -39,6 +37,7 @@ public class EntityRegistry {
         FabricDefaultAttributeRegistry.register(HAUNT, HauntEntity.createAttributes());
     }
 
+    @Environment(EnvType.CLIENT)
     public static void registerClient() {
         EntityRendererRegistry.INSTANCE.register(GHOST, GhostEntityRenderer::new);
         EntityRendererRegistry.INSTANCE.register(MAGUS, MagusEntityRenderer::new);

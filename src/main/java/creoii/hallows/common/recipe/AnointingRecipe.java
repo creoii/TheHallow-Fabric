@@ -2,8 +2,8 @@ package creoii.hallows.common.recipe;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
-import creoii.hallows.core.registry.ItemRegistry;
 import creoii.hallows.core.registry.ContainerRegistry;
+import creoii.hallows.core.registry.ItemRegistry;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
