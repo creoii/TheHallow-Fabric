@@ -21,6 +21,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.UUID;
 
+@SuppressWarnings("EntityConstructor")
 public class HauntEntity extends HostileEntity implements Angerable {
     private static final TrackedData<Boolean> ANGRY = DataTracker.registerData(HauntEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
     private int angerTime;
@@ -28,11 +29,6 @@ public class HauntEntity extends HostileEntity implements Angerable {
 
     public HauntEntity(EntityType<? extends HauntEntity> type, World world) {
         super(type, world);
-        this.experiencePoints = 4;
-    }
-
-    public HauntEntity(World world) {
-        super(EntityRegistry.HAUNT, world);
         this.experiencePoints = 4;
     }
 

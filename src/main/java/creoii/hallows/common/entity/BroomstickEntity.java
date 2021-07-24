@@ -26,6 +26,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
+@SuppressWarnings("EntityConstructor")
 public class BroomstickEntity extends Entity {
     private int field_7708;
     private float velocityDecay;
@@ -49,10 +50,6 @@ public class BroomstickEntity extends Entity {
         this.prevX = x;
         this.prevY = y;
         this.prevZ = z;
-    }
-
-    public BroomstickEntity(World world) {
-        super(EntityRegistry.BROOMSTICK, world);
     }
 
     protected MoveEffect getMoveEffect() {

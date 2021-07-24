@@ -1,6 +1,8 @@
 package creoii.hallows.core.registry;
 
+import creoii.hallows.common.entity.base.BoatEntity;
 import creoii.hallows.common.item.BroomstickItem;
+import creoii.hallows.common.item.base.BoatItem;
 import creoii.hallows.common.item.base.MiningToolItem;
 import creoii.hallows.common.item.material.GhostlyMaterial;
 import creoii.hallows.common.item.material.SilverMaterial;
@@ -49,6 +51,9 @@ public class ItemRegistry {
     public static final Item HAUNT_SPAWN_EGG = new SpawnEggItem(EntityRegistry.HAUNT, 4275275, 2827571, new Item.Settings().group(ItemGroup.MISC));
     public static final Item BROOMSTICK = new BroomstickItem(new Item.Settings().group(ItemGroup.MISC));
 
+    public static final Item ASPHODEL_BOAT = new BoatItem(BoatEntity.Type.ASPHODEL, new Item.Settings().group(ItemGroup.TRANSPORTATION));
+    public static final Item EBONY_BOAT = new BoatItem(BoatEntity.Type.EBONY, new Item.Settings().group(ItemGroup.TRANSPORTATION));
+
     public static void register() {
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "stygian_ingot"), STYGIAN_INGOT);
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "stygian_helmet"), STYGIAN_HELMET);
@@ -80,6 +85,8 @@ public class ItemRegistry {
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "magus_spawn_egg"), MAGUS_SPAWN_EGG);
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "haunt_spawn_egg"), HAUNT_SPAWN_EGG);
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "broomstick"), BROOMSTICK);
+        Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "asphodel_boat"), ASPHODEL_BOAT);
+        Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "ebony_boat"), EBONY_BOAT);
     }
 
     public static class Materials {

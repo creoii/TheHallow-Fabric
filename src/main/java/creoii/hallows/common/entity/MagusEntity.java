@@ -13,15 +13,10 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
+@SuppressWarnings("EntityConstructor")
 public class MagusEntity extends FlyingEntity {
     public MagusEntity(EntityType<MagusEntity> entityType, World world) {
         super(entityType, world);
-        this.moveControl = new FlyMoveControl(this);
-        this.experiencePoints = 5;
-    }
-
-    public MagusEntity(World world) {
-        super(EntityRegistry.MAGUS, world);
         this.moveControl = new FlyMoveControl(this);
         this.experiencePoints = 5;
     }

@@ -2,7 +2,6 @@ package creoii.hallows.common.entity;
 
 import creoii.hallows.common.entity.ai.FlyMoveControl;
 import creoii.hallows.common.entity.ai.FlyRandomGoal;
-import creoii.hallows.core.registry.EntityRegistry;
 import creoii.hallows.core.registry.ItemRegistry;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -31,18 +30,13 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.EnumSet;
 
+@SuppressWarnings("EntityConstructor")
 public class GhostEntity extends HostileEntity {
     protected static final TrackedData<Byte> GHOST_FLAGS = DataTracker.registerData(GhostEntity.class, TrackedDataHandlerRegistry.BYTE);
     private GhostEntity leader;
 
     public GhostEntity(EntityType<? extends GhostEntity> type, World world) {
         super(type, world);
-        this.moveControl = new FlyMoveControl(this);
-        this.experiencePoints = 2;
-    }
-
-    public GhostEntity(World world) {
-        super(EntityRegistry.GHOST, world);
         this.moveControl = new FlyMoveControl(this);
         this.experiencePoints = 2;
     }
@@ -178,7 +172,6 @@ public class GhostEntity extends HostileEntity {
                     GhostEntity.this.addStatusEffect(new StatusEffectInstance(StatusEffects.INVISIBILITY, 20, 0, true, false));
                 }
             }
-
         }
     }
 }
