@@ -65,6 +65,7 @@ public class BoatEntity extends net.minecraft.entity.vehicle.BoatEntity {
     public enum Type {
         ASPHODEL(BlockRegistry.ASPHODEL_PLANKS, "asphodel"),
         EBONY(BlockRegistry.EBONY_PLANKS, "ebony"),
+        THORNWOOD(null, "thornwood"),
         TWISTED(null, "twisted");
 
         private final String name;

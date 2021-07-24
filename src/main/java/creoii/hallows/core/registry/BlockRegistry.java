@@ -44,9 +44,9 @@ public class BlockRegistry {
     public static Block HALLOWED_DIRT = new Block(FabricBlockSettings.of(Material.SOIL, MapColor.SPRUCE_BROWN).strength(0.5F).sounds(BlockSoundGroup.ROOTED_DIRT));
     public static Block DEADROOT;
 
+    public static Block HALLSTONE_EMERALD_ORE;
     public static Block SILVER_ORE;
     public static Block OPAL_ORE;
-    public static Block HALLSTONE_EMERALD_ORE;
     public static Block STYGIAN_RUIN;
     public static Block STYGIAN_BLOCK;
 
@@ -247,15 +247,17 @@ public class BlockRegistry {
         createBlock("tenebrite_brick_wall", TENEBRITE_BRICK_WALL, ItemGroup.DECORATIONS);
         createBlock("chiseled_tenebrite_bricks", CHISELED_TENEBRITE_BRICKS, ItemGroup.BUILDING_BLOCKS);
         SMOOTH_TENEBRITE = createBlock("smooth_tenebrite", new Block(FabricBlockSettings.copy(BlockRegistry.TENEBRITE)), ItemGroup.BUILDING_BLOCKS);
+        GILDED_TENEBRITE = createBlock("gilded_tenebrite", new Block(FabricBlockSettings.copy(BlockRegistry.TENEBRITE)), ItemGroup.BUILDING_BLOCKS);
+        SKULLISH_TENEBRITE = createBlock("skullish_tenebrite", new Block(FabricBlockSettings.copy(BlockRegistry.TENEBRITE)), ItemGroup.BUILDING_BLOCKS);
 
         RED_MOSS_CARPET = createBlock("red_moss_carpet", new CarpetBlock(AbstractBlock.Settings.of(Material.PLANT, MapColor.DARK_RED).strength(0.1F).sounds(BlockSoundGroup.MOSS_CARPET)), ItemGroup.DECORATIONS);
         RED_MOSS_BLOCK = createBlock("red_moss_block", new RedMossBlock(AbstractBlock.Settings.of(Material.MOSS_BLOCK, MapColor.DARK_RED).strength(0.1F).sounds(BlockSoundGroup.MOSS_BLOCK)), ItemGroup.DECORATIONS);
         BLOOD_MOREL = createBlock("blood_morel", new BloodMorelBlock(FabricBlockSettings.of(Material.REPLACEABLE_PLANT).strength(0.2F).sounds(BlockSoundGroup.WOOD)), ItemGroup.DECORATIONS);
         DEATH_MOREL = createBlock("death_morel", new DeathMorelBlock(FabricBlockSettings.of(Material.REPLACEABLE_PLANT).strength(0.2F).sounds(BlockSoundGroup.WOOD)), ItemGroup.DECORATIONS);
 
+        HALLSTONE_EMERALD_ORE = createBlock("hallstone_emerald_ore", new OreBlock(FabricBlockSettings.copy(HALLSTONE).requiresTool().strength(3.0F, 7.5F), UniformIntProvider.create(3, 7)), ItemGroup.BUILDING_BLOCKS);
         SILVER_ORE = createBlock("silver_ore", new OreBlock(FabricBlockSettings.copy(HALLSTONE).requiresTool().strength(3.0F, 7.5F)), ItemGroup.BUILDING_BLOCKS);
         OPAL_ORE = createBlock("opal_ore", new OreBlock(FabricBlockSettings.copy(HALLSTONE).requiresTool().strength(3.0F, 7.5F), UniformIntProvider.create(3, 7)), ItemGroup.BUILDING_BLOCKS);
-        HALLSTONE_EMERALD_ORE = createBlock("hallstone_emerald_ore", new OreBlock(FabricBlockSettings.copy(HALLSTONE).requiresTool().strength(3.0F, 7.5F), UniformIntProvider.create(3, 7)), ItemGroup.BUILDING_BLOCKS);
         STYGIAN_RUIN = createBlock("stygian_ruin", new Block(FabricBlockSettings.copy(Blocks.ANCIENT_DEBRIS).requiresTool()), ItemGroup.BUILDING_BLOCKS);
         STYGIAN_BLOCK = createBlock("stygian_block", new Block(FabricBlockSettings.copy(Blocks.NETHERITE_BLOCK).strength(40.0F, 160.0F)), ItemGroup.BUILDING_BLOCKS);
 
