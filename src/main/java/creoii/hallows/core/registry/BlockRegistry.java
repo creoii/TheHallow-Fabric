@@ -291,6 +291,7 @@ public class BlockRegistry {
                 COBWEB_CARPET,
                 NECROFIRE,
                 NECROFIRE_CAMPFIRE,
+                NECROFIRE_LANTERN,
                 NECROFIRE_TORCH,
                 NECROFIRE_WALL_TORCH
         );
@@ -305,14 +306,17 @@ public class BlockRegistry {
         FlammableBlockRegistry.getDefaultInstance().add(EBONY_PLANKS, 5, 20);
         FlammableBlockRegistry.getDefaultInstance().add(EBONY_LEAVES, 30, 60);
         FlammableBlockRegistry.getDefaultInstance().add(BLOOD_EBONY_LEAVES, 30, 60);
+        FlammableBlockRegistry.getDefaultInstance().add(COBWEB_CARPET, 30, 60);
     }
 
     private static void compostables() {
         ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(DEADROOT.asItem(), 0.2F);
         ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ASPHODEL_SAPLING.asItem(), 0.2F);
         ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(EBONY_LEAVES.asItem(), 0.3F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(HANGING_EBONY_LEAVES.asItem(), 0.3F);
         ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(EBONY_SAPLING.asItem(), 0.3F);
         ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(BLOOD_EBONY_LEAVES.asItem(), 0.3F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(HANGING_BLOOD_EBONY_LEAVES.asItem(), 0.3F);
         ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(BLOOD_EBONY_SAPLING.asItem(), 0.3F);
         ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(RED_MOSS_CARPET.asItem(), 0.3F);
         ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(RED_MOSS_BLOCK.asItem(), 0.65F);
