@@ -1,5 +1,6 @@
 package creoii.hallows.core.registry;
 
+import creoii.hallows.client.render.BoatEntityRenderer;
 import creoii.hallows.client.render.BroomstickEntityRenderer;
 import creoii.hallows.client.render.GhostEntityRenderer;
 import creoii.hallows.client.render.HauntEntityRenderer;
