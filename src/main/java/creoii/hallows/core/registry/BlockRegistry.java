@@ -5,8 +5,10 @@ import creoii.hallows.common.block.base.DoorBlock;
 import creoii.hallows.common.block.base.PressurePlateBlock;
 import creoii.hallows.common.block.base.SaplingBlock;
 import creoii.hallows.common.block.base.StairsBlock;
+import creoii.hallows.common.block.base.TorchBlock;
 import creoii.hallows.common.block.base.TrapdoorBlock;
 import creoii.hallows.common.block.base.*;
+import creoii.hallows.common.block.base.WallTorchBlock;
 import creoii.hallows.common.world.sapling.AsphodelSaplingGenerator;
 import creoii.hallows.common.world.sapling.BloodEbonySaplingGenerator;
 import creoii.hallows.common.world.sapling.EbonySaplingGenerator;
@@ -82,10 +84,10 @@ public class BlockRegistry {
     public static Block MIDNIGHT_MORTIS_BRICK_WALL;
 
     public static Block NECROFIRE;
-    public static Block NECROFIRE_CAMPFIRE;
-    public static Block NECROFIRE_LANTERN;
-    public static Block NECROFIRE_TORCH;
-    public static Block NECROFIRE_WALL_TORCH;
+    public static Block NECROFIRE_CAMPFIRE = new CampfireBlock(false, 1, AbstractBlock.Settings.copy(Blocks.SOUL_CAMPFIRE));
+    public static Block NECROFIRE_LANTERN = new LanternBlock(AbstractBlock.Settings.copy(Blocks.LANTERN));
+    public static Block NECROFIRE_TORCH = new TorchBlock(AbstractBlock.Settings.copy(Blocks.TORCH), ParticleRegistry.NECROFLAME);
+    public static Block NECROFIRE_WALL_TORCH = new WallTorchBlock(AbstractBlock.Settings.copy(Blocks.WALL_TORCH), ParticleRegistry.NECROFLAME);
 
     public static Block ASPHODEL_LOG;
     public static Block STRIPPED_ASPHODEL_LOG;
@@ -174,6 +176,10 @@ public class BlockRegistry {
         DEADROOT = createBlock("deadroot", new DeadrootBlock(FabricBlockSettings.copy(Blocks.CRIMSON_ROOTS)), ItemGroup.DECORATIONS);
 
         NECROFIRE = createBlock("necrofire", new NecrofireBlock(FabricBlockSettings.copy(Blocks.FIRE)), null);
+        createBlock("necrofire_campfire", NECROFIRE_CAMPFIRE, ItemGroup.DECORATIONS);
+        createBlock("necrofire_lantern", NECROFIRE_LANTERN, ItemGroup.DECORATIONS);
+        createBlock("necrofire_torch", NECROFIRE_TORCH, ItemGroup.DECORATIONS);
+        createBlock("necrofire_wall_torch", NECROFIRE_WALL_TORCH, null);
 
         createBlock("dawn_mortis", DAWN_MORTIS, ItemGroup.BUILDING_BLOCKS);
         createBlock("dawn_mortis_slab", DAWN_MORTIS_SLAB, ItemGroup.BUILDING_BLOCKS);
@@ -283,7 +289,9 @@ public class BlockRegistry {
                 HANGING_EBONY_LEAVES,
                 HANGING_BLOOD_EBONY_LEAVES,
                 COBWEB_CARPET,
-                NECROFIRE
+                NECROFIRE,
+                NECROFIRE_TORCH,
+                NECROFIRE_WALL_TORCH
         );
     }
 

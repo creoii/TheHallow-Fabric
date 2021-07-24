@@ -32,5 +32,6 @@ public class Hallows implements ModInitializer, ClientModInitializer {
 		BlockRegistry.registerClient();
 		BlockEntityRegistry.registerClient();
 		EntityRegistry.registerClient();
+		ParticleRegistry.registerClient();
 	}
 }
