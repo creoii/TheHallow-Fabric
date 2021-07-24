@@ -13,6 +13,8 @@ import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.carver.ConfiguredCarvers;
 import net.minecraft.world.gen.feature.ConfiguredFeatures;
+import net.minecraft.world.gen.feature.ConfiguredStructureFeatures;
+import net.minecraft.world.gen.feature.StructureFeature;
 
 public class BiomeRegistry {
     public static Biome HANGING_WOODS;
@@ -64,8 +66,9 @@ public class BiomeRegistry {
         SpawnSettings.Builder spawns = new SpawnSettings.Builder();
         GenerationSettings.Builder generation = new GenerationSettings.Builder();
         generation.surfaceBuilder(() -> SurfaceRegistry.HALLOWED);
-        generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE);
-        generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CANYON);
+        generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.PROTOTYPE_CAVE);
+        generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.PROTOTYPE_CANYON);
+        generation.carver(GenerationStep.Carver.AIR, CarverRegistry.ABYSS_CONFIGURED);
         generation.carver(GenerationStep.Carver.AIR, CarverRegistry.NECROMANTLE_CRACK_CONFIGURED);
         generation.structureFeature(StructureRegistry.HALLOWED_RUINS);
         generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_OPAL);
@@ -87,8 +90,9 @@ public class BiomeRegistry {
         SpawnSettings.Builder spawns = new SpawnSettings.Builder();
         GenerationSettings.Builder generation = new GenerationSettings.Builder();
         generation.surfaceBuilder(() -> SurfaceRegistry.HALLOWED);
-        generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE);
-        generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CANYON);
+        generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.PROTOTYPE_CAVE);
+        generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.PROTOTYPE_CANYON);
+        generation.carver(GenerationStep.Carver.AIR, CarverRegistry.ABYSS_CONFIGURED);
         generation.feature(GenerationStep.Feature.SURFACE_STRUCTURES, FeatureRegistry.WATER_DELTA);
         generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_OPAL);
         generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_SILVER);
@@ -108,8 +112,9 @@ public class BiomeRegistry {
         SpawnSettings.Builder spawns = new SpawnSettings.Builder();
         GenerationSettings.Builder generation = new GenerationSettings.Builder();
         generation.surfaceBuilder(() -> SurfaceRegistry.GLACIER);
-        generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE);
-        generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CANYON);
+        generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.PROTOTYPE_CAVE);
+        generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.PROTOTYPE_CANYON);
+        generation.carver(GenerationStep.Carver.AIR, CarverRegistry.ABYSS_CONFIGURED);
         generation.carver(GenerationStep.Carver.AIR, CarverRegistry.NECROMANTLE_CRACK_CONFIGURED);
         generation.structureFeature(StructureRegistry.HALLOWED_RUINS);
         generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_OPAL);
@@ -129,8 +134,9 @@ public class BiomeRegistry {
         SpawnSettings.Builder spawns = new SpawnSettings.Builder();
         GenerationSettings.Builder generation = new GenerationSettings.Builder();
         generation.surfaceBuilder(() -> SurfaceRegistry.HALLOWED);
-        generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE);
-        generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CANYON);
+        generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.PROTOTYPE_CAVE);
+        generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.PROTOTYPE_CANYON);
+        generation.carver(GenerationStep.Carver.AIR, CarverRegistry.ABYSS_CONFIGURED);
         generation.carver(GenerationStep.Carver.AIR, CarverRegistry.NECROMANTLE_CRACK_CONFIGURED);
         generation.structureFeature(StructureRegistry.HALLOWED_RUINS);
         generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_OPAL);
@@ -155,9 +161,12 @@ public class BiomeRegistry {
         SpawnSettings.Builder spawns = new SpawnSettings.Builder();
         GenerationSettings.Builder generation = new GenerationSettings.Builder();
         generation.surfaceBuilder(() -> SurfaceRegistry.PETRIFIED);
-        generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE);
-        generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CANYON);
+        generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.PROTOTYPE_CAVE);
+        generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.PROTOTYPE_CANYON);
+        generation.carver(GenerationStep.Carver.AIR, CarverRegistry.ABYSS_CONFIGURED);
         generation.structureFeature(StructureRegistry.PETRIFIED_PYRAMID);
+
+        if (boneyard) generation.structureFeature(ConfiguredStructureFeatures.NETHER_FOSSIL);
 
         if (rocky) {
             generation.feature(GenerationStep.Feature.LOCAL_MODIFICATIONS, FeatureRegistry.DENSE_PETRIFIED_SANDSTONE_ROCK);

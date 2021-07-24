@@ -1,5 +1,5 @@
 {
-  "type": "hallows:the_hallow",
+  "type": "minecraft:overworld",
   "generator": {
     "biome_source": {
       "type": "minecraft:multi_noise",

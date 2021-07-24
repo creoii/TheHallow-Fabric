@@ -1,7 +1,7 @@
 {
   "bedrock_roof_position": -10,
   "bedrock_floor_position": 0,
-  "sea_level": 63,
+  "sea_level": 47,
   "min_surface_level": 0,
   "noise_caves_enabled": true,
   "noodle_caves_enabled": true,

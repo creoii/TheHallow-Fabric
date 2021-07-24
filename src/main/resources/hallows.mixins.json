@@ -6,7 +6,6 @@
   "mixins": [
     "AbstractBlockMixin",
     "CarverMixin",
-    "ClientPlayerEntityMixin",
     "EntityModelsMixin",
     "ProjectileEntityMixin",
     "TreeDecoratorTypeMixin"

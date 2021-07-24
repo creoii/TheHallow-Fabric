@@ -18,6 +18,7 @@
     "air": [
       "minecraft:prototype_cave",
       "minecraft:prototype_canyon",
+      "hallows:abyss",
       "hallows:necromantle_crack"
     ]
   },
