@@ -151,9 +151,8 @@ public class BroomstickEntity extends Entity {
     }
 
     public void updateVelocity() {
-        double e = this.hasNoGravity() ? 0.0D : -0.03999999910593033D;
         this.velocityDecay = 0.05F;
-        double f = (this.getY()) / (double)this.getHeight();
+        double f = this.getY() / (double)this.getHeight();
         this.velocityDecay = 0.9F;
         Vec3d vec3d = this.getVelocity();
         this.setVelocity(vec3d.x * (double)this.velocityDecay, vec3d.y * (double)this.velocityDecay, vec3d.z * (double)this.velocityDecay);
@@ -202,16 +201,13 @@ public class BroomstickEntity extends Entity {
 
     @Override
     protected void initDataTracker() {
-
     }
 
     @Override
     protected void readCustomDataFromNbt(NbtCompound nbt) {
-
     }
 
     @Override
     protected void writeCustomDataToNbt(NbtCompound nbt) {
-
     }
 }

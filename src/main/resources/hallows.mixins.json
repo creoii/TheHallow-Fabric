@@ -4,10 +4,11 @@
   "package": "creoii.hallows.core.mixin",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
+    "AbstractBlockMixin",
     "CarverMixin",
+    "ClientPlayerEntityMixin",
     "EntityModelsMixin",
     "ProjectileEntityMixin",
-    "AbstractBlockMixin",
     "TreeDecoratorTypeMixin"
   ],
   "injectors": {
