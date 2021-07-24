@@ -131,7 +131,7 @@ public class AnointingScreenHandler extends ScreenHandler {
                     attribute == EntityAttributes.GENERIC_FOLLOW_RANGE) return;
 
             ItemStack stack = this.recipe.craft(this.input);
-            if (stack.getOrCreateTag().getBoolean("Anointed")) return;
+            if (stack.getOrCreateNbt().getBoolean("Anointed")) return;
 
             EquipmentSlot slot = MobEntity.getPreferredEquipmentSlot(stack);
             Multimap<EntityAttribute, EntityAttributeModifier> multimap = HashMultimap.create();
@@ -164,7 +164,7 @@ public class AnointingScreenHandler extends ScreenHandler {
                 }
             }
 
-            stack.getOrCreateTag().putBoolean("Anointed", true);
+            stack.getOrCreateNbt().putBoolean("Anointed", true);
 
             this.output.setLastRecipe(this.recipe);
             this.output.setStack(0, stack);
