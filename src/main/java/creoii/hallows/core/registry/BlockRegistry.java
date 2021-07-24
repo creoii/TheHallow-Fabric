@@ -290,6 +290,7 @@ public class BlockRegistry {
                 HANGING_BLOOD_EBONY_LEAVES,
                 COBWEB_CARPET,
                 NECROFIRE,
+                NECROFIRE_CAMPFIRE,
                 NECROFIRE_TORCH,
                 NECROFIRE_WALL_TORCH
         );
