@@ -10,7 +10,7 @@ import java.util.Random;
 
 public class EbonySaplingGenerator extends SaplingGenerator {
     @Nullable
-    protected ConfiguredFeature<TreeFeatureConfig, ?> createTreeFeature(Random random, boolean bees) {
+    protected ConfiguredFeature<TreeFeatureConfig, ?> getTreeFeature(Random random, boolean bees) {
         return (ConfiguredFeature<TreeFeatureConfig, ?>) FeatureRegistry.EBONY;
     }
 }
