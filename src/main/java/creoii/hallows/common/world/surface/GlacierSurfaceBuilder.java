@@ -48,7 +48,7 @@ public class GlacierSurfaceBuilder extends SurfaceBuilder<TernarySurfaceConfig> 
                     d0 = d4;
                 }
 
-                d0 = d0 + 64.0D;
+                d0 = d0 + 48.0D;
             }
 
             int i1 = x & 15;
@@ -95,7 +95,7 @@ public class GlacierSurfaceBuilder extends SurfaceBuilder<TernarySurfaceConfig> 
                                 flag1 = true;
                             } else {
                                 BlockState blockstate5;
-                                if (l >= 64 && l <= 127) {
+                                if (l >= 48 && l <= 127) {
                                     if (flag) {
                                         blockstate5 = BlockRegistry.MIDNIGHT_MORTIS.getDefaultState();
                                     } else {
@@ -145,14 +145,14 @@ public class GlacierSurfaceBuilder extends SurfaceBuilder<TernarySurfaceConfig> 
     }
 
     protected void initLayerBlocks(long seed) {
-        this.layerBlocks = new BlockState[64];
+        this.layerBlocks = new BlockState[48];
         Arrays.fill(this.layerBlocks, BlockRegistry.DAWN_MORTIS.getDefaultState());
         ChunkRandom sharedseedrandom = new ChunkRandom(seed);
         this.layerNoise = new OctaveSimplexNoiseSampler(sharedseedrandom, ImmutableList.of(0));
 
-        for(int l1 = 0; l1 < 64; ++l1) {
+        for(int l1 = 0; l1 < 48; ++l1) {
             l1 += sharedseedrandom.nextInt(5) + 1;
-            if (l1 < 64) {
+            if (l1 < 48) {
                 this.layerBlocks[l1] = BlockRegistry.DUSK_MORTIS.getDefaultState();
             }
         }
@@ -161,9 +161,9 @@ public class GlacierSurfaceBuilder extends SurfaceBuilder<TernarySurfaceConfig> 
 
         for(int i = 0; i < i2; ++i) {
             int j = sharedseedrandom.nextInt(3) + 1;
-            int k = sharedseedrandom.nextInt(64);
+            int k = sharedseedrandom.nextInt(48);
 
-            for(int l = 0; k + l < 64 && l < j; ++l) {
+            for(int l = 0; k + l < 48 && l < j; ++l) {
                 this.layerBlocks[k + l] = BlockRegistry.NOON_MORTIS.getDefaultState();
             }
         }
@@ -172,9 +172,9 @@ public class GlacierSurfaceBuilder extends SurfaceBuilder<TernarySurfaceConfig> 
 
         for(int k2 = 0; k2 < j2; ++k2) {
             int i3 = sharedseedrandom.nextInt(3) + 2;
-            int l3 = sharedseedrandom.nextInt(64);
+            int l3 = sharedseedrandom.nextInt(48);
 
-            for(int i1 = 0; l3 + i1 < 64 && i1 < i3; ++i1) {
+            for(int i1 = 0; l3 + i1 < 48 && i1 < i3; ++i1) {
                 this.layerBlocks[l3 + i1] = BlockRegistry.NOON_MORTIS.getDefaultState();
             }
         }
@@ -183,9 +183,9 @@ public class GlacierSurfaceBuilder extends SurfaceBuilder<TernarySurfaceConfig> 
 
         for(int j3 = 0; j3 < l2; ++j3) {
             int i4 = sharedseedrandom.nextInt(3) + 1;
-            int k4 = sharedseedrandom.nextInt(64);
+            int k4 = sharedseedrandom.nextInt(48);
 
-            for(int j1 = 0; k4 + j1 < 64 && j1 < i4; ++j1) {
+            for(int j1 = 0; k4 + j1 < 48 && j1 < i4; ++j1) {
                 this.layerBlocks[k4 + j1] = BlockRegistry.DUSK_MORTIS.getDefaultState();
             }
         }
@@ -196,13 +196,13 @@ public class GlacierSurfaceBuilder extends SurfaceBuilder<TernarySurfaceConfig> 
         for(int l4 = 0; l4 < k3; ++l4) {
             j4 += sharedseedrandom.nextInt(16) + 4;
 
-            for(int k1 = 0; j4 + k1 < 64 && k1 < 1; ++k1) {
+            for(int k1 = 0; j4 + k1 < 48 && k1 < 1; ++k1) {
                 this.layerBlocks[j4 + k1] = BlockRegistry.DUSK_MORTIS.getDefaultState();
                 if (j4 + k1 > 1 && sharedseedrandom.nextBoolean()) {
                     this.layerBlocks[j4 + k1 - 1] = BlockRegistry.MIDNIGHT_MORTIS.getDefaultState();
                 }
 
-                if (j4 + k1 < 63 && sharedseedrandom.nextBoolean()) {
+                if (j4 + k1 < 47 && sharedseedrandom.nextBoolean()) {
                     this.layerBlocks[j4 + k1 + 1] = BlockRegistry.MIDNIGHT_MORTIS.getDefaultState();
                 }
             }
@@ -211,6 +211,6 @@ public class GlacierSurfaceBuilder extends SurfaceBuilder<TernarySurfaceConfig> 
 
     protected BlockState calculateLayerBlockState(int x, int y, int z) {
         int i = (int)Math.round(this.layerNoise.sample((double)x / 512.0D, (double)z / 512.0D, false) * 2.0D);
-        return this.layerBlocks[(y + i + 64) % 64];
+        return this.layerBlocks[(y + i + 48) % 48];
     }
 }
