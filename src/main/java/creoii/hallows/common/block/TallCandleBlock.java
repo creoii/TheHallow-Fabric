@@ -23,7 +23,6 @@ public class TallCandleBlock extends CandleBlock {
     private static final VoxelShape FOUR_CANDLES_SHAPE = Block.createCuboidShape(5.0D, 0.0D, 5.0D, 11.0D, 12.0D, 10.0D);
     private static final Int2ObjectMap<List<Vec3d>> CANDLES_TO_PARTICLE_OFFSETS = Util.make(() -> {
         Int2ObjectMap<List<Vec3d>> int2ObjectMap = new Int2ObjectOpenHashMap<>();
-        int2ObjectMap.defaultReturnValue(ImmutableList.of());
         int2ObjectMap.put(1, ImmutableList.of(new Vec3d(0.5D, 0.875D, 0.5D)));
         int2ObjectMap.put(2, ImmutableList.of(new Vec3d(0.375D, 0.81D, 0.5D), new Vec3d(0.625D, 0.875D, 0.44D)));
         int2ObjectMap.put(3, ImmutableList.of(new Vec3d(0.5D, 0.688D, 0.625D), new Vec3d(0.375D, 0.81D, 0.5D), new Vec3d(0.56D, 0.875D, 0.44D)));
@@ -46,6 +45,6 @@ public class TallCandleBlock extends CandleBlock {
 
     @Override
     protected Iterable<Vec3d> getParticleOffsets(BlockState state) {
-        return CANDLES_TO_PARTICLE_OFFSETS.get(state.get(CANDLES));
+        return CANDLES_TO_PARTICLE_OFFSETS.getOrDefault((int) state.get(CANDLES), ImmutableList.of());
     }
 }
