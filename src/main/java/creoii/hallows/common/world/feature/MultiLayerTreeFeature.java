@@ -33,6 +33,14 @@ public class MultiLayerTreeFeature extends Feature<TreeFeatureConfig> {
         super(codec);
     }
 
+    public static boolean canTreeReplace(TestableWorld world, BlockPos pos) {
+        return canReplace(world, pos) || world.testBlockState(pos, (state) -> state.isIn(BlockTags.LOGS));
+    }
+
+    private static boolean isVine(TestableWorld world, BlockPos pos) {
+        return world.testBlockState(pos, (state) -> state.isOf(Blocks.VINE));
+    }
+
     private static boolean isWater(TestableWorld world, BlockPos pos) {
         return world.testBlockState(pos, (state) -> state.isOf(Blocks.WATER));
     }
@@ -64,13 +72,16 @@ public class MultiLayerTreeFeature extends Feature<TreeFeatureConfig> {
             } else {
                 OptionalInt optionalInt = config.minimumSize.getMinClippedHeight();
                 int m = pos.getY();
-                if (m >= i || optionalInt.isPresent() && m >= optionalInt.getAsInt()) {
-                    List<FoliagePlacer.TreeNode> list = config.trunkPlacer.generate(world, trunkReplacer, random, m, pos, config);
-                    list.forEach((treeNode) -> config.foliagePlacer.generate(world, foliageReplacer, random, config, m, treeNode, j, l));
-                    return true;
-                } else return false;
+                if (!canTreeReplace(world, pos) || !config.ignoreVines && isVine(world, pos)) {
+                    if (m >= i || optionalInt.isPresent() && m >= optionalInt.getAsInt()) {
+                        List<FoliagePlacer.TreeNode> list = config.trunkPlacer.generate(world, trunkReplacer, random, m, pos, config);
+                        list.forEach((treeNode) -> config.foliagePlacer.generate(world, foliageReplacer, random, config, m, treeNode, j, l));
+                        return true;
+                    }
+                }else return false;
             }
-        } else return false;
+        }
+        return false;
     }
 
     protected void setBlockState(ModifiableWorld world, BlockPos pos, BlockState state) {
