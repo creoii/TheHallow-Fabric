@@ -120,7 +120,6 @@
   "block.hallows.blood_morel": "Blood Morel",
   "block.hallows.death_morel": "Death Morel",
   "block.hallows.anointment_table": "Anointment Table",
-  "block.hallows.giant_cauldron": "Giant Cauldron Part",
   "block.hallows.orange_will_o_wisp_vines": "Will O Wisp Vine",
   "block.hallows.yellow_will_o_wisp_vines": "Will O Wisp Vine",
   "block.hallows.blue_will_o_wisp_vines": "Will O Wisp Vine",
@@ -132,6 +131,7 @@
   "block.hallows.tall_candle": "Tall Candle",
   "block.hallows.candle_skull": "Candle Skull",
   "block.hallows.cobweb_carpet": "Cobweb Carpet",
+  "block.hallows.giant_cauldron": "Giant Cauldron",
 
   "item.hallows.stygian_ingot": "Stygian Ingot",
   "item.hallows.stygian_helmet": "Stygian Helmet",

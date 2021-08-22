@@ -1,49 +1,44 @@
 {
   "variants": {
-    "half=bottom,facing=east": {
-      "model": "hallows:block/giant_cauldron_bottom",
-      "y": 270
-    },
-    "half=bottom,facing=north": {
-      "model": "hallows:block/giant_cauldron_bottom"
-    },
-    "half=bottom,facing=west": {
-      "model": "hallows:block/giant_cauldron_bottom",
-      "y": 90
-    },
-    "half=bottom,facing=south": {
-      "model": "hallows:block/giant_cauldron_bottom",
-      "y": 180
-    },
-    "half=top,facing=east,activated=false": {
-      "model": "hallows:block/giant_cauldron_top",
-      "y": 270
-    },
-    "half=top,facing=north,activated=false": {
-      "model": "hallows:block/giant_cauldron_top"
-    },
-    "half=top,facing=west,activated=false": {
-      "model": "hallows:block/giant_cauldron_top",
-      "y": 90
-    },
-    "half=top,facing=south,activated=false": {
-      "model": "hallows:block/giant_cauldron_top",
-      "y": 180
-    },
-    "half=top,facing=east,activated=true": {
-      "model": "hallows:block/giant_portal_cauldron_top",
-      "y": 270
-    },
-    "half=top,facing=north,activated=true": {
-      "model": "hallows:block/giant_portal_cauldron_top"
-    },
-    "half=top,facing=west,activated=true": {
-      "model": "hallows:block/giant_portal_cauldron_top",
-      "y": 90
-    },
-    "half=top,facing=south,activated=true": {
-      "model": "hallows:block/giant_portal_cauldron_top",
-      "y": 180
-    }
+    "half=bottom,facing=east,liquid=empty": {"model": "hallows:block/giant_cauldron_bottom", "y": 270},
+    "half=bottom,facing=north,liquid=empty": {"model": "hallows:block/giant_cauldron_bottom"},
+    "half=bottom,facing=west,liquid=empty": {"model": "hallows:block/giant_cauldron_bottom", "y": 90},
+    "half=bottom,facing=south,liquid=empty": {"model": "hallows:block/giant_cauldron_bottom", "y": 180},
+    "half=top,facing=east,liquid=empty": {"model": "hallows:block/giant_cauldron_top", "y": 270},
+    "half=top,facing=north,liquid=empty": {"model": "hallows:block/giant_cauldron_top"},
+    "half=top,facing=west,liquid=empty": {"model": "hallows:block/giant_cauldron_top", "y": 90},
+    "half=top,facing=south,liquid=empty": {"model": "hallows:block/giant_cauldron_top", "y": 180},
+    "half=bottom,facing=east,liquid=water": {"model": "hallows:block/giant_cauldron_bottom", "y": 270},
+    "half=bottom,facing=north,liquid=water": {"model": "hallows:block/giant_cauldron_bottom"},
+    "half=bottom,facing=west,liquid=water": {"model": "hallows:block/giant_cauldron_bottom", "y": 90},
+    "half=bottom,facing=south,liquid=water": {"model": "hallows:block/giant_cauldron_bottom", "y": 180},
+    "half=top,facing=east,liquid=water": {"model": "hallows:block/giant_cauldron_top_water", "y": 270},
+    "half=top,facing=north,liquid=water": {"model": "hallows:block/giant_cauldron_top_water"},
+    "half=top,facing=west,liquid=water": {"model": "hallows:block/giant_cauldron_top_water", "y": 90},
+    "half=top,facing=south,liquid=water": {"model": "hallows:block/giant_cauldron_top_water", "y": 180},
+    "half=bottom,facing=east,liquid=lava": {"model": "hallows:block/giant_cauldron_bottom", "y": 270},
+    "half=bottom,facing=north,liquid=lava": {"model": "hallows:block/giant_cauldron_bottom"},
+    "half=bottom,facing=west,liquid=lava": {"model": "hallows:block/giant_cauldron_bottom", "y": 90},
+    "half=bottom,facing=south,liquid=lava": {"model": "hallows:block/giant_cauldron_bottom", "y": 180},
+    "half=top,facing=east,liquid=lava": {"model": "hallows:block/giant_cauldron_top_lava", "y": 270},
+    "half=top,facing=north,liquid=lava": {"model": "hallows:block/giant_cauldron_top_lava"},
+    "half=top,facing=west,liquid=lava": {"model": "hallows:block/giant_cauldron_top_lava", "y": 90},
+    "half=top,facing=south,liquid=lava": {"model": "hallows:block/giant_cauldron_top_lava", "y": 180},
+    "half=bottom,facing=east,liquid=snow": {"model": "hallows:block/giant_cauldron_bottom", "y": 270},
+    "half=bottom,facing=north,liquid=snow": {"model": "hallows:block/giant_cauldron_bottom"},
+    "half=bottom,facing=west,liquid=snow": {"model": "hallows:block/giant_cauldron_bottom", "y": 90},
+    "half=bottom,facing=south,liquid=snow": {"model": "hallows:block/giant_cauldron_bottom", "y": 180},
+    "half=top,facing=east,liquid=snow": {"model": "hallows:block/giant_cauldron_top_snow", "y": 270},
+    "half=top,facing=north,liquid=snow": {"model": "hallows:block/giant_cauldron_top_snow"},
+    "half=top,facing=west,liquid=snow": {"model": "hallows:block/giant_cauldron_top_snow", "y": 90},
+    "half=top,facing=south,liquid=snow": {"model": "hallows:block/giant_cauldron_top_snow", "y": 180},
+    "half=bottom,facing=east,liquid=portal": {"model": "hallows:block/giant_cauldron_bottom", "y": 270},
+    "half=bottom,facing=north,liquid=portal": {"model": "hallows:block/giant_cauldron_bottom"},
+    "half=bottom,facing=west,liquid=portal": {"model": "hallows:block/giant_cauldron_bottom", "y": 90},
+    "half=bottom,facing=south,liquid=portal": {"model": "hallows:block/giant_cauldron_bottom", "y": 180},
+    "half=top,facing=east,liquid=portal": {"model": "hallows:block/giant_cauldron_top_portal", "y": 270},
+    "half=top,facing=north,liquid=portal": {"model": "hallows:block/giant_cauldron_top_portal"},
+    "half=top,facing=west,liquid=portal": {"model": "hallows:block/giant_cauldron_top_portal", "y": 90},
+    "half=top,facing=south,liquid=portal": {"model": "hallows:block/giant_cauldron_top_portal", "y": 180}
   }
 }
