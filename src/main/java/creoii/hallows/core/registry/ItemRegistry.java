@@ -2,9 +2,11 @@ package creoii.hallows.core.registry;
 
 import creoii.hallows.common.entity.base.BoatEntity;
 import creoii.hallows.common.item.BroomstickItem;
+import creoii.hallows.common.item.NecromancersBladeItem;
 import creoii.hallows.common.item.base.BoatItem;
 import creoii.hallows.common.item.base.MiningToolItem;
 import creoii.hallows.common.item.material.GhostlyMaterial;
+import creoii.hallows.common.item.material.NecromancerMaterial;
 import creoii.hallows.common.item.material.SilverMaterial;
 import creoii.hallows.common.item.material.StygianMaterial;
 import creoii.hallows.core.Hallows;
@@ -12,6 +14,7 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 
 public class ItemRegistry {
@@ -54,6 +57,8 @@ public class ItemRegistry {
     public static final Item ASPHODEL_BOAT = new BoatItem(BoatEntity.Type.ASPHODEL, new Item.Settings().group(ItemGroup.TRANSPORTATION));
     public static final Item EBONY_BOAT = new BoatItem(BoatEntity.Type.EBONY, new Item.Settings().group(ItemGroup.TRANSPORTATION));
 
+    public static final Item NECROMANCERS_BLADE = new NecromancersBladeItem(Materials.NECROMANCER_TOOLS, new Item.Settings().group(ItemGroup.COMBAT).maxCount(1).rarity(Rarity.UNCOMMON), 8);
+
     public static void register() {
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "stygian_ingot"), STYGIAN_INGOT);
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "stygian_helmet"), STYGIAN_HELMET);
@@ -87,6 +92,7 @@ public class ItemRegistry {
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "broomstick"), BROOMSTICK);
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "asphodel_boat"), ASPHODEL_BOAT);
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "ebony_boat"), EBONY_BOAT);
+        Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "necromancers_blade"), NECROMANCERS_BLADE);
     }
 
     public static class Materials {
@@ -95,5 +101,6 @@ public class ItemRegistry {
         public static final ToolMaterial SILVER_TOOLS = new SilverMaterial.Tool();
         public static final ArmorMaterial SILVER_ARMOR = new SilverMaterial.Armor();
         public static final ArmorMaterial GHOSTLY_ARMOR = new GhostlyMaterial.Armor();
+        public static final ToolMaterial NECROMANCER_TOOLS = new NecromancerMaterial.Tool();
     }
 }
