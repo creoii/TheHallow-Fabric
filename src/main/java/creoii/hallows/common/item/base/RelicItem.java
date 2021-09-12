@@ -22,6 +22,7 @@ public class RelicItem extends ToolItem implements Vanishable {
     public RelicItem(ToolMaterial material, Settings settings, int maxCharges) {
         super(material, settings);
         this.maxCharges = maxCharges;
+        this.charges = maxCharges;
     }
 
     public int getMaxCharges() {

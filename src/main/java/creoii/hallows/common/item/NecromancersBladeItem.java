@@ -78,7 +78,7 @@ public class NecromancersBladeItem extends RelicItem {
             double x = pos.getX() + random.nextDouble();
             double y = pos.getY() + random.nextDouble();
             double z = pos.getZ() + random.nextDouble();
-            world.addParticle(ParticleRegistry.LIFESTEAL, x, y, z, 0.0D, 0.0D, 0.0D);
+            world.addParticle(ParticleTypes.HAPPY_VILLAGER, x, y, z, 0.0D, 0.0D, 0.0D);
         }
     }
 

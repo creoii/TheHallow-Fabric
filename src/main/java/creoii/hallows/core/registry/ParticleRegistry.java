@@ -18,9 +18,9 @@ public class ParticleRegistry {
     @Environment(EnvType.CLIENT)
     public static void registerClient() {
         Registry.register(Registry.PARTICLE_TYPE, new Identifier(Hallows.MOD_ID, "necroflame"), NECROFLAME);
-        Registry.register(Registry.PARTICLE_TYPE, new Identifier(Hallows.MOD_ID, "lifesteal"), LIFESTEAL);
+        //Registry.register(Registry.PARTICLE_TYPE, new Identifier(Hallows.MOD_ID, "lifesteal"), LIFESTEAL);
 
         ParticleFactoryRegistry.getInstance().register(NECROFLAME, FlameParticle.Factory::new);
-        ParticleFactoryRegistry.getInstance().register(NECROFLAME, LifestealParticle.Factory::new);
+        //ParticleFactoryRegistry.getInstance().register(NECROFLAME, LifestealParticle.Factory::new);
     }
 }
