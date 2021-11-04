@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "hallows:tenebrite_wall",
+    "hallows:tenebrite_brick_wall",
+    "hallows:petrified_sandstone_wall"
+  ]
+}

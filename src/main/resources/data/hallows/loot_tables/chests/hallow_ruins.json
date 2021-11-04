@@ -11,7 +11,7 @@
       },
       "entries": [
         {
-          "type": "item",
+          "type": "minecraft:item",
           "name": "minecraft:wheat",
           "weight": 30,
           "functions": [
@@ -25,47 +25,47 @@
           ]
         },
         {
-          "type": "item",
+          "type": "minecraft:item",
           "name": "minecraft:wooden_shovel",
           "weight": 6
         },
         {
-          "type": "item",
+          "type": "minecraft:item",
           "name": "minecraft:stone_shovel",
           "weight": 4
         },
         {
-          "type": "item",
+          "type": "minecraft:item",
           "name": "minecraft:wooden_hoe",
           "weight": 6
         },
         {
-          "type": "item",
+          "type": "minecraft:item",
           "name": "minecraft:stone_hoe",
           "weight": 4
         },
         {
-          "type": "item",
+          "type": "minecraft:item",
           "name": "minecraft:wooden_axe",
           "weight": 6
         },
         {
-          "type": "item",
+          "type": "minecraft:item",
           "name": "minecraft:stone_axe",
           "weight": 4
         },
         {
-          "type": "item",
+          "type": "minecraft:item",
           "name": "minecraft:clock",
           "weight": 12
         },
         {
-          "type": "item",
+          "type": "minecraft:item",
           "name": "minecraft:compass",
           "weight": 12
         },
         {
-          "type": "item",
+          "type": "minecraft:item",
           "name": "minecraft:bone",
           "weight": 24,
           "functions": [
@@ -79,7 +79,7 @@
           ]
         },
         {
-          "type": "item",
+          "type": "minecraft:item",
           "name": "minecraft:skull",
           "weight": 1,
           "quality": 2,
@@ -91,7 +91,7 @@
           ]
         },
         {
-          "type": "item",
+          "type": "minecraft:item",
           "name": "minecraft:diamond",
           "weight": 3,
           "functions": [
@@ -105,7 +105,7 @@
           ]
         },
         {
-          "type": "item",
+          "type": "minecraft:item",
           "name": "minecraft:emerald",
           "weight": 2,
           "functions": [
@@ -119,7 +119,7 @@
           ]
         },
         {
-          "type": "item",
+          "type": "minecraft:item",
           "name": "hallows:opal",
           "weight": 2,
           "functions": [
@@ -133,7 +133,7 @@
           ]
         },
         {
-          "type": "tag",
+          "type": "minecraft:tag",
           "name": "minecraft:small_flowers",
           "weight": 16,
           "functions": [

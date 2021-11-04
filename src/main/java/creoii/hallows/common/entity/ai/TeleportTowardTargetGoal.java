@@ -4,7 +4,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.TargetPredicate;
-import net.minecraft.entity.ai.goal.FollowTargetGoal;
+import net.minecraft.entity.ai.goal.ActiveTargetGoal;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.tag.FluidTags;
@@ -15,7 +15,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Predicate;
 
-public class TeleportTowardTargetGoal<T extends LivingEntity> extends FollowTargetGoal<T> {
+public class TeleportTowardTargetGoal<T extends LivingEntity> extends ActiveTargetGoal<T> {
     protected final Class<T> targetClass;
     private final MobEntity mob;
     private int ticksSinceUnseenTeleport;

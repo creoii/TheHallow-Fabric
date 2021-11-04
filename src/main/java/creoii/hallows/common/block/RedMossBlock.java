@@ -8,6 +8,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.util.FeatureContext;
 
+import java.util.Optional;
 import java.util.Random;
 
 public class RedMossBlock extends MossBlock {
@@ -16,6 +17,6 @@ public class RedMossBlock extends MossBlock {
     }
 
     public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
-        Feature.VEGETATION_PATCH.generate(new FeatureContext(world, world.getChunkManager().getChunkGenerator(), random, pos.up(), FeatureRegistry.RED_MOSS_PATCH_BONEMEAL.getConfig()));
+        Feature.VEGETATION_PATCH.generate(new FeatureContext(Optional.empty(), world, world.getChunkManager().getChunkGenerator(), random, pos.up(), FeatureRegistry.RED_MOSS_PATCH_BONEMEAL.getConfig()));
     }
 }

@@ -10,14 +10,10 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.Chunk;
-import net.minecraft.world.gen.carver.Carver;
-import net.minecraft.world.gen.carver.CarverConfig;
-import net.minecraft.world.gen.carver.CarverContext;
-import net.minecraft.world.gen.carver.RavineCarverConfig;
+import net.minecraft.world.gen.carver.*;
 import net.minecraft.world.gen.chunk.AquiferSampler;
 import org.apache.commons.lang3.mutable.MutableBoolean;
 
-import java.util.BitSet;
 import java.util.Random;
 import java.util.function.Function;
 
@@ -32,29 +28,29 @@ public class NecromantleCrackCarver extends Carver<RavineCarverConfig> {
     }
 
     @Override
-    public boolean carve(CarverContext context, RavineCarverConfig config, Chunk chunk, Function<BlockPos, Biome> posToBiome, Random random, AquiferSampler aquiferSampler, ChunkPos pos, BitSet carvingMask) {
+    public boolean carve(CarverContext context, RavineCarverConfig config, Chunk chunk, Function<BlockPos, Biome> posToBiome, Random random, AquiferSampler sampler, ChunkPos chunkPos, CarvingMask mask) {
         int i = (this.getBranchFactor() * 2 - 1) * 16;
-        double d = pos.getOffsetX(random.nextInt(16));
+        double d = chunkPos.getOffsetX(random.nextInt(16));
         int j = config.y.get(random, context);
-        double e = pos.getOffsetZ(random.nextInt(16));
+        double e = chunkPos.getOffsetZ(random.nextInt(16));
         float f = random.nextFloat() * 6.2831855F;
         float g = config.verticalRotation.get(random);
         double h = config.yScale.get(random);
         float k = config.shape.thickness.get(random);
         int l = (int)((float)i * config.shape.distanceFactor.get(random));
-        this.carveRavine(context, config, chunk, posToBiome, random.nextLong(), aquiferSampler, d, (double)j, e, k, f, g, 0, l, h, carvingMask);
+        this.carveRavine(context, config, chunk, posToBiome, random.nextLong(), sampler, d, (double)j, e, k, f, g, 0, l, h, mask);
         return true;
     }
 
     @Override
-    protected boolean carveAtPoint(CarverContext context, RavineCarverConfig config, Chunk chunk, Function<BlockPos, Biome> posToBiome, BitSet carvingMask, Random random, BlockPos.Mutable pos, BlockPos.Mutable downPos, AquiferSampler sampler, MutableBoolean foundSurface) {
+    protected boolean carveAtPoint(CarverContext context, RavineCarverConfig config, Chunk chunk, Function<BlockPos, Biome> posToBiome, CarvingMask mask, BlockPos.Mutable pos, BlockPos.Mutable downPos, AquiferSampler sampler, MutableBoolean foundSurface) {
         BlockState blockState = chunk.getBlockState(pos);
         BlockState blockState2 = chunk.getBlockState(downPos.set(pos, Direction.UP));
         if (blockState.isOf(Blocks.GRASS_BLOCK) || blockState.isOf(Blocks.MYCELIUM)) {
             foundSurface.setTrue();
         }
 
-        if (!this.canCarveBlock(blockState, blockState2) && !config.debugConfig.isDebugMode()) {
+        if (!this.canAlwaysCarveBlock(blockState) && !this.canAlwaysCarveBlock(blockState2) && !config.debugConfig.isDebugMode()) {
             return false;
         } else {
             BlockState blockState3 = this.getState(context, config, pos, sampler);
@@ -65,7 +61,9 @@ public class NecromantleCrackCarver extends Carver<RavineCarverConfig> {
                 if (foundSurface.isTrue()) {
                     downPos.set(pos, Direction.DOWN);
                     if (chunk.getBlockState(downPos).isOf(Blocks.DIRT)) {
-                        chunk.setBlockState(downPos, posToBiome.apply(pos).getGenerationSettings().getSurfaceConfig().getTopMaterial(), false);
+                        context.method_39114(posToBiome, chunk, downPos, !blockState3.getFluidState().isEmpty()).ifPresent((fluid) -> {
+                            chunk.setBlockState(downPos, fluid, false);
+                        });
                     }
                 }
 
@@ -77,10 +75,8 @@ public class NecromantleCrackCarver extends Carver<RavineCarverConfig> {
     private BlockState getState(CarverContext context, RavineCarverConfig config, BlockPos pos, AquiferSampler sampler) {
         if (pos.getY() <= config.lavaLevel.getY(context)) {
             return LAVA.getBlockState();
-        } else if (!config.aquifers) {
-            return config.debugConfig.isDebugMode() ? getDebugState(config, Blocks.EMERALD_BLOCK.getDefaultState()) : Blocks.EMERALD_BLOCK.getDefaultState();
         } else {
-            BlockState blockState = sampler.apply(STONE_SOURCE, pos.getX(), pos.getY(), pos.getZ(), 0.0D);
+            BlockState blockState = sampler.apply(pos.getX(), pos.getY(), pos.getZ(), 0.0D, 0.0D);
             if (blockState == Blocks.STONE.getDefaultState()) {
                 return config.debugConfig.isDebugMode() ? config.debugConfig.getBarrierState() : null;
             } else {
@@ -100,7 +96,7 @@ public class NecromantleCrackCarver extends Carver<RavineCarverConfig> {
         }
     }
 
-    private void carveRavine(CarverContext context, RavineCarverConfig config, Chunk chunk, Function<BlockPos, Biome> posToBiome, long seed, AquiferSampler aquiferSampler, double x, double y, double z, float width, float yaw, float pitch, int branchStartIndex, int branchCount, double yawPitchRatio, BitSet carvingMask) {
+    private void carveRavine(CarverContext context, RavineCarverConfig config, Chunk chunk, Function<BlockPos, Biome> posToBiome, long seed, AquiferSampler sampler, double x, double y, double z, float width, float yaw, float pitch, int branchStartIndex, int branchCount, double yawPitchRatio, CarvingMask mask) {
         Random random = new Random(seed);
         float[] fs = this.createHorizontalStretchFactors(context, config, random);
         float f = 0.0F;
@@ -125,8 +121,8 @@ public class NecromantleCrackCarver extends Carver<RavineCarverConfig> {
             f += (random.nextFloat() - random.nextFloat()) * random.nextFloat() * 4.0F;
             if (random.nextInt(4) != 0) {
                 if (!canCarveBranch(chunk.getPos(), x, z, i, branchCount, width)) return;
-                this.carveRegion(context, config, chunk, posToBiome, seed, aquiferSampler, x, y, z, d, e, carvingMask, (contextx, dx, ex, fx, yx) -> {
-                    return this.isPositionExcluded(contextx, fs, dx, ex, fx, yx);
+                this.carveRegion(context, config, chunk, posToBiome, sampler, x, y, z, d, e, mask, (contextx, $$2, $$3, $$4, yx) -> {
+                    return this.isPositionExcluded(contextx, fs, $$2, $$3, $$4, yx);
                 });
             }
         }

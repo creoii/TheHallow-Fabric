@@ -161,6 +161,7 @@
   "item.hallows.ghost_cloth": "Ghost Cloth",
   "item.hallows.ghostly_drape": "Ghostly Drape",
   "item.hallows.haunt_fur": "Haunt Fur",
+  "item.hallows.mage_magic": "Mage Magic",
   "item.hallows.orange_will_o_wisp_berry": "Orange Will O Wisp Berry",
   "item.hallows.yellow_will_o_wisp_berry": "Yellow Will O Wisp Berry",
   "item.hallows.blue_will_o_wisp_berry": "Blue Will O Wisp Berry",
@@ -194,5 +195,7 @@
 
   "effect.hallows.transfigured": "Transfigured",
 
-  "stat.hallows.interact_with_anointment_table": "Interactions with Anointment Table"
+  "stat.hallows.interact_with_anointment_table": "Interactions with Anointment Table",
+
+  "relic.charges.left": "Charges Left"
 }

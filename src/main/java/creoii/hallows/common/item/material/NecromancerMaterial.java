@@ -1,6 +1,5 @@
 package creoii.hallows.common.item.material;
 
-import creoii.hallows.core.registry.ItemRegistry;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 

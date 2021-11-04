@@ -1,6 +1,5 @@
 package creoii.hallows.core.registry;
 
-import creoii.hallows.client.particle.LifestealParticle;
 import creoii.hallows.core.Hallows;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;

@@ -67,19 +67,15 @@ public class MultiLayerTreeFeature extends Feature<TreeFeatureConfig> {
         int k = i - j;
         int l = config.foliagePlacer.getRandomRadius(random, k);
         if (pos.getY() >= world.getBottomY() + 1 && pos.getY() + i + 1 <= world.getTopY()) {
-            if (!config.saplingProvider.getBlockState(random, pos).canPlaceAt(world, pos)) {
-                return false;
-            } else {
-                OptionalInt optionalInt = config.minimumSize.getMinClippedHeight();
-                int m = pos.getY();
-                if (!canTreeReplace(world, pos) || !config.ignoreVines && isVine(world, pos)) {
-                    if (m >= i || optionalInt.isPresent() && m >= optionalInt.getAsInt()) {
-                        List<FoliagePlacer.TreeNode> list = config.trunkPlacer.generate(world, trunkReplacer, random, m, pos, config);
-                        list.forEach((treeNode) -> config.foliagePlacer.generate(world, foliageReplacer, random, config, m, treeNode, j, l));
-                        return true;
-                    }
-                }else return false;
-            }
+            OptionalInt optionalInt = config.minimumSize.getMinClippedHeight();
+            int m = pos.getY();
+            if (!canTreeReplace(world, pos) || !config.ignoreVines && isVine(world, pos)) {
+                if (m >= i || optionalInt.isPresent() && m >= optionalInt.getAsInt()) {
+                    List<FoliagePlacer.TreeNode> list = config.trunkPlacer.generate(world, trunkReplacer, random, m, pos, config);
+                    list.forEach((treeNode) -> config.foliagePlacer.generate(world, foliageReplacer, random, config, m, treeNode, j, l));
+                    return true;
+                }
+            } else return false;
         }
         return false;
     }

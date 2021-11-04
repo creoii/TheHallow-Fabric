@@ -26,7 +26,6 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-@SuppressWarnings("EntityConstructor")
 public class BroomstickEntity extends Entity {
     private int field_7708;
     private float velocityDecay;
@@ -91,7 +90,7 @@ public class BroomstickEntity extends Entity {
 
     public boolean damage(DamageSource source, float amount) {
         if (this.isInvulnerableTo(source)) return false;
-        else if (!this.world.isClient && !this.isRemoved()) {
+        else {
             this.scheduleVelocityUpdate();
             this.emitGameEvent(GameEvent.ENTITY_DAMAGED, source.getAttacker());
             boolean bl = source.getAttacker() instanceof PlayerEntity && ((PlayerEntity)source.getAttacker()).getAbilities().creativeMode;
@@ -101,7 +100,7 @@ public class BroomstickEntity extends Entity {
             }
 
             return true;
-        } else return true;
+        }
     }
 
     public void tick() {

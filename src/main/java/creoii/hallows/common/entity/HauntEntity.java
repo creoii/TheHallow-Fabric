@@ -20,7 +20,6 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.UUID;
 
-@SuppressWarnings("EntityConstructor")
 public class HauntEntity extends HostileEntity implements Angerable {
     private static final TrackedData<Boolean> ANGRY = DataTracker.registerData(HauntEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
     private int angerTime;
@@ -36,7 +35,7 @@ public class HauntEntity extends HostileEntity implements Angerable {
         this.goalSelector.add(1, new MeleeAttackGoal(this, 1.0D, false));
         this.goalSelector.add(2, new WanderAroundGoal(this, 1.0D));
         this.goalSelector.add(3, new LookAtEntityGoal(this, LivingEntity.class, 3.0F, 1.0F));
-        this.targetSelector.add(1, new FollowTargetGoal<>(this, PlayerEntity.class, true));
+        this.targetSelector.add(1, new ActiveTargetGoal(this, PlayerEntity.class, true));
         this.targetSelector.add(2, new TeleportTowardTargetGoal<>(this, PlayerEntity.class, this::shouldAngerAt));
         this.targetSelector.add(3, new ChargeTargetGoal(this, 4));
         this.targetSelector.add(4, new UniversalAngerGoal<>(this, true));
@@ -110,7 +109,7 @@ public class HauntEntity extends HostileEntity implements Angerable {
         return 2.55F;
     }
 
-    private static class ChargeTargetGoal extends FollowTargetGoal<PlayerEntity> {
+    private static class ChargeTargetGoal extends ActiveTargetGoal<PlayerEntity> {
         private final HauntEntity haunt;
         private final int probability;
         private int ticksBeenCharging;

@@ -9,7 +9,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.AttributeContainer;
 import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.entity.effect.StatusEffectType;
+import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.passive.PigEntity;
 
 public class TransfiguredStatusEffect extends StatusEffect {
@@ -17,7 +17,7 @@ public class TransfiguredStatusEffect extends StatusEffect {
     private final MinecraftClient client = MinecraftClient.getInstance();
 
     public TransfiguredStatusEffect() {
-        super(StatusEffectType.NEUTRAL, 0x98D982);
+        super(StatusEffectCategory.NEUTRAL, 0x98D982);
     }
 
     @Override
