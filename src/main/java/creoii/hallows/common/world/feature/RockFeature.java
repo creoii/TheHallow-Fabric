@@ -34,18 +34,18 @@ public class RockFeature extends Feature<RockFeatureConfig> {
         if (blockPos.getY() <= structureWorldAccess.getBottomY() + 3) return false;
         else {
             for (int i = 0; i < 3; ++i) {
-                int j = random.nextInt(config.size.get(random));
-                int k = random.nextInt(config.size.get(random));
-                int l = random.nextInt(config.size.get(random));
+                int j = random.nextInt(config.size().get(random));
+                int k = random.nextInt(config.size().get(random));
+                int l = random.nextInt(config.size().get(random));
                 float f = (float)(j + k + l) * 0.333F + 0.5F;
 
                 for (BlockPos blockPos2 : BlockPos.iterate(blockPos.add(-j, -k, -l), blockPos.add(j, k, l))) {
                     if (blockPos2.getSquaredDistance(blockPos) <= (double) (f * f)) {
-                        structureWorldAccess.setBlockState(blockPos2, config.state, 4);
+                        structureWorldAccess.setBlockState(blockPos2, config.state(), 4);
                     }
                 }
 
-                blockPos = blockPos.add(-1 + random.nextInt(config.size.get(random)), -random.nextInt(config.size.get(random)), -1 + random.nextInt(config.size.get(random)));
+                blockPos = blockPos.add(-1 + random.nextInt(config.size().get(random)), -random.nextInt(config.size().get(random)), -1 + random.nextInt(config.size().get(random)));
             }
 
             return true;

@@ -4,9 +4,9 @@
   "version": "${version}",
 
   "name": "The Hallow",
-  "description": "A spooky new dimension",
+  "description": "A spooky new dimension. Happy Halloween!",
   "authors": [
-    "CreoII"
+    "Creoii"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
@@ -33,6 +33,6 @@
     "fabricloader": ">=0.11.3",
     "fabric": "*",
     "minecraft": "1.18.x",
-    "java": ">=16"
+    "java": ">=17"
   }
 }

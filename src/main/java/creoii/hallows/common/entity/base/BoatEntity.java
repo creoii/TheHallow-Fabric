@@ -13,7 +13,6 @@ import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.world.World;
 
-@SuppressWarnings("EntityConstructor")
 public class BoatEntity extends net.minecraft.entity.vehicle.BoatEntity {
     private static final TrackedData<Integer> BOAT_TYPE = DataTracker.registerData(BoatEntity.class, TrackedDataHandlerRegistry.INTEGER);
 

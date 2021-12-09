@@ -10,6 +10,7 @@ import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.carver.ConfiguredCarvers;
 import net.minecraft.world.gen.feature.ConfiguredFeatures;
+import net.minecraft.world.gen.feature.VegetationPlacedFeatures;
 
 public class BiomeRegistry {
     public static Biome HANGING_WOODS;
@@ -54,18 +55,18 @@ public class BiomeRegistry {
         GenerationSettings.Builder generation = new GenerationSettings.Builder();
         generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE);
         generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CANYON);
-        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_OPAL);
-        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_SILVER);
-        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_STYGIAN_RUIN);
-        generation.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, FeatureRegistry.TENEBRITE_BLOBS);
-        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.TREES_EBONY);
-        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.TREES_BLOOD_EBONY);
-        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.PATCH_NECROFIRE);
-        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.PATCH_DEADROOT);
-        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, ConfiguredFeatures.PATCH_PUMPKIN);
-        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.PATCH_CANDLES);
-        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.BLOOD_CAVES_CEILING_VEGETATION);
-        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.BLOOD_CAVES_VEGETATION);
+        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, PlacedFeatureRegistry.ORE_OPAL);
+        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, PlacedFeatureRegistry.ORE_SILVER);
+        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, PlacedFeatureRegistry.ORE_STYGIAN_RUIN);
+        generation.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, PlacedFeatureRegistry.TENEBRITE_BLOBS);
+        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, PlacedFeatureRegistry.TREES_EBONY);
+        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, PlacedFeatureRegistry.TREES_BLOOD_EBONY);
+        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, PlacedFeatureRegistry.PATCH_NECROFIRE);
+        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, PlacedFeatureRegistry.PATCH_DEADROOT);
+        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.PATCH_PUMPKIN);
+        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, PlacedFeatureRegistry.PATCH_CANDLES);
+        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, PlacedFeatureRegistry.BLOOD_CAVES_CEILING_VEGETATION);
+        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, PlacedFeatureRegistry.BLOOD_CAVES_VEGETATION);
         return new Biome.Builder().precipitation(Biome.Precipitation.RAIN).category(Biome.Category.NONE).temperature(0.5F).downfall(0.5F).effects(new BiomeEffects.Builder().waterColor(5001581).waterFogColor(8620438).fogColor(0xc0d8ff).grassColor(9470298).foliageColor(10387802).skyColor(4210816).particleConfig(new BiomeParticleConfig(ParticleTypes.WHITE_ASH, 0.01F)).build()).spawnSettings(spawns.build()).generationSettings(generation.build()).build();
     }
 
@@ -74,18 +75,18 @@ public class BiomeRegistry {
         GenerationSettings.Builder generation = new GenerationSettings.Builder();
         generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE);
         generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CANYON);
-        generation.feature(GenerationStep.Feature.SURFACE_STRUCTURES, FeatureRegistry.WATER_DELTA);
-        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_OPAL);
-        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_SILVER);
-        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_STYGIAN_RUIN);
-        generation.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, FeatureRegistry.TENEBRITE_BLOBS);
-        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.TREES_ASPHODEL);
-        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.PATCH_NECROFIRE);
-        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.PATCH_DEADROOT);
-        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, ConfiguredFeatures.PATCH_PUMPKIN);
-        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.PATCH_CANDLES);
-        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.BLOOD_CAVES_CEILING_VEGETATION);
-        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.BLOOD_CAVES_VEGETATION);
+        generation.feature(GenerationStep.Feature.SURFACE_STRUCTURES, PlacedFeatureRegistry.WATER_DELTA);
+        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, PlacedFeatureRegistry.ORE_OPAL);
+        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, PlacedFeatureRegistry.ORE_SILVER);
+        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, PlacedFeatureRegistry.ORE_STYGIAN_RUIN);
+        generation.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, PlacedFeatureRegistry.TENEBRITE_BLOBS);
+        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, PlacedFeatureRegistry.TREES_ASPHODEL);
+        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, PlacedFeatureRegistry.PATCH_NECROFIRE);
+        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, PlacedFeatureRegistry.PATCH_DEADROOT);
+        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.PATCH_PUMPKIN);
+        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, PlacedFeatureRegistry.PATCH_CANDLES);
+        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, PlacedFeatureRegistry.BLOOD_CAVES_CEILING_VEGETATION);
+        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, PlacedFeatureRegistry.BLOOD_CAVES_VEGETATION);
         return new Biome.Builder().precipitation(Biome.Precipitation.RAIN).category(Biome.Category.NONE).temperature(0.5F).downfall(0.75F).effects(new BiomeEffects.Builder().waterColor(5001581).waterFogColor(8620438).fogColor(0xc0d8ff).grassColor(9470298).foliageColor(10387802).skyColor(4210816).particleConfig(new BiomeParticleConfig(ParticleTypes.WHITE_ASH, 0.01F)).build()).spawnSettings(spawns.build()).generationSettings(generation.build()).build();
     }
 
@@ -94,16 +95,16 @@ public class BiomeRegistry {
         GenerationSettings.Builder generation = new GenerationSettings.Builder();
         generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE);
         generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CANYON);
-        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_OPAL);
-        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_SILVER);
-        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_HALLSTONE_EMERALD);
-        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_STYGIAN_RUIN);
-        generation.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, FeatureRegistry.TENEBRITE_BLOBS);
-        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.PATCH_NECROFIRE);
-        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.PATCH_DEADROOT);
-        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.PATCH_CANDLES);
-        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.BLOOD_CAVES_CEILING_VEGETATION);
-        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.BLOOD_CAVES_VEGETATION);
+        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, PlacedFeatureRegistry.ORE_OPAL);
+        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, PlacedFeatureRegistry.ORE_SILVER);
+        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, PlacedFeatureRegistry.ORE_HALLSTONE_EMERALD);
+        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, PlacedFeatureRegistry.ORE_STYGIAN_RUIN);
+        generation.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, PlacedFeatureRegistry.TENEBRITE_BLOBS);
+        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, PlacedFeatureRegistry.PATCH_NECROFIRE);
+        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, PlacedFeatureRegistry.PATCH_DEADROOT);
+        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, PlacedFeatureRegistry.PATCH_CANDLES);
+        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, PlacedFeatureRegistry.BLOOD_CAVES_CEILING_VEGETATION);
+        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, PlacedFeatureRegistry.BLOOD_CAVES_VEGETATION);
         return new Biome.Builder().precipitation(Biome.Precipitation.RAIN).category(Biome.Category.NONE).temperature(0.5F).downfall(0.5F).effects(new BiomeEffects.Builder().waterColor(5001581).waterFogColor(8620438).fogColor(0xc0d8ff).grassColor(9470298).foliageColor(10387802).skyColor(4210816).particleConfig(new BiomeParticleConfig(ParticleTypes.WHITE_ASH, 0.01F)).build()).spawnSettings(spawns.build()).generationSettings(generation.build()).build();
     }
 
@@ -112,20 +113,20 @@ public class BiomeRegistry {
         GenerationSettings.Builder generation = new GenerationSettings.Builder();
         generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CAVE);
         generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CANYON);
-        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_OPAL);
-        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_SILVER);
-        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_STYGIAN_RUIN);
-        generation.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, FeatureRegistry.TENEBRITE_BLOBS);
-        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.TREES_ASPHODEL);
-        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.PATCH_NECROFIRE);
-        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.PATCH_DEADROOT);
-        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, pumpkified ? FeatureRegistry.PATCH_PUMPKIN_DENSE : ConfiguredFeatures.PATCH_PUMPKIN);
-        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.PATCH_CANDLES);
-        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.BLOOD_CAVES_CEILING_VEGETATION);
-        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.BLOOD_CAVES_VEGETATION);
+        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, PlacedFeatureRegistry.ORE_OPAL);
+        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, PlacedFeatureRegistry.ORE_SILVER);
+        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, PlacedFeatureRegistry.ORE_STYGIAN_RUIN);
+        generation.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, PlacedFeatureRegistry.TENEBRITE_BLOBS);
+        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, PlacedFeatureRegistry.TREES_ASPHODEL);
+        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, PlacedFeatureRegistry.PATCH_NECROFIRE);
+        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, PlacedFeatureRegistry.PATCH_DEADROOT);
+        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, pumpkified ? PlacedFeatureRegistry.PATCH_PUMPKIN_DENSE : VegetationPlacedFeatures.PATCH_PUMPKIN);
+        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, PlacedFeatureRegistry.PATCH_CANDLES);
+        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, PlacedFeatureRegistry.BLOOD_CAVES_CEILING_VEGETATION);
+        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, PlacedFeatureRegistry.BLOOD_CAVES_VEGETATION);
         if (pumpkified) {
-            generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.LARGE_PUMPKIN);
-            generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.SMALL_PUMPKIN);
+            generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, PlacedFeatureRegistry.LARGE_PUMPKIN);
+            generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, PlacedFeatureRegistry.SMALL_PUMPKIN);
         }
         return new Biome.Builder().precipitation(Biome.Precipitation.RAIN).category(Biome.Category.NONE).temperature(0.5F).downfall(0.5F).effects(new BiomeEffects.Builder().waterColor(5001581).waterFogColor(8620438).fogColor(0xc0d8ff).grassColor(9470298).foliageColor(10387802).skyColor(4210816).particleConfig(new BiomeParticleConfig(ParticleTypes.WHITE_ASH, 0.01F)).build()).spawnSettings(spawns.build()).generationSettings(generation.build()).build();
     }
@@ -137,19 +138,19 @@ public class BiomeRegistry {
         generation.carver(GenerationStep.Carver.AIR, ConfiguredCarvers.CANYON);
 
         if (rocky) {
-            generation.feature(GenerationStep.Feature.LOCAL_MODIFICATIONS, FeatureRegistry.DENSE_PETRIFIED_SANDSTONE_ROCK);
-            generation.feature(GenerationStep.Feature.LOCAL_MODIFICATIONS, FeatureRegistry.BIG_PETRIFIED_SANDSTONE_ROCK);
+            generation.feature(GenerationStep.Feature.LOCAL_MODIFICATIONS, PlacedFeatureRegistry.DENSE_PETRIFIED_SANDSTONE_ROCK);
+            generation.feature(GenerationStep.Feature.LOCAL_MODIFICATIONS, PlacedFeatureRegistry.BIG_PETRIFIED_SANDSTONE_ROCK);
         }
-        else generation.feature(GenerationStep.Feature.LOCAL_MODIFICATIONS, FeatureRegistry.PETRIFIED_SANDSTONE_ROCK);
-        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_OPAL);
-        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_SILVER);
-        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_HALLSTONE_EMERALD);
-        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_STYGIAN_RUIN);
-        generation.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, FeatureRegistry.TENEBRITE_BLOBS);
-        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.PATCH_NECROFIRE);
-        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.PATCH_CANDLES);
-        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.BLOOD_CAVES_CEILING_VEGETATION);
-        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, FeatureRegistry.BLOOD_CAVES_VEGETATION);
+        else generation.feature(GenerationStep.Feature.LOCAL_MODIFICATIONS, PlacedFeatureRegistry.PETRIFIED_SANDSTONE_ROCK);
+        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, PlacedFeatureRegistry.ORE_OPAL);
+        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, PlacedFeatureRegistry.ORE_SILVER);
+        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, PlacedFeatureRegistry.ORE_HALLSTONE_EMERALD);
+        generation.feature(GenerationStep.Feature.UNDERGROUND_ORES, PlacedFeatureRegistry.ORE_STYGIAN_RUIN);
+        generation.feature(GenerationStep.Feature.UNDERGROUND_DECORATION, PlacedFeatureRegistry.TENEBRITE_BLOBS);
+        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, PlacedFeatureRegistry.PATCH_NECROFIRE);
+        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, PlacedFeatureRegistry.PATCH_CANDLES);
+        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, PlacedFeatureRegistry.BLOOD_CAVES_CEILING_VEGETATION);
+        generation.feature(GenerationStep.Feature.VEGETAL_DECORATION, PlacedFeatureRegistry.BLOOD_CAVES_VEGETATION);
         return new Biome.Builder().precipitation(Biome.Precipitation.RAIN).category(Biome.Category.NONE).temperature(0.75F).downfall(0.0F).effects(new BiomeEffects.Builder().waterColor(5001581).waterFogColor(8620438).fogColor(0xc0d8ff).grassColor(9470298).foliageColor(10387802).skyColor(4210816).particleConfig(new BiomeParticleConfig(ParticleTypes.WHITE_ASH, 0.01F)).build()).spawnSettings(spawns.build()).generationSettings(generation.build()).build();
     }
 }

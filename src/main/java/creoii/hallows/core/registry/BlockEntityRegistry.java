@@ -4,7 +4,7 @@ import creoii.hallows.client.render.CandleSkullBlockEntityRenderer;
 import creoii.hallows.common.blockentity.CandleSkullBlockEntity;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.fabricmc.fabric.api.client.rendereregistry.v1.BlockEntityRendererRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.util.registry.Registry;
@@ -18,6 +18,6 @@ public class BlockEntityRegistry {
 
     @Environment(EnvType.CLIENT)
     public static void registerClient() {
-        BlockEntityRendererRegistry.INSTANCE.register(CANDLE_SKULL, CandleSkullBlockEntityRenderer::new);
+        BlockEntityRendererRegistry.register(CANDLE_SKULL, CandleSkullBlockEntityRenderer::new);
     }
 }

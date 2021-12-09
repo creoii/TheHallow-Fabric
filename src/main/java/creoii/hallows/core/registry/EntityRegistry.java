@@ -9,7 +9,7 @@ import creoii.hallows.common.entity.base.BoatEntity;
 import creoii.hallows.core.Hallows;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.EntityDimensions;
@@ -19,9 +19,9 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class EntityRegistry {
-    public static final EntityType<GhostEntity> GHOST = FabricEntityTypeBuilder.<GhostEntity>create(SpawnGroup.CREATURE, GhostEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.4F)).build();
-    public static final EntityType<MagusEntity> MAGUS = FabricEntityTypeBuilder.<MagusEntity>create(SpawnGroup.CREATURE, MagusEntity::new).dimensions(EntityDimensions.fixed(0.8F, 2.0F)).build();
-    public static final EntityType<HauntEntity> HAUNT = FabricEntityTypeBuilder.<HauntEntity>create(SpawnGroup.CREATURE, HauntEntity::new).dimensions(EntityDimensions.fixed(1.4F, 3.0F)).build();
+    public static final EntityType<GhostEntity> GHOST = FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, GhostEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.4F)).build();
+    public static final EntityType<MagusEntity> MAGUS = FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, MagusEntity::new).dimensions(EntityDimensions.fixed(0.8F, 2.0F)).build();
+    public static final EntityType<HauntEntity> HAUNT = FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, HauntEntity::new).dimensions(EntityDimensions.fixed(1.4F, 3.0F)).build();
     public static final EntityType<BroomstickEntity> BROOMSTICK = FabricEntityTypeBuilder.<BroomstickEntity>create(SpawnGroup.CREATURE, BroomstickEntity::new).dimensions(EntityDimensions.fixed(2.4F, 0.3F)).build();
     public static final EntityType<BoatEntity> BOAT = FabricEntityTypeBuilder.<BoatEntity>create(SpawnGroup.CREATURE, BoatEntity::new).dimensions(EntityDimensions.fixed(1.375F, 0.5625F)).trackedUpdateRate(10).build();
 
@@ -39,10 +39,10 @@ public class EntityRegistry {
 
     @Environment(EnvType.CLIENT)
     public static void registerClient() {
-        EntityRendererRegistry.INSTANCE.register(GHOST, GhostEntityRenderer::new);
-        EntityRendererRegistry.INSTANCE.register(MAGUS, MagusEntityRenderer::new);
-        EntityRendererRegistry.INSTANCE.register(HAUNT, HauntEntityRenderer::new);
-        EntityRendererRegistry.INSTANCE.register(BROOMSTICK, BroomstickEntityRenderer::new);
-        EntityRendererRegistry.INSTANCE.register(BOAT, BoatEntityRenderer::new);
+        EntityRendererRegistry.register(GHOST, GhostEntityRenderer::new);
+        EntityRendererRegistry.register(MAGUS, MagusEntityRenderer::new);
+        EntityRendererRegistry.register(HAUNT, HauntEntityRenderer::new);
+        EntityRendererRegistry.register(BROOMSTICK, BroomstickEntityRenderer::new);
+        EntityRendererRegistry.register(BOAT, BoatEntityRenderer::new);
     }
 }

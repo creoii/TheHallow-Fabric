@@ -20,6 +20,7 @@ public class Hallows implements ModInitializer, ClientModInitializer {
 		EntityRegistry.register();
 		CarverRegistry.register();
 		FeatureRegistry.register();
+		PlacedFeatureRegistry.register();
 		StructureRegistry.register();
 		BiomeRegistry.register();
 		DimensionRegistry.register();

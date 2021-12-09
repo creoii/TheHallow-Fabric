@@ -14,22 +14,10 @@ import net.minecraft.util.JsonHelper;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
 
-public class AnointingRecipe implements Recipe<Inventory> {
-    private final Identifier id;
-    private final Ingredient base;
-    private final Ingredient anointment;
-    private final Ingredient brew;
-    private final ItemStack result;
-    private final EntityAttribute attribute;
-
-    public AnointingRecipe(Identifier id, Ingredient base, Ingredient anointment, Ingredient brew, ItemStack result, EntityAttribute attribute) {
-        this.id = id;
-        this.base = base;
-        this.anointment = anointment;
-        this.brew = brew;
-        this.result = result;
-        this.attribute = attribute;
-    }
+public record AnointingRecipe(Identifier id, Ingredient base,
+                              Ingredient anointment, Ingredient brew,
+                              ItemStack result,
+                              EntityAttribute attribute) implements Recipe<Inventory> {
 
     public Ingredient getBase() {
         return this.base;

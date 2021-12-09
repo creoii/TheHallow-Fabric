@@ -1,5 +1,6 @@
 package creoii.hallows.core.registry;
 
+import creoii.hallows.client.particle.LifestealParticle;
 import creoii.hallows.core.Hallows;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -17,9 +18,9 @@ public class ParticleRegistry {
     @Environment(EnvType.CLIENT)
     public static void registerClient() {
         Registry.register(Registry.PARTICLE_TYPE, new Identifier(Hallows.MOD_ID, "necroflame"), NECROFLAME);
-        //Registry.register(Registry.PARTICLE_TYPE, new Identifier(Hallows.MOD_ID, "lifesteal"), LIFESTEAL);
+        Registry.register(Registry.PARTICLE_TYPE, new Identifier(Hallows.MOD_ID, "lifesteal"), LIFESTEAL);
 
         ParticleFactoryRegistry.getInstance().register(NECROFLAME, FlameParticle.Factory::new);
-        //ParticleFactoryRegistry.getInstance().register(NECROFLAME, LifestealParticle.Factory::new);
+        ParticleFactoryRegistry.getInstance().register(LIFESTEAL, LifestealParticle.Factory::new);
     }
 }

@@ -6,7 +6,8 @@ import net.minecraft.block.BlockState;
 import net.minecraft.util.math.intprovider.IntProvider;
 import net.minecraft.world.gen.feature.FeatureConfig;
 
-public class RockFeatureConfig implements FeatureConfig {
+public record RockFeatureConfig(BlockState state,
+                                IntProvider size) implements FeatureConfig {
     public static final Codec<RockFeatureConfig> CODEC = RecordCodecBuilder.create((instance) -> {
         return instance.group(BlockState.CODEC.fieldOf("state").forGetter((config) -> {
             return config.state;
@@ -14,11 +15,5 @@ public class RockFeatureConfig implements FeatureConfig {
             return config.size;
         })).apply(instance, RockFeatureConfig::new);
     });
-    public final BlockState state;
-    public final IntProvider size;
 
-    public RockFeatureConfig(BlockState state, IntProvider size) {
-        this.state = state;
-        this.size = size;
-    }
 }

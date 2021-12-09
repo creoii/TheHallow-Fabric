@@ -35,7 +35,7 @@ public class HauntEntity extends HostileEntity implements Angerable {
         this.goalSelector.add(1, new MeleeAttackGoal(this, 1.0D, false));
         this.goalSelector.add(2, new WanderAroundGoal(this, 1.0D));
         this.goalSelector.add(3, new LookAtEntityGoal(this, LivingEntity.class, 3.0F, 1.0F));
-        this.targetSelector.add(1, new ActiveTargetGoal(this, PlayerEntity.class, true));
+        this.targetSelector.add(1, new ActiveTargetGoal<PlayerEntity>(this, PlayerEntity.class, true));
         this.targetSelector.add(2, new TeleportTowardTargetGoal<>(this, PlayerEntity.class, this::shouldAngerAt));
         this.targetSelector.add(3, new ChargeTargetGoal(this, 4));
         this.targetSelector.add(4, new UniversalAngerGoal<>(this, true));

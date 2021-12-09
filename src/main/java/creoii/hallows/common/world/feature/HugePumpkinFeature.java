@@ -17,7 +17,7 @@ public class HugePumpkinFeature extends Feature<HugePumpkinFeatureConfig> {
     public boolean generate(FeatureContext<HugePumpkinFeatureConfig> context) {
         BlockPos pos = context.getOrigin();
         StructureWorldAccess world = context.getWorld();
-        int radius = context.getConfig().radius;
+        int radius = context.getConfig().radius();
         BlockPos.Mutable mutable = pos.mutableCopy();
         int r2 = radius * radius;
         for (int z = pos.getZ() - radius; z <= pos.getZ() + radius; z++) {

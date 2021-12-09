@@ -56,7 +56,7 @@ public class GhostEntity extends HostileEntity {
         //this.goalSelector.add(3, new FlyRandomGoal(this, 8));
         this.goalSelector.add(4, new GhostEntity.ChargeTargetGoal());
         this.goalSelector.add(9, new LookAtEntityGoal(this, LivingEntity.class, 3.0F, 1.0F));
-        this.targetSelector.add(1, new ActiveTargetGoal(this, PlayerEntity.class, true));
+        this.targetSelector.add(1, new ActiveTargetGoal<PlayerEntity>(this, PlayerEntity.class, true));
     }
 
     public static DefaultAttributeContainer.Builder createAttributes() {

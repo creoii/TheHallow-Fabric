@@ -1,7 +1,6 @@
 package creoii.hallows.core.registry;
 
 import com.google.common.collect.ImmutableList;
-import creoii.hallows.common.block.base.MorelBlock;
 import creoii.hallows.common.world.decorator.BranchTreeDecorator;
 import creoii.hallows.common.world.decorator.HangingLeavesTreeDecorator;
 import creoii.hallows.common.world.decorator.JackOLanternTreeDecorator;
@@ -12,72 +11,32 @@ import creoii.hallows.common.world.feature.config.HugePumpkinFeatureConfig;
 import creoii.hallows.common.world.feature.config.RockFeatureConfig;
 import creoii.hallows.core.Hallows;
 import creoii.hallows.core.mixin.TreeDecoratorTypeMixin;
-import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.structure.rule.TagMatchRuleTest;
-import net.minecraft.tag.BlockTags;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.collection.DataPool;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.VerticalSurfaceType;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
-import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.Heightmap;
-import net.minecraft.world.gen.CountConfig;
-import net.minecraft.world.gen.YOffset;
-import net.minecraft.world.gen.blockpredicate.BlockPredicate;
-import net.minecraft.world.gen.decorator.*;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
 import net.minecraft.world.gen.foliage.AcaciaFoliagePlacer;
 import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
-import net.minecraft.world.gen.heightprovider.UniformHeightProvider;
-import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
-import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
 import net.minecraft.world.gen.treedecorator.TreeDecoratorType;
 import net.minecraft.world.gen.trunk.ForkingTrunkPlacer;
 import net.minecraft.world.gen.trunk.LargeOakTrunkPlacer;
 
 import java.util.Arrays;
-import java.util.List;
 
 public class FeatureRegistry {
     public static final Feature<HugePumpkinFeatureConfig> HUGE_PUMPKIN = new HugePumpkinFeature(HugePumpkinFeatureConfig.CODEC);
     public static final Feature<RockFeatureConfig> ROCK = new RockFeature(RockFeatureConfig.CODEC);
     public static final Feature<TreeFeatureConfig> MUTLILAYER_TREE = new MultiLayerTreeFeature(TreeFeatureConfig.CODEC);
 
-    public static final ConfiguredFeature<?, ?> EBONY = Feature.TREE.configure(new TreeFeatureConfig.Builder(SimpleBlockStateProvider.of(BlockRegistry.EBONY_LOG.getDefaultState()), new LargeOakTrunkPlacer(11, 11, 5), SimpleBlockStateProvider.of(BlockRegistry.EBONY_LEAVES.getDefaultState()), new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(2), 1), new TwoLayersFeatureSize(4, 2, 3)).decorators(Arrays.asList(new BranchTreeDecorator(BlockRegistry.EBONY_BRANCH.getDefaultState(), 0.8F, 2, 0.4F), new HangingLeavesTreeDecorator(BlockRegistry.HANGING_EBONY_LEAVES.getDefaultState(), 2, 5, 0.5F), new JackOLanternTreeDecorator(0.1F))).dirtProvider(SimpleBlockStateProvider.of(BlockRegistry.HALLOWED_DIRT.getDefaultState())).forceDirt().build()).spreadHorizontally().applyChance(1);
-    public static final ConfiguredFeature<?, ?> BLOOD_EBONY = Feature.TREE.configure(new TreeFeatureConfig.Builder(SimpleBlockStateProvider.of(BlockRegistry.EBONY_LOG.getDefaultState()), new LargeOakTrunkPlacer(11, 11, 5), SimpleBlockStateProvider.of(BlockRegistry.BLOOD_EBONY_LEAVES.getDefaultState()), new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(2), 1), new TwoLayersFeatureSize(4, 2, 3)).decorators(Arrays.asList(new BranchTreeDecorator(BlockRegistry.EBONY_BRANCH.getDefaultState(), 0.8F, 2, 0.4F), new HangingLeavesTreeDecorator(BlockRegistry.HANGING_BLOOD_EBONY_LEAVES.getDefaultState(), 2, 5, 0.5F), new JackOLanternTreeDecorator(0.1F))).dirtProvider(SimpleBlockStateProvider.of(BlockRegistry.HALLOWED_DIRT.getDefaultState())).forceDirt().build()).spreadHorizontally().applyChance(4);
-    public static final ConfiguredFeature<?, ?> TREES_EBONY = EBONY.decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.OCEAN_FLOOR)).decorate(Decorator.WATER_DEPTH_THRESHOLD.configure(new WaterDepthThresholdDecoratorConfig(0))).spreadHorizontally()).decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(10, 0.1F, 1)));
-    public static final ConfiguredFeature<?, ?> TREES_BLOOD_EBONY = BLOOD_EBONY.decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.OCEAN_FLOOR)).decorate(Decorator.WATER_DEPTH_THRESHOLD.configure(new WaterDepthThresholdDecoratorConfig(0))).spreadHorizontally()).decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(10, 0.1F, 1)));
-    public static final ConfiguredFeature<?, ?> PATCH_TALL_GRASS_NO_DIRT = Feature.RANDOM_PATCH.configure(new RandomPatchFeatureConfig(64, 7, 3, () -> Feature.SIMPLE_BLOCK.configure(new SimpleBlockFeatureConfig(BlockStateProvider.of(Blocks.TALL_GRASS))))).applyBlockFilter(BlockPredicate.not(BlockPredicate.matchingBlocks(List.of(Blocks.COARSE_DIRT), new BlockPos(0, -1, 0))));
+    public static final ConfiguredFeature<TreeFeatureConfig, ?> EBONY = Feature.TREE.configure(new TreeFeatureConfig.Builder(SimpleBlockStateProvider.of(BlockRegistry.EBONY_LOG.getDefaultState()), new LargeOakTrunkPlacer(11, 11, 5), SimpleBlockStateProvider.of(BlockRegistry.EBONY_LEAVES.getDefaultState()), new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(2), 1), new TwoLayersFeatureSize(4, 2, 3)).decorators(Arrays.asList(new BranchTreeDecorator(BlockRegistry.EBONY_BRANCH.getDefaultState(), 0.8F, 2, 0.4F), new HangingLeavesTreeDecorator(BlockRegistry.HANGING_EBONY_LEAVES.getDefaultState(), 2, 5, 0.5F), new JackOLanternTreeDecorator(0.1F))).dirtProvider(SimpleBlockStateProvider.of(BlockRegistry.HALLOWED_DIRT.getDefaultState())).forceDirt().build());
+    public static final ConfiguredFeature<TreeFeatureConfig, ?> BLOOD_EBONY = Feature.TREE.configure(new TreeFeatureConfig.Builder(SimpleBlockStateProvider.of(BlockRegistry.EBONY_LOG.getDefaultState()), new LargeOakTrunkPlacer(11, 11, 5), SimpleBlockStateProvider.of(BlockRegistry.BLOOD_EBONY_LEAVES.getDefaultState()), new BlobFoliagePlacer(ConstantIntProvider.create(2), ConstantIntProvider.create(2), 1), new TwoLayersFeatureSize(4, 2, 3)).decorators(Arrays.asList(new BranchTreeDecorator(BlockRegistry.EBONY_BRANCH.getDefaultState(), 0.8F, 2, 0.4F), new HangingLeavesTreeDecorator(BlockRegistry.HANGING_BLOOD_EBONY_LEAVES.getDefaultState(), 2, 5, 0.5F), new JackOLanternTreeDecorator(0.1F))).dirtProvider(SimpleBlockStateProvider.of(BlockRegistry.HALLOWED_DIRT.getDefaultState())).forceDirt().build());
     public static final ConfiguredFeature<TreeFeatureConfig, ?> ASPHODEL = Feature.TREE.configure(new TreeFeatureConfig.Builder(SimpleBlockStateProvider.of(BlockRegistry.ASPHODEL_LOG.getDefaultState()), new ForkingTrunkPlacer(5, 2, 2), SimpleBlockStateProvider.of(Blocks.AIR.getDefaultState()), new AcaciaFoliagePlacer(ConstantIntProvider.create(0), ConstantIntProvider.create(0)), new TwoLayersFeatureSize(4, 3, 3)).build());
-    public static final ConfiguredFeature<?, ?> LARGE_ASPHODEL = Feature.TREE.configure(new TreeFeatureConfig.Builder(SimpleBlockStateProvider.of(BlockRegistry.ASPHODEL_LOG.getDefaultState()), new LargeOakTrunkPlacer(9, 5, 5), SimpleBlockStateProvider.of(Blocks.AIR.getDefaultState()), new AcaciaFoliagePlacer(ConstantIntProvider.create(0), ConstantIntProvider.create(0)), new TwoLayersFeatureSize(4, 3, 3)).build());
-    public static final ConfiguredFeature<?, ?> TREES_ASPHODEL = Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(LARGE_ASPHODEL.withChance(0.1F)), ASPHODEL)).decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.OCEAN_FLOOR)).decorate(Decorator.WATER_DEPTH_THRESHOLD.configure(new WaterDepthThresholdDecoratorConfig(0))).spreadHorizontally().decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(0, 0.8F, 1))));
-    public static final ConfiguredFeature<?, ?> PATCH_NECROFIRE = Feature.RANDOM_PATCH.configure(new RandomPatchFeatureConfig(64, 7, 3, () -> Feature.SIMPLE_BLOCK.configure(new SimpleBlockFeatureConfig(BlockStateProvider.of(BlockRegistry.NECROFIRE))))).applyBlockFilter(BlockPredicate.matchingBlocks(List.of(BlockRegistry.HALLSTONE, BlockRegistry.HALLOWED_DIRT, BlockRegistry.PETRIFIED_SAND, BlockRegistry.PETRIFIED_SANDSTONE), new BlockPos(0, -1, 0)));
-    public static final ConfiguredFeature<?, ?> PATCH_DEADROOT = Feature.RANDOM_PATCH.configure(new RandomPatchFeatureConfig(32, 7, 3, () -> Feature.SIMPLE_BLOCK.configure(new SimpleBlockFeatureConfig(BlockStateProvider.of(BlockRegistry.DEADROOT)))));
-    public static final ConfiguredFeature<?, ?> TENEBRITE_BLOBS = Feature.NETHERRACK_REPLACE_BLOBS.configure(new ReplaceBlobsFeatureConfig(BlockRegistry.HALLSTONE.getDefaultState(), BlockRegistry.TENEBRITE.getDefaultState(), UniformIntProvider.create(3, 7))).range(new RangeDecoratorConfig(UniformHeightProvider.create(YOffset.getBottom(), YOffset.fixed(63)))).spreadHorizontally().repeat(25);
-    public static final ConfiguredFeature<?, ?> PATCH_PUMPKIN_DENSE = Feature.RANDOM_PATCH.configure(new RandomPatchFeatureConfig(64, 7, 3, () -> Feature.SIMPLE_BLOCK.configure(new SimpleBlockFeatureConfig(BlockStateProvider.of(BlockRegistry.DEADROOT))))).applyBlockFilter(BlockPredicate.matchingBlocks(List.of(Blocks.GRASS_BLOCK, Blocks.COARSE_DIRT, BlockRegistry.HALLOWED_DIRT), new BlockPos(0, -1, 0)));
-    public static final ConfiguredFeature<?, ?> RED_MOSS_VEGETATION = Feature.SIMPLE_BLOCK.configure(new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(new DataPool.Builder<BlockState>().add(BlockRegistry.RED_MOSS_CARPET.getDefaultState(), 32).add(BlockRegistry.BLOOD_MOREL.getDefaultState().with(MorelBlock.SIZE, MorelBlock.Size.BIG), 1).add(BlockRegistry.BLOOD_MOREL.getDefaultState().with(MorelBlock.SIZE, MorelBlock.Size.NORMAL), 1).add(BlockRegistry.BLOOD_MOREL.getDefaultState().with(MorelBlock.SIZE, MorelBlock.Size.SMALL), 1).add(BlockRegistry.BLOOD_MOREL.getDefaultState().with(MorelBlock.SIZE, MorelBlock.Size.BIG), 1).add(BlockRegistry.BLOOD_MOREL.getDefaultState().with(MorelBlock.SIZE, MorelBlock.Size.NORMAL), 1).add(BlockRegistry.BLOOD_MOREL.getDefaultState().with(MorelBlock.SIZE, MorelBlock.Size.SMALL), 1).add(BlockRegistry.DEATH_MOREL.getDefaultState().with(MorelBlock.SIZE, MorelBlock.Size.BIG), 1).add(BlockRegistry.DEATH_MOREL.getDefaultState().with(MorelBlock.SIZE, MorelBlock.Size.NORMAL), 2).add(BlockRegistry.DEATH_MOREL.getDefaultState().with(MorelBlock.SIZE, MorelBlock.Size.SMALL), 1))));
-    public static final ConfiguredFeature<?, ?> RED_MOSS_PATCH_BONEMEAL = Feature.VEGETATION_PATCH.configure(new VegetationPatchFeatureConfig(BlockTags.MOSS_REPLACEABLE.getId(), SimpleBlockStateProvider.of(BlockRegistry.RED_MOSS_BLOCK.getDefaultState()), () -> RED_MOSS_VEGETATION, VerticalSurfaceType.FLOOR, ConstantIntProvider.create(1), 0.0F, 5, 0.4F, UniformIntProvider.create(1, 2), 0.75F));
-    public static final ConfiguredFeature<?, ?> PATCH_CANDLES = Feature.RANDOM_PATCH.configure(new RandomPatchFeatureConfig(32, 7, 3, () -> Feature.SIMPLE_BLOCK.configure(new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(DataPool.<BlockState>builder().add(Blocks.CANDLE.getDefaultState(), 8).add(BlockRegistry.TALL_CANDLE.getDefaultState(), 4).add(BlockRegistry.CANDLE_SKULL.getDefaultState(), 1).build()))))).applyBlockFilter(BlockPredicate.matchingBlocks(List.of(BlockRegistry.HALLSTONE, BlockRegistry.TENEBRITE), new BlockPos(0, -1, 0))).spreadHorizontally().repeatRandomly(5).applyChance(4);
-    public static final ConfiguredFeature<?, ?> RED_MOSS_PATCH = Feature.VEGETATION_PATCH.configure(new VegetationPatchFeatureConfig(BlockTags.MOSS_REPLACEABLE.getId(), SimpleBlockStateProvider.of(BlockRegistry.RED_MOSS_BLOCK.getDefaultState()), () -> RED_MOSS_VEGETATION, VerticalSurfaceType.FLOOR, ConstantIntProvider.create(1), 0.0F, 5, 0.8F, UniformIntProvider.create(4, 7), 0.3F));
-    public static final ConfiguredFeature<?, ?> BLOOD_CAVES_VEGETATION = RED_MOSS_PATCH.decorate(Decorator.CAVE_SURFACE.configure(new CaveSurfaceDecoratorConfig(VerticalSurfaceType.FLOOR, 12, false))).range(new RangeDecoratorConfig(UniformHeightProvider.create(YOffset.getBottom(), YOffset.fixed(45)))).spreadHorizontally().repeat(40);
-    public static final ConfiguredFeature<?, ?> RED_MOSS_PATCH_CEILING = Feature.VEGETATION_PATCH.configure(new VegetationPatchFeatureConfig(BlockTags.MOSS_REPLACEABLE.getId(), SimpleBlockStateProvider.of(BlockRegistry.RED_MOSS_BLOCK.getDefaultState()), () -> ConfiguredFeatures.CAVE_VINE_IN_MOSS, VerticalSurfaceType.CEILING, UniformIntProvider.create(1, 2), 0.0F, 5, 0.0F, UniformIntProvider.create(4, 7), 0.3F));
-    public static final ConfiguredFeature<?, ?> BLOOD_CAVES_CEILING_VEGETATION = RED_MOSS_PATCH_CEILING.decorate(Decorator.CAVE_SURFACE.configure(new CaveSurfaceDecoratorConfig(VerticalSurfaceType.CEILING, 12, false))).range(new RangeDecoratorConfig(UniformHeightProvider.create(YOffset.getBottom(), YOffset.fixed(45)))).spreadHorizontally().repeat(40);
-    public static final ConfiguredFeature<?, ?> ORE_SILVER = Feature.SCATTERED_ORE.configure(new OreFeatureConfig(ImmutableList.of(OreFeatureConfig.createTarget(new TagMatchRuleTest(BlockTags.BASE_STONE_OVERWORLD), BlockRegistry.HALLSTONE_EMERALD_ORE.getDefaultState())), 10)).triangleRange(YOffset.fixed(0), YOffset.fixed(128)).spreadHorizontally();
-    public static final ConfiguredFeature<?, ?> ORE_OPAL = Feature.ORE.configure(new OreFeatureConfig(ImmutableList.of(OreFeatureConfig.createTarget(new TagMatchRuleTest(BlockTags.BASE_STONE_OVERWORLD), BlockRegistry.HALLSTONE_EMERALD_ORE.getDefaultState())), 8)).uniformRange(YOffset.getBottom(), YOffset.fixed(96)).spreadHorizontally();
-    public static final ConfiguredFeature<?, ?> ORE_HALLSTONE_EMERALD = Feature.ORE.configure(new OreFeatureConfig(ImmutableList.of(OreFeatureConfig.createTarget(new TagMatchRuleTest(BlockTags.BASE_STONE_OVERWORLD), BlockRegistry.HALLSTONE_EMERALD_ORE.getDefaultState())), 4)).uniformRange(YOffset.getBottom(), YOffset.fixed(96)).spreadHorizontally();
-    public static final ConfiguredFeature<?, ?> ORE_STYGIAN_RUIN = Feature.SCATTERED_ORE.configure(new OreFeatureConfig(ImmutableList.of(OreFeatureConfig.createTarget(new TagMatchRuleTest(BlockTags.BASE_STONE_OVERWORLD), BlockRegistry.HALLSTONE_EMERALD_ORE.getDefaultState())), 4, 0.5F)).uniformRange(YOffset.getBottom(), YOffset.fixed(24)).spreadHorizontally();
-    public static final ConfiguredFeature<?, ?> LARGE_PUMPKIN = HUGE_PUMPKIN.configure(new HugePumpkinFeatureConfig(3)).decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.OCEAN_FLOOR)).decorate(Decorator.WATER_DEPTH_THRESHOLD.configure(new WaterDepthThresholdDecoratorConfig(0))).spreadHorizontally().decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(0, 0.33F, 1))));
-    public static final ConfiguredFeature<?, ?> SMALL_PUMPKIN = HUGE_PUMPKIN.configure(new HugePumpkinFeatureConfig(1)).decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.OCEAN_FLOOR)).decorate(Decorator.WATER_DEPTH_THRESHOLD.configure(new WaterDepthThresholdDecoratorConfig(0))).spreadHorizontally().decorate(Decorator.COUNT_EXTRA.configure(new CountExtraDecoratorConfig(0, 0.33F, 1))));
-    public static final ConfiguredFeature<?, ?> PETRIFIED_SANDSTONE_ROCK = ROCK.configure(new RockFeatureConfig(BlockRegistry.PETRIFIED_SANDSTONE.getDefaultState(), ConstantIntProvider.create(2))).decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)).spreadHorizontally()).repeatRandomly(3);
-    public static final ConfiguredFeature<?, ?> DENSE_PETRIFIED_SANDSTONE_ROCK = ROCK.configure(new RockFeatureConfig(BlockRegistry.PETRIFIED_SANDSTONE.getDefaultState(), ConstantIntProvider.create(2))).decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)).spreadHorizontally()).repeatRandomly(6);
-    public static final ConfiguredFeature<?, ?> BIG_PETRIFIED_SANDSTONE_ROCK = ROCK.configure(new RockFeatureConfig(BlockRegistry.PETRIFIED_SANDSTONE.getDefaultState(), UniformIntProvider.create(3, 4))).decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.MOTION_BLOCKING)).spreadHorizontally()).repeatRandomly(3);
-    public static final ConfiguredFeature<?, ?> WATER_DELTA = Feature.DELTA_FEATURE.configure(new DeltaFeatureConfig(Blocks.WATER.getDefaultState(), BlockRegistry.HALLOWED_DIRT.getDefaultState(), UniformIntProvider.create(6, 12), UniformIntProvider.create(0, 3))).decorate(Decorator.COUNT_MULTILAYER.configure(new CountConfig(45)));
+    public static final ConfiguredFeature<TreeFeatureConfig, ?> LARGE_ASPHODEL = Feature.TREE.configure(new TreeFeatureConfig.Builder(SimpleBlockStateProvider.of(BlockRegistry.ASPHODEL_LOG.getDefaultState()), new LargeOakTrunkPlacer(9, 5, 5), SimpleBlockStateProvider.of(Blocks.AIR.getDefaultState()), new AcaciaFoliagePlacer(ConstantIntProvider.create(0), ConstantIntProvider.create(0)), new TwoLayersFeatureSize(4, 3, 3)).build());
 
     public static final TreeDecoratorType<?> BRANCH_DECORATOR = TreeDecoratorTypeMixin.callRegister("branch_decorator", BranchTreeDecorator.CODEC);
     public static final TreeDecoratorType<?> HANGING_LEAVES_DECORATOR = TreeDecoratorTypeMixin.callRegister("hanging_leaves_decorator", HangingLeavesTreeDecorator.CODEC);
@@ -90,32 +49,7 @@ public class FeatureRegistry {
 
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "ebony"), EBONY);
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "blood_ebony"), BLOOD_EBONY);
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "trees_ebony"), TREES_EBONY);
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "trees_blood_ebony"), TREES_BLOOD_EBONY);
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "patch_tall_grass_no_dirt"), PATCH_TALL_GRASS_NO_DIRT);
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "asphodel"), ASPHODEL);
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "large_asphodel"), LARGE_ASPHODEL);
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "trees_asphodel"), TREES_ASPHODEL);
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "patch_necrofire"), PATCH_NECROFIRE);
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "patch_deadroot"), PATCH_DEADROOT);
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "tenebrite_blobs"), TENEBRITE_BLOBS);
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "patch_pumpkin_dense"), PATCH_PUMPKIN_DENSE);
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "red_moss_vegetation"), RED_MOSS_VEGETATION);
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "red_moss_patch_bonemeal"), RED_MOSS_PATCH_BONEMEAL);
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "patch_candles"), PATCH_CANDLES);
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "red_moss_patch"), RED_MOSS_PATCH);
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "blood_caves_vegetation"), BLOOD_CAVES_VEGETATION);
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "red_moss_patch_ceiling"), RED_MOSS_PATCH_CEILING);
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "blood_caves_ceiling_vegetation"), BLOOD_CAVES_CEILING_VEGETATION);
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "ore_silver"), ORE_SILVER);
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "ore_opal"), ORE_OPAL);
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "ore_hallstone_emerald"), ORE_HALLSTONE_EMERALD);
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "ore_stygian_ruin"), ORE_STYGIAN_RUIN);
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "large_pumpkin"), LARGE_PUMPKIN);
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "small_pumpkin"), SMALL_PUMPKIN);
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "petrified_sandstone_rock"), PETRIFIED_SANDSTONE_ROCK);
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "dense_petrified_sandstone_rock"), DENSE_PETRIFIED_SANDSTONE_ROCK);
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "big_petrified_sandstone_rock"), BIG_PETRIFIED_SANDSTONE_ROCK);
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(Hallows.MOD_ID, "water_delta"), WATER_DELTA);
     }
 }

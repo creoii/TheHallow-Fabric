@@ -43,6 +43,7 @@ public class NecromantleCrackCarver extends Carver<RavineCarverConfig> {
     }
 
     @Override
+    @SuppressWarnings("deprecation")
     protected boolean carveAtPoint(CarverContext context, RavineCarverConfig config, Chunk chunk, Function<BlockPos, Biome> posToBiome, CarvingMask mask, BlockPos.Mutable pos, BlockPos.Mutable downPos, AquiferSampler sampler, MutableBoolean foundSurface) {
         BlockState blockState = chunk.getBlockState(pos);
         BlockState blockState2 = chunk.getBlockState(downPos.set(pos, Direction.UP));
@@ -61,7 +62,7 @@ public class NecromantleCrackCarver extends Carver<RavineCarverConfig> {
                 if (foundSurface.isTrue()) {
                     downPos.set(pos, Direction.DOWN);
                     if (chunk.getBlockState(downPos).isOf(Blocks.DIRT)) {
-                        context.method_39114(posToBiome, chunk, downPos, !blockState3.getFluidState().isEmpty()).ifPresent((fluid) -> {
+                        context.applyMaterialRule(posToBiome, chunk, downPos, !blockState3.getFluidState().isEmpty()).ifPresent((fluid) -> {
                             chunk.setBlockState(downPos, fluid, false);
                         });
                     }
