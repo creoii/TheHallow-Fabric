@@ -9,8 +9,8 @@
     "wind_speed": {
       "type": "minecraft:uniform",
       "value": {
-        "min_inclusive": 0.2,
-        "max_exclusive": 0.6
+        "min_inclusive": 0.1,
+        "max_exclusive": 0.3
       }
     },
     "min_radius_for_wind": 3,
@@ -33,15 +33,15 @@
     "column_radius": {
       "type": "minecraft:uniform",
       "value": {
-        "min_inclusive": 2,
-        "max_inclusive": 5
+        "min_inclusive": 1,
+        "max_inclusive": 3
       }
     },
     "height_scale": {
       "type": "minecraft:uniform",
       "value": {
-        "min_inclusive": 0.4,
-        "max_exclusive": 0.8
+        "min_inclusive": 0.2,
+        "max_exclusive": 0.9
       }
     },
     "max_column_radius_to_cave_height_ratio": 0.2

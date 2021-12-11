@@ -1,0 +1,12 @@
+{
+  "config": {
+    "state": {
+      "state": {
+        "Name": "hallows:petrified_sandstone"
+      },
+      "type": "minecraft:simple_state_provider"
+    },
+    "size": 6
+  },
+  "type": "hallows:rock"
+}

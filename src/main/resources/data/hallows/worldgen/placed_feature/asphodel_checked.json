@@ -14,7 +14,7 @@
       "type": "minecraft:block_predicate_filter"
     },
     {
-      "count": 1,
+      "count": 2,
       "type": "minecraft:count_on_every_layer"
     }
   ]

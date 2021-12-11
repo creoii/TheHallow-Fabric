@@ -1,0 +1,26 @@
+{
+  "feature": "hallows:petrified_tree",
+  "placement": [
+    {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:has_sturdy_face",
+        "direction": "down"
+      }
+    },
+    {
+      "count": 5,
+      "type": "minecraft:count_on_every_layer"
+    },
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "heightmap": "MOTION_BLOCKING",
+      "type": "minecraft:heightmap"
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "config": {
+    "features": [
+      {
+        "feature": "hallows:blood_ebony_checked",
+        "chance": 0.05
+      },
+      {
+        "feature": "hallows:ebony_checked",
+        "chance": 0.2
+      }
+    ],
+    "default": "hallows:mega_ebony_spruce_checked"
+  },
+  "type": "minecraft:random_selector"
+}

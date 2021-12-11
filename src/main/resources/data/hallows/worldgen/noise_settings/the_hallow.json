@@ -63,7 +63,21 @@
                 {
                   "location": 0.25,
                   "derivative": 0,
-                  "value": 0.47
+                  "value": {
+                    "coordinate": "continents",
+                    "points": [
+                      {
+                        "location": -0.1,
+                        "derivative": 0,
+                        "value": 0.47
+                      },
+                      {
+                        "location": 0.1,
+                        "derivative": 0,
+                        "value": 0.94
+                      }
+                    ]
+                  }
                 },
                 {
                   "location": 0.75,
@@ -90,12 +104,12 @@
               "coordinate": "weirdness",
               "points": [
                 {
-                  "location": -0.75,
+                  "location": -0.8,
                   "derivative": 0,
                   "value": 0.3
                 },
                 {
-                  "location": 0.25,
+                  "location": 0.2,
                   "derivative": 0,
                   "value": 0.09
                 }
@@ -103,9 +117,53 @@
             }
           },
           {
+            "location": 0.8,
+            "derivative": 0,
+            "value": 0.333
+          },
+          {
             "location": 0.9,
             "derivative": 0,
-            "value": 0.03
+            "value": {
+              "coordinate": "continents",
+              "points": [
+                {
+                  "location": -0.75,
+                  "derivative": 0,
+                  "value": 0.1
+                },
+                {
+                  "location": -0.25,
+                  "derivative": 0,
+                  "value": 0.01
+                },
+                {
+                  "location": 0.25,
+                  "derivative": 0,
+                  "value": 0.25
+                },
+                {
+                  "location": 0.75,
+                  "derivative": 0,
+                  "value": 0.2
+                }
+              ]
+            }
+          },
+          {
+            "location": 1.1,
+            "derivative": 0,
+            "value": 0.666
+          },
+          {
+            "location": 1.25,
+            "derivative": 0,
+            "value": 0.75
+          },
+          {
+            "location": 1.575,
+            "derivative": 0,
+            "value": 1.1
           }
         ]
       },
@@ -131,17 +189,79 @@
                 {
                   "location": -0.15,
                   "derivative": 0,
-                  "value": 0.69
+                  "value": {
+                    "coordinate": "continents",
+                    "points": [
+                      {
+                        "location": -0.75,
+                        "derivative": 0,
+                        "value": 0.14
+                      },
+                      {
+                        "location": -0.55,
+                        "derivative": 0,
+                        "value": 0.09
+                      },
+                      {
+                        "location": 0.55,
+                        "derivative": 0,
+                        "value": {
+                          "coordinate": "ridges",
+                          "points": [
+                            {
+                              "location": -1.1,
+                              "derivative": 0,
+                              "value": 0.01
+                            },
+                            {
+                              "location": -0.51,
+                              "derivative": 0,
+                              "value": 0.0255
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "location": 0.666,
+                        "derivative": 0,
+                        "value": 0.33
+                      },
+                      {
+                        "location": 0.75,
+                        "derivative": 0,
+                        "value": {
+                          "coordinate": "ridges",
+                          "points": [
+                            {
+                              "location": 1.1,
+                              "derivative": 0,
+                              "value": -0.01
+                            },
+                            {
+                              "location": 0.51,
+                              "derivative": 0,
+                              "value": -0.0255
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "location": 0.9,
+                        "derivative": 0,
+                        "value": 0.21
+                      }
+                    ]
+                  }
                 },
                 {
                   "location": -0.1,
                   "derivative": 0,
-                  "value": -0.11576
+                  "value": -0.1158
                 },
                 {
                   "location": 1,
                   "derivative": 0,
-                  "value": 0.34792626
+                  "value": 0.3479
                 }
               ]
             }
@@ -200,6 +320,7 @@
                 "type": "minecraft:biome",
                 "biome_is": [
                   "hallows:hanging_woods",
+                  "hallows:mega_hanging_woods",
                   "hallows:perished_valley",
                   "hallows:pumpkin_valley",
                   "hallows:hemlock_swamp"
@@ -262,6 +383,7 @@
                 "type": "minecraft:biome",
                 "biome_is": [
                   "hallows:hanging_woods",
+                  "hallows:mega_hanging_woods",
                   "hallows:perished_valley",
                   "hallows:pumpkin_valley",
                   "hallows:hemlock_swamp"
@@ -295,6 +417,7 @@
                 "type": "minecraft:biome",
                 "biome_is": [
                   "hallows:hanging_woods",
+                  "hallows:mega_hanging_woods",
                   "hallows:perished_valley",
                   "hallows:pumpkin_valley",
                   "hallows:hemlock_swamp"

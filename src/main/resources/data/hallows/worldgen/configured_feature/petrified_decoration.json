@@ -1,0 +1,16 @@
+{
+  "config": {
+    "features": [
+      {
+        "feature": "hallows:petrified_rock_large",
+        "chance": 0.2
+      },
+      {
+        "feature": "hallows:petrified_tree",
+        "chance": 0.2
+      }
+    ],
+    "default": "hallows:petrified_rock_small"
+  },
+  "type": "minecraft:random_selector"
+}

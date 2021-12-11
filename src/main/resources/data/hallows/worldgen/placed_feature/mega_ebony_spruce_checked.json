@@ -1,5 +1,5 @@
 {
-  "feature": "hallows:ebony",
+  "feature": "hallows:mega_ebony_spruce",
   "placement": [
     {
       "predicate": {
@@ -14,7 +14,7 @@
       "type": "minecraft:block_predicate_filter"
     },
     {
-      "count": 3,
+      "count": 4,
       "type": "minecraft:count_on_every_layer"
     }
   ]

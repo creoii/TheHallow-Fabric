@@ -25,7 +25,11 @@
     [
       "minecraft:lake_lava_surface"
     ],
-    [],
+    [
+      "hallows:petrified_tree",
+      "hallows:petrified_rock_small",
+      "hallows:petrified_rock_large"
+    ],
     [],
     [],
     [

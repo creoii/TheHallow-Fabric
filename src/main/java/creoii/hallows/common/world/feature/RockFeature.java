@@ -41,7 +41,7 @@ public class RockFeature extends Feature<RockFeatureConfig> {
 
                 for (BlockPos blockPos2 : BlockPos.iterate(blockPos.add(-j, -k, -l), blockPos.add(j, k, l))) {
                     if (blockPos2.getSquaredDistance(blockPos) <= (double) (f * f)) {
-                        structureWorldAccess.setBlockState(blockPos2, config.state(), 4);
+                        structureWorldAccess.setBlockState(blockPos2, config.state().getBlockState(random, blockPos2), 4);
                     }
                 }
 

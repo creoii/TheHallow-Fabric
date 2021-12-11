@@ -166,6 +166,8 @@ public class BlockRegistry {
     public static Block ANOINTMENT_TABLE;
     public static Block GIANT_CAULDRON = new GiantCauldronBlock(AbstractBlock.Settings.copy(Blocks.CAULDRON));
 
+    public static Block IGNIS_CRYSTAL_BLOCK;
+
     public static void register() {
         createBlock("hallstone", HALLSTONE, ItemGroup.BUILDING_BLOCKS);
         createBlock("hallstone_slab", HALLSTONE_SLAB, ItemGroup.BUILDING_BLOCKS);
@@ -297,8 +299,9 @@ public class BlockRegistry {
         COBWEB_CARPET = createBlock("cobweb_carpet", new CobwebCarpetBlock(AbstractBlock.Settings.of(Material.CARPET, MapColor.WHITE).noCollision().requiresTool().breakInstantly()), ItemGroup.DECORATIONS);
 
         ANOINTMENT_TABLE = createBlock("anointment_table", new AnointmentTableBlock(AbstractBlock.Settings.copy(Blocks.ENCHANTING_TABLE)), ItemGroup.DECORATIONS);
-
         createBlock("giant_cauldron", GIANT_CAULDRON, ItemGroup.MISC);
+
+        IGNIS_CRYSTAL_BLOCK = createBlock("ignis_crystal_block", new Block(FabricBlockSettings.copy(Blocks.AMETHYST_BLOCK)), ItemGroup.BUILDING_BLOCKS);
 
         flammables();
         compostables();

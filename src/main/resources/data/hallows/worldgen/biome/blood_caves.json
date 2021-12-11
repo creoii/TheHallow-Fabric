@@ -1,15 +1,9 @@
 {
   "effects": {
-    "mood_sound": {
-      "sound": "minecraft:ambient.cave",
-      "tick_delay": 6000,
-      "block_search_extent": 8,
-      "offset": 2
-    },
-    "sky_color": 8103167,
+    "sky_color": 4210816,
     "fog_color": 12638463,
-    "water_color": 4159204,
-    "water_fog_color": 329011
+    "water_color": 5001581,
+    "water_fog_color": 8620438
   },
   "carvers": {
     "air": [
@@ -24,7 +18,9 @@
       "minecraft:lake_lava_underground",
       "minecraft:lake_lava_surface"
     ],
-    [],
+    [
+      "hallows:ignis_geode"
+    ],
     [],
     [],
     [],
