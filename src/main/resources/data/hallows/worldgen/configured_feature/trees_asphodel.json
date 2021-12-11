@@ -1,0 +1,12 @@
+{
+  "config": {
+    "features": [
+      {
+        "feature": "hallows:large_asphodel_checked",
+        "chance": 0.1
+      }
+    ],
+    "default": "hallows:asphodel_checked"
+  },
+  "type": "minecraft:random_selector"
+}

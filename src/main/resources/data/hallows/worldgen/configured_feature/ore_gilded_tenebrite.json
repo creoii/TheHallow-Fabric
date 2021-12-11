@@ -1,0 +1,19 @@
+{
+  "config": {
+    "targets": [
+
+      {
+        "target": {
+          "block": "hallows:tenebrite",
+          "predicate_type": "minecraft:block_match"
+        },
+        "state": {
+          "Name": "hallows:gilded_tenebrite"
+        }
+      }
+    ],
+    "size": 12,
+    "discard_chance_on_air_exposure": 0.0
+  },
+  "type": "minecraft:scattered_ore"
+}

@@ -14,6 +14,6 @@ public class RedMossBlock extends MossBlock {
     }
 
     public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
-        PlacedFeatureRegistry.RED_MOSS_PATCH_BONEMEAL.generate(world, world.getChunkManager().getChunkGenerator(), random, pos.up());
+        //PlacedFeatureRegistry.RED_MOSS_PATCH_BONEMEAL.generate(world, world.getChunkManager().getChunkGenerator(), random, pos.up());
     }
 }

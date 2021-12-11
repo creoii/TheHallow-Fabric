@@ -7,6 +7,10 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.api.ModInitializer;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.BuiltinRegistries;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryKey;
 
 public class Hallows implements ModInitializer, ClientModInitializer {
 	public static final String MOD_ID = "hallows";
@@ -20,10 +24,7 @@ public class Hallows implements ModInitializer, ClientModInitializer {
 		EntityRegistry.register();
 		CarverRegistry.register();
 		FeatureRegistry.register();
-		PlacedFeatureRegistry.register();
 		StructureRegistry.register();
-		BiomeRegistry.register();
-		DimensionRegistry.register();
 		StatusEffectRegistry.register();
 		Stats.register();
 		Events.register();

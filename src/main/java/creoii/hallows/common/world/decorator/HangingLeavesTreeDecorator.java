@@ -8,6 +8,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.TestableWorld;
 import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.treedecorator.TreeDecorator;
 import net.minecraft.world.gen.treedecorator.TreeDecoratorType;
 
@@ -17,7 +18,7 @@ import java.util.function.BiConsumer;
 
 public class HangingLeavesTreeDecorator extends TreeDecorator {
     public static final Codec<HangingLeavesTreeDecorator> CODEC = RecordCodecBuilder.create((p_236568_0_) -> {
-        return p_236568_0_.group(BlockState.CODEC.fieldOf("state").forGetter((config) -> {
+        return p_236568_0_.group(BlockStateProvider.TYPE_CODEC.fieldOf("state").forGetter((config) -> {
             return config.state;
         }), Codec.intRange(0, 10).fieldOf("min_length").forGetter((config) -> {
             return config.minLength;
@@ -27,12 +28,12 @@ public class HangingLeavesTreeDecorator extends TreeDecorator {
             return config.probability;
         })).apply(p_236568_0_, HangingLeavesTreeDecorator::new);
     });
-    private final BlockState state;
+    private final BlockStateProvider state;
     private final int minLength;
     private final int maxLength;
     private final float probability;
 
-    public HangingLeavesTreeDecorator(BlockState state, int minLength, int maxLength, float probability) {
+    public HangingLeavesTreeDecorator(BlockStateProvider state, int minLength, int maxLength, float probability) {
         this.state = state;
         this.minLength = minLength;
         this.maxLength = maxLength;
@@ -48,8 +49,9 @@ public class HangingLeavesTreeDecorator extends TreeDecorator {
     public void generate(TestableWorld world, BiConsumer<BlockPos, BlockState> replacer, Random random, List<BlockPos> logPositions, List<BlockPos> leavesPositions) {
         for (BlockPos pos : leavesPositions) {
             if (!(random.nextFloat() >= this.probability)) {
-                if (Feature.isAir(world, pos.down()) && state.getBlock() instanceof HangingLeavesBlock) {
-                    BlockState blockstate = this.state.with(HangingLeavesBlock.HALF, HangingLeavesBlock.Half.LARGE);
+                BlockState state1 = state.getBlockState(random, pos);
+                if (Feature.isAir(world, pos.down()) && state1.getBlock() instanceof HangingLeavesBlock) {
+                    BlockState blockstate = state1.with(HangingLeavesBlock.HALF, HangingLeavesBlock.Half.LARGE);
                     int length = random.nextInt(maxLength) + minLength;
                     for (int j = pos.down().getY(); j >= pos.down().getY() - length; --j) {
                         if (j == pos.down().getY() - length)

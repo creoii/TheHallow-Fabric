@@ -1,0 +1,21 @@
+{
+  "feature": "hallows:large_asphodel",
+  "placement": [
+    {
+      "predicate": {
+        "state": {
+          "Properties": {
+            "stage": "0"
+          },
+          "Name": "hallows:asphodel_sapling"
+        },
+        "type": "minecraft:would_survive"
+      },
+      "type": "minecraft:block_predicate_filter"
+    },
+    {
+      "count": 1,
+      "type": "minecraft:count_on_every_layer"
+    }
+  ]
+}

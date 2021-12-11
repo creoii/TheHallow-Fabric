@@ -1,0 +1,27 @@
+{
+  "config": {
+    "targets": [
+      {
+        "target": {
+          "tag": "hallows:hallows_ore_replaceables",
+          "predicate_type": "minecraft:tag_match"
+        },
+        "state": {
+          "Name": "hallows:opal_ore"
+        }
+      },
+      {
+        "target": {
+          "tag": "hallows:tenebrite_ore_replaceables",
+          "predicate_type": "minecraft:tag_match"
+        },
+        "state": {
+          "Name": "hallows:tenebrite_opal_ore"
+        }
+      }
+    ],
+    "size": 7,
+    "discard_chance_on_air_exposure": 0.0
+  },
+  "type": "minecraft:ore"
+}

@@ -30,13 +30,13 @@
       "y_factor": 80
     },
     "top_slide": {
-      "target": 0.05,
-      "size": 20,
+      "target": 0,
+      "size": 0,
       "offset": -1
     },
     "bottom_slide": {
-      "target": 0.05,
-      "size": 20,
+      "target": 1,
+      "size": 1,
       "offset": -1
     },
     "terrain_shaper": {
@@ -185,7 +185,11 @@
       {
         "type": "minecraft:condition",
         "if_true": {
-          "type": "minecraft:above_preliminary_surface"
+          "type": "minecraft:stone_depth",
+          "offset": 0,
+          "add_surface_depth": false,
+          "add_surface_secondary_depth": false,
+          "surface_type": "floor"
         },
         "then_run": {
           "type": "minecraft:sequence",
@@ -202,45 +206,104 @@
                 ]
               },
               "then_run": {
-                "type": "minecraft:condition",
-                "if_true": {
-                  "type": "minecraft:biome",
-                  "biome_is": []
-                },
-                "then_run": {
-                  "type": "minecraft:sequence",
-                  "sequence": [
-                    {
-                      "type": "minecraft:condition",
-                      "if_true": {
-                        "type": "minecraft:noise_threshold",
-                        "noise": "minecraft:surface",
-                        "min_threshold": 0.25,
-                        "max_threshold": 1.8
-                      },
-                      "then_run": {
-                        "type": "minecraft:block",
-                        "result_state": {
-                          "Name": "minecraft:coarse_dirt"
-                        }
-                      }
+                "type": "minecraft:sequence",
+                "sequence": [
+                  {
+                    "type": "minecraft:condition",
+                    "if_true": {
+                      "type": "minecraft:noise_threshold",
+                      "noise": "minecraft:surface",
+                      "min_threshold": -0.909,
+                      "max_threshold": -0.1
                     },
-                    {
-                      "type": "minecraft:condition",
-                      "if_true": {
-                        "type": "minecraft:noise_threshold",
-                        "noise": "minecraft:surface",
-                        "min_threshold": -0.25,
-                        "max_threshold": 1.8
-                      },
-                      "then_run": {
-                        "type": "minecraft:block",
-                        "result_state": {
-                          "Name": "hallows:hallowed_dirt"
-                        }
+                    "then_run": {
+                      "type": "minecraft:block",
+                      "result_state": {
+                        "Name": "hallows:hallowed_dirt"
                       }
                     }
-                  ]
+                  },
+                  {
+                    "type": "minecraft:condition",
+                    "if_true": {
+                      "type": "minecraft:noise_threshold",
+                      "noise": "minecraft:surface",
+                      "min_threshold": -0.1,
+                      "max_threshold": 0.4545
+                    },
+                    "then_run": {
+                      "type": "minecraft:block",
+                      "result_state": {
+                        "Name": "minecraft:coarse_dirt"
+                      }
+                    }
+                  },
+                  {
+                    "type": "minecraft:condition",
+                    "if_true": {
+                      "noise": "minecraft:surface",
+                      "min_threshold": 0.4545,
+                      "max_threshold": 0.909,
+                      "type": "minecraft:noise_threshold"
+                    },
+                    "then_run": {
+                      "type": "minecraft:block",
+                      "result_state": {
+                        "Name": "minecraft:grass_block"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "minecraft:condition",
+              "if_true": {
+                "type": "minecraft:biome",
+                "biome_is": [
+                  "hallows:hanging_woods",
+                  "hallows:perished_valley",
+                  "hallows:pumpkin_valley",
+                  "hallows:hemlock_swamp"
+                ]
+              },
+              "then_run": {
+                "type": "minecraft:block",
+                "result_state": {
+                  "Name": "hallows:petrified_sand"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "minecraft:condition",
+        "if_true": {
+          "type": "minecraft:stone_depth",
+          "offset": 0,
+          "add_surface_depth": true,
+          "add_surface_secondary_depth": false,
+          "surface_type": "floor"
+        },
+        "then_run": {
+          "type": "minecraft:sequence",
+          "sequence": [
+            {
+              "type": "minecraft:condition",
+              "if_true": {
+                "type": "minecraft:biome",
+                "biome_is": [
+                  "hallows:hanging_woods",
+                  "hallows:perished_valley",
+                  "hallows:pumpkin_valley",
+                  "hallows:hemlock_swamp"
+                ]
+              },
+              "then_run": {
+                "type": "minecraft:block",
+                "result_state": {
+                  "Name": "minecraft:dirt"
                 }
               }
             },
@@ -257,7 +320,7 @@
               "then_run": {
                 "type": "minecraft:block",
                 "result_state": {
-                  "Name": "hallows:petrified_sand"
+                  "Name": "hallows:petrified_sandstone"
                 }
               }
             },
@@ -266,7 +329,22 @@
               "if_true": {
                 "type": "minecraft:biome",
                 "biome_is": [
-                  "hallows:necrotic_glacier"
+                  "hallows:blood_caves"
+                ]
+              },
+              "then_run": {
+                "type": "minecraft:block",
+                "result_state": {
+                  "Name": "hallows:red_moss_block"
+                }
+              }
+            },
+            {
+              "type": "minecraft:condition",
+              "if_true": {
+                "type": "minecraft:biome",
+                "biome_is": [
+                  "hallows:necrotic_glaciers"
                 ]
               },
               "then_run": {
@@ -277,8 +355,8 @@
                     "if_true": {
                       "type": "minecraft:noise_threshold",
                       "noise": "minecraft:surface",
-                      "min_threshold": -2,
-                      "max_threshold": -1
+                      "min_threshold": -0.909,
+                      "max_threshold": -0.45
                     },
                     "then_run": {
                       "type": "minecraft:block",
@@ -292,8 +370,8 @@
                     "if_true": {
                       "type": "minecraft:noise_threshold",
                       "noise": "minecraft:surface",
-                      "min_threshold": -1,
-                      "max_threshold": 0
+                      "min_threshold": -0.45,
+                      "max_threshold": 0.0
                     },
                     "then_run": {
                       "type": "minecraft:block",
@@ -307,8 +385,8 @@
                     "if_true": {
                       "type": "minecraft:noise_threshold",
                       "noise": "minecraft:surface",
-                      "min_threshold": 0,
-                      "max_threshold": 1
+                      "min_threshold": 0.0,
+                      "max_threshold": 0.45
                     },
                     "then_run": {
                       "type": "minecraft:block",
@@ -322,8 +400,8 @@
                     "if_true": {
                       "type": "minecraft:noise_threshold",
                       "noise": "minecraft:surface",
-                      "min_threshold": 1,
-                      "max_threshold": 2
+                      "min_threshold": 0.45,
+                      "max_threshold": 0.909
                     },
                     "then_run": {
                       "type": "minecraft:block",
@@ -339,23 +417,99 @@
         }
       },
       {
+        "type": "minecraft:condition",
         "if_true": {
+          "type": "minecraft:stone_depth",
+          "offset": 0,
+          "add_surface_depth": true,
+          "add_surface_secondary_depth": false,
+          "surface_type": "ceiling"
+        },
+        "then_run": {
+          "type": "minecraft:sequence",
+          "sequence": [
+            {
+              "type": "minecraft:condition",
+              "if_true": {
+                "type": "minecraft:biome",
+                "biome_is": [
+                  "hallows:hanging_woods"
+                ]
+              },
+              "then_run": {
+                "type": "minecraft:sequence",
+                "sequence": [
+                  {
+                    "type": "minecraft:condition",
+                    "if_true": {
+                      "type": "minecraft:noise_threshold",
+                      "noise": "minecraft:surface",
+                      "min_threshold": -0.909,
+                      "max_threshold": -0.2
+                    },
+                    "then_run": {
+                      "type": "minecraft:block",
+                      "result_state": {
+                        "Name": "minecraft:rooted_dirt"
+                      }
+                    }
+                  },
+                  {
+                    "type": "minecraft:condition",
+                    "if_true": {
+                      "type": "minecraft:noise_threshold",
+                      "noise": "minecraft:surface",
+                      "min_threshold": -0.2,
+                      "max_threshold": 0.909
+                    },
+                    "then_run": {
+                      "type": "minecraft:block",
+                      "result_state": {
+                        "Name": "minecraft:dirt"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "minecraft:condition",
+              "if_true": {
+                "type": "minecraft:biome",
+                "biome_is": [
+                  "hallows:petrified_sands",
+                  "hallows:rocky_petrified_sands",
+                  "hallows:petrified_boneyard"
+                ]
+              },
+              "then_run": {
+                "type": "minecraft:block",
+                "result_state": {
+                  "Name": "hallows:petrified_sandstone"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "minecraft:condition",
+        "if_true": {
+          "type": "minecraft:vertical_gradient",
           "random_name": "minecraft:deepslate",
           "true_at_and_below": {
             "absolute": 0
           },
           "false_at_and_above": {
-            "absolute": 8
-          },
-          "type": "minecraft:vertical_gradient"
+            "absolute": 24
+          }
         },
         "then_run": {
+          "type": "minecraft:block",
           "result_state": {
             "Name": "hallows:tenebrite"
-          },
-          "type": "minecraft:block"
-        },
-        "type": "minecraft:condition"
+          }
+        }
       }
     ]
   },

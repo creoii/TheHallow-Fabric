@@ -1,0 +1,27 @@
+{
+  "config": {
+    "targets": [
+      {
+        "target": {
+          "block": "hallows:hallstone",
+          "predicate_type": "minecraft:block_match"
+        },
+        "state": {
+          "Name": "hallows:stygian_ruin"
+        }
+      },
+      {
+        "target": {
+          "block": "hallows:tenebrite",
+          "predicate_type": "minecraft:block_match"
+        },
+        "state": {
+          "Name": "hallows:stygian_ruin"
+        }
+      }
+    ],
+    "size": 4,
+    "discard_chance_on_air_exposure": 0.0
+  },
+  "type": "minecraft:scattered_ore"
+}

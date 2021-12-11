@@ -25,28 +25,21 @@
     [
       "minecraft:lake_lava_surface"
     ],
-    [
-      "hallows:dense_petrified_sandstone_rock",
-      "hallows:big_petrified_sandstone_rock"
-    ],
     [],
     [],
     [],
     [
       "hallows:ore_opal",
       "hallows:ore_silver",
-      "hallows:ore_hallstone_emerald",
       "hallows:ore_stygian_ruin"
     ],
+    [],
     [
-      "hallows:tenebrite_blobs"
+      "minecraft:spring_lava"
     ],
     [
-      "minecraft:spring_lava",
       "hallows:patch_necrofire",
-      "hallows:patch_candles",
-      "hallows:red_moss_patch",
-      "hallows:red_moss_patch_ceiling"
+      "hallows:patch_candles"
     ],
     []
   ],
@@ -88,7 +81,5 @@
   "precipitation": "none",
   "temperature": 0.75,
   "downfall": 0.0,
-  "category": "none",
-  "depth": 0.1,
-  "scale": 0.3
+  "category": "none"
 }

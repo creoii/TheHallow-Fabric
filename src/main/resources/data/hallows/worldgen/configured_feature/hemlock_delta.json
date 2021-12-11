@@ -1,0 +1,28 @@
+{
+  "config": {
+    "contents": {
+      "Properties": {
+        "level": "0"
+      },
+      "Name": "minecraft:water"
+    },
+    "rim": {
+      "Name": "hallows:hallowed_dirt"
+    },
+    "size": {
+      "type": "minecraft:uniform",
+      "value": {
+        "min_inclusive": 6,
+        "max_inclusive": 12
+      }
+    },
+    "rim_size": {
+      "type": "minecraft:uniform",
+      "value": {
+        "min_inclusive": 0,
+        "max_inclusive": 3
+      }
+    }
+  },
+  "type": "minecraft:delta_feature"
+}

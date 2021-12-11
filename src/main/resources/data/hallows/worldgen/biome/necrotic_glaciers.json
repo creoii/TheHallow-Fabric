@@ -17,8 +17,7 @@
   "carvers": {
     "air": [
       "minecraft:cave",
-      "minecraft:canyon",
-      "hallows:necromantle_crack"
+      "minecraft:canyon"
     ]
   },
   "features": [
@@ -29,22 +28,20 @@
     [],
     [],
     [],
-    [],
     [
       "hallows:ore_opal",
       "hallows:ore_silver",
-      "hallows:ore_stygian_ruin"
+      "hallows:ore_stygian_ruin",
+      "hallows:ore_hallstone_emerald"
+    ],
+    [],
+    [
+      "minecraft:spring_lava"
     ],
     [
-      "hallows:tenebrite_blobs"
-    ],
-    [
-      "minecraft:spring_lava",
       "hallows:patch_necrofire",
       "hallows:patch_deadroot",
-      "hallows:patch_candles",
-      "hallows:red_moss_patch",
-      "hallows:red_moss_patch_ceiling"
+      "hallows:patch_candles"
     ],
     []
   ],
@@ -104,7 +101,5 @@
   "precipitation": "rain",
   "temperature": 0.5,
   "downfall": 0.5,
-  "category": "none",
-  "depth": 0.1,
-  "scale": 0.2
+  "category": "none"
 }

@@ -1,100 +1,14 @@
 package creoii.hallows.core.registry;
 
-import com.google.common.collect.ImmutableList;
-import creoii.hallows.common.block.base.MorelBlock;
-import creoii.hallows.common.world.decorator.BranchTreeDecorator;
-import creoii.hallows.common.world.decorator.HangingLeavesTreeDecorator;
-import creoii.hallows.common.world.decorator.JackOLanternTreeDecorator;
-import creoii.hallows.common.world.feature.HugePumpkinFeature;
-import creoii.hallows.common.world.feature.MultiLayerTreeFeature;
-import creoii.hallows.common.world.feature.RockFeature;
-import creoii.hallows.common.world.feature.config.HugePumpkinFeatureConfig;
-import creoii.hallows.common.world.feature.config.RockFeatureConfig;
-import creoii.hallows.core.Hallows;
-import creoii.hallows.core.mixin.TreeDecoratorTypeMixin;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.structure.rule.TagMatchRuleTest;
-import net.minecraft.tag.BlockTags;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.collection.DataPool;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.VerticalSurfaceType;
-import net.minecraft.util.math.intprovider.ConstantIntProvider;
-import net.minecraft.util.math.intprovider.UniformIntProvider;
-import net.minecraft.util.registry.BuiltinRegistries;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.world.Heightmap;
-import net.minecraft.world.gen.CountConfig;
-import net.minecraft.world.gen.YOffset;
-import net.minecraft.world.gen.blockpredicate.BlockPredicate;
-import net.minecraft.world.gen.decorator.RangeDecoratorConfig;
-import net.minecraft.world.gen.feature.*;
-import net.minecraft.world.gen.feature.size.TwoLayersFeatureSize;
-import net.minecraft.world.gen.foliage.AcaciaFoliagePlacer;
-import net.minecraft.world.gen.foliage.BlobFoliagePlacer;
-import net.minecraft.world.gen.heightprovider.UniformHeightProvider;
-import net.minecraft.world.gen.stateprovider.BlockStateProvider;
-import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
-import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
-import net.minecraft.world.gen.treedecorator.TreeDecoratorType;
-import net.minecraft.world.gen.trunk.ForkingTrunkPlacer;
-import net.minecraft.world.gen.trunk.LargeOakTrunkPlacer;
-
-import java.util.Arrays;
-import java.util.List;
-
 public class PlacedFeatureRegistry {
-    public static final PlacedFeature TREES_EBONY = FeatureRegistry.EBONY.withPlacement();
-    public static final PlacedFeature TREES_BLOOD_EBONY = FeatureRegistry.BLOOD_EBONY.withPlacement();
-    public static final PlacedFeature TREES_ASPHODEL = Feature.RANDOM_SELECTOR.configure(new RandomFeatureConfig(ImmutableList.of(new RandomFeatureEntry(FeatureRegistry.LARGE_ASPHODEL.withPlacement(), .1f)), FeatureRegistry.ASPHODEL.withPlacement())).withPlacement();
-    public static final PlacedFeature PATCH_TALL_GRASS_NO_DIRT = Feature.RANDOM_PATCH.configure(new RandomPatchFeatureConfig(64, 7, 3, () -> Feature.SIMPLE_BLOCK.configure(new SimpleBlockFeatureConfig(BlockStateProvider.of(Blocks.TALL_GRASS))).withPlacement())).withPlacement();
-    public static final PlacedFeature PATCH_NECROFIRE = Feature.RANDOM_PATCH.configure(new RandomPatchFeatureConfig(64, 7, 3, () -> Feature.SIMPLE_BLOCK.configure(new SimpleBlockFeatureConfig(BlockStateProvider.of(BlockRegistry.NECROFIRE))).withPlacement())).withPlacement();
-    public static final PlacedFeature PATCH_DEADROOT = Feature.RANDOM_PATCH.configure(new RandomPatchFeatureConfig(32, 7, 3, () -> Feature.SIMPLE_BLOCK.configure(new SimpleBlockFeatureConfig(BlockStateProvider.of(BlockRegistry.DEADROOT))).withPlacement())).withPlacement();
-    public static final PlacedFeature TENEBRITE_BLOBS = Feature.NETHERRACK_REPLACE_BLOBS.configure(new ReplaceBlobsFeatureConfig(BlockRegistry.HALLSTONE.getDefaultState(), BlockRegistry.TENEBRITE.getDefaultState(), UniformIntProvider.create(3, 7))).withPlacement();
-    public static final PlacedFeature PATCH_PUMPKIN_DENSE = Feature.RANDOM_PATCH.configure(new RandomPatchFeatureConfig(64, 7, 3, () -> Feature.SIMPLE_BLOCK.configure(new SimpleBlockFeatureConfig(BlockStateProvider.of(BlockRegistry.DEADROOT))).withPlacement())).withPlacement();
-    public static final PlacedFeature RED_MOSS_VEGETATION = Feature.SIMPLE_BLOCK.configure(new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(new DataPool.Builder<BlockState>().add(BlockRegistry.RED_MOSS_CARPET.getDefaultState(), 32).add(BlockRegistry.BLOOD_MOREL.getDefaultState().with(MorelBlock.SIZE, MorelBlock.Size.BIG), 1).add(BlockRegistry.BLOOD_MOREL.getDefaultState().with(MorelBlock.SIZE, MorelBlock.Size.NORMAL), 1).add(BlockRegistry.BLOOD_MOREL.getDefaultState().with(MorelBlock.SIZE, MorelBlock.Size.SMALL), 1).add(BlockRegistry.BLOOD_MOREL.getDefaultState().with(MorelBlock.SIZE, MorelBlock.Size.BIG), 1).add(BlockRegistry.BLOOD_MOREL.getDefaultState().with(MorelBlock.SIZE, MorelBlock.Size.NORMAL), 1).add(BlockRegistry.BLOOD_MOREL.getDefaultState().with(MorelBlock.SIZE, MorelBlock.Size.SMALL), 1).add(BlockRegistry.DEATH_MOREL.getDefaultState().with(MorelBlock.SIZE, MorelBlock.Size.BIG), 1).add(BlockRegistry.DEATH_MOREL.getDefaultState().with(MorelBlock.SIZE, MorelBlock.Size.NORMAL), 2).add(BlockRegistry.DEATH_MOREL.getDefaultState().with(MorelBlock.SIZE, MorelBlock.Size.SMALL), 1)))).withPlacement();
-    public static final PlacedFeature RED_MOSS_PATCH_BONEMEAL = Feature.VEGETATION_PATCH.configure(new VegetationPatchFeatureConfig(BlockTags.MOSS_REPLACEABLE.getId(), SimpleBlockStateProvider.of(BlockRegistry.RED_MOSS_BLOCK.getDefaultState()), () -> RED_MOSS_VEGETATION, VerticalSurfaceType.FLOOR, ConstantIntProvider.create(1), 0.0F, 5, 0.4F, UniformIntProvider.create(1, 2), 0.75F)).withPlacement();
-    public static final PlacedFeature PATCH_CANDLES = Feature.RANDOM_PATCH.configure(new RandomPatchFeatureConfig(32, 7, 3, () -> Feature.SIMPLE_BLOCK.configure(new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(DataPool.<BlockState>builder().add(Blocks.CANDLE.getDefaultState(), 8).add(BlockRegistry.TALL_CANDLE.getDefaultState(), 4).add(BlockRegistry.CANDLE_SKULL.getDefaultState(), 1).build()))).withPlacement())).withPlacement();
-    public static final PlacedFeature RED_MOSS_PATCH = Feature.VEGETATION_PATCH.configure(new VegetationPatchFeatureConfig(BlockTags.MOSS_REPLACEABLE.getId(), SimpleBlockStateProvider.of(BlockRegistry.RED_MOSS_BLOCK.getDefaultState()), () -> RED_MOSS_VEGETATION, VerticalSurfaceType.FLOOR, ConstantIntProvider.create(1), 0.0F, 5, 0.8F, UniformIntProvider.create(4, 7), 0.3F)).withPlacement();
-    public static final PlacedFeature BLOOD_CAVES_VEGETATION = RED_MOSS_PATCH;
-    public static final PlacedFeature RED_MOSS_PATCH_CEILING = Feature.VEGETATION_PATCH.configure(new VegetationPatchFeatureConfig(BlockTags.MOSS_REPLACEABLE.getId(), SimpleBlockStateProvider.of(BlockRegistry.RED_MOSS_BLOCK.getDefaultState()), () -> UndergroundConfiguredFeatures.CAVE_VINE_IN_MOSS.withPlacement(), VerticalSurfaceType.CEILING, UniformIntProvider.create(1, 2), 0.0F, 5, 0.0F, UniformIntProvider.create(4, 7), 0.3F)).withPlacement();
-    public static final PlacedFeature BLOOD_CAVES_CEILING_VEGETATION = RED_MOSS_PATCH_CEILING;
-    public static final PlacedFeature ORE_SILVER = Feature.SCATTERED_ORE.configure(new OreFeatureConfig(ImmutableList.of(OreFeatureConfig.createTarget(new TagMatchRuleTest(BlockTags.BASE_STONE_OVERWORLD), BlockRegistry.HALLSTONE_EMERALD_ORE.getDefaultState())), 10)).withPlacement();
-    public static final PlacedFeature ORE_OPAL = Feature.ORE.configure(new OreFeatureConfig(ImmutableList.of(OreFeatureConfig.createTarget(new TagMatchRuleTest(BlockTags.BASE_STONE_OVERWORLD), BlockRegistry.HALLSTONE_EMERALD_ORE.getDefaultState())), 8)).withPlacement();
-    public static final PlacedFeature ORE_HALLSTONE_EMERALD = Feature.ORE.configure(new OreFeatureConfig(ImmutableList.of(OreFeatureConfig.createTarget(new TagMatchRuleTest(BlockTags.BASE_STONE_OVERWORLD), BlockRegistry.HALLSTONE_EMERALD_ORE.getDefaultState())), 4)).withPlacement();
-    public static final PlacedFeature ORE_STYGIAN_RUIN = Feature.SCATTERED_ORE.configure(new OreFeatureConfig(ImmutableList.of(OreFeatureConfig.createTarget(new TagMatchRuleTest(BlockTags.BASE_STONE_OVERWORLD), BlockRegistry.HALLSTONE_EMERALD_ORE.getDefaultState())), 4, 0.5F)).withPlacement();
-    public static final PlacedFeature LARGE_PUMPKIN = FeatureRegistry.HUGE_PUMPKIN.configure(new HugePumpkinFeatureConfig(3)).withPlacement();
-    public static final PlacedFeature SMALL_PUMPKIN = FeatureRegistry.HUGE_PUMPKIN.configure(new HugePumpkinFeatureConfig(1)).withPlacement();
-    public static final PlacedFeature PETRIFIED_SANDSTONE_ROCK = FeatureRegistry.ROCK.configure(new RockFeatureConfig(BlockRegistry.PETRIFIED_SANDSTONE.getDefaultState(), ConstantIntProvider.create(2))).withPlacement();
-    public static final PlacedFeature DENSE_PETRIFIED_SANDSTONE_ROCK = FeatureRegistry.ROCK.configure(new RockFeatureConfig(BlockRegistry.PETRIFIED_SANDSTONE.getDefaultState(), ConstantIntProvider.create(2))).withPlacement();
-    public static final PlacedFeature BIG_PETRIFIED_SANDSTONE_ROCK = FeatureRegistry.ROCK.configure(new RockFeatureConfig(BlockRegistry.PETRIFIED_SANDSTONE.getDefaultState(), UniformIntProvider.create(3, 4))).withPlacement();
-    public static final PlacedFeature WATER_DELTA = Feature.DELTA_FEATURE.configure(new DeltaFeatureConfig(Blocks.WATER.getDefaultState(), BlockRegistry.HALLOWED_DIRT.getDefaultState(), UniformIntProvider.create(6, 12), UniformIntProvider.create(0, 3))).withPlacement();
-
-    public static void register() {
-        Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(Hallows.MOD_ID, "trees_ebony"), TREES_EBONY);
-        Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(Hallows.MOD_ID, "patch_tall_grass_no_dirt"), PATCH_TALL_GRASS_NO_DIRT);
-        Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(Hallows.MOD_ID, "trees_asphodel"), TREES_ASPHODEL);
-        Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(Hallows.MOD_ID, "patch_necrofire"), PATCH_NECROFIRE);
-        Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(Hallows.MOD_ID, "patch_deadroot"), PATCH_DEADROOT);
-        Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(Hallows.MOD_ID, "tenebrite_blobs"), TENEBRITE_BLOBS);
-        Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(Hallows.MOD_ID, "patch_pumpkin_dense"), PATCH_PUMPKIN_DENSE);
-        Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(Hallows.MOD_ID, "red_moss_vegetation"), RED_MOSS_VEGETATION);
-        Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(Hallows.MOD_ID, "red_moss_patch_bonemeal"), RED_MOSS_PATCH_BONEMEAL);
-        Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(Hallows.MOD_ID, "patch_candles"), PATCH_CANDLES);
-        Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(Hallows.MOD_ID, "red_moss_patch"), RED_MOSS_PATCH);
-        //Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(Hallows.MOD_ID, "blood_caves_vegetation"), BLOOD_CAVES_VEGETATION);
-        Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(Hallows.MOD_ID, "red_moss_patch_ceiling"), RED_MOSS_PATCH_CEILING);
-        //Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(Hallows.MOD_ID, "blood_caves_ceiling_vegetation"), BLOOD_CAVES_CEILING_VEGETATION);
-        Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(Hallows.MOD_ID, "ore_silver"), ORE_SILVER);
-        Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(Hallows.MOD_ID, "ore_opal"), ORE_OPAL);
-        Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(Hallows.MOD_ID, "ore_hallstone_emerald"), ORE_HALLSTONE_EMERALD);
-        Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(Hallows.MOD_ID, "ore_stygian_ruin"), ORE_STYGIAN_RUIN);
-        Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(Hallows.MOD_ID, "large_pumpkin"), LARGE_PUMPKIN);
-        Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(Hallows.MOD_ID, "small_pumpkin"), SMALL_PUMPKIN);
-        Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(Hallows.MOD_ID, "petrified_sandstone_rock"), PETRIFIED_SANDSTONE_ROCK);
-        Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(Hallows.MOD_ID, "dense_petrified_sandstone_rock"), DENSE_PETRIFIED_SANDSTONE_ROCK);
-        Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(Hallows.MOD_ID, "big_petrified_sandstone_rock"), BIG_PETRIFIED_SANDSTONE_ROCK);
-        Registry.register(BuiltinRegistries.PLACED_FEATURE, new Identifier(Hallows.MOD_ID, "water_delta"), WATER_DELTA);
-    }
+    //broken
+    //public static final PlacedFeature LARGE_PUMPKIN = FeatureRegistry.HUGE_PUMPKIN.configure(new HugePumpkinFeatureConfig(3)).withPlacement();
+    //broken
+    //public static final PlacedFeature SMALL_PUMPKIN = FeatureRegistry.HUGE_PUMPKIN.configure(new HugePumpkinFeatureConfig(1)).withPlacement();
+    //broken
+    //public static final PlacedFeature PETRIFIED_SANDSTONE_ROCK = FeatureRegistry.ROCK.configure(new RockFeatureConfig(BlockRegistry.PETRIFIED_SANDSTONE.getDefaultState(), ConstantIntProvider.create(2))).withPlacement();
+    //broken
+    //public static final PlacedFeature DENSE_PETRIFIED_SANDSTONE_ROCK = FeatureRegistry.ROCK.configure(new RockFeatureConfig(BlockRegistry.PETRIFIED_SANDSTONE.getDefaultState(), ConstantIntProvider.create(2))).withPlacement();
+    //broken
+    //public static final PlacedFeature BIG_PETRIFIED_SANDSTONE_ROCK = FeatureRegistry.ROCK.configure(new RockFeatureConfig(BlockRegistry.PETRIFIED_SANDSTONE.getDefaultState(), UniformIntProvider.create(3, 4))).withPlacement();
 }

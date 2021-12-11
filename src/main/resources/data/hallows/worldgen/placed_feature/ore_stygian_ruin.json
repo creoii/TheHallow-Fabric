@@ -1,0 +1,23 @@
+{
+  "feature": "hallows:ore_stygian_ruin",
+  "placement": [
+    {
+      "type": "minecraft:in_square"
+    },
+    {
+      "height": {
+        "min_inclusive": {
+          "above_bottom": 0
+        },
+        "max_inclusive": {
+          "absolute": 12
+        },
+        "type": "minecraft:trapezoid"
+      },
+      "type": "minecraft:height_range"
+    },
+    {
+      "type": "minecraft:biome"
+    }
+  ]
+}

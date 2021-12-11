@@ -45,8 +45,11 @@ public class BlockRegistry {
     public static Block DEADROOT;
 
     public static Block HALLSTONE_EMERALD_ORE;
+    public static Block TENEBRITE_EMERALD_ORE;
     public static Block SILVER_ORE;
+    public static Block TENEBRITE_SILVER_ORE;
     public static Block OPAL_ORE;
+    public static Block TENEBRITE_OPAL_ORE;
     public static Block STYGIAN_RUIN;
     public static Block STYGIAN_BLOCK;
 
@@ -280,8 +283,11 @@ public class BlockRegistry {
         DEATH_MOREL = createBlock("death_morel", new DeathMorelBlock(FabricBlockSettings.of(Material.REPLACEABLE_PLANT).strength(0.2F).sounds(BlockSoundGroup.WOOD)), ItemGroup.DECORATIONS);
 
         HALLSTONE_EMERALD_ORE = createBlock("hallstone_emerald_ore", new OreBlock(FabricBlockSettings.copy(HALLSTONE).requiresTool().strength(3.0F, 7.5F), UniformIntProvider.create(3, 7)), ItemGroup.BUILDING_BLOCKS);
+        TENEBRITE_EMERALD_ORE = createBlock("tenebrite_emerald_ore", new OreBlock(FabricBlockSettings.copy(TENEBRITE).requiresTool().strength(3.0F, 7.5F), UniformIntProvider.create(3, 7)), ItemGroup.BUILDING_BLOCKS);
         SILVER_ORE = createBlock("silver_ore", new OreBlock(FabricBlockSettings.copy(HALLSTONE).requiresTool().strength(3.0F, 7.5F)), ItemGroup.BUILDING_BLOCKS);
+        TENEBRITE_SILVER_ORE = createBlock("tenebrite_silver_ore", new OreBlock(FabricBlockSettings.copy(TENEBRITE).requiresTool().strength(3.0F, 7.5F)), ItemGroup.BUILDING_BLOCKS);
         OPAL_ORE = createBlock("opal_ore", new OreBlock(FabricBlockSettings.copy(HALLSTONE).requiresTool().strength(3.0F, 7.5F), UniformIntProvider.create(3, 7)), ItemGroup.BUILDING_BLOCKS);
+        TENEBRITE_OPAL_ORE = createBlock("tenebrite_opal_ore", new OreBlock(FabricBlockSettings.copy(TENEBRITE).requiresTool().strength(3.0F, 7.5F), UniformIntProvider.create(3, 7)), ItemGroup.BUILDING_BLOCKS);
         STYGIAN_RUIN = createBlock("stygian_ruin", new Block(FabricBlockSettings.copy(Blocks.ANCIENT_DEBRIS).requiresTool()), ItemGroup.BUILDING_BLOCKS);
         STYGIAN_BLOCK = createBlock("stygian_block", new Block(FabricBlockSettings.copy(Blocks.NETHERITE_BLOCK).strength(40.0F, 160.0F)), ItemGroup.BUILDING_BLOCKS);
 
