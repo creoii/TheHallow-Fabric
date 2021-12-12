@@ -1,0 +1,6 @@
+{
+  "parent": "block/tinted_cross",
+  "textures": {
+    "cross": "hallows:block/corn_block_age0_height0"
+  }
+}

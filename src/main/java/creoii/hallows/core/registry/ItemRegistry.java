@@ -2,6 +2,7 @@ package creoii.hallows.core.registry;
 
 import creoii.hallows.common.entity.base.BoatEntity;
 import creoii.hallows.common.item.BroomstickItem;
+import creoii.hallows.common.item.NecroflameBottleItem;
 import creoii.hallows.common.item.NecromancersBladeItem;
 import creoii.hallows.common.item.base.BoatItem;
 import creoii.hallows.common.item.base.MiningToolItem;
@@ -61,6 +62,8 @@ public class ItemRegistry {
 
     public static final Item CORN = new BlockItem(BlockRegistry.CORN_BLOCK, new Item.Settings().group(ItemGroup.FOOD));
 
+    public static final Item NECROFLAME_BOTTLE = new NecroflameBottleItem(new Item.Settings().group(ItemGroup.COMBAT));
+
     public static void register() {
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "stygian_ingot"), STYGIAN_INGOT);
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "stygian_helmet"), STYGIAN_HELMET);
@@ -96,6 +99,7 @@ public class ItemRegistry {
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "ebony_boat"), EBONY_BOAT);
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "necromancers_blade"), NECROMANCERS_BLADE);
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "corn"), CORN);
+        Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "necroflame_bottle"), NECROFLAME_BOTTLE);
     }
 
     public static class Materials {

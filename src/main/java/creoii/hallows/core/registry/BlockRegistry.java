@@ -16,9 +16,13 @@ import creoii.hallows.core.Hallows;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.minecraft.block.*;
+import net.minecraft.client.color.block.BlockColorProvider;
+import net.minecraft.client.color.world.BiomeColors;
+import net.minecraft.client.color.world.GrassColors;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.entity.EntityType;
 import net.minecraft.item.BlockItem;
@@ -29,7 +33,9 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.BlockRenderView;
 import net.minecraft.world.BlockView;
+import org.jetbrains.annotations.Nullable;
 
 public class BlockRegistry {
     public static final Block HALLSTONE = new Block(FabricBlockSettings.of(Material.STONE, MapColor.DIRT_BROWN).strength(1.5F, 7.5F).sounds(BlockSoundGroup.STONE));
@@ -317,6 +323,7 @@ public class BlockRegistry {
     @Environment(EnvType.CLIENT)
     public static void registerClient() {
         renderLayers();
+        ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getGrassColor(world, pos) : GrassColors.getColor(0.5D, 1.0D), CORN_BLOCK);
     }
 
     @Environment(EnvType.CLIENT)
@@ -341,7 +348,8 @@ public class BlockRegistry {
                 NECROFIRE_CAMPFIRE,
                 NECROFIRE_LANTERN,
                 NECROFIRE_TORCH,
-                NECROFIRE_WALL_TORCH
+                NECROFIRE_WALL_TORCH,
+                CORN_BLOCK
         );
     }
 
