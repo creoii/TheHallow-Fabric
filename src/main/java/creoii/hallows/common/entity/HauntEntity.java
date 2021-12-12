@@ -12,6 +12,7 @@ import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.HostileEntity;
+import net.minecraft.entity.mob.WaterCreatureEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tag.FluidTags;
@@ -21,7 +22,10 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.RaycastContext;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Random;
 
 public class HauntEntity extends HostileEntity {
     private static final TrackedData<Boolean> ANGRY = DataTracker.registerData(HauntEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
@@ -38,7 +42,7 @@ public class HauntEntity extends HostileEntity {
     }
 
     public static DefaultAttributeContainer.Builder createAttributes() {
-        return HostileEntity.createHostileAttributes().add(EntityAttributes.GENERIC_FOLLOW_RANGE, 25.0D).add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 1.0D).add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 12.0D).add(EntityAttributes.GENERIC_MAX_HEALTH, 110.0D).add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, 0.9D);
+        return HostileEntity.createHostileAttributes().add(EntityAttributes.GENERIC_FOLLOW_RANGE, 32.0D).add(EntityAttributes.GENERIC_MOVEMENT_SPEED, .8D).add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 8.0D).add(EntityAttributes.GENERIC_MAX_HEALTH, 100.0D).add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, 0.9D);
     }
 
     protected void initDataTracker() {
@@ -75,6 +79,10 @@ public class HauntEntity extends HostileEntity {
 
     public void setAngry(boolean angry) {
         this.dataTracker.set(ANGRY, angry);
+    }
+
+    public static boolean canSpawn(EntityType<? extends HauntEntity> type, WorldAccess world, SpawnReason reason, BlockPos pos, Random random) {
+        return world.getBlockState(pos.down()).isSolidBlock(world, pos.down());
     }
 
     private void teleportTo(Entity entity) {
@@ -147,7 +155,7 @@ public class HauntEntity extends HostileEntity {
             if (targetEntity != null) {
                 if (!this.haunt.hasVehicle()) {
                     if (!haunt.isPlayerStaring((PlayerEntity) targetEntity)) {
-                        if (this.targetEntity.distanceTo(this.haunt) < 48d && ++timeSinceLookedAway >= this.haunt.random.nextInt(100) + 20) {
+                        if (this.targetEntity.distanceTo(this.haunt) < 48d && ++timeSinceLookedAway >= this.haunt.random.nextInt(75) + 25) {
                             this.haunt.teleportTo(targetEntity);
                             timeSinceLookedAway = 0;
                         }
@@ -161,13 +169,13 @@ public class HauntEntity extends HostileEntity {
                             if (this.haunt.squaredDistanceTo(targetEntity) < 2D) {
                                 this.haunt.getNavigation().stop();
                             } else {
-                                this.haunt.getNavigation().startMovingTo(targetEntity, 2f);
+                                this.haunt.getNavigation().startMovingTo(targetEntity, 1.75f);
                             }
                         } else {
                             if (this.haunt.squaredDistanceTo(targetEntity) < 2D) {
                                 this.haunt.getNavigation().stop();
                             } else {
-                                this.haunt.getNavigation().startMovingTo(targetEntity, 1f);
+                                this.haunt.getNavigation().startMovingTo(targetEntity, .75f);
                             }
                         }
                     }

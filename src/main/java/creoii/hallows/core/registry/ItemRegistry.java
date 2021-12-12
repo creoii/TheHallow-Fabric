@@ -59,6 +59,8 @@ public class ItemRegistry {
 
     public static final Item NECROMANCERS_BLADE = new NecromancersBladeItem(Materials.NECROMANCER_TOOLS, new Item.Settings().group(ItemGroup.COMBAT).maxCount(1).rarity(Rarity.UNCOMMON), 8);
 
+    public static final Item CORN = new BlockItem(BlockRegistry.CORN_BLOCK, new Item.Settings().group(ItemGroup.FOOD));
+
     public static void register() {
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "stygian_ingot"), STYGIAN_INGOT);
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "stygian_helmet"), STYGIAN_HELMET);
@@ -93,6 +95,7 @@ public class ItemRegistry {
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "asphodel_boat"), ASPHODEL_BOAT);
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "ebony_boat"), EBONY_BOAT);
         Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "necromancers_blade"), NECROMANCERS_BLADE);
+        Registry.register(Registry.ITEM, new Identifier(Hallows.MOD_ID, "corn"), CORN);
     }
 
     public static class Materials {

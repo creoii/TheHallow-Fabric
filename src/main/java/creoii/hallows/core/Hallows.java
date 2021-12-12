@@ -46,6 +46,7 @@ public class Hallows implements ModInitializer, ClientModInitializer {
 
 	private void registerDimensionOptions() {
 		DimensionEffects.BY_IDENTIFIER.put(new Identifier(MOD_ID, "the_hallow"), new Hallow());
+
 	}
 
 	@Environment(EnvType.CLIENT)

@@ -35,8 +35,6 @@ public class EntityRegistry {
         FabricDefaultAttributeRegistry.register(GHOST, GhostEntity.createAttributes());
         FabricDefaultAttributeRegistry.register(MAGUS, MagusEntity.createAttributes());
         FabricDefaultAttributeRegistry.register(HAUNT, HauntEntity.createAttributes());
-
-
     }
 
     @Environment(EnvType.CLIENT)

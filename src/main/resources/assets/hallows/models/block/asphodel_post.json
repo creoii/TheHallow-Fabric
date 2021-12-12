@@ -1,6 +1,0 @@
-{
-  "parent": "hallows:block/post",
-  "textures": {
-    "post": "hallows:block/asphodel_log"
-  }
-}

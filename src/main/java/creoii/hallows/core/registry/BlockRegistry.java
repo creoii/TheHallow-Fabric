@@ -169,6 +169,8 @@ public class BlockRegistry {
 
     public static Block IGNIS_CRYSTAL_BLOCK;
 
+    public static Block CORN_BLOCK;
+
     public static void register() {
         createBlock("hallstone", HALLSTONE, ItemGroup.BUILDING_BLOCKS);
         createBlock("hallstone_slab", HALLSTONE_SLAB, ItemGroup.BUILDING_BLOCKS);
@@ -253,8 +255,8 @@ public class BlockRegistry {
         createBlock("ebony_pressure_plate", EBONY_PRESSURE_PLATE, ItemGroup.REDSTONE);
         EBONY_DOOR = createBlock("ebony_door", new DoorBlock(AbstractBlock.Settings.copy(Blocks.OAK_DOOR)), ItemGroup.REDSTONE);
         EBONY_TRAPDOOR = createBlock("ebony_trapdoor", new TrapdoorBlock(AbstractBlock.Settings.copy(Blocks.OAK_DOOR)), ItemGroup.REDSTONE);
-        EBONY_LEAVES = createBlock("ebony_leaves", new Block(FabricBlockSettings.of(Material.LEAVES).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).allowsSpawning(BlockRegistry::canSpawnOnLeaves).suffocates(BlockRegistry::never).blockVision(BlockRegistry::never)), ItemGroup.BUILDING_BLOCKS);
-        BLOOD_EBONY_LEAVES = createBlock("blood_ebony_leaves", new Block(FabricBlockSettings.of(Material.LEAVES).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).allowsSpawning(BlockRegistry::canSpawnOnLeaves).suffocates(BlockRegistry::never).blockVision(BlockRegistry::never)), ItemGroup.BUILDING_BLOCKS);
+        EBONY_LEAVES = createBlock("ebony_leaves", new LeavesBlock(FabricBlockSettings.of(Material.LEAVES).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).allowsSpawning(BlockRegistry::canSpawnOnLeaves).suffocates(BlockRegistry::never).blockVision(BlockRegistry::never)), ItemGroup.DECORATIONS);
+        BLOOD_EBONY_LEAVES = createBlock("blood_ebony_leaves", new LeavesBlock(FabricBlockSettings.of(Material.LEAVES).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).allowsSpawning(BlockRegistry::canSpawnOnLeaves).suffocates(BlockRegistry::never).blockVision(BlockRegistry::never)), ItemGroup.DECORATIONS);
         createBlock("ebony_sapling", EBONY_SAPLING, ItemGroup.DECORATIONS);
         createBlock("potted_ebony_sapling", POTTED_EBONY_SAPLING, null);
         createBlock("blood_ebony_sapling", BLOOD_EBONY_SAPLING, ItemGroup.DECORATIONS);
@@ -305,6 +307,8 @@ public class BlockRegistry {
 
         IGNIS_CRYSTAL_BLOCK = createBlock("ignis_crystal_block", new Block(FabricBlockSettings.copy(Blocks.AMETHYST_BLOCK)), ItemGroup.BUILDING_BLOCKS);
 
+        CORN_BLOCK = createBlock("corn_block", new CornBlock(FabricBlockSettings.copy(Blocks.SUGAR_CANE)), null);
+
         flammables();
         compostables();
         fuels();
@@ -317,13 +321,15 @@ public class BlockRegistry {
 
     @Environment(EnvType.CLIENT)
     private static void renderLayers() {
+        BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutoutMipped(),
+                EBONY_LEAVES,
+                BLOOD_EBONY_LEAVES
+        );
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(),
                 DEADROOT,
                 ASPHODEL_SAPLING,
                 POTTED_ASPHODEL_SAPLING,
                 EBONY_DOOR,
-                EBONY_LEAVES,
-                BLOOD_EBONY_LEAVES,
                 EBONY_SAPLING,
                 POTTED_EBONY_SAPLING,
                 BLOOD_EBONY_SAPLING,

@@ -22,13 +22,12 @@ public class FlyMoveControl extends MoveControl {
                 if (entity.getTarget() == null) {
                     Vec3d vec3d2 = entity.getVelocity();
                     entity.setYaw(-((float) MathHelper.atan2(vec3d2.x, vec3d2.z)) * 57.295776F);
-                    entity.bodyYaw = entity.getYaw();
                 } else {
                     double e = entity.getTarget().getX() - entity.getX();
                     double f = entity.getTarget().getZ() - entity.getZ();
                     entity.setYaw(-((float)MathHelper.atan2(e, f)) * 57.295776F);
-                    entity.bodyYaw = entity.getYaw();
                 }
+                entity.bodyYaw = entity.getYaw();
             }
         }
     }

@@ -1,8 +1,0 @@
-{
-    "parent": "block/ladder",
-    "ambientocclusion": false,
-    "textures": {
-        "particle": "hallows:block/asphodel_ladder",
-        "texture": "hallows:block/asphodel_ladder"
-    }
-}
