@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "hallows:petrified_sand"
+    "hallows:petrified_sand",
+    "hallows:petrified_sandstone"
   ]
 }

@@ -38,8 +38,6 @@
       "minecraft:spring_lava"
     ],
     [
-      "minecraft:patch_grass_normal",
-      "minecraft:patch_large_fern",
       "hallows:trees_wicked",
       "hallows:patch_necrofire",
       "hallows:patch_deadroot",

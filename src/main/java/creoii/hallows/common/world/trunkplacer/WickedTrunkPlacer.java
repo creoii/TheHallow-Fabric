@@ -53,8 +53,9 @@ public class WickedTrunkPlacer extends TrunkPlacer {
         }
 
         BlockPos current = startPos.up(height);
+        boolean flag = false;
         for(int i = 0; i <= twists.get(random); ++i) {
-            Direction direction = random.nextBoolean() ? Direction.UP : Direction.Type.HORIZONTAL.random(random);
+            Direction direction = flag ? Direction.UP : Direction.Type.HORIZONTAL.random(random);
             int length;
             if (direction == Direction.UP) {
                 length = verticalLength.get(random);
@@ -69,6 +70,7 @@ public class WickedTrunkPlacer extends TrunkPlacer {
             }
             current = current.offset(direction, length);
             list.add(new FoliagePlacer.TreeNode(current, 0, false));
+            flag = !flag;
         }
 
         return list;

@@ -32,7 +32,7 @@ public class TeleportTowardTargetGoal<T extends LivingEntity> extends ActiveTarg
         this.targetEntity = this.mob.world.getClosestEntity(this.mob.world.getEntitiesByClass(this.targetClass, this.getSearchBox(this.getFollowRange()), (livingEntity) -> {
             return true;
         }), this.staringPlayerPredicate, this.mob, this.mob.getX(), this.mob.getY(), this.mob.getZ());
-        return this.targetEntity != null;
+        return this.targetEntity != null && !targetEntity.canSee(this.mob);
     }
 
     public void start() {
@@ -41,12 +41,12 @@ public class TeleportTowardTargetGoal<T extends LivingEntity> extends ActiveTarg
 
     public boolean shouldContinue() {
         if (this.targetEntity != null) {
-            if (targetEntity.canSee(this.mob)) return false;
-            else {
+            if (!targetEntity.canSee(this.mob)) {
                 this.mob.lookAtEntity(this.targetEntity, 10.0F, 10.0F);
                 return true;
             }
-        } else return super.shouldContinue();
+        }
+        return super.shouldContinue();
     }
 
     public void tick() {

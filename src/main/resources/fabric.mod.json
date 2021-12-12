@@ -2,7 +2,6 @@
   "schemaVersion": 1,
   "id": "hallows",
   "version": "${version}",
-
   "name": "The Hallow",
   "description": "A spooky new dimension. Happy Halloween!",
   "authors": [
@@ -12,10 +11,8 @@
     "homepage": "https://fabricmc.net/",
     "sources": "https://github.com/creoii/TheHallow-Fabric"
   },
-
   "license": "MIT",
   "icon": "assets/hallows/icon.png",
-
   "environment": "*",
   "accessWidener": "hallows.accesswidener",
   "entrypoints": {

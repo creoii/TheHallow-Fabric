@@ -33,10 +33,6 @@ public class Hallows implements ModInitializer, ClientModInitializer {
 		Events.register();
 
 		registerDimensionOptions();
-
-		Registry.TRUNK_PLACER_TYPE.forEach((trunkPlacerType -> {
-			System.out.println(Registry.TRUNK_PLACER_TYPE.getId(trunkPlacerType));
-		}));
 	}
 
 	@Override
