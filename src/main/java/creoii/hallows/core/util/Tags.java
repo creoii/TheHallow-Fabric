@@ -2,7 +2,6 @@ package creoii.hallows.core.util;
 
 import creoii.hallows.core.Hallows;
 import net.fabricmc.fabric.api.tag.TagFactory;
-import net.fabricmc.fabric.api.tag.TagRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.tag.Tag;
