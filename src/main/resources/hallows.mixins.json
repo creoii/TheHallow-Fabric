@@ -8,7 +8,8 @@
     "CarverMixin",
     "EntityModelsMixin",
     "ProjectileEntityMixin",
-    "TreeDecoratorTypeMixin"
+    "TreeDecoratorTypeMixin",
+    "TrunkPlacerTypeMixin"
   ],
   "injectors": {
     "defaultRequire": 1

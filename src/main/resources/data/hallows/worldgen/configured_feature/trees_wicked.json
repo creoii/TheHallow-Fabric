@@ -1,0 +1,12 @@
+{
+  "config": {
+    "features": [
+      {
+        "feature": "hallows:wicked",
+        "chance": 0.0
+      }
+    ],
+    "default": "hallows:wicked"
+  },
+  "type": "minecraft:random_selector"
+}

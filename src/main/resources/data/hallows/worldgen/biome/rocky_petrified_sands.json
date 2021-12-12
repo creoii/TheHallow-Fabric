@@ -69,6 +69,12 @@
         "weight": 100,
         "minCount": 4,
         "maxCount": 4
+      },
+      {
+        "type": "hallows:ghost",
+        "weight": 75,
+        "minCount": 3,
+        "maxCount": 4
       }
     ],
     "ambient": [

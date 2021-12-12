@@ -1,6 +1,7 @@
 package creoii.hallows.common.entity;
 
 import creoii.hallows.common.entity.ai.FlyMoveControl;
+import creoii.hallows.common.entity.ai.FlyRandomGoal;
 import creoii.hallows.core.registry.ItemRegistry;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -9,6 +10,7 @@ import net.minecraft.entity.MovementType;
 import net.minecraft.entity.ai.goal.ActiveTargetGoal;
 import net.minecraft.entity.ai.goal.Goal;
 import net.minecraft.entity.ai.goal.LookAtEntityGoal;
+import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
@@ -52,11 +54,11 @@ public class GhostEntity extends HostileEntity {
 
     protected void initGoals() {
         super.initGoals();
-        //this.goalSelector.add(0, new MeleeAttackGoal(this, 1.0D, false));
-        //this.goalSelector.add(3, new FlyRandomGoal(this, 8));
+        this.goalSelector.add(0, new MeleeAttackGoal(this, 1.0D, false));
+        this.goalSelector.add(3, new FlyRandomGoal(this, 8));
         this.goalSelector.add(4, new GhostEntity.ChargeTargetGoal());
         this.goalSelector.add(9, new LookAtEntityGoal(this, LivingEntity.class, 3.0F, 1.0F));
-        this.targetSelector.add(1, new ActiveTargetGoal<PlayerEntity>(this, PlayerEntity.class, true));
+        this.targetSelector.add(1, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
     }
 
     public static DefaultAttributeContainer.Builder createAttributes() {

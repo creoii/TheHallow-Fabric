@@ -1,6 +1,5 @@
 package creoii.hallows.common.block;
 
-import creoii.hallows.core.registry.PlacedFeatureRegistry;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.MossBlock;
 import net.minecraft.server.world.ServerWorld;

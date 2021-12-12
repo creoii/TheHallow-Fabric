@@ -14,6 +14,19 @@
       "type": "minecraft:block_predicate_filter"
     },
     {
+      "type": "minecraft:block_predicate_filter",
+      "predicate": {
+        "type": "minecraft:matching_blocks",
+        "blocks": [
+          "minecraft:grass_block",
+          "minecraft:coarse_dirt",
+          "minecraft:dirt",
+          "hallows:hallowed_dirt",
+          "hallows:wicked_dirt"
+        ]
+      }
+    },
+    {
       "count": 3,
       "type": "minecraft:count_on_every_layer"
     }

@@ -2,6 +2,8 @@ package creoii.hallows.common.entity;
 
 import creoii.hallows.common.entity.ai.TeleportTowardTargetGoal;
 import creoii.hallows.core.registry.ItemRegistry;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
@@ -14,10 +16,14 @@ import net.minecraft.entity.mob.Angerable;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tag.FluidTags;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.EnumSet;
 import java.util.UUID;
 
 public class HauntEntity extends HostileEntity implements Angerable {
@@ -35,9 +41,9 @@ public class HauntEntity extends HostileEntity implements Angerable {
         this.goalSelector.add(1, new MeleeAttackGoal(this, 1.0D, false));
         this.goalSelector.add(2, new WanderAroundGoal(this, 1.0D));
         this.goalSelector.add(3, new LookAtEntityGoal(this, LivingEntity.class, 3.0F, 1.0F));
-        this.targetSelector.add(1, new ActiveTargetGoal<PlayerEntity>(this, PlayerEntity.class, true));
+        this.targetSelector.add(1, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
         this.targetSelector.add(2, new TeleportTowardTargetGoal<>(this, PlayerEntity.class, this::shouldAngerAt));
-        this.targetSelector.add(3, new ChargeTargetGoal(this, 4));
+        this.targetSelector.add(3, new ChargeTargetGoal(this));
         this.targetSelector.add(4, new UniversalAngerGoal<>(this, true));
     }
 
@@ -105,52 +111,98 @@ public class HauntEntity extends HostileEntity implements Angerable {
         return bl;
     }
 
+    private boolean isPlayerStaring(PlayerEntity player) {
+        ItemStack itemStack = player.getInventory().armor.get(3);
+        if (itemStack.isOf(Blocks.CARVED_PUMPKIN.asItem())) {
+            return false;
+        } else {
+            Vec3d vec3d = player.getRotationVec(1.0F).normalize();
+            Vec3d vec3d2 = new Vec3d(this.getX() - player.getX(), this.getEyeY() - player.getEyeY(), this.getZ() - player.getZ());
+            double d = vec3d2.length();
+            vec3d2 = vec3d2.normalize();
+            double e = vec3d.dotProduct(vec3d2);
+            return e > 1.0D - 0.025D / d && player.canSee(this);
+        }
+    }
+
     protected float getActiveEyeHeight(EntityPose pose, EntityDimensions dimensions) {
         return 2.55F;
     }
 
+    protected void mobTick() {
+        if (this.random.nextFloat() * 30f < .8f) {
+            this.setTarget(null);
+            this.teleportRandomly();
+        }
+
+        super.mobTick();
+    }
+
+    protected boolean teleportRandomly() {
+        if (!this.world.isClient() && this.isAlive()) {
+            double d = this.getX() + (this.random.nextDouble() - 0.5D) * 64.0D;
+            double e = this.getY() + (double)(this.random.nextInt(64) - 32);
+            double f = this.getZ() + (this.random.nextDouble() - 0.5D) * 64.0D;
+            return this.teleportTo(d, e, f);
+        } else {
+            return false;
+        }
+    }
+
+    boolean teleportTo(Entity entity) {
+        Vec3d vec3d = new Vec3d(this.getX() - entity.getX(), this.getBodyY(0.5D) - entity.getEyeY(), this.getZ() - entity.getZ());
+        vec3d = vec3d.normalize();
+        double d = 16.0D;
+        double e = this.getX() + (this.random.nextDouble() - 0.5D) * 8.0D - vec3d.x * 16.0D;
+        double f = this.getY() + (double)(this.random.nextInt(16) - 8) - vec3d.y * 16.0D;
+        double g = this.getZ() + (this.random.nextDouble() - 0.5D) * 8.0D - vec3d.z * 16.0D;
+        return this.teleportTo(e, f, g);
+    }
+
+    private boolean teleportTo(double x, double y, double z) {
+        BlockPos.Mutable mutable = new BlockPos.Mutable(x, y, z);
+
+        while(mutable.getY() > this.world.getBottomY() && !this.world.getBlockState(mutable).getMaterial().blocksMovement()) {
+            mutable.move(Direction.DOWN);
+        }
+
+        BlockState blockState = this.world.getBlockState(mutable);
+        boolean bl = blockState.getMaterial().blocksMovement();
+        boolean bl2 = blockState.getFluidState().isIn(FluidTags.WATER);
+        if (bl && !bl2) {
+            return this.teleport(x, y, z, true);
+        } else {
+            return false;
+        }
+    }
+
     private static class ChargeTargetGoal extends ActiveTargetGoal<PlayerEntity> {
         private final HauntEntity haunt;
-        private final int probability;
-        private int ticksBeenCharging;
 
-        public ChargeTargetGoal(HauntEntity haunt, int probability) {
+        public ChargeTargetGoal(HauntEntity haunt) {
             super(haunt, PlayerEntity.class, false);
             this.haunt = haunt;
-            this.probability = probability;
+            setControls(EnumSet.of(Control.MOVE));
         }
 
         @Override
         public boolean canStart() {
             if (this.haunt.hasVehicle() || this.targetEntity == null) return false;
-            return this.haunt.getRandom().nextInt(probability) == 0 && (this.targetEntity.squaredDistanceTo(this.haunt) >= 12.0D || super.canStart());
-        }
-
-        @Override
-        public boolean shouldContinue() {
-            return this.targetEntity != null && (this.targetEntity.squaredDistanceTo(this.haunt) < 1.0D || ticksBeenCharging >= 120);
-        }
-
-        @Override
-        public void start() {
-            ticksBeenCharging = 0;
-            this.haunt.setAngryAt(targetEntity.getUuid());
-            super.start();
-        }
-
-        @Override
-        public void tick() {
-            System.out.println("TEST B");
-            if (this.haunt.getTarget() == null) super.setTargetEntity(null);
-
-            if (this.targetEntity != null && !this.haunt.hasVehicle()) {
-                System.out.println("CHARGING");
-                BlockPos pos = target.getBlockPos();
-                haunt.getMoveControl().moveTo((double) pos.getX() + 0.5D, (double) pos.getY() + 0.5D, (double) pos.getZ() + 0.5D, 0.333D);
-                haunt.getLookControl().lookAt(targetEntity);
-                if (++ticksBeenCharging < 120) ticksBeenCharging = 0;
+            this.target = this.haunt.getTarget();
+            if (!(this.target instanceof PlayerEntity)) {
+                return false;
+            } else {
+                double d = this.target.squaredDistanceTo(this.haunt);
+                return !(d > 256.0D) && !this.haunt.isPlayerStaring((PlayerEntity) this.target);
             }
-            super.tick();
+        }
+
+        public void start() {
+            this.haunt.getNavigation().stop();
+        }
+
+        public void tick() {
+            this.haunt.getLookControl().lookAt(this.target.getX(), this.target.getEyeY(), this.target.getZ());
         }
     }
 }

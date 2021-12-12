@@ -1,0 +1,8 @@
+{
+  "parent": "block/cube_bottom_top",
+  "textures": {
+    "top": "hallows:block/wicked_dirt",
+    "bottom": "hallows:block/hallowed_dirt",
+    "side": "hallows:block/wicked_dirt_side"
+  }
+}

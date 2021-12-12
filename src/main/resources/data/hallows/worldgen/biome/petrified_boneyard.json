@@ -53,20 +53,26 @@
     "monster": [
       {
         "type": "minecraft:spider",
-        "weight": 100,
+        "weight": 80,
         "minCount": 4,
         "maxCount": 4
       },
       {
         "type": "minecraft:zombie",
-        "weight": 95,
+        "weight": 75,
         "minCount": 4,
         "maxCount": 4
       },
       {
         "type": "minecraft:skeleton",
-        "weight": 100,
+        "weight": 80,
         "minCount": 4,
+        "maxCount": 4
+      },
+      {
+        "type": "hallows:ghost",
+        "weight": 105,
+        "minCount": 3,
         "maxCount": 4
       }
     ],

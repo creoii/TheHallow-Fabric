@@ -19,11 +19,11 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class EntityRegistry {
-    public static final EntityType<GhostEntity> GHOST = FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, GhostEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.4F)).build();
-    public static final EntityType<MagusEntity> MAGUS = FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, MagusEntity::new).dimensions(EntityDimensions.fixed(0.8F, 2.0F)).build();
-    public static final EntityType<HauntEntity> HAUNT = FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, HauntEntity::new).dimensions(EntityDimensions.fixed(1.4F, 3.0F)).build();
-    public static final EntityType<BroomstickEntity> BROOMSTICK = FabricEntityTypeBuilder.<BroomstickEntity>create(SpawnGroup.CREATURE, BroomstickEntity::new).dimensions(EntityDimensions.fixed(2.4F, 0.3F)).build();
-    public static final EntityType<BoatEntity> BOAT = FabricEntityTypeBuilder.<BoatEntity>create(SpawnGroup.CREATURE, BoatEntity::new).dimensions(EntityDimensions.fixed(1.375F, 0.5625F)).trackedUpdateRate(10).build();
+    public static final EntityType<GhostEntity> GHOST = FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, GhostEntity::new).dimensions(EntityDimensions.fixed(0.6F, 1.4F)).build();
+    public static final EntityType<MagusEntity> MAGUS = FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, MagusEntity::new).dimensions(EntityDimensions.fixed(0.8F, 2.0F)).build();
+    public static final EntityType<HauntEntity> HAUNT = FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, HauntEntity::new).dimensions(EntityDimensions.fixed(1.4F, 3.0F)).build();
+    public static final EntityType<BroomstickEntity> BROOMSTICK = FabricEntityTypeBuilder.<BroomstickEntity>create(SpawnGroup.MISC, BroomstickEntity::new).dimensions(EntityDimensions.fixed(2.4F, 0.3F)).build();
+    public static final EntityType<BoatEntity> BOAT = FabricEntityTypeBuilder.<BoatEntity>create(SpawnGroup.MISC, BoatEntity::new).dimensions(EntityDimensions.fixed(1.375F, 0.5625F)).trackedUpdateRate(10).build();
 
     public static void register() {
         Registry.register(Registry.ENTITY_TYPE, new Identifier(Hallows.MOD_ID, "ghost"), GHOST);
@@ -35,6 +35,8 @@ public class EntityRegistry {
         FabricDefaultAttributeRegistry.register(GHOST, GhostEntity.createAttributes());
         FabricDefaultAttributeRegistry.register(MAGUS, MagusEntity.createAttributes());
         FabricDefaultAttributeRegistry.register(HAUNT, HauntEntity.createAttributes());
+
+
     }
 
     @Environment(EnvType.CLIENT)

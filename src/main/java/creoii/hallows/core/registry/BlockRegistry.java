@@ -42,6 +42,7 @@ public class BlockRegistry {
     public static final Block POLISHED_HALLSTONE_WALL = new WallBlock(AbstractBlock.Settings.copy(POLISHED_HALLSTONE));
 
     public static final Block HALLOWED_DIRT = new Block(FabricBlockSettings.of(Material.SOIL, MapColor.SPRUCE_BROWN).strength(0.5F).sounds(BlockSoundGroup.ROOTED_DIRT));
+    public static final Block WICKED_DIRT = new Block(FabricBlockSettings.of(Material.SOIL, MapColor.SPRUCE_BROWN).strength(0.5F).sounds(BlockSoundGroup.ROOTED_DIRT));
     public static Block DEADROOT;
 
     public static Block HALLSTONE_EMERALD_ORE;
@@ -179,6 +180,7 @@ public class BlockRegistry {
         createBlock("polished_hallstone_wall", POLISHED_HALLSTONE_WALL, ItemGroup.DECORATIONS);
 
         createBlock("hallowed_dirt", HALLOWED_DIRT, ItemGroup.BUILDING_BLOCKS);
+        createBlock("wicked_dirt", WICKED_DIRT, ItemGroup.BUILDING_BLOCKS);
         DEADROOT = createBlock("deadroot", new DeadrootBlock(FabricBlockSettings.copy(Blocks.CRIMSON_ROOTS)), ItemGroup.DECORATIONS);
 
         NECROFIRE = createBlock("necrofire", new NecrofireBlock(FabricBlockSettings.copy(Blocks.FIRE)), null);

@@ -395,6 +395,21 @@
                   "Name": "hallows:petrified_sand"
                 }
               }
+            },
+            {
+              "type": "minecraft:condition",
+              "if_true": {
+                "type": "minecraft:biome",
+                "biome_is": [
+                  "hallows:wicked_woods"
+                ]
+              },
+              "then_run": {
+                "type": "minecraft:block",
+                "result_state": {
+                  "Name": "hallows:wicked_dirt"
+                }
+              }
             }
           ]
         }
@@ -417,6 +432,7 @@
                 "type": "minecraft:biome",
                 "biome_is": [
                   "hallows:hanging_woods",
+                  "hallows:wicked_woods",
                   "hallows:mega_hanging_woods",
                   "hallows:perished_valley",
                   "hallows:pumpkin_valley",

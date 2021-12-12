@@ -1,0 +1,68 @@
+{
+  "config": {
+    "decorators": [],
+    "ignore_vines": true,
+    "force_dirt": false,
+    "dirt_provider": {
+      "state": {
+        "Name": "hallows:hallowed_dirt"
+      },
+      "type": "minecraft:simple_state_provider"
+    },
+    "minimum_size": {
+      "limit": 4,
+      "lower_size": 2,
+      "upper_size": 3,
+      "type": "minecraft:two_layers_feature_size"
+    },
+    "trunk_provider": {
+      "state": {
+        "Properties": {
+          "axis": "y"
+        },
+        "Name": "hallows:ebony_log"
+      },
+      "type": "minecraft:simple_state_provider"
+    },
+    "trunk_placer": {
+      "base_height": 3,
+      "height_rand_a": 2,
+      "height_rand_b": 0,
+      "twists": {
+        "type": "minecraft:uniform",
+        "value": {
+          "min_inclusive": 2,
+          "max_inclusive": 5
+        }
+      },
+      "horizontal_length": {
+        "type": "minecraft:uniform",
+        "value": {
+          "min_inclusive": 1,
+          "max_inclusive": 3
+        }
+      },
+      "vertical_length": {
+        "type": "minecraft:uniform",
+        "value": {
+          "min_inclusive": 2,
+          "max_inclusive": 3
+        }
+      },
+      "type": "minecraft:wicked_trunk_placer"
+    },
+    "foliage_provider": {
+      "state": {
+        "Name": "hallows:ebony_leaves"
+      },
+      "type": "minecraft:simple_state_provider"
+    },
+    "foliage_placer": {
+      "radius": 3,
+      "offset": 1,
+      "height": 2,
+      "type": "minecraft:blob_foliage_placer"
+    }
+  },
+  "type": "minecraft:tree"
+}

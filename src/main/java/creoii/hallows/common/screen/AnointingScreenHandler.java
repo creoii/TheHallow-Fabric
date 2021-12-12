@@ -6,6 +6,7 @@ import creoii.hallows.common.recipe.AnointingRecipe;
 import creoii.hallows.core.registry.BlockRegistry;
 import creoii.hallows.core.registry.ContainerRegistry;
 import creoii.hallows.core.registry.ItemRegistry;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
@@ -125,12 +126,12 @@ public class AnointingScreenHandler extends ScreenHandler {
         else {
             this.recipe = list.get(0);
             EntityAttribute attribute = this.recipe.getAttribute();
-            if (attribute == EntityAttributes.GENERIC_FLYING_SPEED ||
-                    attribute == EntityAttributes.ZOMBIE_SPAWN_REINFORCEMENTS ||
+            if (attribute == EntityAttributes.ZOMBIE_SPAWN_REINFORCEMENTS ||
                     attribute == EntityAttributes.HORSE_JUMP_STRENGTH ||
                     attribute == EntityAttributes.GENERIC_FOLLOW_RANGE) return;
 
             ItemStack stack = this.recipe.craft(this.input);
+            EnchantmentHelper.set(EnchantmentHelper.get(this.input.getStack(0)), stack);
             if (stack.getOrCreateNbt().getBoolean("Anointed")) return;
 
             EquipmentSlot slot = MobEntity.getPreferredEquipmentSlot(stack);
