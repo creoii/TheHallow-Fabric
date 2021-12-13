@@ -9,8 +9,8 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
-public class NecroflameBottleItem extends Item {
-    public NecroflameBottleItem(Settings settings) {
+public class NecroflameItem extends Item {
+    public NecroflameItem(Settings settings) {
         super(settings);
     }
 

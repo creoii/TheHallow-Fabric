@@ -2,7 +2,7 @@
   "feature": "hallows:petrified_rock_small",
   "placement": [
     {
-      "count": 24,
+      "count": 32,
       "type": "minecraft:count_on_every_layer"
     },
     {
