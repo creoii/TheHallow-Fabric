@@ -4,6 +4,10 @@
       {
         "feature": "hallows:large_asphodel_checked",
         "chance": 0.1
+      },
+      {
+        "feature": "hallows:huge_asphodel_checked",
+        "chance": 0.025
       }
     ],
     "default": "hallows:asphodel_checked"

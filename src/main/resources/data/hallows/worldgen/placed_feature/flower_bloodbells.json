@@ -1,9 +1,9 @@
 {
-  "feature": "hallows:petrified_rock_small",
+  "feature": "hallows:flower_bloodbells",
   "placement": [
     {
-      "count": 24,
-      "type": "minecraft:count_on_every_layer"
+      "chance": 32,
+      "type": "minecraft:rarity_filter"
     },
     {
       "type": "minecraft:in_square"

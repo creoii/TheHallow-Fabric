@@ -36,7 +36,8 @@
     [
       "hallows:ore_opal",
       "hallows:ore_silver",
-      "hallows:ore_stygian_ruin"
+      "hallows:ore_stygian_ruin",
+      "hallows:ore_skullish_tenebrite"
     ],
     [],
     [
@@ -70,8 +71,8 @@
       },
       {
         "type": "hallows:ghost",
-        "weight": 75,
-        "minCount": 3,
+        "weight": 55,
+        "minCount": 2,
         "maxCount": 4
       }
     ],

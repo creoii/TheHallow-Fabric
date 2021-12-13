@@ -2,6 +2,10 @@
   "feature": "hallows:petrified_decoration",
   "placement": [
     {
+      "chance": 4,
+      "type": "minecraft:rarity_filter"
+    },
+    {
       "count": {
         "distribution": [
           {

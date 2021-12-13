@@ -2,7 +2,7 @@
   "feature": "hallows:ore_silver",
   "placement": [
     {
-      "count": 10,
+      "count": 6,
       "type": "minecraft:count"
     },
     {
@@ -11,10 +11,10 @@
     {
       "height": {
         "min_inclusive": {
-          "absolute": -24
+          "absolute": -32
         },
         "max_inclusive": {
-          "absolute": 56
+          "absolute": 128
         },
         "type": "minecraft:trapezoid"
       },

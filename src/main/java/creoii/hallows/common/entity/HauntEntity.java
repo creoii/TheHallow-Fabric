@@ -69,6 +69,11 @@ public class HauntEntity extends HostileEntity {
         return bl;
     }
 
+    @Override
+    protected void knockback(LivingEntity target) {
+        target.takeKnockback(.8d, target.getX() - this.getX(), target.getZ() - this.getZ());
+    }
+
     protected float getActiveEyeHeight(EntityPose pose, EntityDimensions dimensions) {
         return 2.75F;
     }
@@ -82,7 +87,7 @@ public class HauntEntity extends HostileEntity {
     }
 
     public static boolean canSpawn(EntityType<? extends HauntEntity> type, WorldAccess world, SpawnReason reason, BlockPos pos, Random random) {
-        return world.getBlockState(pos.down()).isSolidBlock(world, pos.down());
+        return true;
     }
 
     private void teleportTo(Entity entity) {

@@ -1,8 +1,7 @@
 package creoii.hallows.common.item;
 
-import creoii.hallows.common.entity.NecroflameBottleEntity;
+import creoii.hallows.common.entity.NecroflameEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.thrown.PotionEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.stat.Stats;
@@ -18,7 +17,7 @@ public class NecroflameBottleItem extends Item {
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
         if (!world.isClient) {
-            NecroflameBottleEntity necroflameBottleEntity = new NecroflameBottleEntity(world, user);
+            NecroflameEntity necroflameBottleEntity = new NecroflameEntity(world, user);
             necroflameBottleEntity.setItem(itemStack);
             necroflameBottleEntity.setVelocity(user, user.getPitch(), user.getYaw(), -20.0F, 0.5F, 1.0F);
             world.spawnEntity(necroflameBottleEntity);

@@ -16,16 +16,16 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class NecroflameBottleEntity extends ThrownItemEntity implements FlyingItemEntity {
-    public NecroflameBottleEntity(EntityType<? extends NecroflameBottleEntity> entityType, World world) {
+public class NecroflameEntity extends ThrownItemEntity implements FlyingItemEntity {
+    public NecroflameEntity(EntityType<? extends NecroflameEntity> entityType, World world) {
         super(entityType, world);
     }
 
-    public NecroflameBottleEntity(World world, LivingEntity owner) {
+    public NecroflameEntity(World world, LivingEntity owner) {
         super(EntityType.POTION, owner, world);
     }
 
-    public NecroflameBottleEntity(World world, double x, double y, double z) {
+    public NecroflameEntity(World world, double x, double y, double z) {
         super(EntityType.POTION, x, y, z, world);
     }
 

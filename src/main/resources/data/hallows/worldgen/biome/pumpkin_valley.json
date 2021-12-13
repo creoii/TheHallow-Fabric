@@ -29,7 +29,13 @@
     ],
     [],
     [],
-    [],
+    [
+      "hallows:ore_opal",
+      "hallows:ore_silver",
+      "hallows:ore_stygian_ruin",
+      "hallows:ore_hallstone_emerald",
+      "hallows:ore_skullish_tenebrite"
+    ],
     [],
     [
       "minecraft:spring_lava"
@@ -41,8 +47,9 @@
       "hallows:patch_deadroot",
       "hallows:patch_candles",
       "hallows:patch_corn",
-      "hallows:patch_rose",
-      "hallows:patch_bells"
+      "hallows:flower_rose",
+      "hallows:flower_bloodbells",
+      "hallows:flower_deathbells"
     ],
     []
   ],
@@ -80,9 +87,9 @@
       },
       {
         "type": "hallows:ghost",
-        "weight": 50,
-        "minCount": 3,
-        "maxCount": 4
+        "weight": 35,
+        "minCount": 2,
+        "maxCount": 3
       },
       {
         "type": "hallows:haunt",
