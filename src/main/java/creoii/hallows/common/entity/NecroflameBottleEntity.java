@@ -48,6 +48,7 @@ public class NecroflameBottleEntity extends ThrownItemEntity implements FlyingIt
 
             for (Direction direction2 : Direction.Type.HORIZONTAL) {
                 this.createFire(blockPos2.offset(direction2));
+                if (random.nextInt(3) == 0) this.createFire(blockPos2.offset(direction2, 2));
             }
         }
     }

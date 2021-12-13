@@ -175,7 +175,7 @@ public class BlockRegistry {
 
     public static Block IGNIS_CRYSTAL_BLOCK;
 
-    public static Block CORN_BLOCK;
+    public static Block CORN;
 
     public static void register() {
         createBlock("hallstone", HALLSTONE, ItemGroup.BUILDING_BLOCKS);
@@ -313,7 +313,7 @@ public class BlockRegistry {
 
         IGNIS_CRYSTAL_BLOCK = createBlock("ignis_crystal_block", new Block(FabricBlockSettings.copy(Blocks.AMETHYST_BLOCK)), ItemGroup.BUILDING_BLOCKS);
 
-        CORN_BLOCK = createBlock("corn_block", new CornBlock(FabricBlockSettings.copy(Blocks.SUGAR_CANE)), null);
+        CORN = createBlock("corn", new CornBlock(FabricBlockSettings.copy(Blocks.SUGAR_CANE)), null);
 
         flammables();
         compostables();
@@ -323,7 +323,7 @@ public class BlockRegistry {
     @Environment(EnvType.CLIENT)
     public static void registerClient() {
         renderLayers();
-        ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getGrassColor(world, pos) : GrassColors.getColor(0.5D, 1.0D), CORN_BLOCK);
+        ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getGrassColor(world, pos) : GrassColors.getColor(0.5D, 1.0D), CORN);
     }
 
     @Environment(EnvType.CLIENT)
@@ -349,7 +349,7 @@ public class BlockRegistry {
                 NECROFIRE_LANTERN,
                 NECROFIRE_TORCH,
                 NECROFIRE_WALL_TORCH,
-                CORN_BLOCK
+                CORN
         );
     }
 
@@ -378,6 +378,7 @@ public class BlockRegistry {
         ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(RED_MOSS_BLOCK.asItem(), 0.65F);
         ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(BLOOD_MOREL.asItem(), 0.3F);
         ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(DEATH_MOREL.asItem(), 0.3F);
+        ComposterBlock.ITEM_TO_LEVEL_INCREASE_CHANCE.put(ItemRegistry.CORN, .65f);
     }
 
     private static void fuels() {

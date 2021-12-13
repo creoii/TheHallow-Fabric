@@ -60,7 +60,7 @@ public class ItemRegistry {
 
     public static final Item NECROMANCERS_BLADE = new NecromancersBladeItem(Materials.NECROMANCER_TOOLS, new Item.Settings().group(ItemGroup.COMBAT).maxCount(1).rarity(Rarity.UNCOMMON), 8);
 
-    public static final Item CORN = new BlockItem(BlockRegistry.CORN_BLOCK, new Item.Settings().group(ItemGroup.FOOD));
+    public static final Item CORN = new BlockItem(BlockRegistry.CORN, new Item.Settings().group(ItemGroup.FOOD));
 
     public static final Item NECROFLAME_BOTTLE = new NecroflameBottleItem(new Item.Settings().group(ItemGroup.COMBAT));
 
