@@ -13,7 +13,6 @@
       "probability": 0.01
     }
   },
-  "surface_builder": "hallows:hallowed",
   "carvers": {
     "air": [
       "minecraft:cave",
@@ -23,9 +22,11 @@
   "features": [
     [],
     [
-      "minecraft:lake_lava_surface"
+      "hallows:lake_lava_hallows_surface"
     ],
-    [],
+    [
+      "hallows:huge_pumpkin"
+    ],
     [],
     [],
     [],
@@ -38,12 +39,12 @@
       "hallows:trees_asphodel",
       "hallows:patch_necrofire",
       "hallows:patch_deadroot",
-      "hallows:patch_candles"
+      "hallows:patch_candles",
+      "hallows:patch_corn",
+      "hallows:patch_rose",
+      "hallows:patch_bells"
     ],
     []
-  ],
-  "starts": [
-    "hallows:village_ruins"
   ],
   "spawners": {
     "monster": [

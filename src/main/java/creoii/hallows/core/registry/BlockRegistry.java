@@ -25,6 +25,7 @@ import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.client.color.world.GrassColors;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -50,6 +51,9 @@ public class BlockRegistry {
     public static final Block HALLOWED_DIRT = new Block(FabricBlockSettings.of(Material.SOIL, MapColor.SPRUCE_BROWN).strength(0.5F).sounds(BlockSoundGroup.ROOTED_DIRT));
     public static final Block WICKED_DIRT = new Block(FabricBlockSettings.of(Material.SOIL, MapColor.SPRUCE_BROWN).strength(0.5F).sounds(BlockSoundGroup.ROOTED_DIRT));
     public static Block DEADROOT;
+    public static Block BLOODBELL;
+    public static Block DEATHBELL;
+    public static Block ROSE;
 
     public static Block HALLSTONE_EMERALD_ORE;
     public static Block TENEBRITE_EMERALD_ORE;
@@ -190,6 +194,9 @@ public class BlockRegistry {
         createBlock("hallowed_dirt", HALLOWED_DIRT, ItemGroup.BUILDING_BLOCKS);
         createBlock("wicked_dirt", WICKED_DIRT, ItemGroup.BUILDING_BLOCKS);
         DEADROOT = createBlock("deadroot", new DeadrootBlock(FabricBlockSettings.copy(Blocks.CRIMSON_ROOTS)), ItemGroup.DECORATIONS);
+        DEATHBELL = createBlock("deathbell", new FlowerBlock(StatusEffects.WITHER, 4, FabricBlockSettings.copy(Blocks.POPPY)), ItemGroup.DECORATIONS);
+        BLOODBELL = createBlock("bloodbell", new FlowerBlock(StatusEffects.REGENERATION, 8, FabricBlockSettings.copy(Blocks.POPPY)), ItemGroup.DECORATIONS);
+        ROSE = createBlock("rose", new FlowerBlock(StatusEffects.NIGHT_VISION, 8, FabricBlockSettings.copy(Blocks.POPPY)), ItemGroup.DECORATIONS);
 
         NECROFIRE = createBlock("necrofire", new NecrofireBlock(FabricBlockSettings.copy(Blocks.FIRE)), null);
         createBlock("necrofire_campfire", NECROFIRE_CAMPFIRE, ItemGroup.DECORATIONS);
@@ -323,7 +330,7 @@ public class BlockRegistry {
     @Environment(EnvType.CLIENT)
     public static void registerClient() {
         renderLayers();
-        ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getGrassColor(world, pos) : GrassColors.getColor(0.5D, 1.0D), CORN);
+        ColorProviderRegistry.BLOCK.register((state, world, pos, tintIndex) -> world != null && pos != null ? BiomeColors.getGrassColor(world, pos) : GrassColors.getColor(0.5D, 1.0D), CORN, DEATHBELL, BLOODBELL);
     }
 
     @Environment(EnvType.CLIENT)
@@ -334,6 +341,9 @@ public class BlockRegistry {
         );
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(),
                 DEADROOT,
+                BLOODBELL,
+                DEATHBELL,
+                ROSE,
                 ASPHODEL_SAPLING,
                 POTTED_ASPHODEL_SAPLING,
                 EBONY_DOOR,

@@ -2,6 +2,10 @@
   "feature": "hallows:patch_corn",
   "placement": [
     {
+      "chance": 3,
+      "type": "minecraft:rarity_filter"
+    },
+    {
       "count": {
         "type": "minecraft:uniform",
         "value": {

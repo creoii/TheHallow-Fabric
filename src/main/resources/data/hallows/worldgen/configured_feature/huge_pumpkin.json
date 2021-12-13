@@ -1,0 +1,19 @@
+{
+  "config": {
+    "xz_size": {
+      "type": "minecraft:uniform",
+      "value": {
+        "min_inclusive": 2,
+        "max_inclusive": 3
+      }
+    },
+    "height": {
+      "type": "minecraft:uniform",
+      "value": {
+        "min_inclusive": 2,
+        "max_inclusive": 3
+      }
+    }
+  },
+  "type": "hallows:huge_pumpkin"
+}

@@ -1,15 +1,15 @@
 {
-  "feature": "hallows:patch_corn",
+  "feature": "hallows:patch_bells",
   "placement": [
     {
       "count": {
         "type": "minecraft:uniform",
         "value": {
           "min_inclusive": 0,
-          "max_inclusive": 1
+          "max_inclusive": 4
         }
       },
-      "type": "minecraft:count_on_every_layer"
+      "type": "minecraft:count"
     },
     {
       "type": "minecraft:in_square"

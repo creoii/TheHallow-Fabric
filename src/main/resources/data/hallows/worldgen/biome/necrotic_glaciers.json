@@ -13,7 +13,6 @@
       "probability": 0.01
     }
   },
-  "surface_builder": "hallows:glacier",
   "carvers": {
     "air": [
       "minecraft:cave",
@@ -23,7 +22,7 @@
   "features": [
     [],
     [
-      "minecraft:lake_lava_surface"
+      "hallows:lake_lava_hallows_surface"
     ],
     [],
     [],
@@ -44,9 +43,6 @@
       "hallows:patch_candles"
     ],
     []
-  ],
-  "starts": [
-    "hallows:village_ruins"
   ],
   "spawners": {
     "monster": [

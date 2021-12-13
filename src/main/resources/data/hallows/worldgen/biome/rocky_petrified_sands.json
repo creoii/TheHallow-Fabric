@@ -13,7 +13,6 @@
       "probability": 0.01
     }
   },
-  "surface_builder": "hallows:petrified",
   "carvers": {
     "air": [
       "minecraft:cave",
@@ -23,7 +22,7 @@
   "features": [
     [],
     [
-      "minecraft:lake_lava_surface"
+      "hallows:lake_lava_hallows_surface"
     ],
     [
       "hallows:petrified_tree",
@@ -46,9 +45,6 @@
       "hallows:patch_candles"
     ],
     []
-  ],
-  "starts": [
-    "hallows:petrified_pyramid"
   ],
   "spawners": {
     "monster": [

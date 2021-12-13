@@ -22,7 +22,7 @@
   "features": [
     [],
     [
-      "minecraft:lake_lava_surface"
+      "hallows:lake_lava_hallows_surface"
     ],
     [],
     [],
@@ -41,12 +41,10 @@
       "hallows:trees_wicked",
       "hallows:patch_necrofire",
       "hallows:patch_deadroot",
-      "hallows:patch_candles"
+      "hallows:patch_candles",
+      "hallows:patch_bells"
     ],
     []
-  ],
-  "starts": [
-    "hallows:hallowed_ruins"
   ],
   "spawners": {
     "monster": [
