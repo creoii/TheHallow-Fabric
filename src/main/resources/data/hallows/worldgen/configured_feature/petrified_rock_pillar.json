@@ -1,0 +1,19 @@
+{
+  "config": {
+    "state": {
+      "state": {
+        "Name": "hallows:petrified_sandstone"
+      },
+      "type": "minecraft:simple_state_provider"
+    },
+    "size": 2,
+    "rock_count": {
+      "value": {
+        "min_inclusive": 2,
+        "max_inclusive": 4
+      },
+      "type": "minecraft:uniform"
+    }
+  },
+  "type": "hallows:rock_pillar"
+}

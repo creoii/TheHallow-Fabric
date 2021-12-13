@@ -1,9 +1,9 @@
 {
-  "feature": "hallows:patch_pumpkin_common",
+  "feature": "hallows:petrified_rock_pillar",
   "placement": [
     {
-      "chance": 5,
-      "type": "minecraft:rarity_filter"
+      "count": 5,
+      "type": "minecraft:count_on_every_layer"
     },
     {
       "type": "minecraft:in_square"

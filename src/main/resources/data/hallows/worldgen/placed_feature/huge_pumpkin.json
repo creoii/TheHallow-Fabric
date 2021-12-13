@@ -2,7 +2,7 @@
   "feature": "hallows:huge_pumpkin",
   "placement": [
     {
-      "chance": 4,
+      "chance": 8,
       "type": "minecraft:rarity_filter"
     },
     {

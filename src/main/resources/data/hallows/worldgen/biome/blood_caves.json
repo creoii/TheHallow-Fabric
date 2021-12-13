@@ -1,9 +1,17 @@
 {
   "effects": {
     "sky_color": 4210816,
+    "foliage_color": 10387802,
+    "grass_color": 9470298,
     "fog_color": 12638463,
     "water_color": 5001581,
-    "water_fog_color": 8620438
+    "water_fog_color": 8620438,
+    "particle": {
+      "options": {
+        "type": "minecraft:white_ash"
+      },
+      "probability": 0.01
+    }
   },
   "carvers": {
     "air": [

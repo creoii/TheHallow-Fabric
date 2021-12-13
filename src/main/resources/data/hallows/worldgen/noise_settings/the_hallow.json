@@ -382,11 +382,9 @@
               "if_true": {
                 "type": "minecraft:biome",
                 "biome_is": [
-                  "hallows:hanging_woods",
-                  "hallows:mega_hanging_woods",
-                  "hallows:perished_valley",
-                  "hallows:pumpkin_valley",
-                  "hallows:hemlock_swamp"
+                  "hallows:petrified_sands",
+                  "hallows:petrified_boneyard",
+                  "hallows:rocky_petrified_sands"
                 ]
               },
               "then_run": {

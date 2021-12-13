@@ -15,7 +15,7 @@ public class CobwebCarpetBlock extends AbstractLichenBlock {
 
     @SuppressWarnings("deprecation")
     public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
-        entity.slowMovement(state, new Vec3d(0.05D, 0.025D, 0.05D));
+        entity.slowMovement(state, new Vec3d(0.8D, 0.6D, 0.8D));
     }
 
     public boolean isTranslucent(BlockState state, BlockView world, BlockPos pos) {

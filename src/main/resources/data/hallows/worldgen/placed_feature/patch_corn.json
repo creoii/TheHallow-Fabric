@@ -15,8 +15,16 @@
       "type": "minecraft:in_square"
     },
     {
-      "heightmap": "WORLD_SURFACE_WG",
-      "type": "minecraft:heightmap"
+      "predicate": {
+        "state": {
+          "Properties": {
+            "stage": "0"
+          },
+          "Name": "hallows:corn"
+        },
+        "type": "minecraft:would_survive"
+      },
+      "type": "minecraft:block_predicate_filter"
     },
     {
       "type": "minecraft:biome"

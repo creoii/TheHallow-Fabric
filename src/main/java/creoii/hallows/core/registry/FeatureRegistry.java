@@ -7,6 +7,7 @@ import creoii.hallows.common.world.feature.*;
 import creoii.hallows.common.world.feature.config.BlockSpikeFeatureConfig;
 import creoii.hallows.common.world.feature.config.HugePumpkinFeatureConfig;
 import creoii.hallows.common.world.feature.config.RockFeatureConfig;
+import creoii.hallows.common.world.feature.config.RockPillarFeatureConfig;
 import creoii.hallows.common.world.trunkplacer.WickedTrunkPlacer;
 import creoii.hallows.core.Hallows;
 import creoii.hallows.core.mixin.TreeDecoratorTypeMixin;
@@ -23,6 +24,7 @@ import net.minecraft.world.gen.trunk.TrunkPlacerType;
 public class FeatureRegistry {
     public static final Feature<HugePumpkinFeatureConfig> HUGE_PUMPKIN = new HugePumpkinFeature(HugePumpkinFeatureConfig.CODEC);
     public static final Feature<RockFeatureConfig> ROCK = new RockFeature(RockFeatureConfig.CODEC);
+    public static final Feature<RockPillarFeatureConfig> ROCK_PILLAR = new RockPillarFeature(RockPillarFeatureConfig.CODEC);
     public static final Feature<BlockSpikeFeatureConfig> BLOCK_SPIKE = new BlockSpikeFeature(BlockSpikeFeatureConfig.CODEC);
     public static final Feature<SingleStateFeatureConfig> BLOCK_PILLAR = new BlockPillarFeature(SingleStateFeatureConfig.CODEC);
     public static final Feature<RandomPatchFeatureConfig> CORN_RANDOM_PATCH = new CornRandomPatchFeature(RandomPatchFeatureConfig.CODEC);
@@ -36,6 +38,7 @@ public class FeatureRegistry {
     public static void register() {
         Registry.register(Registry.FEATURE, new Identifier(Hallows.MOD_ID, "huge_pumpkin"), HUGE_PUMPKIN);
         Registry.register(Registry.FEATURE, new Identifier(Hallows.MOD_ID, "rock"), ROCK);
+        Registry.register(Registry.FEATURE, new Identifier(Hallows.MOD_ID, "rock_pillar"), ROCK_PILLAR);
         Registry.register(Registry.FEATURE, new Identifier(Hallows.MOD_ID, "block_spike"), BLOCK_SPIKE);
         Registry.register(Registry.FEATURE, new Identifier(Hallows.MOD_ID, "block_pillar"), BLOCK_PILLAR);
         Registry.register(Registry.FEATURE, new Identifier(Hallows.MOD_ID, "corn_random_patch"), CORN_RANDOM_PATCH);

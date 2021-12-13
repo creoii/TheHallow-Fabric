@@ -3,17 +3,11 @@
   "placement": [
     {
       "count": {
-        "distribution": [
-          {
-            "data": 1,
-            "weight": 4
-          },
-          {
-            "data": 2,
-            "weight": 3
-          }
-        ],
-        "type": "minecraft:weighted_list"
+       "value": {
+         "min_inclusive": 1,
+         "max_inclusive": 3
+       },
+        "type": "minecraft:uniform"
       },
       "type": "minecraft:count"
     },

@@ -7,7 +7,15 @@
       },
       {
         "feature": "hallows:petrified_tree",
-        "chance": 0.25
+        "chance": 0.3
+      },
+      {
+        "feature": "hallows:petrified_rock_pillar",
+        "chance": 0.2
+      },
+      {
+        "feature": "hallows:petrified_rock_pillar_tall",
+        "chance": 0.15
       }
     ],
     "default": "hallows:petrified_rock_small"

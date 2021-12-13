@@ -2,7 +2,7 @@
   "feature": "hallows:patch_corn",
   "placement": [
     {
-      "chance": 3,
+      "chance": 6,
       "type": "minecraft:rarity_filter"
     },
     {
@@ -19,8 +19,16 @@
       "type": "minecraft:in_square"
     },
     {
-      "heightmap": "WORLD_SURFACE_WG",
-      "type": "minecraft:heightmap"
+      "predicate": {
+        "state": {
+          "Properties": {
+            "stage": "0"
+          },
+          "Name": "hallows:corn"
+        },
+        "type": "minecraft:would_survive"
+      },
+      "type": "minecraft:block_predicate_filter"
     },
     {
       "type": "minecraft:biome"
