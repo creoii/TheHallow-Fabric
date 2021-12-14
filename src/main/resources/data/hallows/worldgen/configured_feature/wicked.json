@@ -32,7 +32,7 @@
         "type": "minecraft:uniform",
         "value": {
           "min_inclusive": 2,
-          "max_inclusive": 5
+          "max_inclusive": 7
         }
       },
       "horizontal_length": {
@@ -46,7 +46,7 @@
         "type": "minecraft:uniform",
         "value": {
           "min_inclusive": 2,
-          "max_inclusive": 3
+          "max_inclusive": 4
         }
       },
       "type": "minecraft:wicked_trunk_placer"

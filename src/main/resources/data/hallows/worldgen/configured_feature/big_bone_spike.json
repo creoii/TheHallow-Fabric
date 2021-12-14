@@ -1,0 +1,50 @@
+{
+  "config": {
+    "state": {
+      "state": {
+        "Name": "minecraft:bone_block"
+      },
+      "type": "minecraft:simple_state_provider"
+    },
+    "wind_speed": {
+      "type": "minecraft:uniform",
+      "value": {
+        "min_inclusive": 0.25,
+        "max_exclusive": 0.75
+      }
+    },
+    "min_radius_for_wind": 3,
+    "min_bluntness_for_wind": 0.4,
+    "stalactite_bluntness": {
+      "type": "minecraft:uniform",
+      "value": {
+        "min_inclusive": 0.1,
+        "max_exclusive": 0.4
+      }
+    },
+    "stalagmite_bluntness": {
+      "type": "minecraft:uniform",
+      "value": {
+        "min_inclusive": 0.2,
+        "max_exclusive": 0.5
+      }
+    },
+    "floor_to_ceiling_search_range": 36,
+    "column_radius": {
+      "type": "minecraft:uniform",
+      "value": {
+        "min_inclusive": 1,
+        "max_inclusive": 4
+      }
+    },
+    "height_scale": {
+      "type": "minecraft:uniform",
+      "value": {
+        "min_inclusive": 0.5,
+        "max_exclusive": 0.75
+      }
+    },
+    "max_column_radius_to_cave_height_ratio": 0.5
+  },
+  "type": "hallows:block_spike"
+}

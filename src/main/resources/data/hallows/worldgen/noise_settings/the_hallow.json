@@ -430,7 +430,6 @@
                 "type": "minecraft:biome",
                 "biome_is": [
                   "hallows:hanging_woods",
-                  "hallows:wicked_woods",
                   "hallows:mega_hanging_woods",
                   "hallows:perished_valley",
                   "hallows:pumpkin_valley",
@@ -438,10 +437,34 @@
                 ]
               },
               "then_run": {
-                "type": "minecraft:block",
-                "result_state": {
-                  "Name": "minecraft:dirt"
-                }
+                "type": "minecraft:sequence",
+                "sequence": [
+                  {
+                    "type": "minecraft:block",
+                    "result_state": {
+                      "Name": "minecraft:dirt"
+                    }
+                  },
+                  {
+                    "type": "minecraft:condition",
+                    "if_true": {
+                      "type": "minecraft:vertical_gradient",
+                      "random_name": "minecraft:deepslate",
+                      "true_at_and_below": {
+                        "absolute": 0
+                      },
+                      "false_at_and_above": {
+                        "absolute": 12
+                      }
+                    },
+                    "then_run": {
+                      "type": "minecraft:block",
+                      "result_state": {
+                        "Name": "hallows:hallowed_dirt"
+                      }
+                    }
+                  }
+                ]
               }
             },
             {
@@ -458,6 +481,21 @@
                 "type": "minecraft:block",
                 "result_state": {
                   "Name": "hallows:petrified_sandstone"
+                }
+              }
+            },
+            {
+              "type": "minecraft:condition",
+              "if_true": {
+                "type": "minecraft:biome",
+                "biome_is": [
+                  "hallows:wicked_woods"
+                ]
+              },
+              "then_run": {
+                "type": "minecraft:block",
+                "result_state": {
+                  "Name": "hallows:hallowed_dirt"
                 }
               }
             },
@@ -600,10 +638,34 @@
                       "max_threshold": 0.909
                     },
                     "then_run": {
-                      "type": "minecraft:block",
-                      "result_state": {
-                        "Name": "minecraft:dirt"
-                      }
+                      "type": "minecraft:sequence",
+                      "sequence": [
+                        {
+                          "type": "minecraft:block",
+                          "result_state": {
+                            "Name": "minecraft:dirt"
+                          }
+                        },
+                        {
+                          "type": "minecraft:condition",
+                          "if_true": {
+                            "type": "minecraft:vertical_gradient",
+                            "random_name": "minecraft:deepslate",
+                            "true_at_and_below": {
+                              "absolute": 0
+                            },
+                            "false_at_and_above": {
+                              "absolute": 12
+                            }
+                          },
+                          "then_run": {
+                            "type": "minecraft:block",
+                            "result_state": {
+                              "Name": "hallows:hallowed_dirt"
+                            }
+                          }
+                        }
+                      ]
                     }
                   }
                 ]
@@ -623,6 +685,21 @@
                 "type": "minecraft:block",
                 "result_state": {
                   "Name": "hallows:petrified_sandstone"
+                }
+              }
+            },
+            {
+              "type": "minecraft:condition",
+              "if_true": {
+                "type": "minecraft:biome",
+                "biome_is": [
+                  "hallows:wicked_woods"
+                ]
+              },
+              "then_run": {
+                "type": "minecraft:block",
+                "result_state": {
+                  "Name": "hallows:hallowed_dirt"
                 }
               }
             }

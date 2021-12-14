@@ -33,6 +33,7 @@
                 ],
                 "blocks": [
                   "hallows:hallowed_dirt",
+                  "hallows:wicked_dirt",
                   "minecraft:dirt",
                   "minecraft:coarse_dirt",
                   "minecraft:grass_block"
