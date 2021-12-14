@@ -1,0 +1,7 @@
+{
+  "type": "hallows:cursed_ruins",
+  "config": {
+    "start_pool": "hallows:cursed_ruins/arches_pool",
+    "size": 7
+  }
+}

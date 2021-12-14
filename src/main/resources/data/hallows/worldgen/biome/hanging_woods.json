@@ -48,8 +48,8 @@
       "hallows:patch_candles",
       "hallows:patch_corn_sparse",
       "hallows:flower_rose",
-      "hallows:flower_bloodbells",
-      "hallows:flower_deathbells"
+      "hallows:flower_bloodbell",
+      "hallows:flower_deathbell"
     ],
     []
   ],

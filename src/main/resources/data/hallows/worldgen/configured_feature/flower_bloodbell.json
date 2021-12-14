@@ -8,7 +8,7 @@
         "config": {
           "to_place": {
             "state": {
-              "Name": "hallows:bloodbells"
+              "Name": "hallows:bloodbell"
             },
             "type": "minecraft:simple_state_provider"
           }

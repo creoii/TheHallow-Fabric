@@ -10,6 +10,7 @@ import net.fabricmc.api.ModInitializer;
 import net.minecraft.client.render.DimensionEffects;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.dimension.DimensionOptions;
@@ -33,6 +34,10 @@ public class Hallows implements ModInitializer, ClientModInitializer {
 		Events.register();
 
 		registerDimensionOptions();
+
+		Registry.TRUNK_PLACER_TYPE.forEach((structureFeature -> {
+			System.out.println(Registry.TRUNK_PLACER_TYPE.getId(structureFeature));
+		}));
 	}
 
 	@Override

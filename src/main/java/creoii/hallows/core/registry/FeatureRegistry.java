@@ -8,6 +8,7 @@ import creoii.hallows.common.world.feature.config.BlockSpikeFeatureConfig;
 import creoii.hallows.common.world.feature.config.HugePumpkinFeatureConfig;
 import creoii.hallows.common.world.feature.config.RockFeatureConfig;
 import creoii.hallows.common.world.feature.config.RockPillarFeatureConfig;
+import creoii.hallows.common.world.trunkplacer.SlantedTrunkPlacer;
 import creoii.hallows.common.world.trunkplacer.WickedTrunkPlacer;
 import creoii.hallows.core.Hallows;
 import creoii.hallows.core.mixin.TreeDecoratorTypeMixin;
@@ -34,6 +35,7 @@ public class FeatureRegistry {
     public static TreeDecoratorType<?> JACK_O_LANTERN_DECORATOR;
 
     public static TrunkPlacerType<WickedTrunkPlacer> WICKED_TRUNK_PLACER;
+    public static TrunkPlacerType<SlantedTrunkPlacer> SLANTED_TRUNK_PLACER;
 
     public static void register() {
         Registry.register(Registry.FEATURE, new Identifier(Hallows.MOD_ID, "huge_pumpkin"), HUGE_PUMPKIN);
@@ -48,5 +50,6 @@ public class FeatureRegistry {
         JACK_O_LANTERN_DECORATOR = TreeDecoratorTypeMixin.callRegister("jack_o_lantern", JackOLanternTreeDecorator.CODEC);
 
         WICKED_TRUNK_PLACER = TrunkPlacerTypeMixin.callRegister("wicked_trunk_placer", WickedTrunkPlacer.CODEC);
+        SLANTED_TRUNK_PLACER = TrunkPlacerTypeMixin.callRegister("slanted_trunk_placer", SlantedTrunkPlacer.CODEC);
     }
 }

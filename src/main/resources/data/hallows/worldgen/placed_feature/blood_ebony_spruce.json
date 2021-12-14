@@ -1,0 +1,21 @@
+{
+  "feature": "hallows:blood_ebony_spruce",
+  "placement": [
+    {
+      "predicate": {
+        "state": {
+          "Properties": {
+            "stage": "0"
+          },
+          "Name": "hallows:ebony_sapling"
+        },
+        "type": "minecraft:would_survive"
+      },
+      "type": "minecraft:block_predicate_filter"
+    },
+    {
+      "count": 3,
+      "type": "minecraft:count_on_every_layer"
+    }
+  ]
+}

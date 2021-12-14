@@ -43,8 +43,8 @@
       "hallows:patch_necrofire",
       "hallows:patch_deadroot",
       "hallows:patch_candles",
-      "hallows:flower_bloodbells",
-      "hallows:flower_deathbells"
+      "hallows:flower_bloodbell",
+      "hallows:flower_deathbell"
     ],
     []
   ],
