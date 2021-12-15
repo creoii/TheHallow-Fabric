@@ -11,6 +11,9 @@
     "TreeDecoratorTypeMixin",
     "TrunkPlacerTypeMixin"
   ],
+  "client": [
+    "DimensionEffectsMixin"
+  ],
   "injectors": {
     "defaultRequire": 1
   }

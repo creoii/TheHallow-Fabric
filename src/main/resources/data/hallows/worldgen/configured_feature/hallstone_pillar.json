@@ -1,0 +1,8 @@
+{
+  "config": {
+    "state": {
+      "Name": "hallows:hallstone"
+    }
+  },
+  "type": "hallows:block_pillar"
+}

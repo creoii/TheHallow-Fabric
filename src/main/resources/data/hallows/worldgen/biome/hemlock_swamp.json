@@ -24,7 +24,10 @@
     [
       "hallows:lake_lava_hallows_surface"
     ],
-    [],
+    [
+      "hallows:hallstone_pillar",
+      "hallows:tenebrite_pillar"
+    ],
     [],
     [
       "hallows:hemlock_delta"
@@ -39,10 +42,14 @@
     [],
     [
       "minecraft:patch_grass_plain",
+      "minecraft:patch_fire",
+      "minecraft:patch_waterlily",
       "hallows:patch_necrofire",
       "hallows:patch_deadroot",
-      "hallows:patch_candles",
-      "hallows:flower_rose"
+      "hallows:patch_candle",
+      "hallows:flower_rose",
+      "hallows:flower_blood_lily",
+      "hallows:patch_cobweb"
     ],
     []
   ],

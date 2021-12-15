@@ -16,6 +16,10 @@
       {
         "state": {
           "state": {
+            "Properties": {
+              "persistent": "false",
+              "distance": "7"
+            },
             "Name": "hallows:hanging_ebony_leaves"
           },
           "type": "minecraft:simple_state_provider"

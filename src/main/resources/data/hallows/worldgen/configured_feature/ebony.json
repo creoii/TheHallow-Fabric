@@ -61,6 +61,10 @@
     },
     "foliage_provider": {
       "state": {
+        "Properties": {
+          "persistent": "false",
+          "distance": "7"
+        },
         "Name": "hallows:ebony_leaves"
       },
       "type": "minecraft:simple_state_provider"

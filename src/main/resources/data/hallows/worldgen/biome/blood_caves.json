@@ -45,10 +45,14 @@
     ],
     [
       "hallows:patch_deadroot",
+      "minecraft:patch_fire",
+      "hallows:patch_necrofire",
       "hallows:flower_rose",
       "hallows:flower_bloodbell",
       "hallows:blood_caves_ceiling_vegetation",
-      "hallows:blood_caves_vegetation"
+      "hallows:blood_caves_vegetation",
+      "hallows:patch_cobweb",
+      "hallows:patch_candle"
     ],
     []
   ],

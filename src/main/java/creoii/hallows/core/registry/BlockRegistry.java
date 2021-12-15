@@ -47,13 +47,21 @@ public class BlockRegistry {
     public static final Block POLISHED_HALLSTONE_SLAB = new SlabBlock(AbstractBlock.Settings.copy(POLISHED_HALLSTONE));
     public static final Block POLISHED_HALLSTONE_STAIRS = new StairsBlock(POLISHED_HALLSTONE.getDefaultState(), AbstractBlock.Settings.copy(POLISHED_HALLSTONE));
     public static final Block POLISHED_HALLSTONE_WALL = new WallBlock(AbstractBlock.Settings.copy(POLISHED_HALLSTONE));
+    public static final Block HALLSTONE_BRICKS = new Block(FabricBlockSettings.of(Material.STONE, MapColor.DIRT_BROWN).strength(1.5F, 7.5F).sounds(BlockSoundGroup.STONE));
+    public static final Block HALLSTONE_BRICK_SLAB = new SlabBlock(AbstractBlock.Settings.copy(HALLSTONE_BRICKS));
+    public static final Block HALLSTONE_BRICK_STAIRS = new StairsBlock(HALLSTONE_BRICKS.getDefaultState(), AbstractBlock.Settings.copy(HALLSTONE_BRICKS));
+    public static final Block HALLSTONE_BRICK_WALL = new WallBlock(AbstractBlock.Settings.copy(HALLSTONE_BRICKS));
 
     public static final Block HALLOWED_DIRT = new Block(FabricBlockSettings.of(Material.SOIL, MapColor.SPRUCE_BROWN).strength(0.5F).sounds(BlockSoundGroup.ROOTED_DIRT));
     public static final Block WICKED_DIRT = new Block(FabricBlockSettings.of(Material.SOIL, MapColor.SPRUCE_BROWN).strength(0.5F).sounds(BlockSoundGroup.ROOTED_DIRT));
     public static Block DEADROOT;
+    public static Block WICKED_WEED;
     public static Block BLOODBELL;
     public static Block DEATHBELL;
     public static Block ROSE;
+    public static Block BLOOD_LILY;
+    public static Block CRYSTALLIZED_BLOOD_LILY;
+    public static Block CANDYSHROOM;
 
     public static Block HALLSTONE_EMERALD_ORE;
     public static Block TENEBRITE_EMERALD_ORE;
@@ -190,13 +198,21 @@ public class BlockRegistry {
         createBlock("polished_hallstone_slab", POLISHED_HALLSTONE_SLAB, ItemGroup.BUILDING_BLOCKS);
         createBlock("polished_hallstone_stairs", POLISHED_HALLSTONE_STAIRS, ItemGroup.BUILDING_BLOCKS);
         createBlock("polished_hallstone_wall", POLISHED_HALLSTONE_WALL, ItemGroup.DECORATIONS);
+        createBlock("hallstone_bricks", HALLSTONE_BRICKS, ItemGroup.BUILDING_BLOCKS);
+        createBlock("hallstone_brick_slab", HALLSTONE_BRICK_SLAB, ItemGroup.BUILDING_BLOCKS);
+        createBlock("hallstone_brick_stairs", HALLSTONE_BRICK_STAIRS, ItemGroup.BUILDING_BLOCKS);
+        createBlock("hallstone_brick_wall", HALLSTONE_BRICK_WALL, ItemGroup.DECORATIONS);
 
         createBlock("hallowed_dirt", HALLOWED_DIRT, ItemGroup.BUILDING_BLOCKS);
         createBlock("wicked_dirt", WICKED_DIRT, ItemGroup.BUILDING_BLOCKS);
         DEADROOT = createBlock("deadroot", new DeadrootBlock(FabricBlockSettings.copy(Blocks.CRIMSON_ROOTS)), ItemGroup.DECORATIONS);
+        WICKED_WEED = createBlock("wicked_weed", new DeadrootBlock(FabricBlockSettings.copy(Blocks.CRIMSON_ROOTS)), ItemGroup.DECORATIONS);
         DEATHBELL = createBlock("deathbell", new FlowerBlock(StatusEffects.WITHER, 4, FabricBlockSettings.copy(Blocks.POPPY)), ItemGroup.DECORATIONS);
         BLOODBELL = createBlock("bloodbell", new FlowerBlock(StatusEffects.REGENERATION, 8, FabricBlockSettings.copy(Blocks.POPPY)), ItemGroup.DECORATIONS);
         ROSE = createBlock("rose", new FlowerBlock(StatusEffects.NIGHT_VISION, 8, FabricBlockSettings.copy(Blocks.POPPY)), ItemGroup.DECORATIONS);
+        BLOOD_LILY = createBlock("blood_lily", new LilyBlock(StatusEffects.NIGHT_VISION, 8, FabricBlockSettings.copy(Blocks.POPPY)), ItemGroup.DECORATIONS);
+        CRYSTALLIZED_BLOOD_LILY = createBlock("crystallized_blood_lily", new CrystallizedLilyBlock(StatusEffects.NIGHT_VISION, 8, FabricBlockSettings.copy(Blocks.POPPY)), ItemGroup.DECORATIONS);
+        CANDYSHROOM = createBlock("candyshroom", new FlowerBlock(StatusEffects.NIGHT_VISION, 8, FabricBlockSettings.copy(Blocks.BROWN_MUSHROOM)), ItemGroup.DECORATIONS);
 
         NECROFIRE = createBlock("necrofire", new NecrofireBlock(FabricBlockSettings.copy(Blocks.FIRE)), null);
         createBlock("necrofire_campfire", NECROFIRE_CAMPFIRE, ItemGroup.DECORATIONS);
@@ -341,9 +357,13 @@ public class BlockRegistry {
         );
         BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(),
                 DEADROOT,
+                WICKED_WEED,
                 BLOODBELL,
                 DEATHBELL,
                 ROSE,
+                BLOOD_LILY,
+                CRYSTALLIZED_BLOOD_LILY,
+                CANDYSHROOM,
                 ASPHODEL_SAPLING,
                 POTTED_ASPHODEL_SAPLING,
                 EBONY_DOOR,

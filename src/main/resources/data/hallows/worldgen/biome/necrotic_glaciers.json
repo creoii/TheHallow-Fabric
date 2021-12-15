@@ -24,7 +24,12 @@
     [
       "hallows:lake_lava_hallows_surface"
     ],
-    [],
+    [
+      "hallows:noon_mortis_pillar",
+      "hallows:dawn_mortis_pillar",
+      "hallows:dusk_mortis_pillar",
+      "hallows:midnight_mortis_pillar"
+    ],
     [],
     [],
     [
@@ -39,9 +44,10 @@
       "minecraft:spring_lava"
     ],
     [
+      "minecraft:patch_fire",
       "hallows:patch_necrofire",
       "hallows:patch_deadroot",
-      "hallows:patch_candles"
+      "hallows:patch_candle"
     ],
     []
   ],

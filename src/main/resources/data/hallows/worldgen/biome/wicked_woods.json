@@ -39,10 +39,11 @@
       "minecraft:spring_lava"
     ],
     [
+      "minecraft:patch_fire",
       "hallows:trees_wicked",
       "hallows:patch_necrofire",
-      "hallows:patch_deadroot",
-      "hallows:patch_candles",
+      "hallows:patch_wicked_weed",
+      "hallows:patch_candle",
       "hallows:flower_bloodbell",
       "hallows:flower_deathbell"
     ],

@@ -2,7 +2,7 @@
   "feature": "hallows:flower_rose",
   "placement": [
     {
-      "chance": 32,
+      "chance": 24,
       "type": "minecraft:rarity_filter"
     },
     {

@@ -1,5 +1,7 @@
 package creoii.hallows.core;
 
+import creoii.hallows.common.world.HallowsEffects;
+import creoii.hallows.core.mixin.DimensionEffectsMixin;
 import creoii.hallows.core.registry.*;
 import creoii.hallows.core.util.Events;
 import creoii.hallows.core.util.Stats;
@@ -32,12 +34,6 @@ public class Hallows implements ModInitializer, ClientModInitializer {
 		StatusEffectRegistry.register();
 		Stats.register();
 		Events.register();
-
-		registerDimensionOptions();
-
-		Registry.TRUNK_PLACER_TYPE.forEach((structureFeature -> {
-			System.out.println(Registry.TRUNK_PLACER_TYPE.getId(structureFeature));
-		}));
 	}
 
 	@Override
@@ -47,24 +43,6 @@ public class Hallows implements ModInitializer, ClientModInitializer {
 		BlockEntityRegistry.registerClient();
 		EntityRegistry.registerClient();
 		ParticleRegistry.registerClient();
-	}
-
-	private void registerDimensionOptions() {
-		DimensionEffects.BY_IDENTIFIER.put(new Identifier(MOD_ID, "the_hallow"), new Hallow());
-	}
-
-	@Environment(EnvType.CLIENT)
-	public static class Hallow extends DimensionEffects {
-		public Hallow() {
-			super(0f, true, SkyType.NORMAL, false, true);
-		}
-
-		public Vec3d adjustFogColor(Vec3d color, float sunHeight) {
-			return color;
-		}
-
-		public boolean useThickFog(int camX, int camY) {
-			return true;
-		}
+		DimensionEffectsMixin.getBY_IDENTIFIER().put(new Identifier(MOD_ID, "the_hallow"), new HallowsEffects());
 	}
 }

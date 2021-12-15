@@ -1,0 +1,6 @@
+{
+  "parent": "block/cross",
+  "textures": {
+    "cross": "hallows:block/crystallized_blood_lily"
+  }
+}

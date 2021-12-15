@@ -1,0 +1,9 @@
+{
+  "feature": "hallows:patch_cobweb",
+  "placement": [
+    {
+      "chance": 20,
+      "type": "minecraft:rarity_filter"
+    }
+  ]
+}

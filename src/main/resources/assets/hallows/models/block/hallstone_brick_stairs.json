@@ -1,0 +1,8 @@
+{
+    "parent": "block/stairs",
+    "textures": {
+        "bottom": "hallows:block/hallstone_bricks",
+        "top": "hallows:block/hallstone_bricks",
+        "side": "hallows:block/hallstone_bricks"
+    }
+}

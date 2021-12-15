@@ -42,8 +42,9 @@
       "minecraft:spring_lava"
     ],
     [
+      "minecraft:patch_fire",
       "hallows:patch_necrofire",
-      "hallows:patch_candles"
+      "hallows:patch_candle"
     ],
     []
   ],

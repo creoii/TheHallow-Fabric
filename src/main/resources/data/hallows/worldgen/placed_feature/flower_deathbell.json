@@ -2,7 +2,7 @@
   "feature": "hallows:flower_deathbell",
   "placement": [
     {
-      "chance": 32,
+      "chance": 16,
       "type": "minecraft:rarity_filter"
     },
     {

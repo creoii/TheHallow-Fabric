@@ -41,8 +41,11 @@
                 ],
                 "blocks": [
                   "hallows:hallowed_dirt",
+                  "hallows:wicked_dirt",
                   "hallows:petrified_sand",
-                  "hallows:hallstone"
+                  "hallows:petrified_sandstone",
+                  "hallows:hallstone",
+                  "hallows:tenebrite"
                 ],
                 "type": "minecraft:matching_blocks"
               }

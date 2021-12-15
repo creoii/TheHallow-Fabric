@@ -1,5 +1,5 @@
 {
-  "feature": "hallows:patch_candles",
+  "feature": "hallows:patch_candle",
   "placement": [
     {
       "chance": 250,
