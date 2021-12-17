@@ -16,6 +16,10 @@
     {
       "count": 3,
       "type": "minecraft:count_on_every_layer"
+    },
+    {
+      "heightmap": "OCEAN_FLOOR",
+      "type": "minecraft:heightmap"
     }
   ]
 }

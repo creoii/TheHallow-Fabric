@@ -284,8 +284,8 @@ public class BlockRegistry {
         createBlock("ebony_pressure_plate", EBONY_PRESSURE_PLATE, ItemGroup.REDSTONE);
         EBONY_DOOR = createBlock("ebony_door", new DoorBlock(AbstractBlock.Settings.copy(Blocks.OAK_DOOR)), ItemGroup.REDSTONE);
         EBONY_TRAPDOOR = createBlock("ebony_trapdoor", new TrapdoorBlock(AbstractBlock.Settings.copy(Blocks.OAK_DOOR)), ItemGroup.REDSTONE);
-        EBONY_LEAVES = createBlock("ebony_leaves", new LeavesBlock(FabricBlockSettings.of(Material.LEAVES).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).allowsSpawning(BlockRegistry::canSpawnOnLeaves).suffocates(BlockRegistry::never).blockVision(BlockRegistry::never)), ItemGroup.DECORATIONS);
-        BLOOD_EBONY_LEAVES = createBlock("blood_ebony_leaves", new LeavesBlock(FabricBlockSettings.of(Material.LEAVES).strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).allowsSpawning(BlockRegistry::canSpawnOnLeaves).suffocates(BlockRegistry::never).blockVision(BlockRegistry::never)), ItemGroup.DECORATIONS);
+        EBONY_LEAVES = createBlock("ebony_leaves", new LeavesBlock(FabricBlockSettings.of(Material.LEAVES).nonOpaque().strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).allowsSpawning(BlockRegistry::canSpawnOnLeaves).suffocates(BlockRegistry::never).blockVision(BlockRegistry::never)), ItemGroup.DECORATIONS);
+        BLOOD_EBONY_LEAVES = createBlock("blood_ebony_leaves", new LeavesBlock(FabricBlockSettings.of(Material.LEAVES).nonOpaque().strength(0.2F).ticksRandomly().sounds(BlockSoundGroup.GRASS).allowsSpawning(BlockRegistry::canSpawnOnLeaves).suffocates(BlockRegistry::never).blockVision(BlockRegistry::never)), ItemGroup.DECORATIONS);
         createBlock("ebony_sapling", EBONY_SAPLING, ItemGroup.DECORATIONS);
         createBlock("potted_ebony_sapling", POTTED_EBONY_SAPLING, null);
         createBlock("blood_ebony_sapling", BLOOD_EBONY_SAPLING, ItemGroup.DECORATIONS);
